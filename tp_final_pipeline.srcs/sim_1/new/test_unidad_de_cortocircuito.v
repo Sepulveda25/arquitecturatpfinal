@@ -44,19 +44,42 @@ module test_unidad_de_cortocircuito;
 	);
 
 	initial begin
-        Latch_ID_EX_RS=5'b00000;
-        Latch_ID_EX_RT=5'b00000;
-        Latch_EX_MEM_MUX=5'b00000;
-        Latch_MEM_WB_MUX=5'b00000;
-        Latch_Ex_MEM_WriteBack_FLAGS_Out=0;
+	    // ADD r1, r2, r3 #etapa MEM
+	    // AND r4, r5, r6 #etapa EX
+        Latch_ID_EX_RS=5'b00101;//r5
+        Latch_ID_EX_RT=5'b00110;//r6
+        Latch_EX_MEM_MUX=5'b00001;//rd.EX/MEM
+        Latch_MEM_WB_MUX=5'b00000;//rd.MEM/WB
+        Latch_Ex_MEM_WriteBack_FLAGS_Out=1;
         Latch_MEM_WB_WriteBack_FLAGS_Out=0;
         #10;
-        Latch_ID_EX_RS=5'b00000;
-        Latch_ID_EX_RT=5'b00000;
-        Latch_EX_MEM_MUX=5'b00000;
-        Latch_MEM_WB_MUX=5'b00000;
+        // ADD r1, r2, r3 #etapa MEM
+        // AND r4, r1, r6 #etapa EX
+        Latch_ID_EX_RS=5'b00001;//r1
+        Latch_ID_EX_RT=5'b00110;//r6
+        Latch_EX_MEM_MUX=5'b00001;//rd.EX/MEM
+        Latch_MEM_WB_MUX=5'b00000;//rd.MEM/WB
         Latch_Ex_MEM_WriteBack_FLAGS_Out=1;
-        Latch_MEM_WB_WriteBack_FLAGS_Out=1;
+        Latch_MEM_WB_WriteBack_FLAGS_Out=0;
+        #10;
+        // ADD r1, r2, r3 #etapa MEM
+        // AND r4, r5, r1 #etapa EX
+        Latch_ID_EX_RS=5'b00101;//r5
+        Latch_ID_EX_RT=5'b00001;//r1
+        Latch_EX_MEM_MUX=5'b00001;//rd.EX/MEM
+        Latch_MEM_WB_MUX=5'b00000;//rd.MEM/WB
+        Latch_Ex_MEM_WriteBack_FLAGS_Out=1;
+        Latch_MEM_WB_WriteBack_FLAGS_Out=0;
+        #10;
+        // ADD r1, r2, r3 #etapa WB
+        // AND r4, r5, r6 #etapa MEM
+        // SUB r7, r1, r9 #etapa EX
+        Latch_ID_EX_RS=5'b00101;//r5
+        Latch_ID_EX_RT=5'b01001;//r9
+        Latch_EX_MEM_MUX=5'b00100;//rd.EX/MEM
+        Latch_MEM_WB_MUX=5'b00001;//rd.MEM/WB
+        Latch_Ex_MEM_WriteBack_FLAGS_Out=1;
+        Latch_MEM_WB_WriteBack_FLAGS_Out=0;
 	end
 	
 	
