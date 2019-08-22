@@ -64,6 +64,12 @@ module test_Latch_IF_ID;
         Instruction_In=32'h00430820; // add r1 r2 r3
         Stall=0;
         enable=1;
+        #20;
+        Reset=0;
+        Adder_Out=32'h00000004; // pc=4
+        Instruction_In=32'h000430822; // add r1 r2 r3
+        Stall=0;
+        enable=1;
 	end
 	
    always begin //clock de la placa 50Mhz

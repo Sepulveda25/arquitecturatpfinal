@@ -31,6 +31,8 @@
 // Se compara si los registros rd en los latch EX/MEM y MEM/WB son iguales a rs y rt del latch ID/EX (Latch_EX_MEM_MUX = Latch_ID_EX_RS y Latch_EX_MEM_MUX = Latch_ID_EX_RT)
 // Finalmente se verifica si rs y rt del latch ID/EX son distinto que rd en latch EX/MEM (Latch_EX_MEM_MUX != Latch_ID_EX_RS y Latch_EX_MEM_MUX != Latch_ID_EX_RT) 
 //////////////////////////////////////////////////////////////////////////////////
+
+
 module unidad_de_cortocircuito(	//Inputs
                                 input [4:0] Latch_ID_EX_RS,
                                 input [4:0] Latch_ID_EX_RT,

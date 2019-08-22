@@ -1,4 +1,0 @@
-Running: xsim.dir/test_unidad_de_deteccion_de_riesgos_behav/xsimk.exe -simmode gui -wdb test_unidad_de_deteccion_de_riesgos_behav.wdb -simrunnum 0 -socket 50433
-Design successfully loaded
-Design Loading Memory Usage: 6036 KB (Peak: 6036 KB)
-Design Loading CPU Usage: 15 ms

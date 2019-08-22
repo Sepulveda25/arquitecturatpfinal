@@ -21,6 +21,8 @@
 // Quiere decir que la instruccion que se esta ejecutando en la etapa EX si se trata de una LW
 // se verifica que el registro rt de esta sea igual a los registros rs o rt en la etapa ID
 //////////////////////////////////////////////////////////////////////////////////
+
+
 module unidad_de_deteccion_de_riesgos(	//Inputs
                                         input Latch_ID_Ex_Mem_FLAGS_MemRead,
                                         input [4:0] Latch_ID_Ex_InstrOut_20_16_Rt,

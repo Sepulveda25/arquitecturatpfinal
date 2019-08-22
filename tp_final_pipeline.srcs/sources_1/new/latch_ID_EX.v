@@ -37,6 +37,8 @@
 // Almacena Instruciones, ControlFlags, Registros, PC+4 desde Adder, Operador desde SignExtend
 //
 //////////////////////////////////////////////////////////////////////////////////
+
+
 module Latch_ID_EX(	//Inputs
                     input Clk, Reset,
                     input [31:0] Latch_IF_ID_Adder_Out, 

@@ -22,6 +22,8 @@
 //			    - Latch_IF_ID_InstrOut
 //
 //////////////////////////////////////////////////////////////////////////////////
+
+
 module Latch_IF_ID(	//Inputs
                     input Clk, 
                     input Reset, 
