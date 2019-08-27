@@ -81,7 +81,27 @@ module test_InstrMem;
         dina = 32'h00000003; 
         ena = 1;
         rsta = 0; 
-        wea = 4'b1111;     
+        wea = 4'b1111;
+        #20
+        wea = 4'b0000; // se espera un ciclo antes de comenzar a leer
+        #20; // rsta = 0; ena = 1; lee direccion 0
+        addra = 32'h00000000; 
+        dina = 32'h00000000; 
+        ena = 1;
+        rsta = 0; 
+        wea = 4'b0000;
+        #20; // rsta = 0; ena = 1; lee direccion 4
+        addra = 32'h00000004; 
+        dina = 32'h00000000; 
+        ena = 1;
+        rsta = 0; 
+        wea = 4'b0000;  
+        #20; // rsta = 0; ena = 1; lee direccion 8
+        addra = 32'h00000008; 
+        dina = 32'h00000000; 
+        ena = 1;
+        rsta = 0; 
+        wea = 4'b0000;       
     end
     
    always begin //clock de la placa 50Mhz

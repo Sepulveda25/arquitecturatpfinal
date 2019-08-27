@@ -25,31 +25,30 @@ module Etapa1_IF( input Clk,
                   input [31:0] InputB_MUX, 
                   input PCScr, 
                   input Stall, 
-                  input enable,
-                  input enablePC,
+                  input enable_pc,
+                  input enable_sel,
                   input [31:0] Instr_in,
                   input enable_mem,
                   input [3:0] write_enable,
+                  input [31:0] Addr_Instr,
+                  input Addr_Src,
+                  input pc_reset,
 				  output [31:0] E1_AddOut, 
 				  output [31:0] E1_InstrOut, 
 				  output [31:0] PC_Out);
 				  
 //Cables de interconexion
-  wire [31:0] MUX_to_PC;
+  wire [31:0] addr_mux_to_InstrMem;
   wire [31:0] Stall_mux_to_PC;
   wire Stall_mux_to_Enable_PC; 
   //Variables
   reg [31:0] InputB_Adder=4;
   
   
-//  always@* begin
-//      if(Reset) InputB_Adder    =    4;
-//  end
-  
   //Contador de Programa (PC)
-  ProgramCounter PC(.Clk(Clk), .Reset(Reset), .enable(Stall_mux_to_Enable_PC),.In(Stall_mux_to_PC), .Out(PC_Out));
+  ProgramCounter PC(.Clk(Clk), .Reset(pc_reset), .enable(Stall_mux_to_Enable_PC),.In(Stall_mux_to_PC), .Out(PC_Out));
   
-  //    Mux de la etapa 1: Selector del PC
+  //Mux de la etapa 1: Selector del PC
   //(SEL --> PCScr dado por Unidad de Control
   // SEL = 0 --> Instruccion dada  por el PC previo + 4
   // SEL = 1 --> Instruccion dada por LATCH "EX/MEM"
@@ -59,16 +58,21 @@ module Etapa1_IF( input Clk,
   //Mux de Stall de la etapa 1:
   //Pone una burbuja en el caso de haya riesgo
   //Esto se hace manteniedo el PC anterior en vez del sumado por el adder. [PC(i) = PC(i-1)] en vez de [C(i) = PC(i+1)]
-  MUX #(.LEN(1)) stall_mux(.InputA(!Stall), .InputB(enable), .SEL(enablePC), .Out(Stall_mux_to_Enable_PC));
+  MUX #(.LEN(1)) stall_mux(.InputA(!Stall), .InputB(enable_pc), .SEL(enable_sel), .Out(Stall_mux_to_Enable_PC));
   
+  //Mux selector de direcciones:
+  //Desde la unidad de debug se elige que direccion darle la memoria  
+  //Direccion desde el PC o desde la unidad de debug para programar las instrucciones
+  MUX #(.LEN(32)) addr_mux(.InputA(PC_Out), .InputB(Addr_Instr), .SEL(Addr_Src), .Out(addr_mux_to_InstrMem));
   
+ 
   //Adder de la etapa 1: Suma 4 al PC previo. Su salida va al Mux y al Latch "IF/ID"
   Adder #(.LEN(32)) add(.InputA(PC_Out), .InputB(InputB_Adder), .Out(E1_AddOut));
   
   //Registro de Instrucciones de la etapa 1: Su entrada es la salida del PC
-  //InstructionMemory InstrMem(.addra(PC_Out), .clka(Clk), .dina(Instr_in), .ena(enable_mem), .rsta(Reset), .wea(write_enable), .douta(E1_InstrOut)); 
+  //InstructionMemory InstrMem(.addra(addr_mux_to_InstrMem), .clka(Clk), .dina(Instr_in), .ena(enable_mem), .rsta(Reset), .wea(write_enable), .douta(E1_InstrOut)); 
   Instruction_memory InstrMem (
-    .addra(PC_Out), 
+    .addra(addr_mux_to_InstrMem), 
     .clka(Clk),
     .dina(Instr_in),
     .ena(enable_mem),
