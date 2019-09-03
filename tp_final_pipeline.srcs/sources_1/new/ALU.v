@@ -22,7 +22,6 @@
 
 module ALU#(parameter LEN = 32)
             (//Inputs
-            input Clk, Reset,
             input [LEN-1:0] ALU_DataA, 
             input [LEN-1:0] ALU_DataB, 
             input [5:0] ALU_Control_Out, 

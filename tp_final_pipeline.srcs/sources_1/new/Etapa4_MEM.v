@@ -1,0 +1,82 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03.09.2019 01:25:03
+// Design Name: 
+// Module Name: Etapa4_MEM
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module Etapa4_MEM(  //Inputs
+                    input Clk, Reset, Latch_Ex_MEM_Zero,
+                    input [2:0]		Mem_FLAGS,
+                    input [31:0]	Latch_Ex_MEM_ALUOut,    //Addr a Mux, luego a DataMem
+                    input [31:0]	dirMem, 			    //Addr a Mux, luego a DataMem
+                    input 			memEnable,				//Selector de los 3 Mux
+                    input [31:0] 	Latch_Ex_MEM_ReadDataB,	 //DataIn a DataMem
+                    //Outputs
+                    output [31:0] E4_DataOut,
+                    output PCScr		
+                );
+//Variables
+localparam Branch = 0;
+localparam MemWrite = 1;
+localparam MemRead = 2;
+
+//Cables de Interconexion
+wire [31:0] Mux_Add_To_Mem;
+wire        Mux_Enable_To_Mem;
+wire [3:0]  Mux_RW_To_Mem;
+wire [3:0]  read;
+assign read = 4'b 0000;
+wire [3:0] memWrite_4bits;
+assign memWrite_4bits = (Mem_FLAGS[MemWrite]) ? 4'b 1111: 4'b 0000;
+reg enableMem = 1;
+
+
+//BRANCH And
+assign PCScr = Latch_Ex_MEM_Zero & Mem_FLAGS[Branch];
+
+//Multiplexor Address desde ALU o desde Debug
+MUX #(.LEN(32)) Mux_Address(.InputA(Latch_Ex_MEM_ALUOut), 
+                            .InputB(dirMem), 
+                            .SEL(memEnable), 
+                            .Out(Mux_Add_To_Mem));
+
+//Multiplexor Mem_Enable
+MUX #(.LEN(1)) Mux_Enable(  .InputA(Mem_FLAGS[MemWrite]||Mem_FLAGS[MemRead]), 
+                            .InputB(enableMem), 
+                            .SEL(memEnable), 
+                            .Out(Mux_Enable_To_Mem));
+                                
+//Multiplexor Mem_Read/Write
+MUX #(.LEN(4)) Mux_RW(  .InputA(memWrite_4bits), 
+                        .InputB(read), 
+                        .SEL(memEnable), 
+                        .Out(Mux_RW_To_Mem));                                
+                                
+//Memoria de Datos
+Data_Memory DataMemory(    //Inputs
+                        .Clk(Clk), 
+                        .Reset(Reset), 
+                        .ena(Mux_Enable_To_Mem),
+                        .Write(Mux_RW_To_Mem), 
+                        .Addr(Mux_Add_To_Mem),
+                        .DataIn(Latch_Ex_MEM_ReadDataB),
+                        //Output
+                        .DataOut(E4_DataOut)
+                        );
+endmodule
