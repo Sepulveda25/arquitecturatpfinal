@@ -67,7 +67,7 @@ module Etapa1_IF( input Clk,
   
  
   //Adder de la etapa 1: Suma 4 al PC previo. Su salida va al Mux y al Latch "IF/ID"
-  Adder #(.LEN(32)) add(.InputA(PC_Out), .InputB(InputB_Adder), .Out(E1_AddOut));
+  Adder #(.LEN(32)) adder_IF(.InputA(PC_Out), .InputB(InputB_Adder), .Out(E1_AddOut));
   
   //Registro de Instrucciones de la etapa 1: Su entrada es la salida del PC
   //InstructionMemory InstrMem(.addra(addr_mux_to_InstrMem), .clka(Clk), .dina(Instr_in), .ena(enable_mem), .rsta(Reset), .wea(write_enable), .douta(E1_InstrOut)); 

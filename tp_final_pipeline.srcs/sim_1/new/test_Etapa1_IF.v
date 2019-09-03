@@ -161,8 +161,6 @@ module test_Etapa1_IF;
         write_enable = 4'b0000; // no hay datos para grabar en memoria
         Addr_Instr = 32'h00000000; // no hay datos para grabar en memoria
         Addr_Src = 0; // como no se graba la memoria se selecciona de address de la salida PC
-        #20;
-        pc_reset=0;
                     
     end
     
