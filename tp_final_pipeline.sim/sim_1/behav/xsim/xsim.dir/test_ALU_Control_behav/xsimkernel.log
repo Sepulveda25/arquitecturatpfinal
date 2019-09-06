@@ -2,3 +2,6 @@ Running: xsim.dir/test_ALU_Control_behav/xsimk.exe -simmode gui -wdb test_ALU_Co
 Design successfully loaded
 Design Loading Memory Usage: 6040 KB (Peak: 6040 KB)
 Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 6672 KB (Peak: 6672 KB)
+Simulation CPU Usage: 31 ms

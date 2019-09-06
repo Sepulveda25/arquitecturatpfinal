@@ -73,7 +73,7 @@ module test_Etapa1_IF;
         enable_sel = 0;
         Instr_in = 32'h00000000;
         enable_mem = 0;
-        write_enable = 3'b0000;
+        write_enable = 4'b0000;
         Addr_Instr = 32'h00000000;
         Addr_Src = 0;
         #20;
@@ -166,6 +166,6 @@ module test_Etapa1_IF;
     
    always begin //clock de la placa 50Mhz
         #10 Clk=~Clk;
-    end 
+   end 
     
 endmodule

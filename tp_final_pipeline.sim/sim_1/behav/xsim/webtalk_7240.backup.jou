@@ -2,10 +2,10 @@
 # Webtalk v2017.3 (64-bit)
 # SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
 # IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
-# Start of session at: Fri Aug 30 20:43:06 2019
-# Process ID: 11144
+# Start of session at: Fri Sep  6 18:43:52 2019
+# Process ID: 7240
 # Current directory: E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim/xsim.dir/test_Registers_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv.exe -mode batch -source E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim/xsim.dir/test_Etapa2_ID_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
