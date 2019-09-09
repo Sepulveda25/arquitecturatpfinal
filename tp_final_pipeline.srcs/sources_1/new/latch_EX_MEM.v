@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Latch_EX_MEM(	//Inputs
+module Latch_EX_MEM(	//Inputs 10
                         input Clk, Reset,
                         input [1:0] 	WriteBack_FLAGS_In, 	// {MemtoReg, RegWrite}
                         input [2:0]		Mem_FLAGS_In, 			// {MemRead, MemWrite, Branch}
@@ -30,7 +30,7 @@ module Latch_EX_MEM(	//Inputs
                         input [31:0]	Latch_ID_Ex_ReadDataB,
                         input [4:0]		E3_MuxOut,
                         input			enable,
-                        //Outputs
+                        //Outputs 7
                         output reg 	[1:0] 	WriteBack_FLAGS_Out, 		// {MemtoReg, RegWrite}
                         output reg	[2:0]	Mem_FLAGS_Out, 				// {MemRead, MemWrite, Branch}
                         output reg	[31:0]	Latch_Ex_MEM_E3_Adder_Out,

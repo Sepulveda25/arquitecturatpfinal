@@ -39,7 +39,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Latch_ID_EX(	//Inputs
+module Latch_ID_EX(	//Inputs 12
                     input Clk, Reset,
                     input [31:0] Latch_IF_ID_Adder_Out, 
                     input [8:0] ControlFLAGS,
@@ -47,7 +47,7 @@ module Latch_ID_EX(	//Inputs
                     input [4:0] Latch_IF_ID_InstrOut_25_21_Rs, Latch_IF_ID_InstrOut_20_16_Rt, Latch_IF_ID_InstrOut_15_11_Rd, 
                     input [2:0] E2_InmCtrl,
                     input enable,
-                    //Outputs
+                    //Outputs 11
                     output reg	[1:0] WriteBack_FLAGS, 
                     output reg	[2:0] Mem_FLAGS, 
                     output reg	[3:0] Ex_FLAGS, 

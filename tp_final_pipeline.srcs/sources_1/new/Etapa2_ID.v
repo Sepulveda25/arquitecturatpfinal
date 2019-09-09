@@ -20,15 +20,15 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Etapa2_ID(   //Inputs
+module Etapa2_ID(   //Inputs 9
                     input Clk, Reset, Stall, 
                     input [31:0]    Latch_IF_ID_InstrOut, 
-                    input [4:0]	    posReg,
-                    input			posSel,
+                    input [4:0]	    posReg, // address para leer registros en modo debug
+                    input			posSel, // selecion de address para Register
                     input [4:0] 	Latch_MEM_WB_Mux,
                     input [31:0] 	Mux_WB, 
                     input 			Latch_MEM_WB_RegWrite, 
-                    //Outputs
+                    //Outputs 5
                     output [31:0] 	E2_ReadDataA, E2_ReadDataB, 
                     output [8:0] 	Mux_ControlFLAGS_Out, 
                     output [31:0] 	SignExtendOut,

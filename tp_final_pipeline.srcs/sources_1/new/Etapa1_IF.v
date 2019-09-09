@@ -20,19 +20,21 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Etapa1_IF( input Clk, 
+module Etapa1_IF( //Inputs 13
+                  input Clk, 
                   input Reset, 
                   input [31:0] InputB_MUX, 
                   input PCScr, 
                   input Stall, 
-                  input enable_pc,
-                  input enable_sel,
-                  input [31:0] Instr_in,
-                  input enable_mem,
-                  input [3:0] write_enable,
-                  input [31:0] Addr_Instr,
-                  input Addr_Src,
+                  input enable_pc, //para debug
+                  input enable_sel, // para degug
+                  input [31:0] Instr_in, // instruccion para cargar desde UART
+                  input enable_mem, // activar memoria
+                  input [3:0] write_enable, // activar escritura
+                  input [31:0] Addr_Instr, // direccion de memoria para escribir
+                  input Addr_Src, // elegir si el a addr de la unidad de debug o desde el pc
                   input pc_reset,
+                  //Outputs 3
 				  output [31:0] E1_AddOut, 
 				  output [31:0] E1_InstrOut, 
 				  output [31:0] PC_Out);
