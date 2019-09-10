@@ -20,7 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module pipeline(    input Clk,
+module pipeline(    //Inputs
+                    input Clk,
                     input Latch_Reset,
                     input Latch_enable,
                     //Etapa IF
@@ -40,7 +41,34 @@ module pipeline(    input Clk,
                     //Etapa MEM
                     input Etapa_MEM_Reset,
                     input [31:0] dirMem, 			    //Addr a Mux, luego a DataMem
-                    input memDebug                //Selector de los 3 Mux
+                    input memDebug,                //Selector de los 3 Mux
+                    //Outputs
+                    //Etapa IF
+                    output [31:0] E1_AddOut,
+                    output [31:0] E1_InstrOut,
+                    output [31:0] PC_Out,
+                    //Etapa ID
+                    output [31:0] E2_ReadDataA,	
+                    output [31:0] E2_ReadDataB,
+                    output [8:0]  ControlFLAGS,      
+                    output [31:0] SignExtendOut,
+                    output [2:0]  E2_InmCtrl,
+                    //Etapa EX
+                    output [31:0] E3_Adder_Out,
+                    output        E3_ALU_Zero,
+                    output [31:0] E3_ALUOut,
+                    output [4:0]  E3_MuxOut,
+                    output [31:0] MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB,
+                    //Etapa MEM
+                    output [31:0] E4_DataOut_to_Latch_MEM_WB,
+                    output        PCScr,
+                    //Etapa WB
+                    output [31:0] Mux_WB,
+                    //Outputs de la Unidad de Cortocircuito
+                    output [1:0] ForwardA, ForwardB,
+                    //Output de la Unidad de Deteccion de Riesgos
+                    output Stall
+                    
     );
 
 //-------------------------------    Variables    -----------------------------------------------------------------------
@@ -51,21 +79,20 @@ localparam MemRead 		= 2;
 //-----------------------     Cables de Interconexion     ---------------------------------------------------------------
     
 // Outputs de Etapa 1, y entran en los inputs del Latch "IF/ID"
-wire [31:0] E1_AddOut;
-wire [31:0] E1_InstrOut;
-wire [31:0] PC_Out;
+//wire [31:0] E1_AddOut;
+//wire [31:0] E1_InstrOut;
+//wire [31:0] PC_Out;
 //Outputs del Latch "IF/ID"
 wire [31:0] Latch_IF_ID_Adder_Out;
 wire [31:0] Latch_IF_ID_InstrOut;
 //-----------------------------------------------------------------
 
 //Outputs de Etapa 2, y entran en los inputs del Latch "ID/Ex"
-wire [31:0] E2_ReadDataA;	
-wire [31:0] E2_ReadDataB;
-wire [8:0] 	ControlFLAGS;	  
-wire [31:0] SignExtendOut;  
-wire [2:0] 	E2_InmCtrl;
-wire 			Jmp;
+//wire [31:0] E2_ReadDataA;	
+//wire [31:0] E2_ReadDataB;
+//wire [8:0] 	ControlFLAGS;	  
+//wire [31:0] SignExtendOut;  
+//wire [2:0] 	E2_InmCtrl;
 //Outputs del Latch "ID/EX"
 wire [1:0] 	Latch_ID_Ex_WriteBack_FLAGS;
 wire [2:0] 	Latch_ID_Ex_Mem_FLAGS;
@@ -78,11 +105,11 @@ wire [2:0]	Latch_ID_Ex_InmCtrl;
 //-----------------------------------------------------------------
 
 //Output de Etapa 3, y que entran en los inputs del Latch "Ex/MEM"
-wire [31:0]	E3_Adder_Out;
-wire 		E3_ALU_Zero;
-wire [31:0]	E3_ALUOut;
-wire [4:0]	E3_MuxOut;
-wire [31:0] MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB;
+//wire [31:0]	E3_Adder_Out;
+//wire 		E3_ALU_Zero;
+//wire [31:0]	E3_ALUOut;
+//wire [4:0]	E3_MuxOut;
+//wire [31:0] MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB;
 //Output del Latch "Ex/MEM"
 wire [2:0] 	Latch_Ex_MEM_Mem_FLAGS_Out;
 wire [31:0]	Latch_Ex_MEM_ReadDataB;
@@ -94,8 +121,8 @@ wire [31:0]	Latch_Ex_MEM_E3_ALUOut;
 //-----------------------------------------------------------------
  
 //Outputs de Etapa 4, y que entran en los inputs del Latch "MEM/WB"
-wire [31:0]	E4_DataOut_to_Latch_MEM_WB;
-wire 			PCScr;
+//wire [31:0]	E4_DataOut_to_Latch_MEM_WB;
+//wire 			PCScr;
 //Outputs del Latch MEM/WB
 wire [31:0]	Latch_MEM_WB_DataOut;
 wire [31:0]	Latch_MEM_WB_ALUOut;
@@ -104,15 +131,15 @@ wire [1:0]	Latch_MEM_WB_WriteBack_FLAGS_Out;
 //-----------------------------------------------------------------
 
 //Output de la Etapa 5 "WB"
-wire [31:0] Mux_WB;
+//wire [31:0] Mux_WB;
 //-----------------------------------------------------------------
 
 //Outputs de la Unidad de Cortocircuito
-wire [1:0] ForwardA, ForwardB;
+//wire [1:0] ForwardA, ForwardB;
 //-----------------------------------------------------------------
 
 //Output de la Unidad de Deteccion de Riesgos
-wire Stall;
+//wire Stall;
 //-----------------------------------------------------------------
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -282,4 +309,30 @@ MUX #(.LEN(32)) E5_WB(	//Inputs
                         //Output
                         .Out(Mux_WB)
                      );
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//-------------------------        Unidad de CortoCircuito       ------------------------------------------------------
+unidad_de_cortocircuito UnidadCorto(//Inputs
+                                    .Latch_ID_EX_RS(Latch_ID_Ex_InstrOut_25_21_Rs),
+                                    .Latch_ID_EX_RT(Latch_ID_Ex_InstrOut_20_16_Rt),
+                                    .Latch_EX_MEM_MUX(Latch_Ex_MEM_Mux),
+                                    .Latch_MEM_WB_MUX(Latch_MEM_WB_Mux),
+                                    .Latch_Ex_MEM_WriteBack_FLAGS_Out(Latch_Ex_MEM_WriteBack_FLAGS_Out[RegWrite]),
+                                    .Latch_MEM_WB_WriteBack_FLAGS_Out(Latch_MEM_WB_WriteBack_FLAGS_Out[RegWrite]),
+                                    //Outputs
+                                    .ForwardA(ForwardA),
+                                    .ForwardB(ForwardB)
+                                    );
+												
+//----------------------       Unidad de Deteccion de Riesgos     -----------------------------------------------------
+unidad_de_deteccion_de_riesgos UnidadRiesgos(	//Inputs
+                                                .Latch_ID_Ex_Mem_FLAGS_MemRead(Latch_ID_Ex_Mem_FLAGS[MemRead]),
+                                                .Latch_ID_Ex_InstrOut_20_16_Rt(Latch_ID_Ex_InstrOut_20_16_Rt),
+                                                .Latch_IF_ID_RS(Latch_IF_ID_InstrOut[25:21]),
+                                                .Latch_IF_ID_RT(Latch_IF_ID_InstrOut[20:16]),
+                                                //Output
+                                                .Stall(Stall)
+                                             );
+	                                          
+
 endmodule

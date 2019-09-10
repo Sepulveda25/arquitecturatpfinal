@@ -1,4 +1,48 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/ip/Data_Memory/sim/Data_Memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_Memory
 INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/ip/Instruction_memory/sim/Instruction_memory.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Instruction_memory
-INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sim_1/new/test_InstrMem_COEfile.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module test_InstrMem_COEfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/ALU_Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/Adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/Control_Unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control_Unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/Etapa1_IF.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Etapa1_IF
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/Etapa2_ID.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Etapa2_ID
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/Etapa3_EX.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Etapa3_EX
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/Etapa4_MEM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Etapa4_MEM
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/MUX.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MUX
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/ProgramCounter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/Registers.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Registers
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/Shift_Left.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Shift_Left
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/Sign_Extend.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Sign_Extend
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/Triple_MUX.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Triple_MUX
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/latch_EX_MEM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Latch_EX_MEM
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/latch_ID_EX.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Latch_ID_EX
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/latch_IF_ID.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Latch_IF_ID
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/latch_MEM_WB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Latch_MEM_WB
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/pipeline.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pipeline
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/unidad_de_cortocircuito.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module unidad_de_cortocircuito
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/new/unidad_de_deteccion_de_riesgos.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module unidad_de_deteccion_de_riesgos
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sim_1/new/test_pipeline.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_pipeline

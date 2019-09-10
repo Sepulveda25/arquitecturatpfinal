@@ -1,6 +1,6 @@
 Vivado Simulator 2017.3
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.3/bin/unwrapped/win64.o/xelab.exe -wto f77ade5ebd364ae5bfef5888f5ddbce5 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_0 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot test_InstrMem_COEfile_behav xil_defaultlib.test_InstrMem_COEfile xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2017.3/bin/unwrapped/win64.o/xelab.exe -wto f77ade5ebd364ae5bfef5888f5ddbce5 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_0 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot test_pipeline_behav xil_defaultlib.test_pipeline xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 WARNING: [VRFC 10-1783] select index 62 into current_contents is out of bounds [/wrk/2017.3/nightly/2017_10_04_2018833/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v:2420]
@@ -8,12 +8,43 @@ Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module xil_defaultlib.MUX
+Compiling module xil_defaultlib.MUX(LEN=1)
+Compiling module xil_defaultlib.Adder
 Compiling module blk_mem_gen_v8_4_0.blk_mem_gen_v8_4_0_output_stage(...
 Compiling module blk_mem_gen_v8_4_0.blk_mem_gen_v8_4_0_output_stage(...
 Compiling module blk_mem_gen_v8_4_0.blk_mem_gen_v8_4_0_softecc_outpu...
 Compiling module blk_mem_gen_v8_4_0.blk_mem_gen_v8_4_0_mem_module(C_...
 Compiling module blk_mem_gen_v8_4_0.blk_mem_gen_v8_4_0(C_FAMILY="art...
 Compiling module xil_defaultlib.Instruction_memory
-Compiling module xil_defaultlib.test_InstrMem_COEfile
+Compiling module xil_defaultlib.Etapa1_IF
+Compiling module xil_defaultlib.Latch_IF_ID
+Compiling module xil_defaultlib.MUX(LEN=5)
+Compiling module xil_defaultlib.Registers
+Compiling module xil_defaultlib.Control_Unit
+Compiling module xil_defaultlib.MUX(LEN=9)
+Compiling module xil_defaultlib.Sign_Extend
+Compiling module xil_defaultlib.Etapa2_ID
+Compiling module xil_defaultlib.Latch_ID_EX
+Compiling module xil_defaultlib.Shift_Left
+Compiling module xil_defaultlib.ALU_Control
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.Triple_MUX
+Compiling module xil_defaultlib.Etapa3_EX
+Compiling module xil_defaultlib.Latch_EX_MEM
+Compiling module xil_defaultlib.MUX(LEN=4)
+Compiling module blk_mem_gen_v8_4_0.blk_mem_gen_v8_4_0_output_stage(...
+Compiling module blk_mem_gen_v8_4_0.blk_mem_gen_v8_4_0_output_stage(...
+Compiling module blk_mem_gen_v8_4_0.blk_mem_gen_v8_4_0_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_0.blk_mem_gen_v8_4_0_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_0.blk_mem_gen_v8_4_0(C_FAMILY="art...
+Compiling module xil_defaultlib.Data_Memory
+Compiling module xil_defaultlib.Etapa4_MEM
+Compiling module xil_defaultlib.Latch_MEM_WB
+Compiling module xil_defaultlib.unidad_de_cortocircuito
+Compiling module xil_defaultlib.unidad_de_deteccion_de_riesgos
+Compiling module xil_defaultlib.pipeline
+Compiling module xil_defaultlib.test_pipeline
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot test_InstrMem_COEfile_behav
+Built simulation snapshot test_pipeline_behav

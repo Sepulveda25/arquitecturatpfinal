@@ -2,10 +2,10 @@
 # Webtalk v2017.3 (64-bit)
 # SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
 # IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
-# Start of session at: Fri Sep  6 18:46:46 2019
-# Process ID: 9112
+# Start of session at: Mon Sep  9 23:07:15 2019
+# Process ID: 864
 # Current directory: E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim/xsim.dir/test_InstrMem_COEfile_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv.exe -mode batch -source E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim/xsim.dir/test_pipeline_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
@@ -14,4 +14,4 @@ invalid command name "%"
     while executing
 "% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current"
     (file "E:/Facultad/Arquitectura" line 1)
-INFO: [Common 17-206] Exiting Webtalk at Fri Sep  6 18:46:46 2019...
+INFO: [Common 17-206] Exiting Webtalk at Mon Sep  9 23:07:15 2019...
