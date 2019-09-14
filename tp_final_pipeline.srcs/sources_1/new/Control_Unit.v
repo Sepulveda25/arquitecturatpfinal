@@ -137,7 +137,8 @@ always@* begin
 								MemWrite 	<=	0;
 								Branch 		<=	0;
 								ALUOp1 		<=	0;
-								ALUOp0 		<=  0; 
+								ALUOp0 		<=  0;
+								InmCtrl 	<=  0; 
 						end
 				end
 		endcase

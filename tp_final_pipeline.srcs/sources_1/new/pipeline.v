@@ -47,21 +47,46 @@ module pipeline(    //Inputs
                     output [31:0] E1_AddOut,
                     output [31:0] E1_InstrOut,
                     output [31:0] PC_Out,
+                    //Outputs del Latch "IF/ID"
+                    output [31:0] Latch_IF_ID_Adder_Out,
+                    output [31:0] Latch_IF_ID_InstrOut,
                     //Etapa ID
                     output [31:0] E2_ReadDataA,	
                     output [31:0] E2_ReadDataB,
                     output [8:0]  ControlFLAGS,      
                     output [31:0] SignExtendOut,
                     output [2:0]  E2_InmCtrl,
+                    //Outputs del Latch "ID/EX"
+                    output [1:0]     Latch_ID_Ex_WriteBack_FLAGS,
+                    output [2:0]     Latch_ID_Ex_Mem_FLAGS,
+                    output [3:0]    Latch_ID_Ex_FLAGS,
+                    output [31:0]    Latch_ID_Ex_Adder_Out,
+                    output [31:0]    Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,
+                    output [31:0]    Latch_ID_Ex_SignExtendOut,
+                    output [4:0]    Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd,   
+                    output [2:0]    Latch_ID_Ex_InmCtrl,
                     //Etapa EX
                     output [31:0] E3_Adder_Out,
                     output        E3_ALU_Zero,
                     output [31:0] E3_ALUOut,
                     output [4:0]  E3_MuxOut,
                     output [31:0] MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB,
+                    //Output del Latch "Ex/MEM"
+                    output [2:0]     Latch_Ex_MEM_Mem_FLAGS_Out,
+                    output [31:0]    Latch_Ex_MEM_ReadDataB,
+                    output [31:0]    Latch_Ex_MEM_E3_Adder_Out,
+                    output        Latch_Ex_MEM_Zero,
+                    output [1:0]    Latch_Ex_MEM_WriteBack_FLAGS_Out,
+                    output [4:0]    Latch_Ex_MEM_Mux,
+                    output [31:0]    Latch_Ex_MEM_E3_ALUOut,
                     //Etapa MEM
                     output [31:0] E4_DataOut_to_Latch_MEM_WB,
                     output        PCScr,
+                    //Outputs del Latch MEM/WB
+                    output [31:0]    Latch_MEM_WB_DataOut,
+                    output [31:0]    Latch_MEM_WB_ALUOut,
+                    output [4:0]    Latch_MEM_WB_Mux,
+                    output [1:0]    Latch_MEM_WB_WriteBack_FLAGS_Out,
                     //Etapa WB
                     output [31:0] Mux_WB,
                     //Outputs de la Unidad de Cortocircuito
@@ -83,8 +108,8 @@ localparam MemRead 		= 2;
 //wire [31:0] E1_InstrOut;
 //wire [31:0] PC_Out;
 //Outputs del Latch "IF/ID"
-wire [31:0] Latch_IF_ID_Adder_Out;
-wire [31:0] Latch_IF_ID_InstrOut;
+//wire [31:0] Latch_IF_ID_Adder_Out;
+//wire [31:0] Latch_IF_ID_InstrOut;
 //-----------------------------------------------------------------
 
 //Outputs de Etapa 2, y entran en los inputs del Latch "ID/Ex"
@@ -93,15 +118,15 @@ wire [31:0] Latch_IF_ID_InstrOut;
 //wire [8:0] 	ControlFLAGS;	  
 //wire [31:0] SignExtendOut;  
 //wire [2:0] 	E2_InmCtrl;
-//Outputs del Latch "ID/EX"
-wire [1:0] 	Latch_ID_Ex_WriteBack_FLAGS;
-wire [2:0] 	Latch_ID_Ex_Mem_FLAGS;
-wire [3:0]	Latch_ID_Ex_FLAGS;
-wire [31:0]	Latch_ID_Ex_Adder_Out;
-wire [31:0]	Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB;
-wire [31:0]	Latch_ID_Ex_SignExtendOut; 
-wire [4:0]	Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd;	
-wire [2:0]	Latch_ID_Ex_InmCtrl;
+////Outputs del Latch "ID/EX"
+//wire [1:0] 	Latch_ID_Ex_WriteBack_FLAGS;
+//wire [2:0] 	Latch_ID_Ex_Mem_FLAGS;
+//wire [3:0]	Latch_ID_Ex_FLAGS;
+//wire [31:0]	Latch_ID_Ex_Adder_Out;
+//wire [31:0]	Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB;
+//wire [31:0]	Latch_ID_Ex_SignExtendOut; 
+//wire [4:0]	Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd;	
+//wire [2:0]	Latch_ID_Ex_InmCtrl;
 //-----------------------------------------------------------------
 
 //Output de Etapa 3, y que entran en los inputs del Latch "Ex/MEM"
@@ -111,23 +136,23 @@ wire [2:0]	Latch_ID_Ex_InmCtrl;
 //wire [4:0]	E3_MuxOut;
 //wire [31:0] MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB;
 //Output del Latch "Ex/MEM"
-wire [2:0] 	Latch_Ex_MEM_Mem_FLAGS_Out;
-wire [31:0]	Latch_Ex_MEM_ReadDataB;
-wire [31:0]	Latch_Ex_MEM_E3_Adder_Out;
-wire        Latch_Ex_MEM_Zero;
-wire [1:0]	Latch_Ex_MEM_WriteBack_FLAGS_Out;
-wire [4:0]	Latch_Ex_MEM_Mux;
-wire [31:0]	Latch_Ex_MEM_E3_ALUOut;
+//wire [2:0] 	Latch_Ex_MEM_Mem_FLAGS_Out;
+//wire [31:0]	Latch_Ex_MEM_ReadDataB;
+//wire [31:0]	Latch_Ex_MEM_E3_Adder_Out;
+//wire        Latch_Ex_MEM_Zero;
+//wire [1:0]	Latch_Ex_MEM_WriteBack_FLAGS_Out;
+//wire [4:0]	Latch_Ex_MEM_Mux;
+//wire [31:0]	Latch_Ex_MEM_E3_ALUOut;
 //-----------------------------------------------------------------
  
 //Outputs de Etapa 4, y que entran en los inputs del Latch "MEM/WB"
 //wire [31:0]	E4_DataOut_to_Latch_MEM_WB;
 //wire 			PCScr;
 //Outputs del Latch MEM/WB
-wire [31:0]	Latch_MEM_WB_DataOut;
-wire [31:0]	Latch_MEM_WB_ALUOut;
-wire [4:0]	Latch_MEM_WB_Mux;
-wire [1:0]	Latch_MEM_WB_WriteBack_FLAGS_Out;
+//wire [31:0]	Latch_MEM_WB_DataOut;
+//wire [31:0]	Latch_MEM_WB_ALUOut;
+//wire [4:0]	Latch_MEM_WB_Mux;
+//wire [1:0]	Latch_MEM_WB_WriteBack_FLAGS_Out;
 //-----------------------------------------------------------------
 
 //Output de la Etapa 5 "WB"
