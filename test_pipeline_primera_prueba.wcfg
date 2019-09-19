@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="test_pipeline_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="test_pipeline" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="143800001fs"></ZoomEndTime>
+      <Cursor1Time time="67200000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="243"></NameColumnWidth>
+      <ValueColumnWidth column_width="80"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="61" />
+   <wvobject fp_name="/test_pipeline/Clk" type="logic">
+      <obj_property name="ElementShortName">Clk</obj_property>
+      <obj_property name="ObjectShortName">Clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_Reset" type="logic">
+      <obj_property name="ElementShortName">Latch_Reset</obj_property>
+      <obj_property name="ObjectShortName">Latch_Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_enable" type="logic">
+      <obj_property name="ElementShortName">Latch_enable</obj_property>
+      <obj_property name="ObjectShortName">Latch_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Etapa_IF_Reset" type="logic">
+      <obj_property name="ElementShortName">Etapa_IF_Reset</obj_property>
+      <obj_property name="ObjectShortName">Etapa_IF_Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Etapa_IF_enable_pc" type="logic">
+      <obj_property name="ElementShortName">Etapa_IF_enable_pc</obj_property>
+      <obj_property name="ObjectShortName">Etapa_IF_enable_pc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Etapa_IF_enable_sel" type="logic">
+      <obj_property name="ElementShortName">Etapa_IF_enable_sel</obj_property>
+      <obj_property name="ObjectShortName">Etapa_IF_enable_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Etapa_IF_Instr_in" type="array">
+      <obj_property name="ElementShortName">Etapa_IF_Instr_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Etapa_IF_Instr_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Etapa_IF_enable_mem" type="logic">
+      <obj_property name="ElementShortName">Etapa_IF_enable_mem</obj_property>
+      <obj_property name="ObjectShortName">Etapa_IF_enable_mem</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Etapa_IF_write_enable" type="array">
+      <obj_property name="ElementShortName">Etapa_IF_write_enable[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Etapa_IF_write_enable[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Etapa_IF_Addr_Instr" type="array">
+      <obj_property name="ElementShortName">Etapa_IF_Addr_Instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Etapa_IF_Addr_Instr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Etapa_IF_Addr_Src" type="logic">
+      <obj_property name="ElementShortName">Etapa_IF_Addr_Src</obj_property>
+      <obj_property name="ObjectShortName">Etapa_IF_Addr_Src</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Etapa_IF_pc_reset" type="logic">
+      <obj_property name="ElementShortName">Etapa_IF_pc_reset</obj_property>
+      <obj_property name="ObjectShortName">Etapa_IF_pc_reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Etapa_ID_Reset" type="logic">
+      <obj_property name="ElementShortName">Etapa_ID_Reset</obj_property>
+      <obj_property name="ObjectShortName">Etapa_ID_Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Etapa_ID_posReg" type="array">
+      <obj_property name="ElementShortName">Etapa_ID_posReg[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Etapa_ID_posReg[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Etapa_ID_posSel" type="logic">
+      <obj_property name="ElementShortName">Etapa_ID_posSel</obj_property>
+      <obj_property name="ObjectShortName">Etapa_ID_posSel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Etapa_MEM_Reset" type="logic">
+      <obj_property name="ElementShortName">Etapa_MEM_Reset</obj_property>
+      <obj_property name="ObjectShortName">Etapa_MEM_Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/dirMem" type="array">
+      <obj_property name="ElementShortName">dirMem[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dirMem[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/memDebug" type="logic">
+      <obj_property name="ElementShortName">memDebug</obj_property>
+      <obj_property name="ObjectShortName">memDebug</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/E1_AddOut" type="array">
+      <obj_property name="ElementShortName">E1_AddOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">E1_AddOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/E1_InstrOut" type="array">
+      <obj_property name="ElementShortName">E1_InstrOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">E1_InstrOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/PC_Out" type="array">
+      <obj_property name="ElementShortName">PC_Out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_Out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_IF_ID_Adder_Out" type="array">
+      <obj_property name="ElementShortName">Latch_IF_ID_Adder_Out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_IF_ID_Adder_Out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_IF_ID_InstrOut" type="array">
+      <obj_property name="ElementShortName">Latch_IF_ID_InstrOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_IF_ID_InstrOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/E2_ReadDataA" type="array">
+      <obj_property name="ElementShortName">E2_ReadDataA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">E2_ReadDataA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/E2_ReadDataB" type="array">
+      <obj_property name="ElementShortName">E2_ReadDataB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">E2_ReadDataB[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/ControlFLAGS" type="array">
+      <obj_property name="ElementShortName">ControlFLAGS[8:0]</obj_property>
+      <obj_property name="ObjectShortName">ControlFLAGS[8:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/SignExtendOut" type="array">
+      <obj_property name="ElementShortName">SignExtendOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SignExtendOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/E2_InmCtrl" type="array">
+      <obj_property name="ElementShortName">E2_InmCtrl[2:0]</obj_property>
+      <obj_property name="ObjectShortName">E2_InmCtrl[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_ID_Ex_WriteBack_FLAGS" type="array">
+      <obj_property name="ElementShortName">Latch_ID_Ex_WriteBack_FLAGS[1:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_ID_Ex_WriteBack_FLAGS[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_ID_Ex_Mem_FLAGS" type="array">
+      <obj_property name="ElementShortName">Latch_ID_Ex_Mem_FLAGS[2:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_ID_Ex_Mem_FLAGS[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_ID_Ex_FLAGS" type="array">
+      <obj_property name="ElementShortName">Latch_ID_Ex_FLAGS[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_ID_Ex_FLAGS[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_ID_Ex_Adder_Out" type="array">
+      <obj_property name="ElementShortName">Latch_ID_Ex_Adder_Out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_ID_Ex_Adder_Out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_ID_Ex_ReadDataA" type="array">
+      <obj_property name="ElementShortName">Latch_ID_Ex_ReadDataA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_ID_Ex_ReadDataA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_ID_Ex_ReadDataB" type="array">
+      <obj_property name="ElementShortName">Latch_ID_Ex_ReadDataB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_ID_Ex_ReadDataB[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_ID_Ex_SignExtendOut" type="array">
+      <obj_property name="ElementShortName">Latch_ID_Ex_SignExtendOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_ID_Ex_SignExtendOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_ID_Ex_InstrOut_25_21_Rs" type="array">
+      <obj_property name="ElementShortName">Latch_ID_Ex_InstrOut_25_21_Rs[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_ID_Ex_InstrOut_25_21_Rs[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_ID_Ex_InstrOut_20_16_Rt" type="array">
+      <obj_property name="ElementShortName">Latch_ID_Ex_InstrOut_20_16_Rt[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_ID_Ex_InstrOut_20_16_Rt[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_ID_Ex_InstrOut_15_11_Rd" type="array">
+      <obj_property name="ElementShortName">Latch_ID_Ex_InstrOut_15_11_Rd[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_ID_Ex_InstrOut_15_11_Rd[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_ID_Ex_InmCtrl" type="array">
+      <obj_property name="ElementShortName">Latch_ID_Ex_InmCtrl[2:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_ID_Ex_InmCtrl[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/E3_Adder_Out" type="array">
+      <obj_property name="ElementShortName">E3_Adder_Out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">E3_Adder_Out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/E3_ALU_Zero" type="logic">
+      <obj_property name="ElementShortName">E3_ALU_Zero</obj_property>
+      <obj_property name="ObjectShortName">E3_ALU_Zero</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/E3_ALUOut" type="array">
+      <obj_property name="ElementShortName">E3_ALUOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">E3_ALUOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/E3_MuxOut" type="array">
+      <obj_property name="ElementShortName">E3_MuxOut[4:0]</obj_property>
+      <obj_property name="ObjectShortName">E3_MuxOut[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB" type="array">
+      <obj_property name="ElementShortName">MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_Ex_MEM_Mem_FLAGS_Out" type="array">
+      <obj_property name="ElementShortName">Latch_Ex_MEM_Mem_FLAGS_Out[2:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_Ex_MEM_Mem_FLAGS_Out[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_Ex_MEM_ReadDataB" type="array">
+      <obj_property name="ElementShortName">Latch_Ex_MEM_ReadDataB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_Ex_MEM_ReadDataB[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_Ex_MEM_E3_Adder_Out" type="array">
+      <obj_property name="ElementShortName">Latch_Ex_MEM_E3_Adder_Out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_Ex_MEM_E3_Adder_Out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_Ex_MEM_Zero" type="logic">
+      <obj_property name="ElementShortName">Latch_Ex_MEM_Zero</obj_property>
+      <obj_property name="ObjectShortName">Latch_Ex_MEM_Zero</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_Ex_MEM_WriteBack_FLAGS_Out" type="array">
+      <obj_property name="ElementShortName">Latch_Ex_MEM_WriteBack_FLAGS_Out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_Ex_MEM_WriteBack_FLAGS_Out[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_Ex_MEM_Mux" type="array">
+      <obj_property name="ElementShortName">Latch_Ex_MEM_Mux[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_Ex_MEM_Mux[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_Ex_MEM_E3_ALUOut" type="array">
+      <obj_property name="ElementShortName">Latch_Ex_MEM_E3_ALUOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_Ex_MEM_E3_ALUOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/E4_DataOut_to_Latch_MEM_WB" type="array">
+      <obj_property name="ElementShortName">E4_DataOut_to_Latch_MEM_WB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">E4_DataOut_to_Latch_MEM_WB[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/PCScr" type="logic">
+      <obj_property name="ElementShortName">PCScr</obj_property>
+      <obj_property name="ObjectShortName">PCScr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_MEM_WB_DataOut" type="array">
+      <obj_property name="ElementShortName">Latch_MEM_WB_DataOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_MEM_WB_DataOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_MEM_WB_ALUOut" type="array">
+      <obj_property name="ElementShortName">Latch_MEM_WB_ALUOut[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_MEM_WB_ALUOut[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_MEM_WB_Mux" type="array">
+      <obj_property name="ElementShortName">Latch_MEM_WB_Mux[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_MEM_WB_Mux[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Latch_MEM_WB_WriteBack_FLAGS_Out" type="array">
+      <obj_property name="ElementShortName">Latch_MEM_WB_WriteBack_FLAGS_Out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">Latch_MEM_WB_WriteBack_FLAGS_Out[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Mux_WB" type="array">
+      <obj_property name="ElementShortName">Mux_WB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Mux_WB[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/ForwardA" type="array">
+      <obj_property name="ElementShortName">ForwardA[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ForwardA[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/ForwardB" type="array">
+      <obj_property name="ElementShortName">ForwardB[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ForwardB[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_pipeline/Stall" type="logic">
+      <obj_property name="ElementShortName">Stall</obj_property>
+      <obj_property name="ObjectShortName">Stall</obj_property>
+   </wvobject>
+</wave_config>

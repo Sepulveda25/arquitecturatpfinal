@@ -207,7 +207,7 @@ module test_pipeline;
         Etapa_MEM_Reset = 1; // se reinician los registros
         dirMem = 32'h00000000; // puede ser x porque no se van a leer los registros      
         memDebug = 0; //no esta en modo debug
-        #40;// arranca la ejecucion
+        #20;// arranca la ejecucion
         Latch_Reset = 0; //  no se reinicia todos los latch
         Latch_enable = 1; // se habilita los latch
         //Etapa IF
