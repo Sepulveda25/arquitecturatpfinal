@@ -21,7 +21,7 @@
 // ADDI r2, r2, 0x7 ; en etapa MEM => Hex: 0x20420007
 // ADD r3, r1, r2 ; en etapa EX => Hex: 0x00221820
 // LW r4,0x0(r1) ; en etapa ID => Hex: 0x8C240000
-// SUB r5,r4,r1; en etapa IF => Hex: 0x00812822
+// SUB r5,r3,r4; en etapa IF => Hex: 0x00642822
 // HALT ; proximo en memoria
 //////////////////////////////////////////////////////////////////////////////////
 

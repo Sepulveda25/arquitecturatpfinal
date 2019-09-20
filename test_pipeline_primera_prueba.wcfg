@@ -12,11 +12,11 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="143800001fs"></ZoomEndTime>
-      <Cursor1Time time="67200000fs"></Cursor1Time>
+      <ZoomEndTime time="148200001fs"></ZoomEndTime>
+      <Cursor1Time time="105600000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="243"></NameColumnWidth>
+      <NameColumnWidth column_width="221"></NameColumnWidth>
       <ValueColumnWidth column_width="80"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="61" />
@@ -136,14 +136,17 @@
    <wvobject fp_name="/test_pipeline/Latch_ID_Ex_WriteBack_FLAGS" type="array">
       <obj_property name="ElementShortName">Latch_ID_Ex_WriteBack_FLAGS[1:0]</obj_property>
       <obj_property name="ObjectShortName">Latch_ID_Ex_WriteBack_FLAGS[1:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/Latch_ID_Ex_Mem_FLAGS" type="array">
       <obj_property name="ElementShortName">Latch_ID_Ex_Mem_FLAGS[2:0]</obj_property>
       <obj_property name="ObjectShortName">Latch_ID_Ex_Mem_FLAGS[2:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/Latch_ID_Ex_FLAGS" type="array">
       <obj_property name="ElementShortName">Latch_ID_Ex_FLAGS[3:0]</obj_property>
       <obj_property name="ObjectShortName">Latch_ID_Ex_FLAGS[3:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/Latch_ID_Ex_Adder_Out" type="array">
       <obj_property name="ElementShortName">Latch_ID_Ex_Adder_Out[31:0]</obj_property>
@@ -164,14 +167,17 @@
    <wvobject fp_name="/test_pipeline/Latch_ID_Ex_InstrOut_25_21_Rs" type="array">
       <obj_property name="ElementShortName">Latch_ID_Ex_InstrOut_25_21_Rs[4:0]</obj_property>
       <obj_property name="ObjectShortName">Latch_ID_Ex_InstrOut_25_21_Rs[4:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/Latch_ID_Ex_InstrOut_20_16_Rt" type="array">
       <obj_property name="ElementShortName">Latch_ID_Ex_InstrOut_20_16_Rt[4:0]</obj_property>
       <obj_property name="ObjectShortName">Latch_ID_Ex_InstrOut_20_16_Rt[4:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/Latch_ID_Ex_InstrOut_15_11_Rd" type="array">
       <obj_property name="ElementShortName">Latch_ID_Ex_InstrOut_15_11_Rd[4:0]</obj_property>
       <obj_property name="ObjectShortName">Latch_ID_Ex_InstrOut_15_11_Rd[4:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/Latch_ID_Ex_InmCtrl" type="array">
       <obj_property name="ElementShortName">Latch_ID_Ex_InmCtrl[2:0]</obj_property>
@@ -192,6 +198,7 @@
    <wvobject fp_name="/test_pipeline/E3_MuxOut" type="array">
       <obj_property name="ElementShortName">E3_MuxOut[4:0]</obj_property>
       <obj_property name="ObjectShortName">E3_MuxOut[4:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB" type="array">
       <obj_property name="ElementShortName">MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB[31:0]</obj_property>
@@ -200,6 +207,7 @@
    <wvobject fp_name="/test_pipeline/Latch_Ex_MEM_Mem_FLAGS_Out" type="array">
       <obj_property name="ElementShortName">Latch_Ex_MEM_Mem_FLAGS_Out[2:0]</obj_property>
       <obj_property name="ObjectShortName">Latch_Ex_MEM_Mem_FLAGS_Out[2:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/Latch_Ex_MEM_ReadDataB" type="array">
       <obj_property name="ElementShortName">Latch_Ex_MEM_ReadDataB[31:0]</obj_property>
@@ -216,10 +224,12 @@
    <wvobject fp_name="/test_pipeline/Latch_Ex_MEM_WriteBack_FLAGS_Out" type="array">
       <obj_property name="ElementShortName">Latch_Ex_MEM_WriteBack_FLAGS_Out[1:0]</obj_property>
       <obj_property name="ObjectShortName">Latch_Ex_MEM_WriteBack_FLAGS_Out[1:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/Latch_Ex_MEM_Mux" type="array">
       <obj_property name="ElementShortName">Latch_Ex_MEM_Mux[4:0]</obj_property>
       <obj_property name="ObjectShortName">Latch_Ex_MEM_Mux[4:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/Latch_Ex_MEM_E3_ALUOut" type="array">
       <obj_property name="ElementShortName">Latch_Ex_MEM_E3_ALUOut[31:0]</obj_property>
@@ -244,10 +254,12 @@
    <wvobject fp_name="/test_pipeline/Latch_MEM_WB_Mux" type="array">
       <obj_property name="ElementShortName">Latch_MEM_WB_Mux[4:0]</obj_property>
       <obj_property name="ObjectShortName">Latch_MEM_WB_Mux[4:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/Latch_MEM_WB_WriteBack_FLAGS_Out" type="array">
       <obj_property name="ElementShortName">Latch_MEM_WB_WriteBack_FLAGS_Out[1:0]</obj_property>
       <obj_property name="ObjectShortName">Latch_MEM_WB_WriteBack_FLAGS_Out[1:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/Mux_WB" type="array">
       <obj_property name="ElementShortName">Mux_WB[31:0]</obj_property>
@@ -256,10 +268,12 @@
    <wvobject fp_name="/test_pipeline/ForwardA" type="array">
       <obj_property name="ElementShortName">ForwardA[1:0]</obj_property>
       <obj_property name="ObjectShortName">ForwardA[1:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/ForwardB" type="array">
       <obj_property name="ElementShortName">ForwardB[1:0]</obj_property>
       <obj_property name="ObjectShortName">ForwardB[1:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/Stall" type="logic">
       <obj_property name="ElementShortName">Stall</obj_property>

@@ -56,13 +56,23 @@ module Latch_ID_EX(	//Inputs 12
                     output reg 	[2:0] Latch_ID_Ex_InmCtrl
 					);
 
-localparam RegDst = 8;
-localparam ALUSrc = 7;
-localparam MemtoReg	= 6;
-localparam RegWrite	= 5;
-localparam MemRead = 4;
-localparam MemWrite	= 3;
-localparam Branch = 2;
+//localparam RegDst = 8;
+//localparam ALUSrc = 7;
+//localparam MemtoReg	= 6;
+//localparam RegWrite	= 5;
+//localparam MemRead = 4;
+//localparam MemWrite	= 3;
+//localparam Branch = 2;
+//localparam ALUOp1 = 1;
+//localparam ALUOp0 = 0;
+
+localparam RegWrite	= 8;
+localparam MemtoReg	= 7;
+localparam MemRead = 6;
+localparam MemWrite	= 5;
+localparam Branch = 4;
+localparam RegDst = 3;
+localparam ALUSrc = 2;
 localparam ALUOp1 = 1;
 localparam ALUOp0 = 0;
 
