@@ -111,7 +111,7 @@ always@* begin
 							ALUOp0 		<=  1; 
 							InmCtrl 	<=  OpCode[2:0]; 
 						end
-		//Jump 
+		//J 
 		6'b000010: 	begin
 							RegWrite 	<=  0;
                             MemtoReg    <=  0; 
@@ -138,7 +138,7 @@ always@* begin
 								ALUOp0 		<=  1;
 								InmCtrl 	<=  OpCode[2:0]; 
 							end
-							else begin 
+							else begin
 								RegWrite 	<=	0;
 								MemtoReg 	<=	0;
 								MemRead 	<=	0;

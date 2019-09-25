@@ -75,6 +75,12 @@ begin
             if($signed(ALU_DataA) < $signed(ALU_DataB)) ALU_Out = 1;
             else ALU_Out = 0;
         end
+         
+        6'b101011://SLTI (Set On Less Than Unsigned) 101011   
+        begin
+            if(ALU_DataA < ALU_DataB) ALU_Out = 1;
+            else ALU_Out = 0;
+        end
        
         //------------------- Default ----------------------------------------
         default:  

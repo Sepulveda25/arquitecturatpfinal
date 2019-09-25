@@ -328,8 +328,8 @@ Etapa4_MEM E4_MEM(   //Inputs
 //--------------------------------    Etapa 5 "WB"    ----------------------------------------------------------------
 
 MUX #(.LEN(32)) E5_WB(	//Inputs
-                        .InputA(Latch_MEM_WB_ALUOut), 
-                        .InputB(Latch_MEM_WB_DataOut), 
+                        .InputA(Latch_MEM_WB_ALUOut), //0
+                        .InputB(Latch_MEM_WB_DataOut),//1 
                         .SEL(Latch_MEM_WB_WriteBack_FLAGS_Out[MemtoReg]), 
                         //Output
                         .Out(Mux_WB)
