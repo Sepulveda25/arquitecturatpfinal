@@ -22,7 +22,8 @@
 
 module Etapa2_ID(   //Inputs 9
                     input Clk, Reset, Stall, 
-                    input [31:0]    Latch_IF_ID_InstrOut, 
+                    input [31:0]    Latch_IF_ID_InstrOut,
+                    input [31:0]	Latch_IF_ID_Adder_Out,  
                     input [4:0]	    posReg, // address para leer registros en modo debug
                     input			posSel, // selecion de address para Register
                     input [4:0] 	Latch_MEM_WB_Mux,
@@ -32,6 +33,7 @@ module Etapa2_ID(   //Inputs 9
                     output [31:0] 	E2_ReadDataA, E2_ReadDataB, 
                     output [8:0] 	Mux_ControlFLAGS_Out, 
                     output [31:0] 	SignExtendOut,
+                    output [31:0] 	E2_Adder_Out,
                     output [2:0] 	E2_InmCtrl
 
     );
@@ -39,6 +41,7 @@ module Etapa2_ID(   //Inputs 9
 //Cables de Interconexion
 wire [8:0] ControlFLAGS;
 wire [4:0] Mux_To_Reg;
+wire [31:0] Shift_to_Add;
 
 //Variables
 reg [8:0] Cero=0;
@@ -71,8 +74,22 @@ MUX #(.LEN(9)) Stall_mux(   .InputA(ControlFLAGS),
                             .SEL(Stall), 
                             .Out(Mux_ControlFLAGS_Out));
 
+/// Se agregaron los modulos en esta etapa pare minimizar las perdidas de clocks en caso de Branches
 Sign_Extend SignExt( .Latch_IF_ID_InstrOut(Latch_IF_ID_InstrOut[15:0]), 
                      .SignExtendOut(SignExtendOut));
+                     
+Adder adder( //Inputs
+             .InputA(Latch_IF_ID_Adder_Out), 
+             .InputB(Shift_to_Add), 
+             //Output
+             .Out(E2_Adder_Out)
+         );
+
+Shift_Left Shift(   //Input
+                 .Latch_ID_Ex_SignExtendOut(SignExtendOut), 
+                 //Output
+                 .Shift_Left_Out(Shift_to_Add)
+              );                     
 
     
 endmodule

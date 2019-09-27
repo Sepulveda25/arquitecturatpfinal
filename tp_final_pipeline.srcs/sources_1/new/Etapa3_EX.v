@@ -51,18 +51,18 @@ wire [5:0]  InmCtrlOut_ALU;
 wire [31:0] Mux_CortoA_Out_to_ALU_DataA;
 //wire [31:0]    Mux_CortoB_Out_to_ALU_DataB;
 
-Adder adder_EX( //Inputs
-                .InputA(Latch_ID_Ex_Adder_Out), 
-                .InputB(Shift_to_Add), 
-                //Output
-                .Out(E3_Adder_Out)
-            );
+//Adder adder_EX( //Inputs
+//                .InputA(Latch_ID_Ex_Adder_Out), 
+//                .InputB(Shift_to_Add), 
+//                //Output
+//                .Out(E3_Adder_Out)
+//            );
 
-Shift_Left Shift(   //Input
-                    .Latch_ID_Ex_SignExtendOut(Latch_ID_Ex_SignExtendOut), 
-                    //Output
-                    .Shift_Left_Out(Shift_to_Add)
-                 );
+//Shift_Left Shift(   //Input
+//                    .Latch_ID_Ex_SignExtendOut(Latch_ID_Ex_SignExtendOut), 
+//                    //Output
+//                    .Shift_Left_Out(Shift_to_Add)
+//                 );
 
 MUX Mux_AluSrc( //Inputs 
                 .InputA(MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB), 
