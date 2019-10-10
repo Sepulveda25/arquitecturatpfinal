@@ -30,10 +30,10 @@ module Etapa2_ID(   //Inputs 9
                     input [31:0] 	Mux_WB, 
                     input 			Latch_MEM_WB_RegWrite, 
                     //Outputs 5
-                    output [31:0] 	E2_ReadDataA, E2_ReadDataB, 
+                    output [31:0] 	E2_ReadDataA,  
+                    output [31:0]   E2_ReadDataB,
                     output [8:0] 	Mux_ControlFLAGS_Out, 
                     output [31:0] 	SignExtendOut,
-                    output [31:0] 	E2_Adder_Out,
                     output [2:0] 	E2_InmCtrl
 
     );
@@ -65,7 +65,8 @@ Registers Regs(	//Inputs
                 .ReadDataA(E2_ReadDataA), 
                 .ReadDataB(E2_ReadDataB));
 							
-Control_Unit Control(   .OpCode(Latch_IF_ID_InstrOut[31:26]), 
+Control_Unit Control(   .OpCode(Latch_IF_ID_InstrOut[31:26]),
+                        .funcion(Latch_IF_ID_InstrOut[5:0]),
                         .ControlFLAGS(ControlFLAGS),
                         .InmCtrl(E2_InmCtrl));
 
@@ -74,22 +75,22 @@ MUX #(.LEN(9)) Stall_mux(   .InputA(ControlFLAGS),
                             .SEL(Stall), 
                             .Out(Mux_ControlFLAGS_Out));
 
-/// Se agregaron los modulos en esta etapa pare minimizar las perdidas de clocks en caso de Branches
+
 Sign_Extend SignExt( .Latch_IF_ID_InstrOut(Latch_IF_ID_InstrOut[15:0]), 
                      .SignExtendOut(SignExtendOut));
                      
-Adder adder( //Inputs
-             .InputA(Latch_IF_ID_Adder_Out), 
-             .InputB(Shift_to_Add), 
-             //Output
-             .Out(E2_Adder_Out)
-         );
+//Adder adder( //Inputs
+//             .InputA(Latch_IF_ID_Adder_Out), 
+//             .InputB(Shift_to_Add), 
+//             //Output
+//             .Out(E2_Adder_Out)
+//         );
 
-Shift_Left Shift(   //Input
-                 .Latch_ID_Ex_SignExtendOut(SignExtendOut), 
-                 //Output
-                 .Shift_Left_Out(Shift_to_Add)
-              );                     
+//Shift_Left Shift(   //Input
+//                 .Latch_ID_Ex_SignExtendOut(SignExtendOut), 
+//                 //Output
+//                 .Shift_Left_Out(Shift_to_Add)
+//              );                     
 
     
 endmodule

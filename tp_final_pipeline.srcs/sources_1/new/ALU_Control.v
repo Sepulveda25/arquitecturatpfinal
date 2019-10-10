@@ -51,7 +51,7 @@ begin
         Shift = 0;
     end
 
-    //Resta para BEQ. Si (rs = rt) se ejecuta branch. Se activa flag Zero
+    //Resta para BEQ y BNE. Si (rs = rt) o (rs != rt) se ejecuta branch segun el caso. Se activa flag Zero
     else if (Ex_FLAGS_ALUOp == 2'b01) begin
         ALU_Control_Out = 6'b100010; 
         Shift = 0;
