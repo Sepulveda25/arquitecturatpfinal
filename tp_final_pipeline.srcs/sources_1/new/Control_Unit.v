@@ -50,20 +50,10 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-//localparam RegWrite	= 8;
-//localparam MemtoReg	= 7;
-//localparam MemRead = 6;
-//localparam MemWrite	= 5;
-//localparam Branch = 4;
-//localparam RegDst = 3;
-//localparam ALUSrc = 2;
-//localparam ALUOp1 = 1;
-//localparam ALUOp0 = 0;
-
 
 module Control_Unit(        input 		[5:0] OpCode,
                             input       [5:0] funcion, 
-							output 		[8:0] ControlFLAGS,
+							output 		[13:0] ControlFLAGS,
 							output reg	[2:0] InmCtrl
                     );
 
@@ -86,9 +76,9 @@ always@* begin
                                             JALR         <=  0;
                                             Jmp          <=  0;
                                             JAL          <=  0;
-                                            RegDst       <=  1;
+                                            RegDst       <=  0;
                                             ALUSrc       <=  0;
-                                            ALUOp1       <=  1;
+                                            ALUOp1       <=  0;
                                             ALUOp0       <=  0; 
                                             InmCtrl      <=  0;
                                             
@@ -106,10 +96,9 @@ always@* begin
                                             JAL          <=  0;
                                             RegDst       <=  1;
                                             ALUSrc       <=  0;
-                                            ALUOp1       <=  1;
+                                            ALUOp1       <=  0;
                                             ALUOp0       <=  0; 
                                             InmCtrl      <=  0;
-                                            Jmp          <=  0;
                                     end
                         default:    begin
                                             RegWrite    <=  1;
@@ -118,16 +107,15 @@ always@* begin
                                             MemWrite    <=  0;
                                             BranchEQ    <=  0;
                                             BranchNE    <=  0;
-                                            JR           <=  0;
-                                            JALR         <=  0;
-                                            Jmp          <=  0;
-                                            JAL          <=  0;                                            
+                                            JR          <=  0;
+                                            JALR        <=  0;
+                                            Jmp         <=  0;
+                                            JAL         <=  0;                                            
                                             RegDst      <=  1;
                                             ALUSrc      <=  0;
                                             ALUOp1      <=  1;
                                             ALUOp0      <=  0; 
                                             InmCtrl     <=  0;
-                                            Jmp         <=  0;
                                     end
                     endcase
                     end
@@ -148,7 +136,6 @@ always@* begin
 							ALUOp1 		<=	0;
 							ALUOp0 		<=  0; 
 							InmCtrl		<=	0;
-							Jmp         <=  0;
 					end
 		//StoreW
 		6'b101011: 	begin
@@ -167,7 +154,6 @@ always@* begin
 							ALUOp1 		<=	0;
 							ALUOp0 		<=  0; 
 							InmCtrl		<=	0;
-							Jmp         <=  0;
 					end
 		//BranchEQ (Branch on Equal)
 		6'b000100: 	begin
@@ -185,8 +171,7 @@ always@* begin
                             ALUSrc      <=  0;
 							ALUOp1 		<=	0;
 							ALUOp0 		<=  1; 
-							InmCtrl 	<=  OpCode[2:0]; //100
-							Jmp         <=  0;
+							InmCtrl 	<=  0; 
 						end
 						
 		//BranchNE (Branch on Not Equal)
@@ -205,8 +190,7 @@ always@* begin
                             ALUSrc      <=  0;
                             ALUOp1      <=  0;
                             ALUOp0      <=  1; 
-                            InmCtrl     <=  OpCode[2:0]; //101
-                            Jmp         <=  0;
+                            InmCtrl     <=  0; //101
                         end
 		//J 
 		6'b000010: 	begin
@@ -218,15 +202,32 @@ always@* begin
                             BranchNE    <=  0;
                             JR          <=  0;
                             JALR        <=  0;
-                            Jmp         <=  0;
+                            Jmp         <=  1;
                             JAL         <=  0;
                             RegDst      <=  0; 
                             ALUSrc      <=  0;                            
                             ALUOp1      <=  0;
                             ALUOp0      <=  0; 
                             InmCtrl     <=  0;
-                            Jmp         <=  1;
 					end
+		//JAL
+        6'b000011:     begin
+                            RegWrite    <=  1;
+                            MemtoReg    <=  0; 
+                            MemRead     <=  0;
+                            MemWrite    <=  0;
+                            BranchEQ    <=  0;
+                            BranchNE    <=  0;
+                            JR          <=  0;
+                            JALR        <=  0;
+                            Jmp         <=  0;
+                            JAL         <=  1;
+                            RegDst      <=  0; 
+                            ALUSrc      <=  0;                            
+                            ALUOp1      <=  0;
+                            ALUOp0      <=  0; 
+                            InmCtrl     <=  0;
+                    end
 		//Immediate Operations
 		default: 	begin
 							if(OpCode[5:3] == 3'b 001) begin
@@ -245,7 +246,6 @@ always@* begin
 								ALUOp1 		<=	1;
 								ALUOp0 		<=  1;
 								InmCtrl 	<=  OpCode[2:0]; 
-								Jmp         <=  0;
 							end
 							else begin
 								RegWrite 	<=	0;
@@ -263,7 +263,6 @@ always@* begin
 								ALUOp1 		<=	0;
 								ALUOp0 		<=  0;
 								InmCtrl 	<=  0;
-								Jmp         <=  0; 
 						end
 				end
 		endcase
