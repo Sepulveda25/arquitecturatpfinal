@@ -53,13 +53,13 @@ module pipeline(    //Inputs
                     //Etapa ID
                     output [31:0] E2_ReadDataA,	
                     output [31:0] E2_ReadDataB,
-                    output [8:0]  ControlFLAGS,      
+                    output [13:0] ControlFLAGS,      
                     output [31:0] SignExtendOut,
                     output [2:0]  E2_InmCtrl,
                     //Outputs del Latch "ID/EX"
-                    output [1:0]     Latch_ID_Ex_WriteBack_FLAGS,
-                    output [2:0]     Latch_ID_Ex_Mem_FLAGS,
-                    output [3:0]    Latch_ID_Ex_FLAGS,
+                    output [1:0]     Latch_ID_Ex_WriteBack_FLAGS, //2 bits
+                    output [3:0]     Latch_ID_Ex_Mem_FLAGS, // 4 bits
+                    output [7:0]    Latch_ID_Ex_FLAGS, //8 bits
                     output [31:0]    Latch_ID_Ex_Adder_Out,
                     output [31:0]    Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,
                     output [31:0]    Latch_ID_Ex_SignExtendOut,
@@ -72,7 +72,7 @@ module pipeline(    //Inputs
                     output [4:0]  E3_MuxOut,
                     output [31:0] MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB,
                     //Output del Latch "Ex/MEM"
-                    output [2:0]     Latch_Ex_MEM_Mem_FLAGS_Out,
+                    output [3:0]     Latch_Ex_MEM_Mem_FLAGS_Out,
                     output [31:0]    Latch_Ex_MEM_ReadDataB,
                     output [31:0]    Latch_Ex_MEM_E3_Adder_Out,
                     output        Latch_Ex_MEM_Zero,
@@ -115,13 +115,13 @@ localparam MemRead 		= 2;
 //Outputs de Etapa 2, y entran en los inputs del Latch "ID/Ex"
 //wire [31:0] E2_ReadDataA;	
 //wire [31:0] E2_ReadDataB;
-//wire [8:0] 	ControlFLAGS;	  
+//wire [13:0] 	ControlFLAGS;	  
 //wire [31:0] SignExtendOut;  
 //wire [2:0] 	E2_InmCtrl;
 ////Outputs del Latch "ID/EX"
-//wire [1:0] 	Latch_ID_Ex_WriteBack_FLAGS;
-//wire [2:0] 	Latch_ID_Ex_Mem_FLAGS;
-//wire [3:0]	Latch_ID_Ex_FLAGS;
+//wire [1:0] 	Latch_ID_Ex_WriteBack_FLAGS; {MemtoReg, RegWrite}
+//wire [3:0] 	Latch_ID_Ex_Mem_FLAGS; {MemRead, MemWrite, BranchEQ, BranchNE}
+//wire [7:0]	Latch_ID_Ex_FLAGS; {JR , JALR, Jmp, JAL, RegDst, ALUSrc, ALUOp1, ALUOp0}
 //wire [31:0]	Latch_ID_Ex_Adder_Out;
 //wire [31:0]	Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB;
 //wire [31:0]	Latch_ID_Ex_SignExtendOut; 
@@ -136,11 +136,11 @@ localparam MemRead 		= 2;
 //wire [4:0]	E3_MuxOut;
 //wire [31:0] MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB;
 //Output del Latch "Ex/MEM"
-//wire [2:0] 	Latch_Ex_MEM_Mem_FLAGS_Out;
+//wire [3:0] 	Latch_Ex_MEM_Mem_FLAGS_Out; {MemRead, MemWrite, BranchEQ, BranchNE}
 //wire [31:0]	Latch_Ex_MEM_ReadDataB;
 //wire [31:0]	Latch_Ex_MEM_E3_Adder_Out;
 //wire        Latch_Ex_MEM_Zero;
-//wire [1:0]	Latch_Ex_MEM_WriteBack_FLAGS_Out;
+//wire [1:0]	Latch_Ex_MEM_WriteBack_FLAGS_Out; {MemtoReg, RegWrite}
 //wire [4:0]	Latch_Ex_MEM_Mux;
 //wire [31:0]	Latch_Ex_MEM_E3_ALUOut;
 //-----------------------------------------------------------------
@@ -152,7 +152,7 @@ localparam MemRead 		= 2;
 //wire [31:0]	Latch_MEM_WB_DataOut;
 //wire [31:0]	Latch_MEM_WB_ALUOut;
 //wire [4:0]	Latch_MEM_WB_Mux;
-//wire [1:0]	Latch_MEM_WB_WriteBack_FLAGS_Out;
+//wire [1:0]	Latch_MEM_WB_WriteBack_FLAGS_Out; {MemtoReg, RegWrite}
 //-----------------------------------------------------------------
 
 //Output de la Etapa 5 "WB"
@@ -236,9 +236,9 @@ Latch_ID_EX ID_EX(  //Inputs 12
                     .E2_InmCtrl(E2_InmCtrl),
                     .enable(Latch_enable),
                     //Outputs 11
-                    .WriteBack_FLAGS(Latch_ID_Ex_WriteBack_FLAGS), 
-                    .Mem_FLAGS(Latch_ID_Ex_Mem_FLAGS), 
-                    .Ex_FLAGS(Latch_ID_Ex_FLAGS), 
+                    .WriteBack_FLAGS(Latch_ID_Ex_WriteBack_FLAGS), //{MemtoReg, RegWrite}
+                    .Mem_FLAGS(Latch_ID_Ex_Mem_FLAGS), // {MemRead, MemWrite, BranchEQ, BranchNE}
+                    .Ex_FLAGS(Latch_ID_Ex_FLAGS), // {JR , JALR, Jmp, JAL, RegDst, ALUSrc, ALUOp1, ALUOp0}
                     .Latch_ID_Ex_Adder_Out(Latch_ID_Ex_Adder_Out), 
                     .Latch_ID_Ex_ReadDataA(Latch_ID_Ex_ReadDataA), 
                     .Latch_ID_Ex_ReadDataB(Latch_ID_Ex_ReadDataB), 
@@ -252,7 +252,7 @@ Latch_ID_EX ID_EX(  //Inputs 12
 //---------------------------------  Etapa 3 "EX" + Latch EX/MEM    --------------------------------------------------
                       
 Etapa3_EX E3_EX(    //Inputs 12
-                    .Ex_FLAGS(Latch_ID_Ex_FLAGS),
+                    .Ex_FLAGS(Latch_ID_Ex_FLAGS), //{JR , JALR, Jmp, JAL, RegDst, ALUSrc, ALUOp1, ALUOp0}
                     .Latch_ID_Ex_Adder_Out(Latch_ID_Ex_Adder_Out),
                     .Latch_ID_Ex_ReadDataA(Latch_ID_Ex_ReadDataA),
                     .Latch_ID_Ex_ReadDataB(Latch_ID_Ex_ReadDataB),
@@ -276,8 +276,8 @@ Etapa3_EX E3_EX(    //Inputs 12
 Latch_EX_MEM EX_MEM(    //Inputs 10
                         .Clk(Clk), 
                         .Reset(Latch_Reset),
-                        .WriteBack_FLAGS_In(Latch_ID_Ex_WriteBack_FLAGS),
-                        .Mem_FLAGS_In(Latch_ID_Ex_Mem_FLAGS),
+                        .WriteBack_FLAGS_In(Latch_ID_Ex_WriteBack_FLAGS), //{MemtoReg, RegWrite}
+                        .Mem_FLAGS_In(Latch_ID_Ex_Mem_FLAGS), // {MemRead, MemWrite, BranchEQ, BranchNE}
                         .E3_Adder_Out(E3_Adder_Out), 
                         .E3_ALU_Zero(E3_ALU_Zero), 
                         .E3_ALUOut(E3_ALUOut),
@@ -285,8 +285,8 @@ Latch_EX_MEM EX_MEM(    //Inputs 10
                         .E3_MuxOut(E3_MuxOut),
                         .enable(Latch_enable),
                         //Outputs 7
-                        .WriteBack_FLAGS_Out(Latch_Ex_MEM_WriteBack_FLAGS_Out),
-                        .Mem_FLAGS_Out(Latch_Ex_MEM_Mem_FLAGS_Out),
+                        .WriteBack_FLAGS_Out(Latch_Ex_MEM_WriteBack_FLAGS_Out), //{MemtoReg, RegWrite}
+                        .Mem_FLAGS_Out(Latch_Ex_MEM_Mem_FLAGS_Out), // {MemRead, MemWrite, BranchEQ, BranchNE}
                         .Latch_Ex_MEM_E3_Adder_Out(Latch_Ex_MEM_E3_Adder_Out),
                         .Latch_Ex_MEM_Zero(Latch_Ex_MEM_Zero),
                         .Latch_Ex_MEM_ALUOut(Latch_Ex_MEM_E3_ALUOut), //Addr a DataMem 
@@ -300,7 +300,7 @@ Etapa4_MEM E4_MEM(   //Inputs
                      .Clk(Clk), 
                      .Reset(Etapa_MEM_Reset), 
                      .Latch_Ex_MEM_Zero(Latch_Ex_MEM_Zero),
-                     .Mem_FLAGS(Latch_Ex_MEM_Mem_FLAGS_Out),
+                     .Mem_FLAGS(Latch_Ex_MEM_Mem_FLAGS_Out), // {MemRead, MemWrite, BranchEQ, BranchNE}
                      .Latch_Ex_MEM_ALUOut(Latch_Ex_MEM_E3_ALUOut),
                      .dirMem(dirMem), 
                      .memDebug(memDebug),

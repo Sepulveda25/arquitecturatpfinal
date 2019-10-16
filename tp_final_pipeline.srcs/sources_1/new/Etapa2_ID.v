@@ -32,19 +32,19 @@ module Etapa2_ID(   //Inputs 9
                     //Outputs 5
                     output [31:0] 	E2_ReadDataA,  
                     output [31:0]   E2_ReadDataB,
-                    output [8:0] 	Mux_ControlFLAGS_Out, 
+                    output [13:0] 	Mux_ControlFLAGS_Out, 
                     output [31:0] 	SignExtendOut,
                     output [2:0] 	E2_InmCtrl
 
     );
 
 //Cables de Interconexion
-wire [8:0] ControlFLAGS;
+wire [13:0] ControlFLAGS;
 wire [4:0] Mux_To_Reg;
 wire [31:0] Shift_to_Add;
 
 //Variables
-reg [8:0] Cero=0;
+reg [13:0] Cero=0;
 
 
 //Multiplexor Address desde RS o desde Debug
@@ -70,7 +70,7 @@ Control_Unit Control(   .OpCode(Latch_IF_ID_InstrOut[31:26]),
                         .ControlFLAGS(ControlFLAGS),
                         .InmCtrl(E2_InmCtrl));
 
-MUX #(.LEN(9)) Stall_mux(   .InputA(ControlFLAGS), 
+MUX #(.LEN(14)) Stall_mux(  .InputA(ControlFLAGS), 
                             .InputB(Cero), 
                             .SEL(Stall), 
                             .Out(Mux_ControlFLAGS_Out));

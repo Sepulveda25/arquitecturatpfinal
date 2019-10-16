@@ -16,7 +16,7 @@
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-// Inputs: 	- Bus ControlFLAGS 					(9 bits)
+// Inputs: 	- Bus ControlFLAGS 					(14 bits)
 //			- Latch_IF_ID_Adder_Out				(1 bit)
 //			- ReadDataA							(32 bits)
 //			- ReadDataB							(32 bits)
@@ -24,8 +24,8 @@
 //			- Latch_IF_ID_InstrOut_20_16_Rt		(5 bits)
 //			- Latch_IF_ID_InstrOut_15_11_Rd		(5 bits)
 // Outputs:	- WriteBack_FLAGS					(2 bits) --> {RegWrite, MemtoReg}
-//			- Mem_FLAGS							(3 bits) --> {MemRead, MemWrite, Branch}
-//			- Ex_FLAGS							(4 bits) --> {RegDst, ALUSrc, ALUOp1, ALUOp0}
+//			- Mem_FLAGS							(4 bits) --> {MemRead, MemWrite, BranchEQ, BranchNE}
+//			- Ex_FLAGS							(8 bits) --> {JR, JALR, Jmp, JAL, RegDst, ALUSrc, ALUOp1, ALUOp0}
 //			- Latch_ID_Ex_Adder_Out				(32 bits)
 //			- Latch_ID_Ex_ReadDataA				(32 bits)
 //			- Latch_ID_Ex_ReadDataB				(32 bits)
@@ -42,35 +42,33 @@
 module Latch_ID_EX(	//Inputs 12
                     input Clk, Reset,
                     input [31:0] Latch_IF_ID_Adder_Out, 
-                    input [8:0] ControlFLAGS,
+                    input [13:0] ControlFLAGS,
                     input [31:0] ReadDataA, ReadDataB, SignExtendOut, 
                     input [4:0] Latch_IF_ID_InstrOut_25_21_Rs, Latch_IF_ID_InstrOut_20_16_Rt, Latch_IF_ID_InstrOut_15_11_Rd, 
                     input [2:0] E2_InmCtrl,
                     input enable,
                     //Outputs 11
                     output reg	[1:0] WriteBack_FLAGS, 
-                    output reg	[2:0] Mem_FLAGS, 
+                    output reg	[7:0] Mem_FLAGS, 
                     output reg	[3:0] Ex_FLAGS, 
                     output reg	[31:0] Latch_ID_Ex_Adder_Out, Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB, Latch_ID_Ex_SignExtendOut, 
                     output reg	[4:0] Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd,
                     output reg 	[2:0] Latch_ID_Ex_InmCtrl
 					);
 
-//localparam RegDst = 8;
-//localparam ALUSrc = 7;
-//localparam MemtoReg	= 6;
-//localparam RegWrite	= 5;
-//localparam MemRead = 4;
-//localparam MemWrite	= 3;
-//localparam Branch = 2;
-//localparam ALUOp1 = 1;
-//localparam ALUOp0 = 0;
-
-localparam RegWrite	= 8;
-localparam MemtoReg	= 7;
-localparam MemRead = 6;
-localparam MemWrite	= 5;
-localparam Branch = 4;
+//WB
+localparam RegWrite	= 13;
+localparam MemtoReg	= 12;
+//MEM
+localparam MemRead = 11;
+localparam MemWrite	= 10;
+localparam BranchEQ = 9;
+localparam BranchNE = 8;
+localparam JR = 7;
+localparam JALR = 6;
+localparam Jmp = 5;
+localparam JAL = 4;
+//EX
 localparam RegDst = 3;
 localparam ALUSrc = 2;
 localparam ALUOp1 = 1;
@@ -93,9 +91,20 @@ always@(negedge Clk) begin
 	else begin		//Sino, los valores de entrada se asignan a la salida	
 		if (enable)
 			begin
-				WriteBack_FLAGS <= {ControlFLAGS[RegWrite]	, ControlFLAGS[MemtoReg]}; 
-				Mem_FLAGS <= {ControlFLAGS[MemRead]	, ControlFLAGS[MemWrite], ControlFLAGS[Branch]};
-				Ex_FLAGS <= {ControlFLAGS[RegDst]	, ControlFLAGS[ALUSrc]	, ControlFLAGS[ALUOp1], ControlFLAGS[ALUOp0]};
+				WriteBack_FLAGS <= {    ControlFLAGS[RegWrite], // bit 12
+				                        ControlFLAGS[MemtoReg]}; // bit 11
+				Mem_FLAGS <={   ControlFLAGS[MemRead], // bit 11
+				                ControlFLAGS[MemWrite], // bit 10
+				                ControlFLAGS[BranchEQ], // bit 9
+				                ControlFLAGS[BranchNE]}; // bit 8
+				Ex_FLAGS <= {   ControlFLAGS[JR],// bit 7
+                                ControlFLAGS[JALR],// bit 6
+                                ControlFLAGS[Jmp], // bit 5
+                                ControlFLAGS[JAL], // bit 4
+				                ControlFLAGS[RegDst],// bit 3
+				                ControlFLAGS[ALUSrc],// bit 2
+				                ControlFLAGS[ALUOp1],// bit 1 
+				                ControlFLAGS[ALUOp0]};// bit 0
 				Latch_ID_Ex_Adder_Out <= Latch_IF_ID_Adder_Out;
 				Latch_ID_Ex_ReadDataA <= ReadDataA;
 				Latch_ID_Ex_ReadDataB <= ReadDataB;
