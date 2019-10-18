@@ -39,21 +39,23 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Latch_ID_EX(	//Inputs 12
+module Latch_ID_EX(	//Inputs 13
                     input Clk, Reset,
                     input [31:0] Latch_IF_ID_Adder_Out, 
                     input [13:0] ControlFLAGS,
-                    input [31:0] ReadDataA, ReadDataB, SignExtendOut, 
+                    input [31:0] ReadDataA, ReadDataB, SignExtendOut,  
                     input [4:0] Latch_IF_ID_InstrOut_25_21_Rs, Latch_IF_ID_InstrOut_20_16_Rt, Latch_IF_ID_InstrOut_15_11_Rd, 
+                    input [25:0] Latch_IF_ID_InstrOut_25_0_instr_index,
                     input [2:0] E2_InmCtrl,
                     input enable,
-                    //Outputs 11
+                    //Outputs 12
                     output reg	[1:0] WriteBack_FLAGS, 
                     output reg	[7:0] Mem_FLAGS, 
                     output reg	[3:0] Ex_FLAGS, 
                     output reg	[31:0] Latch_ID_Ex_Adder_Out, Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB, Latch_ID_Ex_SignExtendOut, 
                     output reg	[4:0] Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd,
-                    output reg 	[2:0] Latch_ID_Ex_InmCtrl
+                    output reg	[25:0] Latch_ID_Ex_InstrOut_25_0_instr_index,
+                    output reg 	[2:0] Latch_ID_Ex_InmCtrl                 
 					);
 
 //WB
@@ -86,6 +88,7 @@ always@(negedge Clk) begin
 		Latch_ID_Ex_InstrOut_25_21_Rs <= 0;
 		Latch_ID_Ex_InstrOut_20_16_Rt <= 0;
 		Latch_ID_Ex_InstrOut_15_11_Rd <= 0;
+		Latch_ID_Ex_InstrOut_25_0_instr_index <= 0;
 		Latch_ID_Ex_InmCtrl	<= 0;
 	end
 	else begin		//Sino, los valores de entrada se asignan a la salida	
@@ -112,6 +115,7 @@ always@(negedge Clk) begin
 				Latch_ID_Ex_InstrOut_25_21_Rs <= Latch_IF_ID_InstrOut_25_21_Rs;
 				Latch_ID_Ex_InstrOut_20_16_Rt <= Latch_IF_ID_InstrOut_20_16_Rt;
 				Latch_ID_Ex_InstrOut_15_11_Rd <= Latch_IF_ID_InstrOut_15_11_Rd;
+				Latch_ID_Ex_InstrOut_25_0_instr_index <= Latch_IF_ID_InstrOut_25_0_instr_index;
 				Latch_ID_Ex_InmCtrl	<= E2_InmCtrl;
 			end
 	    end

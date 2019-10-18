@@ -63,7 +63,8 @@ module pipeline(    //Inputs
                     output [31:0]    Latch_ID_Ex_Adder_Out,
                     output [31:0]    Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,
                     output [31:0]    Latch_ID_Ex_SignExtendOut,
-                    output [4:0]    Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd,   
+                    output [4:0]    Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd,  
+                    output [25:0]	Latch_ID_Ex_InstrOut_25_0_instr_index, 
                     output [2:0]    Latch_ID_Ex_InmCtrl,
                     //Etapa EX
                     output [31:0] E3_Adder_Out,
@@ -73,6 +74,7 @@ module pipeline(    //Inputs
                     output [31:0] MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB,
                     //Output del Latch "Ex/MEM"
                     output [3:0]     Latch_Ex_MEM_Mem_FLAGS_Out,
+                    output [31:0]    Latch_Ex_MEM_ReadDataA,
                     output [31:0]    Latch_Ex_MEM_ReadDataB,
                     output [31:0]    Latch_Ex_MEM_E3_Adder_Out,
                     output        Latch_Ex_MEM_Zero,
@@ -125,7 +127,8 @@ localparam MemRead 		= 2;
 //wire [31:0]	Latch_ID_Ex_Adder_Out;
 //wire [31:0]	Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB;
 //wire [31:0]	Latch_ID_Ex_SignExtendOut; 
-//wire [4:0]	Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd;	
+//wire [4:0]	Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd;
+//wire [25:0]	Latch_ID_Ex_InstrOut_25_0_instr_index;
 //wire [2:0]	Latch_ID_Ex_InmCtrl;
 //-----------------------------------------------------------------
 
@@ -137,6 +140,7 @@ localparam MemRead 		= 2;
 //wire [31:0] MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB;
 //Output del Latch "Ex/MEM"
 //wire [3:0] 	Latch_Ex_MEM_Mem_FLAGS_Out; {MemRead, MemWrite, BranchEQ, BranchNE}
+//wire [31:0]   Latch_Ex_MEM_ReadDataA;
 //wire [31:0]	Latch_Ex_MEM_ReadDataB;
 //wire [31:0]	Latch_Ex_MEM_E3_Adder_Out;
 //wire        Latch_Ex_MEM_Zero;
@@ -232,7 +236,8 @@ Latch_ID_EX ID_EX(  //Inputs 12
                     .SignExtendOut(SignExtendOut),
                     .Latch_IF_ID_InstrOut_25_21_Rs(Latch_IF_ID_InstrOut[25:21]), 
                     .Latch_IF_ID_InstrOut_20_16_Rt(Latch_IF_ID_InstrOut[20:16]), 
-                    .Latch_IF_ID_InstrOut_15_11_Rd(Latch_IF_ID_InstrOut[15:11]), 
+                    .Latch_IF_ID_InstrOut_15_11_Rd(Latch_IF_ID_InstrOut[15:11]),
+                    .Latch_IF_ID_InstrOut_25_0_instr_index(Latch_IF_ID_InstrOut[25:0]), 
                     .E2_InmCtrl(E2_InmCtrl),
                     .enable(Latch_enable),
                     //Outputs 11
@@ -240,12 +245,13 @@ Latch_ID_EX ID_EX(  //Inputs 12
                     .Mem_FLAGS(Latch_ID_Ex_Mem_FLAGS), // {MemRead, MemWrite, BranchEQ, BranchNE}
                     .Ex_FLAGS(Latch_ID_Ex_FLAGS), // {JR , JALR, Jmp, JAL, RegDst, ALUSrc, ALUOp1, ALUOp0}
                     .Latch_ID_Ex_Adder_Out(Latch_ID_Ex_Adder_Out), 
-                    .Latch_ID_Ex_ReadDataA(Latch_ID_Ex_ReadDataA), 
+                    .Latch_ID_Ex_ReadDataA(Latch_ID_Ex_ReadDataA), // para PC de JR y JALR
                     .Latch_ID_Ex_ReadDataB(Latch_ID_Ex_ReadDataB), 
                     .Latch_ID_Ex_SignExtendOut(Latch_ID_Ex_SignExtendOut),
                     .Latch_ID_Ex_InstrOut_25_21_Rs(Latch_ID_Ex_InstrOut_25_21_Rs),    //Rs
                     .Latch_ID_Ex_InstrOut_20_16_Rt(Latch_ID_Ex_InstrOut_20_16_Rt), //Rt
                     .Latch_ID_Ex_InstrOut_15_11_Rd(Latch_ID_Ex_InstrOut_15_11_Rd),    //Rd
+                    .Latch_ID_Ex_InstrOut_25_0_instr_index(Latch_ID_Ex_InstrOut_25_0_instr_index),
                     .Latch_ID_Ex_InmCtrl(Latch_ID_Ex_InmCtrl)
                     );  
                     
@@ -254,11 +260,12 @@ Latch_ID_EX ID_EX(  //Inputs 12
 Etapa3_EX E3_EX(    //Inputs 12
                     .Ex_FLAGS(Latch_ID_Ex_FLAGS), //{JR , JALR, Jmp, JAL, RegDst, ALUSrc, ALUOp1, ALUOp0}
                     .Latch_ID_Ex_Adder_Out(Latch_ID_Ex_Adder_Out),
-                    .Latch_ID_Ex_ReadDataA(Latch_ID_Ex_ReadDataA),
+                    .Latch_ID_Ex_ReadDataA(Latch_ID_Ex_ReadDataA), 
                     .Latch_ID_Ex_ReadDataB(Latch_ID_Ex_ReadDataB),
                     .Latch_ID_Ex_SignExtendOut(Latch_ID_Ex_SignExtendOut), 
                     .Latch_ID_Ex_InstrOut_20_16_Rt(Latch_ID_Ex_InstrOut_20_16_Rt),
                     .Latch_ID_Ex_InstrOut_15_11_Rd(Latch_ID_Ex_InstrOut_15_11_Rd),
+                    .Latch_ID_Ex_InstrOut_25_0_instr_index(Latch_ID_Ex_InstrOut_25_0_instr_index),
                     .Latch_ID_Ex_InmCtrl(Latch_ID_Ex_InmCtrl),
                     .Latch_Ex_MEM_ALUOut(Latch_Ex_MEM_E3_ALUOut),
                     .Mux_WB(Mux_WB),
@@ -273,7 +280,7 @@ Etapa3_EX E3_EX(    //Inputs 12
                 );
                     
 
-Latch_EX_MEM EX_MEM(    //Inputs 10
+Latch_EX_MEM EX_MEM(    //Inputs 11
                         .Clk(Clk), 
                         .Reset(Latch_Reset),
                         .WriteBack_FLAGS_In(Latch_ID_Ex_WriteBack_FLAGS), //{MemtoReg, RegWrite}
@@ -281,6 +288,7 @@ Latch_EX_MEM EX_MEM(    //Inputs 10
                         .E3_Adder_Out(E3_Adder_Out), 
                         .E3_ALU_Zero(E3_ALU_Zero), 
                         .E3_ALUOut(E3_ALUOut),
+                        .Latch_ID_Ex_ReadDataA(Latch_ID_Ex_ReadDataA),
                         .Latch_ID_Ex_ReadDataB(MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB),
                         .E3_MuxOut(E3_MuxOut),
                         .enable(Latch_enable),
@@ -290,6 +298,7 @@ Latch_EX_MEM EX_MEM(    //Inputs 10
                         .Latch_Ex_MEM_E3_Adder_Out(Latch_Ex_MEM_E3_Adder_Out),
                         .Latch_Ex_MEM_Zero(Latch_Ex_MEM_Zero),
                         .Latch_Ex_MEM_ALUOut(Latch_Ex_MEM_E3_ALUOut), //Addr a DataMem 
+                        .Latch_Ex_MEM_ReadDataA(Latch_Ex_MEM_ReadDataA), // para PC de JR y JALR
                         .Latch_Ex_MEM_ReadDataB(Latch_Ex_MEM_ReadDataB), //DataIn a DataMem
                         .Latch_Ex_MEM_Mux(Latch_Ex_MEM_Mux)
                      );
