@@ -69,8 +69,8 @@ module pipeline(    //Inputs
                     //Etapa EX
                     output [31:0] E3_Adder_Out,
                     output        E3_ALU_Zero,
-                    output [31:0] E3_ALUOut,
-                    output [4:0]  E3_MuxOut,
+                    output [31:0] E3_Mux_JAL_JALR_Out, //salida reeplazo de E3_ALUOut
+                    output [4:0]  E3_Mux_JAL_Out, //salida reeplazo de E3_MuxOut
                     output [31:0] MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB,
                     //Output del Latch "Ex/MEM"
                     output [3:0]     Latch_Ex_MEM_Mem_FLAGS_Out,
@@ -273,9 +273,9 @@ Etapa3_EX E3_EX(    //Inputs 12
                     .ForwardB(ForwardB),
                     //Outputs 5
                     .E3_Adder_Out(E3_Adder_Out), 
-                    .E3_ALUOut(E3_ALUOut), 
+                    .E3_Mux_JAL_JALR_Out(E3_Mux_JAL_JALR_Out),  //salida reeplazo de E3_ALUOut
                     .E3_ALU_Zero(E3_ALU_Zero),    
-                    .E3_MuxOut(E3_MuxOut), 
+                    .E3_Mux_JAL_Out(E3_Mux_JAL_Out), //salida reeplazo de E3_MuxOut
                     .MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB(MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB)
                 );
                     
@@ -287,10 +287,10 @@ Latch_EX_MEM EX_MEM(    //Inputs 11
                         .Mem_FLAGS_In(Latch_ID_Ex_Mem_FLAGS), // {MemRead, MemWrite, BranchEQ, BranchNE}
                         .E3_Adder_Out(E3_Adder_Out), 
                         .E3_ALU_Zero(E3_ALU_Zero), 
-                        .E3_ALUOut(E3_ALUOut),
+                        .E3_Mux_JAL_JALR_Out(E3_Mux_JAL_JALR_Out), //salida reeplazo de E3_ALUOut
                         .Latch_ID_Ex_ReadDataA(Latch_ID_Ex_ReadDataA),
                         .Latch_ID_Ex_ReadDataB(MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB),
-                        .E3_MuxOut(E3_MuxOut),
+                        .E3_Mux_JAL_Out(E3_Mux_JAL_Out), //salida reeplazo de E3_MuxOut
                         .enable(Latch_enable),
                         //Outputs 7
                         .WriteBack_FLAGS_Out(Latch_Ex_MEM_WriteBack_FLAGS_Out), //{MemtoReg, RegWrite}

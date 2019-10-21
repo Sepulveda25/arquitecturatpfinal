@@ -25,13 +25,14 @@ module Etapa3_EX(   //Inputs 12
                     input [31:0] 	Latch_ID_Ex_Adder_Out, Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,
                     input [31:0] 	Latch_ID_Ex_SignExtendOut, 
                     input [4:0]		Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd,
+                    input [25:0]    Latch_ID_Ex_InstrOut_25_0_instr_index,
                     input [2:0]		Latch_ID_Ex_InmCtrl,
                     input [31:0]	Latch_Ex_MEM_ALUOut,	//Wire externo!! (del Latch "EX/MEM")
                     input [31:0]	Mux_WB,					//Wire externo!! (del Mux WB de la Etapa 5 "WB")
                     input [1:0]		ForwardA,				//Wire externo!! (de la Unidad de Cortocircuito)
                     input [1:0]		ForwardB,				//Wire externo!! (de la Unidad de Cortocircuito)
                     //Outputs 5
-                    output [31:0] 	E3_Adder_Out, //E3_ALUOut, 
+                    output [31:0] 	E3_Adder_Out, 
                     output [31:0]   E3_Mux_JAL_JALR_Out, //salida reeplazo de E3_ALUOut
                     output 			E3_ALU_Zero,
                     output [4:0] 	E3_Mux_JAL_Out, //salida reeplazo de E3_MuxOut
