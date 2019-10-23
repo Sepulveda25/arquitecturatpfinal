@@ -50,8 +50,8 @@ module Latch_ID_EX(	//Inputs 13
                     input enable,
                     //Outputs 12
                     output reg	[1:0] WriteBack_FLAGS, 
-                    output reg	[7:0] Mem_FLAGS, 
-                    output reg	[3:0] Ex_FLAGS, 
+                    output reg	[3:0] Mem_FLAGS, 
+                    output reg	[7:0] Ex_FLAGS, 
                     output reg	[31:0] Latch_ID_Ex_Adder_Out, Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB, Latch_ID_Ex_SignExtendOut, 
                     output reg	[4:0] Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd,
                     output reg	[25:0] Latch_ID_Ex_InstrOut_25_0_instr_index,

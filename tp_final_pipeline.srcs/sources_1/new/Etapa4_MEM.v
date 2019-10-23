@@ -22,8 +22,8 @@
 
 module Etapa4_MEM(  //Inputs
                     input Clk, Reset, Latch_Ex_MEM_Zero,
-                    input [2:0]		Mem_FLAGS,
-                    input [31:0]	Latch_Ex_MEM_ALUOut,    //Addr a Mux, luego a DataMem
+                    input [3:0]		Mem_FLAGS,
+                    input [31:0]	Latch_Ex_MEM_Mux_JAL_JALR_Out, //ex Latch_Ex_MEM_ALUOut    //Addr a Mux, luego a DataMem
                     input [31:0]	dirMem, 			    //Addr a Mux, luego a DataMem
                     input 			memDebug,				//Selector de los 3 Mux
                     input [31:0] 	Latch_Ex_MEM_ReadDataB,	 //DataIn a DataMem
