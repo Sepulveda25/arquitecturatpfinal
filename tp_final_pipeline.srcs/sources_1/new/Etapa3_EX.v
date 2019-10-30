@@ -152,7 +152,7 @@ MUX #(.LEN(32)) Mux_JAL_JALR(  //Inputs
                          );
 
 // Si es una instruccion JAL se elije para grabrar la direccion de retorno en el registro R31 
-MUX #(.LEN(32)) Mux_JAL(  //Inputs
+MUX #(.LEN(5)) Mux_JAL(  //Inputs
                             .InputA(E3_MuxOut),//0
                             .InputB(reg_link),//1 
                             .SEL(Ex_FLAGS[JAL]),

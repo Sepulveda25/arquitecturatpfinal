@@ -51,7 +51,7 @@ reg enableMem = 1;
 assign PCScr = Latch_Ex_MEM_Zero & Mem_FLAGS[Branch];
 
 //Multiplexor Address desde ALU o desde Debug
-MUX #(.LEN(32)) Mux_Address(.InputA(Latch_Ex_MEM_ALUOut), 
+MUX #(.LEN(32)) Mux_Address(.InputA(Latch_Ex_MEM_Mux_JAL_JALR_Out), 
                             .InputB(dirMem), 
                             .SEL(memDebug), 
                             .Out(Mux_Add_To_Mem));

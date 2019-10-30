@@ -36,7 +36,7 @@ module test_ALU_Control;
     // Instantiate the Unit Under Test (UUT)
     ALU_Control uut (
         .Clk(Clk), 
-        .Reset(Reset),
+       // .Reset(Reset),
         .Ex_FLAGS_ALUOp(Ex_FLAGS_ALUOp),
         .Func(Func),
         .ShiftIn(ShiftIn),
