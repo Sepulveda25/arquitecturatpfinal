@@ -86,8 +86,8 @@ module pipeline(    //Inputs
                     output        PCScr,
                     //Outputs del Latch MEM/WB
                     output [31:0]    Latch_MEM_WB_DataOut,
-                    output [31:0]    Latch_MEM_WB_ALUOut,
-                    output [4:0]    Latch_MEM_WB_Mux,
+                    output [31:0]    Latch_MEM_WB_Mux_JAL_JALR_Out, //ex Latch_MEM_WB_ALUOut,
+                    output [4:0]     Latch_MEM_WB_Mux_JAL_Out, //ex Latch_MEM_WB_Mux,
                     output [1:0]    Latch_MEM_WB_WriteBack_FLAGS_Out,
                     //Etapa WB
                     output [31:0] Mux_WB,
@@ -154,8 +154,8 @@ localparam MemRead 		= 2;
 //wire 			PCScr;
 //Outputs del Latch MEM/WB
 //wire [31:0]	Latch_MEM_WB_DataOut;
-//wire [31:0]	Latch_MEM_WB_ALUOut;
-//wire [4:0]	Latch_MEM_WB_Mux;
+//wire [31:0]	Latch_MEM_WB_Mux_JAL_JALR_Out; //ex Latch_MEM_WB_ALUOut;
+//wire [4:0]	Latch_MEM_WB_Mux_JAL_Out; //ex Latch_MEM_WB_Mux;
 //wire [1:0]	Latch_MEM_WB_WriteBack_FLAGS_Out; {MemtoReg, RegWrite}
 //-----------------------------------------------------------------
 
@@ -215,7 +215,7 @@ Etapa2_ID E2_ID(    //Inputs 9
                     .Latch_IF_ID_InstrOut(Latch_IF_ID_InstrOut),
                     .posReg(Etapa_ID_posReg), 
                     .posSel(Etapa_ID_posSel),
-                    .Latch_MEM_WB_Mux(Latch_MEM_WB_Mux), 
+                    .Latch_MEM_WB_Mux_JAL_Out(Latch_MEM_WB_Mux_JAL_Out),//.Latch_MEM_WB_Mux(Latch_MEM_WB_Mux), 
                     .Mux_WB(Mux_WB), 
                     .Latch_MEM_WB_RegWrite(Latch_MEM_WB_WriteBack_FLAGS_Out[RegWrite]),
                     //Outputs 5
@@ -324,20 +324,20 @@ Etapa4_MEM E4_MEM(   //Inputs
                          .Reset(Latch_Reset),
                          .WriteBack_FLAGS_In(Latch_Ex_MEM_WriteBack_FLAGS_Out), 
                          .E4_DataOut(E4_DataOut_to_Latch_MEM_WB),
-                         .Latch_Ex_MEM_ALUOut(Latch_Ex_MEM_E3_ALUOut),
-                         .Latch_Ex_MEM_Mux(Latch_Ex_MEM_Mux),
+                         .Latch_Ex_MEM_Mux_JAL_JALR_Out(Latch_Ex_MEM_Mux_JAL_JALR_Out),// ex .Latch_Ex_MEM_ALUOut(Latch_Ex_MEM_E3_ALUOut),
+                         .Latch_Ex_MEM_Mux_JAL_Out(Latch_Ex_MEM_Mux_JAL_Out),//ex .Latch_Ex_MEM_Mux(Latch_Ex_MEM_Mux),
                          .enable(Latch_enable),
                          //Outputs
                          .Latch_MEM_WB_DataOut(Latch_MEM_WB_DataOut),
-                         .Latch_MEM_WB_ALUOut(Latch_MEM_WB_ALUOut),
-                         .Latch_MEM_WB_Mux(Latch_MEM_WB_Mux),
+                         .Latch_MEM_WB_Mux_JAL_JALR_Out(Latch_MEM_WB_Mux_JAL_JALR_Out),//ex.Latch_MEM_WB_ALUOut(Latch_MEM_WB_ALUOut),
+                         .Latch_MEM_WB_Mux_JAL_Out(Latch_MEM_WB_Mux_JAL_Out),//ex .Latch_MEM_WB_Mux(Latch_MEM_WB_Mux),
                          .WriteBack_FLAGS_Out(Latch_MEM_WB_WriteBack_FLAGS_Out)
                       );                    
 
 //--------------------------------    Etapa 5 "WB"    ----------------------------------------------------------------
 
 MUX #(.LEN(32)) E5_WB(	//Inputs
-                        .InputA(Latch_MEM_WB_ALUOut), //0
+                        .InputA(Latch_MEM_WB_Mux_JAL_JALR_Out), //0
                         .InputB(Latch_MEM_WB_DataOut),//1 
                         .SEL(Latch_MEM_WB_WriteBack_FLAGS_Out[MemtoReg]), 
                         //Output
@@ -349,8 +349,8 @@ MUX #(.LEN(32)) E5_WB(	//Inputs
 unidad_de_cortocircuito UnidadCorto(//Inputs
                                     .Latch_ID_EX_RS(Latch_ID_Ex_InstrOut_25_21_Rs),
                                     .Latch_ID_EX_RT(Latch_ID_Ex_InstrOut_20_16_Rt),
-                                    .Latch_EX_MEM_MUX(Latch_Ex_MEM_Mux),
-                                    .Latch_MEM_WB_MUX(Latch_MEM_WB_Mux),
+                                    .Latch_Ex_MEM_Mux_JAL_Out(Latch_Ex_MEM_Mux_JAL_Out),//ex .Latch_EX_MEM_MUX(Latch_Ex_MEM_Mux),
+                                    .Latch_MEM_WB_Mux_JAL_Out(Latch_MEM_WB_Mux_JAL_Out),//ex .Latch_MEM_WB_MUX(Latch_MEM_WB_Mux),
                                     .Latch_Ex_MEM_WriteBack_FLAGS_Out(Latch_Ex_MEM_WriteBack_FLAGS_Out[RegWrite]),
                                     .Latch_MEM_WB_WriteBack_FLAGS_Out(Latch_MEM_WB_WriteBack_FLAGS_Out[RegWrite]),
                                     //Outputs

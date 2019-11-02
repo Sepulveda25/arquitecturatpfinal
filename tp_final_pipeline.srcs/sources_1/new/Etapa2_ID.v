@@ -25,7 +25,7 @@ module Etapa2_ID(   //Inputs 9
                     input [31:0]    Latch_IF_ID_InstrOut,
                     input [4:0]	    posReg, // address para leer registros en modo debug
                     input			posSel, // selecion de address para Register
-                    input [4:0] 	Latch_MEM_WB_Mux,
+                    input [4:0] 	Latch_MEM_WB_Mux_JAL_Out,//ex Latch_MEM_WB_Mux,
                     input [31:0] 	Mux_WB, 
                     input 			Latch_MEM_WB_RegWrite, 
                     //Outputs 5
@@ -57,7 +57,7 @@ Registers Regs(	//Inputs
                 .Reset(Reset),
                 .ReadRegisterA(Mux_To_Reg), 
                 .ReadRegisterB(Latch_IF_ID_InstrOut[20:16]), 
-                .WriteRegister(Latch_MEM_WB_Mux), 
+                .WriteRegister(Latch_MEM_WB_Mux_JAL_Out), 
                 .WriteData(Mux_WB), 
                 .RegWrite(Latch_MEM_WB_RegWrite),
                 //Outputs

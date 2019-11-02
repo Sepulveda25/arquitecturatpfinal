@@ -36,8 +36,8 @@
 module unidad_de_cortocircuito(	//Inputs
                                 input [4:0] Latch_ID_EX_RS,
                                 input [4:0] Latch_ID_EX_RT,
-                                input [4:0] Latch_EX_MEM_MUX,
-                                input [4:0] Latch_MEM_WB_MUX,
+                                input [4:0] Latch_Ex_MEM_Mux_JAL_Out, //Latch_EX_MEM_MUX,
+                                input [4:0] Latch_MEM_WB_Mux_JAL_Out, //Latch_MEM_WB_MUX,
                                 input Latch_Ex_MEM_WriteBack_FLAGS_Out,
                                 input Latch_MEM_WB_WriteBack_FLAGS_Out,
                                 //Outputs
@@ -46,12 +46,12 @@ module unidad_de_cortocircuito(	//Inputs
                                  );
 
 always@* begin
-	if(Latch_Ex_MEM_WriteBack_FLAGS_Out && (Latch_EX_MEM_MUX != 0) && (Latch_EX_MEM_MUX == Latch_ID_EX_RS)) ForwardA = 2'b 10;
-	else if(Latch_MEM_WB_WriteBack_FLAGS_Out && (Latch_MEM_WB_MUX != 0) && (Latch_MEM_WB_MUX == Latch_ID_EX_RS) && (Latch_EX_MEM_MUX != Latch_ID_EX_RS)) ForwardA = 2'b 01;
+	if(Latch_Ex_MEM_WriteBack_FLAGS_Out && (Latch_Ex_MEM_Mux_JAL_Out != 0) && (Latch_Ex_MEM_Mux_JAL_Out == Latch_ID_EX_RS)) ForwardA = 2'b 10;
+	else if(Latch_MEM_WB_WriteBack_FLAGS_Out && (Latch_MEM_WB_Mux_JAL_Out != 0) && (Latch_MEM_WB_Mux_JAL_Out == Latch_ID_EX_RS) && (Latch_Ex_MEM_Mux_JAL_Out != Latch_ID_EX_RS)) ForwardA = 2'b 01;
 	else ForwardA = 2'b 00;
 
-	if(Latch_Ex_MEM_WriteBack_FLAGS_Out && (Latch_EX_MEM_MUX != 0) && (Latch_EX_MEM_MUX == Latch_ID_EX_RT)) ForwardB = 2'b 10;
-	else if(Latch_MEM_WB_WriteBack_FLAGS_Out && (Latch_MEM_WB_MUX != 0) && (Latch_MEM_WB_MUX == Latch_ID_EX_RT) && (Latch_EX_MEM_MUX != Latch_ID_EX_RT)) ForwardB = 2'b 01;
+	if(Latch_Ex_MEM_WriteBack_FLAGS_Out && (Latch_Ex_MEM_Mux_JAL_Out != 0) && (Latch_Ex_MEM_Mux_JAL_Out == Latch_ID_EX_RT)) ForwardB = 2'b 10;
+	else if(Latch_MEM_WB_WriteBack_FLAGS_Out && (Latch_MEM_WB_Mux_JAL_Out != 0) && (Latch_MEM_WB_Mux_JAL_Out == Latch_ID_EX_RT) && (Latch_Ex_MEM_Mux_JAL_Out != Latch_ID_EX_RT)) ForwardB = 2'b 01;
 	else ForwardB = 2'b 00;
 end
 
