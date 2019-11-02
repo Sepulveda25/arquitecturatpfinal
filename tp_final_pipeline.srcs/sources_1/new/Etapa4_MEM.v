@@ -29,12 +29,13 @@ module Etapa4_MEM(  //Inputs
                     input [31:0] 	Latch_Ex_MEM_ReadDataB,	 //DataIn a DataMem
                     //Outputs
                     output [31:0]   E4_DataOut,
-                    output PCScr		
+                    output Branch //ex PCScr		
                 );
 //Variables
-localparam Branch = 0;
-localparam MemWrite = 1;
-localparam MemRead = 2;
+localparam BranchNE = 0;
+localparam BranchEQ = 1;
+localparam MemWrite = 2;
+localparam MemRead = 3;
 
 //Cables de Interconexion
 wire [31:0] Mux_Add_To_Mem;
@@ -48,7 +49,8 @@ reg enableMem = 1;
 
 
 //BRANCH And
-assign PCScr = Latch_Ex_MEM_Zero & Mem_FLAGS[Branch];
+//assign PCScr = Latch_Ex_MEM_Zero & Mem_FLAGS[Branch];
+assign Branch= !(Latch_Ex_MEM_Zero)& Mem_FLAGS[BranchNE]|Latch_Ex_MEM_Zero & Mem_FLAGS[BranchEQ];
 
 //Multiplexor Address desde ALU o desde Debug
 MUX #(.LEN(32)) Mux_Address(.InputA(Latch_Ex_MEM_Mux_JAL_JALR_Out), 
