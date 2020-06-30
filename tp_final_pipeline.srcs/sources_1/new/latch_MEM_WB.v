@@ -29,8 +29,8 @@ module Latch_MEM_WB(	//Inputs
                         input			enable,
                         //Outputs
                         output reg	[31:0]  Latch_MEM_WB_DataOut,
-                        output reg	[31:0]	Latch_MEM_WB_Mux_JAL_JALR_Out, //ex Latch_MEM_WB_ALUOut, 
-                        output reg	[4:0]	Latch_MEM_WB_Mux_JAL_Out, //ex Latch_MEM_WB_Mux,
+                        output reg	[31:0]	Latch_MEM_WB_ALUOut,  
+                        output reg	[4:0]	Latch_MEM_WB_Mux, 
                         output reg	[1:0]	WriteBack_FLAGS_Out	// {MemtoReg, RegWrite}
                      );
 
@@ -38,14 +38,14 @@ always@(negedge Clk) begin
 	if(Reset) begin
 		WriteBack_FLAGS_Out 	         <= 0;
 		Latch_MEM_WB_DataOut	         <= 0;
-		Latch_MEM_WB_Mux_JAL_JALR_Out	 <= 0;
-		Latch_MEM_WB_Mux_JAL_Out		 <= 0;
+		Latch_MEM_WB_ALUOut	             <= 0;
+		Latch_MEM_WB_Mux		         <= 0;
 	end
 	else if (enable) begin
 		WriteBack_FLAGS_Out 	         <= WriteBack_FLAGS_In;
 		Latch_MEM_WB_DataOut	         <= E4_DataOut;
-		Latch_MEM_WB_Mux_JAL_JALR_Out	 <= Latch_Ex_MEM_ALUOut;
-		Latch_MEM_WB_Mux_JAL_Out		 <= Latch_Ex_MEM_Mux;
+		Latch_MEM_WB_ALUOut	             <= Latch_Ex_MEM_ALUOut;
+		Latch_MEM_WB_Mux		         <= Latch_Ex_MEM_Mux;
 	end
 end
 

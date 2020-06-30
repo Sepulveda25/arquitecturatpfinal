@@ -100,6 +100,23 @@ always@* begin
                                             ALUOp0       <=  0; 
                                             InmCtrl      <=  0;
                                     end
+                        6'b001101: begin //BREAK
+                                            RegWrite     <=  0;
+                                            MemtoReg     <=  0;
+                                            MemRead      <=  0;
+                                            MemWrite     <=  0;
+                                            BranchEQ     <=  0;
+                                            BranchNE     <=  0;
+                                            JR           <=  0;
+                                            JALR         <=  0;
+                                            Jmp          <=  0;
+                                            JAL          <=  0;
+                                            RegDst       <=  0;
+                                            ALUSrc       <=  0;
+                                            ALUOp1       <=  0;
+                                            ALUOp0       <=  0; 
+                                            InmCtrl      <=  0;
+                                    end
                         default:    begin
                                             RegWrite    <=  1;
                                             MemtoReg    <=  0;
@@ -222,7 +239,7 @@ always@* begin
                             JALR        <=  0;
                             Jmp         <=  0;
                             JAL         <=  1;
-                            RegDst      <=  0; 
+                            RegDst      <=  1; 
                             ALUSrc      <=  0;                            
                             ALUOp1      <=  0;
                             ALUOp0      <=  0; 

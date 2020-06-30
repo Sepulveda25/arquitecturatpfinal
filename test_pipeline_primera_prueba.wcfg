@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="148200001fs"></ZoomEndTime>
-      <Cursor1Time time="105600000fs"></Cursor1Time>
+      <ZoomEndTime time="149000001fs"></ZoomEndTime>
+      <Cursor1Time time="126780000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="221"></NameColumnWidth>
-      <ValueColumnWidth column_width="80"></ValueColumnWidth>
+      <ValueColumnWidth column_width="76"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="61" />
+   <WVObjectSize size="60" />
    <wvobject fp_name="/test_pipeline/Clk" type="logic">
       <obj_property name="ElementShortName">Clk</obj_property>
       <obj_property name="ObjectShortName">Clk</obj_property>
@@ -238,10 +238,6 @@
    <wvobject fp_name="/test_pipeline/E4_DataOut_to_Latch_MEM_WB" type="array">
       <obj_property name="ElementShortName">E4_DataOut_to_Latch_MEM_WB[31:0]</obj_property>
       <obj_property name="ObjectShortName">E4_DataOut_to_Latch_MEM_WB[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_pipeline/PCScr" type="logic">
-      <obj_property name="ElementShortName">PCScr</obj_property>
-      <obj_property name="ObjectShortName">PCScr</obj_property>
    </wvobject>
    <wvobject fp_name="/test_pipeline/Latch_MEM_WB_DataOut" type="array">
       <obj_property name="ElementShortName">Latch_MEM_WB_DataOut[31:0]</obj_property>

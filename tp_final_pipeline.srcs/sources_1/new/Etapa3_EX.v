@@ -36,10 +36,10 @@ module Etapa3_EX(   //Inputs 12
                     output [31:0]   E3_ALUOut,
                     output 			E3_ALU_Zero,
                     output [4:0] 	E3_MuxOut,
-                    output [31:0] 	MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB,
-                    output [31:0]   E3_pc_jmp_jal, //nuevo
-                    output 			E3_JR_or_JALR_flag,//nuevo
-                    output          E3_J_or_JAL_flag //nuevo
+                    output [31:0] 	MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB
+//                    output [31:0]   E3_pc_jmp_jal, //nuevo
+//                    output 			E3_JR_or_JALR_flag,//nuevo
+//                    output          E3_J_or_JAL_flag //nuevo
                 );
                 
 //Variables

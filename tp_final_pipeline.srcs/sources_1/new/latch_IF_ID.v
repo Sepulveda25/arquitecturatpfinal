@@ -45,7 +45,7 @@ always@(negedge Clk) begin
 		if(!Stall && enable) begin
 			Latch_IF_ID_Adder_Out = Adder_Out; 
 			Latch_IF_ID_InstrOut = Instruction_In;
-		end
+		end // Si Stall es 1 los valores no cambian
 	end
 end
 

@@ -33,6 +33,7 @@ module test_pipeline;
     reg Latch_enable;
     //Etapa IF
     reg Etapa_IF_Reset;
+    reg Etapa_IF_PCScr;
     reg Etapa_IF_enable_pc;
     reg Etapa_IF_enable_sel;
     reg [31:0] Etapa_IF_Instr_in;
@@ -88,7 +89,6 @@ module test_pipeline;
     wire [31:0]    Latch_Ex_MEM_E3_ALUOut;
     //Etapa MEM
     wire [31:0] E4_DataOut_to_Latch_MEM_WB;
-    wire        PCScr;
     //Outputs del Latch MEM/WB
     wire [31:0]	Latch_MEM_WB_DataOut;
     wire [31:0] Latch_MEM_WB_ALUOut;
@@ -109,6 +109,7 @@ module test_pipeline;
         .Latch_enable(Latch_enable),
         //Etapa IF
         .Etapa_IF_Reset(Etapa_IF_Reset),
+        .Etapa_IF_PCScr(Etapa_IF_PCScr),
         .Etapa_IF_enable_pc(Etapa_IF_enable_pc),
         .Etapa_IF_enable_sel(Etapa_IF_enable_sel),
         .Etapa_IF_Instr_in(Etapa_IF_Instr_in),
@@ -167,7 +168,6 @@ module test_pipeline;
         .Latch_Ex_MEM_E3_ALUOut(Latch_Ex_MEM_E3_ALUOut),
         //Etapa MEM
         .E4_DataOut_to_Latch_MEM_WB(E4_DataOut_to_Latch_MEM_WB),
-        .PCScr(PCScr),
         //Outputs del Latch MEM/WB
         .Latch_MEM_WB_DataOut(Latch_MEM_WB_DataOut),
         .Latch_MEM_WB_ALUOut(Latch_MEM_WB_ALUOut),
@@ -190,6 +190,7 @@ module test_pipeline;
         Latch_enable = 0; // se deshabilita los latch
         //Etapa IF
         Etapa_IF_Reset = 0; // no se reinicia la memoria de programa!! (programa ya cargado en coefile)
+        Etapa_IF_PCScr = 0; //POR AHORA NO HAY SALTOS
         Etapa_IF_enable_pc = 0; //program counter deshabilitado
         Etapa_IF_enable_sel = 0; //no esta en modo debug
         Etapa_IF_Instr_in = 32'h00000000; // puede ser x porque no se ingresan instrucciones
@@ -206,6 +207,7 @@ module test_pipeline;
         Etapa_MEM_Reset = 1; // se reinician los registros
         dirMem = 32'h00000000; // puede ser x porque no se van a leer los registros      
         memDebug = 0; //no esta en modo debug
+     
         #20;// arranca la ejecucion
         Latch_Reset = 0; //  no se reinicia todos los latch
         Latch_enable = 1; // se habilita los latch

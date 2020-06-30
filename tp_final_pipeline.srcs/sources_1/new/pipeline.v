@@ -26,6 +26,7 @@ module pipeline(    //Inputs
                     input Latch_enable,
                     //Etapa IF
                     input Etapa_IF_Reset,
+                    input Etapa_IF_PCScr,
                     input Etapa_IF_enable_pc,
                     input Etapa_IF_enable_sel,
                     input [31:0] Etapa_IF_Instr_in,
@@ -72,9 +73,9 @@ module pipeline(    //Inputs
                     output [31:0]   E3_ALUOut, 
                     output [4:0]    E3_MuxOut,
                     output [31:0]   MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB,
-                    output [31:0]   E3_pc_jmp_jal, //nuevo
-                    output          E3_JR_or_JALR_flag,//nuevo
-                    output          E3_J_or_JAL_flag, //nuevo
+//                    output [31:0]   E3_pc_jmp_jal, //nuevo
+//                    output          E3_JR_or_JALR_flag,//nuevo
+//                    output          E3_J_or_JAL_flag, //nuevo
                     //Output del Latch "Ex/MEM"
                     output [3:0]     Latch_Ex_MEM_Mem_FLAGS_Out,
                     output [31:0]    Latch_Ex_MEM_ReadDataA,
@@ -84,16 +85,13 @@ module pipeline(    //Inputs
                     output [1:0]    Latch_Ex_MEM_WriteBack_FLAGS_Out,
                     output [4:0]    Latch_Ex_MEM_Mux,
                     output [31:0]   Latch_Ex_MEM_E3_ALUOut, 
-                    output [31:0]   Latch_Ex_MEM_pc_jmp_jal, //nuevo
-                    output          Latch_Ex_MEM_JR_or_JALR_flag,//nuevo
-                    output          Latch_Ex_MEM_J_or_JAL_flag, //nuevo
                     //Etapa MEM
                     output [31:0] E4_DataOut_to_Latch_MEM_WB,
-                    output        Branch, //ex PCScr,
+//                    output        Branch, //ex PCScr,
                     //Outputs del Latch MEM/WB
                     output [31:0]    Latch_MEM_WB_DataOut,
-                    output [31:0]    Latch_MEM_WB_Mux_JAL_JALR_Out, //ex Latch_MEM_WB_ALUOut,
-                    output [4:0]     Latch_MEM_WB_Mux_JAL_Out, //ex Latch_MEM_WB_Mux,
+                    output [31:0]    Latch_MEM_WB_ALUOut,
+                    output [4:0]     Latch_MEM_WB_Mux,
                     output [1:0]    Latch_MEM_WB_WriteBack_FLAGS_Out,
                     //Etapa WB
                     output [31:0] Mux_WB,
@@ -161,11 +159,10 @@ localparam MemRead 		= 2;
  
 //Outputs de Etapa 4, y que entran en los inputs del Latch "MEM/WB"
 //wire [31:0]	E4_DataOut_to_Latch_MEM_WB;
-//wire 			Branch //ex PCScr;
 //Outputs del Latch MEM/WB
 //wire [31:0]	Latch_MEM_WB_DataOut;
-//wire [31:0]	Latch_MEM_WB_Mux_JAL_JALR_Out; //ex Latch_MEM_WB_ALUOut;
-//wire [4:0]	Latch_MEM_WB_Mux_JAL_Out; //ex Latch_MEM_WB_Mux;
+//wire [31:0]	Latch_MEM_WB_ALUOut;
+//wire [4:0]	Latch_MEM_WB_Mux;
 //wire [1:0]	Latch_MEM_WB_WriteBack_FLAGS_Out; {MemtoReg, RegWrite}
 //-----------------------------------------------------------------
 
@@ -190,7 +187,7 @@ Etapa1_IF E1_IF(	//Inputs 13
                     .Clk(Clk), 
                     .Reset(Etapa_IF_Reset), 
                     .InputB_MUX(Latch_Ex_MEM_E3_Adder_Out), 
-                    .PCScr(PCScr), //SON 2 BITS AHORA
+                    .PCScr(Etapa_IF_PCScr), 
                     .Stall(Stall),
                     .enable_pc(Etapa_IF_enable_pc),
                     .enable_sel(Etapa_IF_enable_sel),
@@ -225,7 +222,7 @@ Etapa2_ID E2_ID(    //Inputs 9
                     .Latch_IF_ID_InstrOut(Latch_IF_ID_InstrOut),
                     .posReg(Etapa_ID_posReg), 
                     .posSel(Etapa_ID_posSel),
-                    .Latch_MEM_WB_Mux_JAL_Out(Latch_MEM_WB_Mux_JAL_Out),//.Latch_MEM_WB_Mux(Latch_MEM_WB_Mux), 
+                    .Latch_MEM_WB_Mux(Latch_MEM_WB_Mux), 
                     .Mux_WB(Mux_WB), 
                     .Latch_MEM_WB_RegWrite(Latch_MEM_WB_WriteBack_FLAGS_Out[RegWrite]),
                     //Outputs 5
@@ -255,7 +252,7 @@ Latch_ID_EX ID_EX(  //Inputs 12
                     .Mem_FLAGS(Latch_ID_Ex_Mem_FLAGS), // {MemRead, MemWrite, BranchEQ, BranchNE}
                     .Ex_FLAGS(Latch_ID_Ex_FLAGS), // {JR , JALR, Jmp, JAL, RegDst, ALUSrc, ALUOp1, ALUOp0}
                     .Latch_ID_Ex_Adder_Out(Latch_ID_Ex_Adder_Out), 
-                    .Latch_ID_Ex_ReadDataA(Latch_ID_Ex_ReadDataA), // para PC de JR y JALR
+                    .Latch_ID_Ex_ReadDataA(Latch_ID_Ex_ReadDataA), 
                     .Latch_ID_Ex_ReadDataB(Latch_ID_Ex_ReadDataB), 
                     .Latch_ID_Ex_SignExtendOut(Latch_ID_Ex_SignExtendOut),
                     .Latch_ID_Ex_InstrOut_25_21_Rs(Latch_ID_Ex_InstrOut_25_21_Rs),    //Rs
@@ -285,15 +282,12 @@ Etapa3_EX E3_EX(    //Inputs 12
                     .E3_Adder_Out(E3_Adder_Out), 
                     .E3_ALUOut(E3_ALUOut),
                     .E3_ALU_Zero(E3_ALU_Zero),    
-                    .E3_MuxOut(E3_MuxOut), //salida reeplazo de E3_MuxOut
-                    .MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB(MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB),
-                    .E3_pc_jmp_jal(E3_pc_jmp_jal), //nuevo
-                    .E3_JR_or_JALR_flag(E3_JR_or_JALR_flag),//nuevo
-                    .E3_J_or_JAL_flag(E3_J_or_JAL_flag) //nuevo
+                    .E3_MuxOut(E3_MuxOut), //salida de E3_MuxOut
+                    .MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB(MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB)
                 );
                     
 
-Latch_EX_MEM EX_MEM(    //Inputs 14
+Latch_EX_MEM EX_MEM(    //Inputs 10
                         .Clk(Clk), 
                         .Reset(Latch_Reset),
                         .WriteBack_FLAGS_In(Latch_ID_Ex_WriteBack_FLAGS), //{MemtoReg, RegWrite}
@@ -301,25 +295,17 @@ Latch_EX_MEM EX_MEM(    //Inputs 14
                         .E3_Adder_Out(E3_Adder_Out), 
                         .E3_ALU_Zero(E3_ALU_Zero), 
                         .E3_ALUOut(E3_ALUOut),
-                        .Latch_ID_Ex_ReadDataA(Latch_ID_Ex_ReadDataA),
                         .Latch_ID_Ex_ReadDataB(MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB),
-                        .E3_MuxOut(E3_MuxOut), //salida reeplazo de E3_MuxOut
-                        .E3_pc_jmp_jal(E3_pc_jmp_jal), //nuevo
-                        .E3_JR_or_JALR_flag(E3_JR_or_JALR_flag),//nuevo
-                        .E3_J_or_JAL_flag(E3_J_or_JAL_flag), //nuevo
+                        .E3_MuxOut(E3_MuxOut), //salida de E3_MuxOut
                         .enable(Latch_enable),
-                        //Outputs 11
+                        //Outputs 7
                         .WriteBack_FLAGS_Out(Latch_Ex_MEM_WriteBack_FLAGS_Out), //{MemtoReg, RegWrite}
                         .Mem_FLAGS_Out(Latch_Ex_MEM_Mem_FLAGS_Out), // {MemRead, MemWrite, BranchEQ, BranchNE}
                         .Latch_Ex_MEM_E3_Adder_Out(Latch_Ex_MEM_E3_Adder_Out),
                         .Latch_Ex_MEM_Zero(Latch_Ex_MEM_Zero),
                         .Latch_Ex_MEM_E3_ALUOut(Latch_Ex_MEM_E3_ALUOut), //Addr a DataMem 
-                        .Latch_Ex_MEM_ReadDataA(Latch_Ex_MEM_ReadDataA), // para PC de JR y JALR
                         .Latch_Ex_MEM_ReadDataB(Latch_Ex_MEM_ReadDataB), //DataIn a DataMem
-                        .Latch_Ex_MEM_Mux(Latch_Ex_MEM_Mux),
-                        .Latch_Ex_MEM_pc_jmp_jal(Latch_Ex_MEM_pc_jmp_jal),
-                        .Latch_Ex_MEM_JR_or_JALR_flag(Latch_Ex_MEM_JR_or_JALR_flag),
-                        .Latch_Ex_MEM_J_or_JAL_flag(Latch_Ex_MEM_J_or_JAL_flag)
+                        .Latch_Ex_MEM_Mux(Latch_Ex_MEM_Mux)
                      );
                      
 //---------------------------------    Etapa 4 "MEM" + Latch MEM/WB    -----------------------------------------------
@@ -334,8 +320,7 @@ Etapa4_MEM E4_MEM(   //Inputs
                      .memDebug(memDebug),
                      .Latch_Ex_MEM_ReadDataB(Latch_Ex_MEM_ReadDataB),
                      //Outputs
-                     .E4_DataOut(E4_DataOut_to_Latch_MEM_WB),
-                     .Branch(Branch)//ex .PCScr(PCScr)        
+                     .E4_DataOut(E4_DataOut_to_Latch_MEM_WB)  
                  );
                          
  Latch_MEM_WB MEM_WB(    //Inputs
@@ -348,15 +333,15 @@ Etapa4_MEM E4_MEM(   //Inputs
                          .enable(Latch_enable),
                          //Outputs
                          .Latch_MEM_WB_DataOut(Latch_MEM_WB_DataOut),
-                         .Latch_MEM_WB_Mux_JAL_JALR_Out(Latch_MEM_WB_Mux_JAL_JALR_Out),//ex.Latch_MEM_WB_ALUOut(Latch_MEM_WB_ALUOut),
-                         .Latch_MEM_WB_Mux_JAL_Out(Latch_MEM_WB_Mux_JAL_Out),//ex .Latch_MEM_WB_Mux(Latch_MEM_WB_Mux),
+                         .Latch_MEM_WB_ALUOut(Latch_MEM_WB_ALUOut),
+                         .Latch_MEM_WB_Mux(Latch_MEM_WB_Mux),
                          .WriteBack_FLAGS_Out(Latch_MEM_WB_WriteBack_FLAGS_Out)
                       );                    
 
 //--------------------------------    Etapa 5 "WB"    ----------------------------------------------------------------
 
 MUX #(.LEN(32)) E5_WB(	//Inputs
-                        .InputA(Latch_MEM_WB_Mux_JAL_JALR_Out), //0
+                        .InputA(Latch_MEM_WB_ALUOut), //0
                         .InputB(Latch_MEM_WB_DataOut),//1 
                         .SEL(Latch_MEM_WB_WriteBack_FLAGS_Out[MemtoReg]), 
                         //Output
@@ -369,7 +354,7 @@ unidad_de_cortocircuito UnidadCorto(//Inputs
                                     .Latch_ID_EX_RS(Latch_ID_Ex_InstrOut_25_21_Rs),
                                     .Latch_ID_EX_RT(Latch_ID_Ex_InstrOut_20_16_Rt),
                                     .Latch_EX_MEM_MUX(Latch_Ex_MEM_Mux),
-                                    .Latch_MEM_WB_Mux_JAL_Out(Latch_MEM_WB_Mux_JAL_Out),//ex .Latch_MEM_WB_MUX(Latch_MEM_WB_Mux),
+                                    .Latch_MEM_WB_MUX(Latch_MEM_WB_Mux),
                                     .Latch_Ex_MEM_WriteBack_FLAGS_Out(Latch_Ex_MEM_WriteBack_FLAGS_Out[RegWrite]),
                                     .Latch_MEM_WB_WriteBack_FLAGS_Out(Latch_MEM_WB_WriteBack_FLAGS_Out[RegWrite]),
                                     //Outputs
@@ -387,11 +372,11 @@ unidad_de_deteccion_de_riesgos UnidadRiesgos(	//Inputs
                                                 .Stall(Stall)
                                              );
 //-----------------------  Modulo de deteccion de JUMPs o Branches genera las señales PCScr ------------------------                                                                
-Jump_Branch_PCSrc UnidadPCSrc (     //Inputs
-                                    .Latch_Ex_MEM_JR_or_JALR_flag(Latch_Ex_MEM_JR_or_JALR_flag),//nuevo
-                                    .Latch_Ex_MEM_J_or_JAL_flag(Latch_Ex_MEM_J_or_JAL_flag), //nuevo
-                                    .Branch(Branch),
-                                    //Outputs
-                                    .PCScr(PCScr) 
-                                );
+//Jump_Branch_PCSrc UnidadPCSrc (     //Inputs
+//                                    .Latch_Ex_MEM_JR_or_JALR_flag(Latch_Ex_MEM_JR_or_JALR_flag),//nuevo
+//                                    .Latch_Ex_MEM_J_or_JAL_flag(Latch_Ex_MEM_J_or_JAL_flag), //nuevo
+//                                    .Branch(Branch),
+//                                    //Outputs
+//                                    .PCScr(PCScr) 
+//                                );
 endmodule
