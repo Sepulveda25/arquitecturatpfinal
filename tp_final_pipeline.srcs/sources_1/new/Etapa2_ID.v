@@ -69,8 +69,8 @@ Control_Unit Control(   .OpCode(Latch_IF_ID_InstrOut[31:26]),
                         .ControlFLAGS(ControlFLAGS),
                         .InmCtrl(E2_InmCtrl));
 
-MUX #(.LEN(14)) Stall_mux(  .InputA(ControlFLAGS), 
-                            .InputB(Cero), 
+MUX #(.LEN(14)) Stall_mux(  .InputA(ControlFLAGS), //0
+                            .InputB(Cero), //1
                             .SEL(Stall), 
                             .Out(Mux_ControlFLAGS_Out));
 

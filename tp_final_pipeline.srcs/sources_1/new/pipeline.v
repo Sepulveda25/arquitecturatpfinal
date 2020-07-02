@@ -104,9 +104,11 @@ module pipeline(    //Inputs
     );
 
 //-------------------------------    Variables    -----------------------------------------------------------------------
+//Señales WB
 localparam MemtoReg		= 0;
 localparam RegWrite		= 1;
-localparam MemRead 		= 2;
+//Señal MEM
+localparam MemRead 		= 3;
     
 //-----------------------     Cables de Interconexion     ---------------------------------------------------------------
     
