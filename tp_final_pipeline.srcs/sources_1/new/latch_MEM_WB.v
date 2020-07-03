@@ -22,7 +22,7 @@
 
 module Latch_MEM_WB(	//Inputs
                         input Clk, Reset,
-                        input [1:0] 	WriteBack_FLAGS_In, 	// {MemtoReg, RegWrite}
+                        input [1:0] 	WriteBack_FLAGS_In, 	// {RegWrite, MemtoReg}
                         input [31:0]	E4_DataOut,
                         input [31:0]	Latch_Ex_MEM_ALUOut,
                         input [4:0]		Latch_Ex_MEM_Mux,
@@ -31,7 +31,7 @@ module Latch_MEM_WB(	//Inputs
                         output reg	[31:0]  Latch_MEM_WB_DataOut,
                         output reg	[31:0]	Latch_MEM_WB_ALUOut,  
                         output reg	[4:0]	Latch_MEM_WB_Mux, 
-                        output reg	[1:0]	WriteBack_FLAGS_Out	// {MemtoReg, RegWrite}
+                        output reg	[1:0]	WriteBack_FLAGS_Out	// {RegWrite, MemtoReg}
                      );
 
 always@(negedge Clk) begin

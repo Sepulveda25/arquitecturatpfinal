@@ -61,12 +61,13 @@ module test_pipeline;
     //Etapa ID
     wire [31:0] E2_ReadDataA;    
     wire [31:0] E2_ReadDataB;
-    wire [13:0]  ControlFLAGS;      
+    wire [7:0]  ControlFLAGS; // [13:0]  ControlFLAGS;     
     wire [31:0] SignExtendOut;
     wire [2:0]  E2_InmCtrl;
+    wire [5:0]  flags_branch_jump; //nuevo
     //Outputs del Latch "ID/EX"
     wire [1:0]   Latch_ID_Ex_WriteBack_FLAGS;
-    wire [3:0]   Latch_ID_Ex_Mem_FLAGS;
+    wire [1:0]   Latch_ID_Ex_Mem_FLAGS;//ex [3:0]   Latch_ID_Ex_Mem_FLAGS;
     wire [3:0]    Latch_ID_Ex_FLAGS;
     wire [31:0]    Latch_ID_Ex_Adder_Out;
     wire [31:0]    Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB;
@@ -80,7 +81,7 @@ module test_pipeline;
     wire [4:0]  E3_MuxOut;
     wire [31:0] MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB;
     //Output del Latch "Ex/MEM"
-    wire [3:0]     Latch_Ex_MEM_Mem_FLAGS_Out;
+    wire [1:0]     Latch_Ex_MEM_Mem_FLAGS_Out;//ex [3:0]     Latch_Ex_MEM_Mem_FLAGS_Out;
     wire [31:0]    Latch_Ex_MEM_ReadDataB;
     wire [31:0]    Latch_Ex_MEM_E3_Adder_Out;
     wire        Latch_Ex_MEM_Zero;
@@ -140,6 +141,7 @@ module test_pipeline;
         .ControlFLAGS(ControlFLAGS),      
         .SignExtendOut(SignExtendOut),
         .E2_InmCtrl(E2_InmCtrl),
+        .flags_branch_jump(flags_branch_jump),
         //Outputs del Latch "ID/EX"
         .Latch_ID_Ex_WriteBack_FLAGS(Latch_ID_Ex_WriteBack_FLAGS),
         .Latch_ID_Ex_Mem_FLAGS(Latch_ID_Ex_Mem_FLAGS),

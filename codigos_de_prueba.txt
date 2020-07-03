@@ -5,7 +5,7 @@ ADD r3, r1, r2 ; en etapa EX => Hex: 0x00221820
 SUB r5,r3,r1; en etapa IF => Hex: 0x00612822
 HLT ; fin
 
-resultado r5=3
+resultado r5=7
 
 ### 1A UNIDAD DE CORTO FUNCIONA PARA DEPENDENCIA EN r4 Y r2 => BIEN
 ADDI r2, r2, 0x4; r2=4 Hex: 0x20420004

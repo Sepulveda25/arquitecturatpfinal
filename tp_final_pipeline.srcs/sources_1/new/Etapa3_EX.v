@@ -21,7 +21,7 @@
 
 
 module Etapa3_EX(   //Inputs 12
-                    input [7:0]		Ex_FLAGS, // {JR , JALR, Jmp, JAL, RegDst, ALUSrc, ALUOp1, ALUOp0}
+                    input [3:0]		Ex_FLAGS,// {RegDst, ALUSrc, ALUOp1, ALUOp0} //ex [7:0]		Ex_FLAGS, // {JR , JALR, Jmp, JAL, RegDst, ALUSrc, ALUOp1, ALUOp0}
                     input [31:0] 	Latch_ID_Ex_Adder_Out, Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,
                     input [31:0] 	Latch_ID_Ex_SignExtendOut, 
                     input [4:0]		Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd,
@@ -45,15 +45,15 @@ module Etapa3_EX(   //Inputs 12
 //Variables
 localparam ALUScr = 2;
 localparam RegDst = 3;
-localparam JAL = 4;
-localparam Jmp = 5;
-localparam JALR = 6;
-localparam JR = 7;
+//localparam JAL = 4;
+//localparam Jmp = 5;
+//localparam JALR = 6;
+//localparam JR = 7;
 
 
 //Variables para modulos JUMP
-reg [31:0] InputB_Adder=4;
-reg [4:0] reg_link = 31;
+//reg [31:0] InputB_Adder=4;
+//reg [4:0] reg_link = 31;
 
 //Cables de Interconexion
 wire [5:0]  ALUControl_to_ALU;
@@ -67,9 +67,9 @@ wire [31:0] Mux_CortoB_Out_to_ALU_DataB;
 
 //Cables de Interconexion para modulos JUMP 
 //wire [31:0] E3_ALUOut;
-wire [31:0] E3_AddOut;
-wire JALR_or_JAL_Flag;
-wire [31:0] sub_PC;
+//wire [31:0] E3_AddOut;
+//wire JALR_or_JAL_Flag;
+//wire [31:0] sub_PC;
 //wire [4:0] 	E3_MuxOut;
 
 Adder adder_EX( //Inputs

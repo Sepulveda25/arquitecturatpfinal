@@ -28,12 +28,13 @@ module Etapa2_ID(   //Inputs 9
                     input [4:0] 	Latch_MEM_WB_Mux,
                     input [31:0] 	Mux_WB, 
                     input 			Latch_MEM_WB_RegWrite, 
-                    //Outputs 5
+                    //Outputs 6
                     output [31:0] 	E2_ReadDataA,  
                     output [31:0]   E2_ReadDataB,
-                    output [13:0] 	Mux_ControlFLAGS_Out, 
+                    output [7:0] 	Mux_ControlFLAGS_Out, // ex [13:0] 	Mux_ControlFLAGS_Out,
                     output [31:0] 	SignExtendOut,
-                    output [2:0] 	E2_InmCtrl
+                    output [2:0] 	E2_InmCtrl,
+                    output [5:0]    flags_branch_jump //BranchEQ, BranchNE, JR , JALR, Jmp, JAL
 
     );
 
@@ -43,7 +44,7 @@ wire [4:0] Mux_To_Reg;
 wire [31:0] Shift_to_Add;
 
 //Variables
-reg [13:0] Cero=0;
+reg [7:0] Cero=0; // [13:0] Cero=0
 
 
 //Multiplexor Address desde RS o desde Debug
@@ -66,10 +67,12 @@ Registers Regs(	//Inputs
 							
 Control_Unit Control(   .OpCode(Latch_IF_ID_InstrOut[31:26]),
                         .funcion(Latch_IF_ID_InstrOut[5:0]),
-                        .ControlFLAGS(ControlFLAGS),
+                        .ControlFLAGS(ControlFLAGS),// los 6 bits mas altos son flags de branch y jump
                         .InmCtrl(E2_InmCtrl));
 
-MUX #(.LEN(14)) Stall_mux(  .InputA(ControlFLAGS), //0
+assign flags_branch_jump = ControlFLAGS[13:8]; //BranchEQ, BranchNE, JR , JALR, Jmp, JAL
+
+MUX #(.LEN(14)) Stall_mux(  .InputA(ControlFLAGS[7:0]), //0 ex .InputA(ControlFLAGS)
                             .InputB(Cero), //1
                             .SEL(Stall), 
                             .Out(Mux_ControlFLAGS_Out));

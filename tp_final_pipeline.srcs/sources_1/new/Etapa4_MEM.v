@@ -22,7 +22,7 @@
 
 module Etapa4_MEM(  //Inputs
                     input Clk, Reset, Latch_Ex_MEM_Zero,
-                    input [3:0]		Mem_FLAGS,
+                    input [3:0]		Mem_FLAGS,//{MemRead,MemWrite} //ex [3:0]		Mem_FLAGS,
                     input [31:0]	Latch_Ex_MEM_ALUOut,    //Addr a Mux, luego a DataMem
                     input [31:0]	dirMem, 			    //Addr a Mux, luego a DataMem
                     input 			memDebug,				//Selector de los 3 Mux
@@ -32,10 +32,10 @@ module Etapa4_MEM(  //Inputs
 //                    output Branch //ex PCScr		
                 );
 //Variables
-localparam BranchNE = 0;
-localparam BranchEQ = 1;
-localparam MemWrite = 2;
-localparam MemRead = 3;
+//localparam BranchNE = 0;
+//localparam BranchEQ = 1;
+localparam MemWrite = 0; // localparam MemWrite = 2;
+localparam MemRead = 1; // localparam MemRead = 3;
 
 //Cables de Interconexion
 wire [31:0] Mux_Add_To_Mem;

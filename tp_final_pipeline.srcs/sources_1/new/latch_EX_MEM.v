@@ -21,8 +21,8 @@
 
 module Latch_EX_MEM(	//Inputs 11
                         input Clk, Reset,
-                        input [1:0] 	WriteBack_FLAGS_In, 	// {MemtoReg, RegWrite}
-                        input [3:0]		Mem_FLAGS_In, 			// {MemRead, MemWrite, BranchEQ, BranchNE}
+                        input [1:0] 	WriteBack_FLAGS_In, 	// {RegWrite, MemtoReg}
+                        input [1:0]		Mem_FLAGS_In,//{MemRead, MemWrite} //ex[3:0]		Mem_FLAGS_In, 			// {MemRead, MemWrite, BranchEQ, BranchNE}
                         input [31:0]	E3_Adder_Out,
                         input			E3_ALU_Zero,
                         input [31:0]	E3_ALUOut, 
@@ -31,8 +31,8 @@ module Latch_EX_MEM(	//Inputs 11
                         input			enable,
 
                         //Outputs 8
-                        output reg 	[1:0] 	WriteBack_FLAGS_Out, 		// {MemtoReg, RegWrite}
-                        output reg	[3:0]	Mem_FLAGS_Out, 				// {MemRead, MemWrite, BranchEQ, BranchNE}
+                        output reg 	[1:0] 	WriteBack_FLAGS_Out, 		// {RegWrite, MemtoReg}
+                        output reg	[1:0]	Mem_FLAGS_Out,//{MemRead, MemWrite} //ex [3:0]	Mem_FLAGS_Out, 				// {MemRead, MemWrite, BranchEQ, BranchNE}
                         output reg	[31:0]	Latch_Ex_MEM_E3_Adder_Out,
                         output reg			Latch_Ex_MEM_Zero,
                         output reg	[31:0]	Latch_Ex_MEM_E3_ALUOut, 	//Addr a DataMem 
