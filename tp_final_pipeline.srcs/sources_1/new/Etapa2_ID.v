@@ -78,7 +78,8 @@ MUX #(.LEN(14)) Stall_mux(  .InputA(ControlFLAGS[7:0]), //0 ex .InputA(ControlFL
                             .Out(Mux_ControlFLAGS_Out));
 
 
-Sign_Extend SignExt( .Latch_IF_ID_InstrOut(Latch_IF_ID_InstrOut[15:0]), 
+Sign_Extend #(.LEN_output(32),.LEN_input(16)) 
+            SignExt( .SignExtendIn(Latch_IF_ID_InstrOut[15:0]), 
                      .SignExtendOut(SignExtendOut));
                      
     

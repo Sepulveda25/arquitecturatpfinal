@@ -20,17 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Sign_Extend(input [15:0] Latch_IF_ID_InstrOut, 
-                   output [31:0] SignExtendOut
+module Sign_Extend #(parameter LEN_output = 32,LEN_input=16)
+                    (   input  [LEN_input-1:0] SignExtendIn, 
+                        output [LEN_output-1:0] SignExtendOut
                     );
 //Variable auxiliar con signo
-reg signed [31:0] aux;
+reg signed [LEN_output-1:0] aux;
 
 always@* begin
-    aux[31:16] = Latch_IF_ID_InstrOut; 
+    aux[LEN_output-1:LEN_output-LEN_input] = SignExtendIn; 
 end
 
-//shiftea 16 manteniendo signo
-assign SignExtendOut = aux >>> 16; 
+//mueve a la derecha (LEN_output-LEN_input) veces, manteniendo signo
+assign SignExtendOut = aux >>> (LEN_output-LEN_input); 
 
 endmodule

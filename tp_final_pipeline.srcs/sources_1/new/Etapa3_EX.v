@@ -22,7 +22,8 @@
 
 module Etapa3_EX(   //Inputs 12
                     input [3:0]		Ex_FLAGS,// {RegDst, ALUSrc, ALUOp1, ALUOp0} //ex [7:0]		Ex_FLAGS, // {JR , JALR, Jmp, JAL, RegDst, ALUSrc, ALUOp1, ALUOp0}
-                    input [31:0] 	Latch_ID_Ex_Adder_Out, Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,
+                    //input [31:0] 	Latch_ID_Ex_Adder_Out, 
+                    input [31:0]    Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,
                     input [31:0] 	Latch_ID_Ex_SignExtendOut, 
                     input [4:0]		Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd,
                     input [25:0]    Latch_ID_Ex_InstrOut_25_0_instr_index,
@@ -32,7 +33,7 @@ module Etapa3_EX(   //Inputs 12
                     input [1:0]		ForwardA,				//Wire externo!! (de la Unidad de Cortocircuito)
                     input [1:0]		ForwardB,				//Wire externo!! (de la Unidad de Cortocircuito)
                     //Outputs 5
-                    output [31:0] 	E3_Adder_Out, 
+                    //output [31:0] 	E3_Adder_Out, 
                     output [31:0]   E3_ALUOut,
                     output 			E3_ALU_Zero,
                     output [4:0] 	E3_MuxOut,
@@ -72,18 +73,18 @@ wire [31:0] Mux_CortoB_Out_to_ALU_DataB;
 //wire [31:0] sub_PC;
 //wire [4:0] 	E3_MuxOut;
 
-Adder adder_EX( //Inputs
-                .InputA(Latch_ID_Ex_Adder_Out), 
-                .InputB(Shift_to_Add), 
-                //Output
-                .Out(E3_Adder_Out)
-            );
+//Adder adder_EX( //Inputs
+//                .InputA(Latch_ID_Ex_Adder_Out), 
+//                .InputB(Shift_to_Add), 
+//                //Output
+//                .Out(E3_Adder_Out)
+//            );
 
-Shift_Left Shift(   //Input
-                    .Latch_ID_Ex_SignExtendOut(Latch_ID_Ex_SignExtendOut), 
-                    //Output
-                    .Shift_Left_Out(Shift_to_Add)
-                 );
+//Shift_Left Shift(   //Input
+//                    .Latch_ID_Ex_SignExtendOut(Latch_ID_Ex_SignExtendOut), 
+//                    //Output
+//                    .Shift_Left_Out(Shift_to_Add)
+//                 );
 
 MUX Mux_AluSrc( //Inputs 
                 .InputA(MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB), 

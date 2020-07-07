@@ -34,7 +34,13 @@ LW r5, 0x0(r1); r5=r2 Hex: 0x8C250000
 LW r6, 0x4(r1); r6=r3 Hex: 0x8C260004
 LW r7, 0x8(r1); r7=r4 Hex: 0x8C270008
 
-### 4 prueba de branch
+### 4 PRUEBA FLAGS JAL Y JALR
+JAL 0xe; se guarda PC+8 en r31 Hex: 0x0C00000E
+JALR r1, r2; se guarda PC+8 en r1 Hex: 0x00400809
+ADD r3,r4,r31; se verifica la escritura de r31 r3=0+(PC+8) Hex: 0x009F1820  
+ADD r5,r4,r1; se verifica la escritura de r1 Hex: 0x00812820
+
+### N prueba de branch
 		ADDI r1, r1, 0x1;
 		ADDI r2, r2, 0x14; seria la i del for, tiene que ser multiplo de 4 
 		ADDI r5, r5, 0x0; en que valor quiero detener el loop

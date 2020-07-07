@@ -65,17 +65,20 @@ module test_pipeline;
     wire [31:0] SignExtendOut;
     wire [2:0]  E2_InmCtrl;
     wire [5:0]  flags_branch_jump; //nuevo
+    wire [31:0] ADDER_E2_PC_JALR_JAL;
+    wire [4:0]  E2_Rd_mux;
     //Outputs del Latch "ID/EX"
     wire [1:0]   Latch_ID_Ex_WriteBack_FLAGS;
     wire [1:0]   Latch_ID_Ex_Mem_FLAGS;//ex [3:0]   Latch_ID_Ex_Mem_FLAGS;
-    wire [3:0]    Latch_ID_Ex_FLAGS;
-    wire [31:0]    Latch_ID_Ex_Adder_Out;
-    wire [31:0]    Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB;
-    wire [31:0]    Latch_ID_Ex_SignExtendOut; 
-    wire [4:0]    Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd;    
-    wire [2:0]    Latch_ID_Ex_InmCtrl;
+    wire [3:0]   Latch_ID_Ex_FLAGS;
+    wire [31:0]  Latch_ID_Ex_PC_JALR_JAL; //ex Latch_ID_Ex_Adder_Out;
+    wire [31:0]  Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB;
+    wire [31:0]  Latch_ID_Ex_SignExtendOut; 
+    wire [4:0]   Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd;    
+    wire [2:0]   Latch_ID_Ex_InmCtrl;
+    wire [1:0]   Latch_ID_Ex_flags_JALR_JAL; // {JALR,JAL}
     //Etapa EX
-    wire [31:0] E3_Adder_Out;
+    //wire [31:0] E3_Adder_Out;
     wire        E3_ALU_Zero;
     wire [31:0] E3_ALUOut;
     wire [4:0]  E3_MuxOut;
@@ -83,11 +86,12 @@ module test_pipeline;
     //Output del Latch "Ex/MEM"
     wire [1:0]     Latch_Ex_MEM_Mem_FLAGS_Out;//ex [3:0]     Latch_Ex_MEM_Mem_FLAGS_Out;
     wire [31:0]    Latch_Ex_MEM_ReadDataB;
-    wire [31:0]    Latch_Ex_MEM_E3_Adder_Out;
-    wire        Latch_Ex_MEM_Zero;
-    wire [1:0]    Latch_Ex_MEM_WriteBack_FLAGS_Out;
-    wire [4:0]    Latch_Ex_MEM_Mux;
+    wire [31:0]    Latch_Ex_MEM_PC_JALR_JAL; //ex Latch_Ex_MEM_E3_Adder_Out;
+    wire           Latch_Ex_MEM_Zero;
+    wire [1:0]     Latch_Ex_MEM_WriteBack_FLAGS_Out;
+    wire [4:0]     Latch_Ex_MEM_Mux;
     wire [31:0]    Latch_Ex_MEM_E3_ALUOut;
+    wire [1:0]     Latch_Ex_MEM_flags_JALR_JAL; // {JALR,JAL}
     //Etapa MEM
     wire [31:0] E4_DataOut_to_Latch_MEM_WB;
     //Outputs del Latch MEM/WB
@@ -95,8 +99,11 @@ module test_pipeline;
     wire [31:0] Latch_MEM_WB_ALUOut;
     wire [4:0]  Latch_MEM_WB_Mux;
     wire [1:0]  Latch_MEM_WB_WriteBack_FLAGS_Out;
+    wire [1:0]  Latch_MEM_WB_flags_JALR_JAL; // {JALR,JAL}
+    wire [31:0] Latch_MEM_WB_PC_JALR_JAL;
     //Etapa WB
     wire [31:0] Mux_WB;
+    wire [31:0] Mux_WB_JALR_JAL;
     //Outputs de la Unidad de Cortocircuito
     wire [1:0] ForwardA, ForwardB;
     //Outputs de la Unidad de Deteccion de Riesgos
@@ -142,11 +149,13 @@ module test_pipeline;
         .SignExtendOut(SignExtendOut),
         .E2_InmCtrl(E2_InmCtrl),
         .flags_branch_jump(flags_branch_jump),
+        .ADDER_E2_PC_JALR_JAL(ADDER_E2_PC_JALR_JAL),
+        .E2_Rd_mux(E2_Rd_mux),
         //Outputs del Latch "ID/EX"
         .Latch_ID_Ex_WriteBack_FLAGS(Latch_ID_Ex_WriteBack_FLAGS),
         .Latch_ID_Ex_Mem_FLAGS(Latch_ID_Ex_Mem_FLAGS),
         .Latch_ID_Ex_FLAGS(Latch_ID_Ex_FLAGS),
-        .Latch_ID_Ex_Adder_Out(Latch_ID_Ex_Adder_Out),
+        .Latch_ID_Ex_PC_JALR_JAL(Latch_ID_Ex_PC_JALR_JAL),//.Latch_ID_Ex_Adder_Out(Latch_ID_Ex_Adder_Out),
         .Latch_ID_Ex_ReadDataA(Latch_ID_Ex_ReadDataA), 
         .Latch_ID_Ex_ReadDataB(Latch_ID_Ex_ReadDataB),
         .Latch_ID_Ex_SignExtendOut(Latch_ID_Ex_SignExtendOut),
@@ -154,8 +163,9 @@ module test_pipeline;
         .Latch_ID_Ex_InstrOut_20_16_Rt(Latch_ID_Ex_InstrOut_20_16_Rt),
         .Latch_ID_Ex_InstrOut_15_11_Rd(Latch_ID_Ex_InstrOut_15_11_Rd),   
         .Latch_ID_Ex_InmCtrl(Latch_ID_Ex_InmCtrl),
+        .Latch_ID_Ex_flags_JALR_JAL(Latch_ID_Ex_flags_JALR_JAL),
         //Etapa EX
-        .E3_Adder_Out(E3_Adder_Out),
+        //.E3_Adder_Out(E3_Adder_Out),
         .E3_ALU_Zero(E3_ALU_Zero),
         .E3_ALUOut(E3_ALUOut),
         .E3_MuxOut(E3_MuxOut),
@@ -163,11 +173,12 @@ module test_pipeline;
         //Output del Latch "Ex/MEM"
         .Latch_Ex_MEM_Mem_FLAGS_Out(Latch_Ex_MEM_Mem_FLAGS_Out),
         .Latch_Ex_MEM_ReadDataB(Latch_Ex_MEM_ReadDataB),
-        .Latch_Ex_MEM_E3_Adder_Out(Latch_Ex_MEM_E3_Adder_Out),
+        .Latch_Ex_MEM_PC_JALR_JAL(Latch_Ex_MEM_PC_JALR_JAL),//ex .Latch_Ex_MEM_E3_Adder_Out(Latch_Ex_MEM_E3_Adder_Out),
         .Latch_Ex_MEM_Zero(Latch_Ex_MEM_Zero),
         .Latch_Ex_MEM_WriteBack_FLAGS_Out(Latch_Ex_MEM_WriteBack_FLAGS_Out),
         .Latch_Ex_MEM_Mux(Latch_Ex_MEM_Mux),
         .Latch_Ex_MEM_E3_ALUOut(Latch_Ex_MEM_E3_ALUOut),
+        .Latch_Ex_MEM_flags_JALR_JAL(Latch_Ex_MEM_flags_JALR_JAL),
         //Etapa MEM
         .E4_DataOut_to_Latch_MEM_WB(E4_DataOut_to_Latch_MEM_WB),
         //Outputs del Latch MEM/WB
@@ -175,8 +186,11 @@ module test_pipeline;
         .Latch_MEM_WB_ALUOut(Latch_MEM_WB_ALUOut),
         .Latch_MEM_WB_Mux(Latch_MEM_WB_Mux),
         .Latch_MEM_WB_WriteBack_FLAGS_Out(Latch_MEM_WB_WriteBack_FLAGS_Out),
+        .Latch_MEM_WB_flags_JALR_JAL(Latch_MEM_WB_flags_JALR_JAL),
+        .Latch_MEM_WB_PC_JALR_JAL(Latch_MEM_WB_PC_JALR_JAL),
         //Etapa WB
         .Mux_WB(Mux_WB),
+        .Mux_WB_JALR_JAL(Mux_WB_JALR_JAL),
         //Outputs de la Unidad de Cortocircuito
         .ForwardA(ForwardA), 
         .ForwardB(ForwardB),

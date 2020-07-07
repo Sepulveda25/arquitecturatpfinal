@@ -54,20 +54,23 @@ module pipeline(    //Inputs
                     //Etapa ID
                     output [31:0] E2_ReadDataA,	
                     output [31:0] E2_ReadDataB,
-                    output [7:0] ControlFLAGS,// ex [13:0] ControlFLAGS, 
+                    output [7:0]  ControlFLAGS,// ex [13:0] ControlFLAGS, 
                     output [31:0] SignExtendOut,
                     output [2:0]  E2_InmCtrl,
                     output [5:0]  flags_branch_jump, //nuevo 
+                    output [31:0] ADDER_E2_PC_JALR_JAL, //nuevo
+                    output [4:0]  E2_Rd_mux,
                     //Outputs del Latch "ID/EX"
                     output [1:0]     Latch_ID_Ex_WriteBack_FLAGS, //2 bits
                     output [1:0]     Latch_ID_Ex_Mem_FLAGS, // 2 bits //ex[3:0]     Latch_ID_Ex_Mem_FLAGS, // 4 bits
                     output [3:0]    Latch_ID_Ex_FLAGS, //4 bits //ex [7:0]    Latch_ID_Ex_FLAGS, //8 bits
-                    output [31:0]    Latch_ID_Ex_Adder_Out,
+                    output [31:0]    Latch_ID_Ex_PC_JALR_JAL, //ex Latch_ID_Ex_Adder_Out,
                     output [31:0]    Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,
                     output [31:0]    Latch_ID_Ex_SignExtendOut,
                     output [4:0]    Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd,  
                     output [25:0]	Latch_ID_Ex_InstrOut_25_0_instr_index, 
                     output [2:0]    Latch_ID_Ex_InmCtrl,
+                    output [1:0]    Latch_ID_Ex_flags_JALR_JAL, // {JALR,JAL}
                     //Etapa EX
                     output [31:0]   E3_Adder_Out,
                     output          E3_ALU_Zero,
@@ -78,14 +81,15 @@ module pipeline(    //Inputs
 //                    output          E3_JR_or_JALR_flag,//nuevo
 //                    output          E3_J_or_JAL_flag, //nuevo
                     //Output del Latch "Ex/MEM"
-                    output [1:0]     Latch_Ex_MEM_Mem_FLAGS_Out, // ex [3:0]     Latch_Ex_MEM_Mem_FLAGS_Out,
-                    output [31:0]    Latch_Ex_MEM_ReadDataA,
-                    output [31:0]    Latch_Ex_MEM_ReadDataB,
-                    output [31:0]    Latch_Ex_MEM_E3_Adder_Out,
-                    output        Latch_Ex_MEM_Zero,
+                    output [1:0]    Latch_Ex_MEM_Mem_FLAGS_Out, // ex [3:0]     Latch_Ex_MEM_Mem_FLAGS_Out,
+                    output [31:0]   Latch_Ex_MEM_ReadDataA,
+                    output [31:0]   Latch_Ex_MEM_ReadDataB,
+                    output [31:0]   Latch_Ex_MEM_PC_JALR_JAL, //ex Latch_Ex_MEM_E3_Adder_Out,
+                    output          Latch_Ex_MEM_Zero,
                     output [1:0]    Latch_Ex_MEM_WriteBack_FLAGS_Out,
                     output [4:0]    Latch_Ex_MEM_Mux,
-                    output [31:0]   Latch_Ex_MEM_E3_ALUOut, 
+                    output [31:0]   Latch_Ex_MEM_E3_ALUOut,
+                    output [1:0]    Latch_Ex_MEM_flags_JALR_JAL, // {JALR,JAL}
                     //Etapa MEM
                     output [31:0] E4_DataOut_to_Latch_MEM_WB,
 //                    output        Branch, //ex PCScr,
@@ -94,8 +98,12 @@ module pipeline(    //Inputs
                     output [31:0]    Latch_MEM_WB_ALUOut,
                     output [4:0]     Latch_MEM_WB_Mux,
                     output [1:0]    Latch_MEM_WB_WriteBack_FLAGS_Out,
+                    output [1:0]    Latch_MEM_WB_flags_JALR_JAL,// {JALR,JAL}
+                    output [31:0]   Latch_MEM_WB_PC_JALR_JAL,
                     //Etapa WB
                     output [31:0] Mux_WB,
+                    output JALR_or_JAL,
+                    output [31:0] Mux_WB_JALR_JAL,
                     //Outputs de la Unidad de Cortocircuito
                     output [1:0] ForwardA, ForwardB,
                     //Output de la Unidad de Deteccion de Riesgos
@@ -190,7 +198,7 @@ localparam MemRead 		= 1;
 Etapa1_IF E1_IF(	//Inputs 13
                     .Clk(Clk), 
                     .Reset(Etapa_IF_Reset), 
-                    .InputB_MUX(Latch_Ex_MEM_E3_Adder_Out), 
+                    //.InputB_MUX(Latch_Ex_MEM_E3_Adder_Out), 
                     .PCScr(Etapa_IF_PCScr), 
                     .Stall(Stall),
                     .enable_pc(Etapa_IF_enable_pc),
@@ -227,7 +235,7 @@ Etapa2_ID E2_ID(    //Inputs 9
                     .posReg(Etapa_ID_posReg), 
                     .posSel(Etapa_ID_posSel),
                     .Latch_MEM_WB_Mux(Latch_MEM_WB_Mux), 
-                    .Mux_WB(Mux_WB), 
+                    .Mux_WB(Mux_WB_JALR_JAL),//.Mux_WB(Mux_WB), 
                     .Latch_MEM_WB_RegWrite(Latch_MEM_WB_WriteBack_FLAGS_Out[RegWrite]),
                     //Outputs 6
                     .E2_ReadDataA(E2_ReadDataA), 
@@ -235,28 +243,44 @@ Etapa2_ID E2_ID(    //Inputs 9
                     .Mux_ControlFLAGS_Out(ControlFLAGS), 
                     .SignExtendOut(SignExtendOut),
                     .E2_InmCtrl(E2_InmCtrl),
-                    .flags_branch_jump(flags_branch_jump)
+                    .flags_branch_jump(flags_branch_jump)//{BranchEQ, BranchNE, JR , JALR, Jmp, JAL}
                 );
+
+//variable
+reg [31:0] InputB_Adder=4;
+reg [4:0] JAL_RD_31=31;
+//Adder de la etapa 2: Suma 4 en al PC para calcula direccion de retorno de las instrucciones JALR y JAL"
+Adder #(.LEN(32)) adder_ID_JALR_JAL (.InputA(Latch_IF_ID_Adder_Out), .InputB(InputB_Adder), .Out(ADDER_E2_PC_JALR_JAL));
+//Este mux es para seleccionar la direccion rd en caso que la instruccion sea JAL 
+MUX #(.LEN(5)) mux_JAL(  //Inputs
+                            .InputA(Latch_IF_ID_InstrOut[15:11]), // 0
+                            .InputB(JAL_RD_31), // 1
+                            .SEL(flags_branch_jump[0]), //flag JAL
+                            //Outputs
+                            .Out(E2_Rd_mux)
+                         );
+
 
 Latch_ID_EX ID_EX(  //Inputs 12
                     .Clk(Clk), 
                     .Reset(Latch_Reset), 
-                    .Latch_IF_ID_Adder_Out(Latch_IF_ID_Adder_Out), 
+                    .ADDER_E2_PC_JALR_JAL(ADDER_E2_PC_JALR_JAL),//.Latch_IF_ID_Adder_Out(Latch_IF_ID_Adder_Out), 
                     .ControlFLAGS(ControlFLAGS), 
                     .ReadDataA(E2_ReadDataA), 
                     .ReadDataB(E2_ReadDataB), 
                     .SignExtendOut(SignExtendOut),
                     .Latch_IF_ID_InstrOut_25_21_Rs(Latch_IF_ID_InstrOut[25:21]), 
                     .Latch_IF_ID_InstrOut_20_16_Rt(Latch_IF_ID_InstrOut[20:16]), 
-                    .Latch_IF_ID_InstrOut_15_11_Rd(Latch_IF_ID_InstrOut[15:11]),
+                    .Latch_IF_ID_InstrOut_15_11_Rd(E2_Rd_mux),//ex .Latch_IF_ID_InstrOut_15_11_Rd(Latch_IF_ID_InstrOut[15:11]),
                     .Latch_IF_ID_InstrOut_25_0_instr_index(Latch_IF_ID_InstrOut[25:0]), 
                     .E2_InmCtrl(E2_InmCtrl),
+                    .flags_JALR_JAL({flags_branch_jump[2],flags_branch_jump[0]}),// {JALR,JAL}
                     .enable(Latch_enable),
                     //Outputs 11
                     .WriteBack_FLAGS(Latch_ID_Ex_WriteBack_FLAGS), //{RegWrite, MemtoReg}
                     .Mem_FLAGS(Latch_ID_Ex_Mem_FLAGS), //{MemRead, MemWrite} // ex {MemRead, MemWrite, BranchEQ, BranchNE}
                     .Ex_FLAGS(Latch_ID_Ex_FLAGS), //{RegDst, ALUSrc, ALUOp1, ALUOp0} // ex {JR , JALR, Jmp, JAL, RegDst, ALUSrc, ALUOp1, ALUOp0}
-                    .Latch_ID_Ex_Adder_Out(Latch_ID_Ex_Adder_Out), 
+                    .Latch_ID_Ex_PC_JALR_JAL(Latch_ID_Ex_PC_JALR_JAL),// ex .Latch_ID_Ex_Adder_Out(Latch_ID_Ex_Adder_Out), 
                     .Latch_ID_Ex_ReadDataA(Latch_ID_Ex_ReadDataA), 
                     .Latch_ID_Ex_ReadDataB(Latch_ID_Ex_ReadDataB), 
                     .Latch_ID_Ex_SignExtendOut(Latch_ID_Ex_SignExtendOut),
@@ -264,14 +288,15 @@ Latch_ID_EX ID_EX(  //Inputs 12
                     .Latch_ID_Ex_InstrOut_20_16_Rt(Latch_ID_Ex_InstrOut_20_16_Rt), //Rt
                     .Latch_ID_Ex_InstrOut_15_11_Rd(Latch_ID_Ex_InstrOut_15_11_Rd),    //Rd
                     .Latch_ID_Ex_InstrOut_25_0_instr_index(Latch_ID_Ex_InstrOut_25_0_instr_index),
-                    .Latch_ID_Ex_InmCtrl(Latch_ID_Ex_InmCtrl)
+                    .Latch_ID_Ex_InmCtrl(Latch_ID_Ex_InmCtrl),
+                    .Latch_ID_Ex_flags_JALR_JAL(Latch_ID_Ex_flags_JALR_JAL)// {JALR,JAL}
                     );  
                     
 //---------------------------------  Etapa 3 "EX" + Latch EX/MEM    --------------------------------------------------
                       
-Etapa3_EX E3_EX(    //Inputs 12
+Etapa3_EX E3_EX(    //Inputs 11
                     .Ex_FLAGS(Latch_ID_Ex_FLAGS),//{RegDst, ALUSrc, ALUOp1, ALUOp0} // ex {JR , JALR, Jmp, JAL, RegDst, ALUSrc, ALUOp1, ALUOp0}
-                    .Latch_ID_Ex_Adder_Out(Latch_ID_Ex_Adder_Out),
+                    //.Latch_ID_Ex_Adder_Out(Latch_ID_Ex_Adder_Out),
                     .Latch_ID_Ex_ReadDataA(Latch_ID_Ex_ReadDataA), 
                     .Latch_ID_Ex_ReadDataB(Latch_ID_Ex_ReadDataB),
                     .Latch_ID_Ex_SignExtendOut(Latch_ID_Ex_SignExtendOut), 
@@ -280,11 +305,11 @@ Etapa3_EX E3_EX(    //Inputs 12
                     .Latch_ID_Ex_InstrOut_25_0_instr_index(Latch_ID_Ex_InstrOut_25_0_instr_index),
                     .Latch_ID_Ex_InmCtrl(Latch_ID_Ex_InmCtrl),
                     .Latch_Ex_MEM_ALUOut(Latch_Ex_MEM_E3_ALUOut),
-                    .Mux_WB(Mux_WB),
+                    .Mux_WB(Mux_WB_JALR_JAL),//ex .Mux_WB(Mux_WB),
                     .ForwardA(ForwardA),
                     .ForwardB(ForwardB),
-                    //Outputs 5
-                    .E3_Adder_Out(E3_Adder_Out), 
+                    //Outputs 4
+                    //.E3_Adder_Out(E3_Adder_Out), 
                     .E3_ALUOut(E3_ALUOut),
                     .E3_ALU_Zero(E3_ALU_Zero),    
                     .E3_MuxOut(E3_MuxOut), //salida de E3_MuxOut
@@ -292,25 +317,27 @@ Etapa3_EX E3_EX(    //Inputs 12
                 );
                     
 
-Latch_EX_MEM EX_MEM(    //Inputs 10
+Latch_EX_MEM EX_MEM(    //Inputs 11
                         .Clk(Clk), 
                         .Reset(Latch_Reset),
                         .WriteBack_FLAGS_In(Latch_ID_Ex_WriteBack_FLAGS), //{RegWrite, MemtoReg}
                         .Mem_FLAGS_In(Latch_ID_Ex_Mem_FLAGS),//{MemRead, MemWrite} //ex {MemRead, MemWrite, BranchEQ, BranchNE}
-                        .E3_Adder_Out(E3_Adder_Out), 
+                        .Latch_ID_Ex_PC_JALR_JAL(Latch_ID_Ex_PC_JALR_JAL),//ex .E3_Adder_Out(E3_Adder_Out), 
                         .E3_ALU_Zero(E3_ALU_Zero), 
                         .E3_ALUOut(E3_ALUOut),
                         .Latch_ID_Ex_ReadDataB(MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB),
                         .E3_MuxOut(E3_MuxOut), //salida de E3_MuxOut
                         .enable(Latch_enable),
+                        .Latch_ID_Ex_flags_JALR_JAL(Latch_ID_Ex_flags_JALR_JAL),// {JALR,JAL}
                         //Outputs 7
                         .WriteBack_FLAGS_Out(Latch_Ex_MEM_WriteBack_FLAGS_Out), //{RegWrite, MemtoReg}
                         .Mem_FLAGS_Out(Latch_Ex_MEM_Mem_FLAGS_Out), //{MemRead, MemWrite} //ex {MemRead, MemWrite, BranchEQ, BranchNE}
-                        .Latch_Ex_MEM_E3_Adder_Out(Latch_Ex_MEM_E3_Adder_Out),
+                        .Latch_Ex_MEM_PC_JALR_JAL(Latch_Ex_MEM_PC_JALR_JAL),//ex .Latch_Ex_MEM_E3_Adder_Out(Latch_Ex_MEM_E3_Adder_Out),
                         .Latch_Ex_MEM_Zero(Latch_Ex_MEM_Zero),
                         .Latch_Ex_MEM_E3_ALUOut(Latch_Ex_MEM_E3_ALUOut), //Addr a DataMem 
                         .Latch_Ex_MEM_ReadDataB(Latch_Ex_MEM_ReadDataB), //DataIn a DataMem
-                        .Latch_Ex_MEM_Mux(Latch_Ex_MEM_Mux)
+                        .Latch_Ex_MEM_Mux(Latch_Ex_MEM_Mux),
+                        .Latch_Ex_MEM_flags_JALR_JAL(Latch_Ex_MEM_flags_JALR_JAL)// {JALR,JAL}
                      );
                      
 //---------------------------------    Etapa 4 "MEM" + Latch MEM/WB    -----------------------------------------------
@@ -336,11 +363,15 @@ Etapa4_MEM E4_MEM(   //Inputs
                          .Latch_Ex_MEM_ALUOut(Latch_Ex_MEM_E3_ALUOut),
                          .Latch_Ex_MEM_Mux(Latch_Ex_MEM_Mux),
                          .enable(Latch_enable),
+                         .Latch_Ex_MEM_flags_JALR_JAL(Latch_Ex_MEM_flags_JALR_JAL),
+                         .Latch_Ex_MEM_PC_JALR_JAL(Latch_Ex_MEM_PC_JALR_JAL),
                          //Outputs
                          .Latch_MEM_WB_DataOut(Latch_MEM_WB_DataOut),
                          .Latch_MEM_WB_ALUOut(Latch_MEM_WB_ALUOut),
                          .Latch_MEM_WB_Mux(Latch_MEM_WB_Mux),
-                         .WriteBack_FLAGS_Out(Latch_MEM_WB_WriteBack_FLAGS_Out)
+                         .WriteBack_FLAGS_Out(Latch_MEM_WB_WriteBack_FLAGS_Out),
+                         .Latch_MEM_WB_flags_JALR_JAL(Latch_MEM_WB_flags_JALR_JAL),
+                         .Latch_MEM_WB_PC_JALR_JAL(Latch_MEM_WB_PC_JALR_JAL)//PC+8 para retorno 
                       );                    
 
 //--------------------------------    Etapa 5 "WB"    ----------------------------------------------------------------
@@ -352,6 +383,18 @@ MUX #(.LEN(32)) E5_WB(	//Inputs
                         //Output
                         .Out(Mux_WB)
                      );
+                     
+//Se hace un OR entre los dos flags JALR y JAL                      
+assign JALR_or_JAL = Latch_MEM_WB_flags_JALR_JAL[1] | Latch_MEM_WB_flags_JALR_JAL[0];
+
+// Si la instruccion es JALR o JAL se selecciona la salida de PC_JALR_JAL para grabarlo en el regitro dado por 
+MUX #(.LEN(32)) mux_WB_JALR_JAL_PC(	//Inputs
+                                    .InputA(Mux_WB), //0
+                                    .InputB(Latch_MEM_WB_PC_JALR_JAL),//1 
+                                    .SEL(JALR_or_JAL), 
+                                    //Output
+                                    .Out(Mux_WB_JALR_JAL)
+                                   );
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //-------------------------        Unidad de CortoCircuito       ------------------------------------------------------

@@ -39,23 +39,26 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Latch_ID_EX(	//Inputs 13
+module Latch_ID_EX(	//Inputs 14
                     input Clk, Reset,
-                    input [31:0] Latch_IF_ID_Adder_Out, 
+                    input [31:0] ADDER_E2_PC_JALR_JAL,// ex Latch_IF_ID_Adder_Out, 
                     input [7:0] ControlFLAGS, //ex [13:0] ControlFLAGS,
                     input [31:0] ReadDataA, ReadDataB, SignExtendOut,  
                     input [4:0] Latch_IF_ID_InstrOut_25_21_Rs, Latch_IF_ID_InstrOut_20_16_Rt, Latch_IF_ID_InstrOut_15_11_Rd, 
                     input [25:0] Latch_IF_ID_InstrOut_25_0_instr_index,
                     input [2:0] E2_InmCtrl,
+                    input [1:0] flags_JALR_JAL,// {JALR,JAL}
                     input enable,
                     //Outputs 12
                     output reg	[1:0] WriteBack_FLAGS, 
                     output reg	[1:0] Mem_FLAGS, //ex [3:0] Mem_FLAGS
                     output reg	[3:0] Ex_FLAGS,  //ex [7:0] Ex_FLAGS,
-                    output reg	[31:0] Latch_ID_Ex_Adder_Out, Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB, Latch_ID_Ex_SignExtendOut, 
+                    output reg	[31:0] Latch_ID_Ex_PC_JALR_JAL, //ex Latch_ID_Ex_Adder_Out, 
+                    output reg	[31:0] Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB, Latch_ID_Ex_SignExtendOut,
                     output reg	[4:0] Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd,
                     output reg	[25:0] Latch_ID_Ex_InstrOut_25_0_instr_index,
-                    output reg 	[2:0] Latch_ID_Ex_InmCtrl                 
+                    output reg 	[2:0] Latch_ID_Ex_InmCtrl,
+                    output reg 	[1:0] Latch_ID_Ex_flags_JALR_JAL // {JALR,JAL}              
 					);
 
 //WB
@@ -81,7 +84,7 @@ always@(negedge Clk) begin
 		WriteBack_FLAGS <= 0; 
 		Mem_FLAGS <= 0;
 		Ex_FLAGS <= 0;
-		Latch_ID_Ex_Adder_Out <= 0;
+		Latch_ID_Ex_PC_JALR_JAL <= 0;
 		Latch_ID_Ex_ReadDataA <= 0;
 		Latch_ID_Ex_ReadDataB <= 0;
 		Latch_ID_Ex_SignExtendOut <= 0;
@@ -90,6 +93,7 @@ always@(negedge Clk) begin
 		Latch_ID_Ex_InstrOut_15_11_Rd <= 0;
 		Latch_ID_Ex_InstrOut_25_0_instr_index <= 0;
 		Latch_ID_Ex_InmCtrl	<= 0;
+		Latch_ID_Ex_flags_JALR_JAL <=0;
 	end
 	else begin		//Sino, los valores de entrada se asignan a la salida	
 		if (enable)
@@ -109,7 +113,7 @@ always@(negedge Clk) begin
 				                ControlFLAGS[ALUSrc],// bit 2
 				                ControlFLAGS[ALUOp1],// bit 1 
 				                ControlFLAGS[ALUOp0]};// bit 0
-				Latch_ID_Ex_Adder_Out <= Latch_IF_ID_Adder_Out;
+				Latch_ID_Ex_PC_JALR_JAL <= ADDER_E2_PC_JALR_JAL;
 				Latch_ID_Ex_ReadDataA <= ReadDataA;
 				Latch_ID_Ex_ReadDataB <= ReadDataB;
 				Latch_ID_Ex_SignExtendOut <= SignExtendOut;
@@ -118,6 +122,7 @@ always@(negedge Clk) begin
 				Latch_ID_Ex_InstrOut_15_11_Rd <= Latch_IF_ID_InstrOut_15_11_Rd;
 				Latch_ID_Ex_InstrOut_25_0_instr_index <= Latch_IF_ID_InstrOut_25_0_instr_index;
 				Latch_ID_Ex_InmCtrl	<= E2_InmCtrl;
+				Latch_ID_Ex_flags_JALR_JAL <= flags_JALR_JAL;
 			end
 	    end
 end

@@ -1,0 +1,7 @@
+Running: xsim.dir/test_modulo_saltos_behav/xsimk.exe -simmode gui -wdb test_modulo_saltos_behav.wdb -simrunnum 0 -socket 53260
+Design successfully loaded
+Design Loading Memory Usage: 6332 KB (Peak: 6332 KB)
+Design Loading CPU Usage: 62 ms
+Simulation completed
+Simulation Memory Usage: 6988 KB (Peak: 6988 KB)
+Simulation CPU Usage: 108 ms
