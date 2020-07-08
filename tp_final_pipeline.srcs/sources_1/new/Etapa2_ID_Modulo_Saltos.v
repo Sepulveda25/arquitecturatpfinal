@@ -9,7 +9,8 @@
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
-// Description: 
+// Description: Este modulo se encarga de calcular los PC de los saltos Branch y Jump. En caso de ser un salto condicional
+// tambien se encarga de evaluar la condicion de salto
 // 
 // Dependencies: 
 // 
@@ -21,13 +22,14 @@
 
 
 module Etapa2_ID_Modulo_Saltos(
+                                 input          Clk,
                                  input [31:0] 	E2_ReadDataA,  
                                  input [31:0]   E2_ReadDataB,
                                  input [31:0]   Latch_IF_ID_Adder_Out,//PC+4
                                  input [25:0]   Latch_IF_ID_InstrOut_25_0,
                                  input [5:0]    flags_branch_jump, //{BranchEQ, BranchNE, JR , JALR, Jmp, JAL}
                                  output reg [31:0]  PC_salto,
-                                 output reg salto
+                                 output reg salto //flag que indica si el salto se toma
 
     );
 
@@ -73,32 +75,32 @@ Comparador_registros #(.LEN(32)) comparador_reg_ID(
 
 ///##################################  Señales de control ####################################################  
 //{BranchEQ, BranchNE, JR , JALR, Jmp, JAL}
-always@* begin
-    salto=0;
+always@(negedge Clk)begin
+    salto<=0;
 	if((flags_branch_jump[1] == 1) || (flags_branch_jump[0] == 1)) //detecta si el salto es por J o JAL
 	   begin
-	       PC_salto = pc_jmp_jal;
-	       salto=1;
+	       PC_salto <= pc_jmp_jal;
+	       salto<=1;
 	   end
 	else if ((flags_branch_jump[3] == 1) || (flags_branch_jump[2] == 1)) //detecta si el salto es por JR o JALR
 	   begin
-	       PC_salto = E2_ReadDataA;
-           salto=1;
+	       PC_salto <= E2_ReadDataA;
+           salto<=1;
        end
     else if ((flags_branch_jump[4] == 1)&&(no_igual==1)) //detecta si el salto es por BranchNE
        begin
-           PC_salto = pc_beq_bne;
-           salto=1;
+           PC_salto <= pc_beq_bne;
+           salto<=1;
        end
     else if ((flags_branch_jump[5] == 1)&&(es_igual==1)) //detecta si el salto es por BranchEQ
        begin
-           PC_salto = pc_beq_bne;
-           salto=1;
+           PC_salto <= pc_beq_bne;
+           salto<=1;
        end
     else
        begin
-           PC_salto=0;
-           salto=0;
+           PC_salto<=0;
+           salto<=0;
        end
 end
  

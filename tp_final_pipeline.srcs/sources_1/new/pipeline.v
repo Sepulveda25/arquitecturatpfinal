@@ -26,7 +26,6 @@ module pipeline(    //Inputs
                     input Latch_enable,
                     //Etapa IF
                     input Etapa_IF_Reset,
-                    input Etapa_IF_PCScr,
                     input Etapa_IF_enable_pc,
                     input Etapa_IF_enable_sel,
                     input [31:0] Etapa_IF_Instr_in,
@@ -60,6 +59,8 @@ module pipeline(    //Inputs
                     output [5:0]  flags_branch_jump, //nuevo 
                     output [31:0] ADDER_E2_PC_JALR_JAL, //nuevo
                     output [4:0]  E2_Rd_mux,
+                    output [31:0] E2_PC_salto, // Valor de PC para saltos
+                    output        E2_salto, //si es 1 indica que el salto va a ser tomado
                     //Outputs del Latch "ID/EX"
                     output [1:0]     Latch_ID_Ex_WriteBack_FLAGS, //2 bits
                     output [1:0]     Latch_ID_Ex_Mem_FLAGS, // 2 bits //ex[3:0]     Latch_ID_Ex_Mem_FLAGS, // 4 bits
@@ -198,8 +199,8 @@ localparam MemRead 		= 1;
 Etapa1_IF E1_IF(	//Inputs 13
                     .Clk(Clk), 
                     .Reset(Etapa_IF_Reset), 
-                    //.InputB_MUX(Latch_Ex_MEM_E3_Adder_Out), 
-                    .PCScr(Etapa_IF_PCScr), 
+                    .InputB_MUX(E2_PC_salto), 
+                    .PCScr(E2_salto), 
                     .Stall(Stall),
                     .enable_pc(Etapa_IF_enable_pc),
                     .enable_sel(Etapa_IF_enable_sel),
@@ -260,6 +261,17 @@ MUX #(.LEN(5)) mux_JAL(  //Inputs
                             .Out(E2_Rd_mux)
                          );
 
+Etapa2_ID_Modulo_Saltos E2_ID_Modulo_Saltos(
+                                 .Clk(Clk),
+                                 .E2_ReadDataA(E2_ReadDataA),  
+                                 .E2_ReadDataB(E2_ReadDataB),
+                                 .Latch_IF_ID_Adder_Out(Latch_IF_ID_Adder_Out),//PC+4
+                                 .Latch_IF_ID_InstrOut_25_0(Latch_IF_ID_InstrOut[25:0]),
+                                 .flags_branch_jump(flags_branch_jump), //{BranchEQ, BranchNE, JR , JALR, Jmp, JAL}
+                                 .PC_salto(E2_PC_salto), // Valor de PC para saltos
+                                 .salto(E2_salto)// si es 1 indica que el salto va a ser tomado
+
+    );
 
 Latch_ID_EX ID_EX(  //Inputs 12
                     .Clk(Clk), 

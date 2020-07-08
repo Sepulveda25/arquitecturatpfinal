@@ -33,7 +33,7 @@ module test_pipeline;
     reg Latch_enable;
     //Etapa IF
     reg Etapa_IF_Reset;
-    reg Etapa_IF_PCScr;
+    //reg Etapa_IF_PCScr;
     reg Etapa_IF_enable_pc;
     reg Etapa_IF_enable_sel;
     reg [31:0] Etapa_IF_Instr_in;
@@ -67,6 +67,8 @@ module test_pipeline;
     wire [5:0]  flags_branch_jump; //nuevo
     wire [31:0] ADDER_E2_PC_JALR_JAL;
     wire [4:0]  E2_Rd_mux;
+    wire [31:0] E2_PC_salto; // Valor de PC para saltos
+    wire        E2_salto; 
     //Outputs del Latch "ID/EX"
     wire [1:0]   Latch_ID_Ex_WriteBack_FLAGS;
     wire [1:0]   Latch_ID_Ex_Mem_FLAGS;//ex [3:0]   Latch_ID_Ex_Mem_FLAGS;
@@ -117,7 +119,7 @@ module test_pipeline;
         .Latch_enable(Latch_enable),
         //Etapa IF
         .Etapa_IF_Reset(Etapa_IF_Reset),
-        .Etapa_IF_PCScr(Etapa_IF_PCScr),
+        //.Etapa_IF_PCScr(Etapa_IF_PCScr),
         .Etapa_IF_enable_pc(Etapa_IF_enable_pc),
         .Etapa_IF_enable_sel(Etapa_IF_enable_sel),
         .Etapa_IF_Instr_in(Etapa_IF_Instr_in),
@@ -151,6 +153,8 @@ module test_pipeline;
         .flags_branch_jump(flags_branch_jump),
         .ADDER_E2_PC_JALR_JAL(ADDER_E2_PC_JALR_JAL),
         .E2_Rd_mux(E2_Rd_mux),
+        .E2_PC_salto(E2_PC_salto),
+        .E2_salto(E2_salto),
         //Outputs del Latch "ID/EX"
         .Latch_ID_Ex_WriteBack_FLAGS(Latch_ID_Ex_WriteBack_FLAGS),
         .Latch_ID_Ex_Mem_FLAGS(Latch_ID_Ex_Mem_FLAGS),
@@ -206,7 +210,7 @@ module test_pipeline;
         Latch_enable = 0; // se deshabilita los latch
         //Etapa IF
         Etapa_IF_Reset = 0; // no se reinicia la memoria de programa!! (programa ya cargado en coefile)
-        Etapa_IF_PCScr = 0; //POR AHORA NO HAY SALTOS
+        //Etapa_IF_PCScr = 0; //POR AHORA NO HAY SALTOS
         Etapa_IF_enable_pc = 0; //program counter deshabilitado
         Etapa_IF_enable_sel = 0; //no esta en modo debug
         Etapa_IF_Instr_in = 32'h00000000; // puede ser x porque no se ingresan instrucciones

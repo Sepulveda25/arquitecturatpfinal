@@ -40,13 +40,15 @@ JALR r1, r2; se guarda PC+8 en r1 Hex: 0x00400809
 ADD r3,r4,r31; se verifica la escritura de r31 r3=0+(PC+8) Hex: 0x009F1820  
 ADD r5,r4,r1; se verifica la escritura de r1 Hex: 0x00812820
 
-### N prueba de branch
-		ADDI r1, r1, 0x1;
-		ADDI r2, r2, 0x14; seria la i del for, tiene que ser multiplo de 4 
-		ADDI r5, r5, 0x0; en que valor quiero detener el loop
+### 5 prueba de branch
+		ADDI r1, r1, 0x1; Hex: 20210001
+		ADDI r2, r2, 0x14; seria la i del for, tiene que ser multiplo de 4 Hex: 20420014
+		ADDI r4, r4, 0x1; Hex: 20840001
+		ADDI r5, r5, 0x0; en que valor quiero detener el loop Hex: 20A50000
 loop:
-		ADDI r2,r2,0xfffc; resta 4 
-		SLLV r4,r1,r1; r1<<r1
-		NOP
-		BNE r2,r5,loop 
-		SW r4,0x4(r2) 
+		ADDI r2,r2,0xfffc; resta 4 Hex: 2042FFFC
+		SLLV r4,r4,r1; r4<<r1 Hex: 00242004 
+		NOP; Hex: 00000000
+		BNE r2,r5,0xfffc; me muevo 4 lugares hacia arriba Hex: 1445FFFC
+		SW r4,0x4(r2); Hex: AC440004
+		ADD r6,r4,r7; verifico 2 cosas que sali del loop y en valor de r4 Hex: 00873020
