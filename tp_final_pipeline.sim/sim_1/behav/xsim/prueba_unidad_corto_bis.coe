@@ -1,2 +1,2 @@
 memory_initialization_radix=16;
-memory_initialization_vector=0 20420004 2084001E AC440000 8C430000;
+memory_initialization_vector=20420004 2084001E AC440000 8C430000;

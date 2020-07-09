@@ -75,32 +75,32 @@ Comparador_registros #(.LEN(32)) comparador_reg_ID(
 
 ///##################################  Señales de control ####################################################  
 //{BranchEQ, BranchNE, JR , JALR, Jmp, JAL}
-always@(negedge Clk)begin
-    salto<=0;
+always@*begin
+    salto=0;
 	if((flags_branch_jump[1] == 1) || (flags_branch_jump[0] == 1)) //detecta si el salto es por J o JAL
 	   begin
-	       PC_salto <= pc_jmp_jal;
-	       salto<=1;
+	       PC_salto = pc_jmp_jal;
+	       salto=1;
 	   end
 	else if ((flags_branch_jump[3] == 1) || (flags_branch_jump[2] == 1)) //detecta si el salto es por JR o JALR
 	   begin
-	       PC_salto <= E2_ReadDataA;
-           salto<=1;
+	       PC_salto = E2_ReadDataA;
+           salto=1;
        end
     else if ((flags_branch_jump[4] == 1)&&(no_igual==1)) //detecta si el salto es por BranchNE
        begin
-           PC_salto <= pc_beq_bne;
-           salto<=1;
+           PC_salto = pc_beq_bne;
+           salto=1;
        end
     else if ((flags_branch_jump[5] == 1)&&(es_igual==1)) //detecta si el salto es por BranchEQ
        begin
-           PC_salto <= pc_beq_bne;
-           salto<=1;
+           PC_salto = pc_beq_bne;
+           salto=1;
        end
     else
        begin
-           PC_salto<=0;
-           salto<=0;
+           PC_salto=0;
+           salto=0;
        end
 end
  

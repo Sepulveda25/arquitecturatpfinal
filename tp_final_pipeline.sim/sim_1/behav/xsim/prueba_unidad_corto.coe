@@ -1,2 +1,2 @@
 memory_initialization_radix=16;
-memory_initialization_vector=0 20210003 20420007 00221820 00612822;
+memory_initialization_vector=20210003 20420007 00221820 00612822;

@@ -54,7 +54,7 @@ module test_InstrMem_COEfile;
         wea = 4'b0000;
         #20;//comprobando si todos los reg son igual a cero
         rsta=0;
-        for(j = 0; j < 32; j = j+1)//con (+1) se comprueba que la memoria solo lee de a 4
+        for(j = 0; j < 32; j = j+4)//con (+1) se comprueba que la memoria solo lee de a 4
             begin    
                 addra = j;
                 #20;

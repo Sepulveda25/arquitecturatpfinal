@@ -81,7 +81,7 @@ module test_pipeline;
     wire [1:0]   Latch_ID_Ex_flags_JALR_JAL; // {JALR,JAL}
     //Etapa EX
     //wire [31:0] E3_Adder_Out;
-    wire        E3_ALU_Zero;
+    //wire        E3_ALU_Zero;
     wire [31:0] E3_ALUOut;
     wire [4:0]  E3_MuxOut;
     wire [31:0] MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB;
@@ -89,7 +89,7 @@ module test_pipeline;
     wire [1:0]     Latch_Ex_MEM_Mem_FLAGS_Out;//ex [3:0]     Latch_Ex_MEM_Mem_FLAGS_Out;
     wire [31:0]    Latch_Ex_MEM_ReadDataB;
     wire [31:0]    Latch_Ex_MEM_PC_JALR_JAL; //ex Latch_Ex_MEM_E3_Adder_Out;
-    wire           Latch_Ex_MEM_Zero;
+    //wire           Latch_Ex_MEM_Zero;
     wire [1:0]     Latch_Ex_MEM_WriteBack_FLAGS_Out;
     wire [4:0]     Latch_Ex_MEM_Mux;
     wire [31:0]    Latch_Ex_MEM_E3_ALUOut;
@@ -170,7 +170,7 @@ module test_pipeline;
         .Latch_ID_Ex_flags_JALR_JAL(Latch_ID_Ex_flags_JALR_JAL),
         //Etapa EX
         //.E3_Adder_Out(E3_Adder_Out),
-        .E3_ALU_Zero(E3_ALU_Zero),
+        //.E3_ALU_Zero(E3_ALU_Zero),
         .E3_ALUOut(E3_ALUOut),
         .E3_MuxOut(E3_MuxOut),
         .MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB(MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB),
@@ -178,7 +178,7 @@ module test_pipeline;
         .Latch_Ex_MEM_Mem_FLAGS_Out(Latch_Ex_MEM_Mem_FLAGS_Out),
         .Latch_Ex_MEM_ReadDataB(Latch_Ex_MEM_ReadDataB),
         .Latch_Ex_MEM_PC_JALR_JAL(Latch_Ex_MEM_PC_JALR_JAL),//ex .Latch_Ex_MEM_E3_Adder_Out(Latch_Ex_MEM_E3_Adder_Out),
-        .Latch_Ex_MEM_Zero(Latch_Ex_MEM_Zero),
+        //.Latch_Ex_MEM_Zero(Latch_Ex_MEM_Zero),
         .Latch_Ex_MEM_WriteBack_FLAGS_Out(Latch_Ex_MEM_WriteBack_FLAGS_Out),
         .Latch_Ex_MEM_Mux(Latch_Ex_MEM_Mux),
         .Latch_Ex_MEM_E3_ALUOut(Latch_Ex_MEM_E3_ALUOut),
@@ -204,7 +204,7 @@ module test_pipeline;
     
     initial begin
         // Initialize Inputs
-        Clk = 1;
+        Clk = 0;
         // Puesta a punto inicial 
         Latch_Reset = 1; // se reinicia todos los latch
         Latch_enable = 0; // se deshabilita los latch
@@ -214,7 +214,7 @@ module test_pipeline;
         Etapa_IF_enable_pc = 0; //program counter deshabilitado
         Etapa_IF_enable_sel = 0; //no esta en modo debug
         Etapa_IF_Instr_in = 32'h00000000; // puede ser x porque no se ingresan instrucciones
-        Etapa_IF_enable_mem = 0; // se deshabilita la memoria de Instrucciones 
+        Etapa_IF_enable_mem = 1; // se habilita la memoria de Instrucciones 
         Etapa_IF_write_enable = 4'b0000; // se deja en 0 porque no se van a ingresar instrucciones
         Etapa_IF_Addr_Instr = 32'h00000000; // puede ser x porque no se van a ingresar instrucciones
         Etapa_IF_Addr_Src = 0; //se deja en 0 porque no se van a ingresar instrucciones
@@ -236,7 +236,7 @@ module test_pipeline;
         Etapa_IF_enable_pc = 1; //program counter habilitado
         Etapa_IF_enable_sel = 0; //no esta en modo debug
         Etapa_IF_Instr_in = 32'h00000000; // puede ser x porque no se ingresan instrucciones
-        Etapa_IF_enable_mem = 1; // se habilita la memoria de Instrucciones
+        //Etapa_IF_enable_mem = 1; // se habilita la memoria de Instrucciones
         Etapa_IF_write_enable = 4'b0000; // se deja en 0 porque no se van a ingresar instrucciones
         Etapa_IF_Addr_Instr = 32'h00000000; // puede ser x porque no se van a ingresar instrucciones
         Etapa_IF_Addr_Src = 0; //se deja en 0 porque no se van a ingresar instrucciones
