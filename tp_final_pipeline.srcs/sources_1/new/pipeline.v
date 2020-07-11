@@ -34,6 +34,7 @@ module pipeline(    //Inputs
                     input [31:0] Etapa_IF_Addr_Instr,
                     input Etapa_IF_Addr_Src,
                     input Etapa_IF_pc_reset,
+                    input halt_reset,
                     //Etapa ID
                     input Etapa_ID_Reset,
                     input [4:0] Etapa_ID_posReg, // address para leer registros en modo debug
@@ -47,9 +48,12 @@ module pipeline(    //Inputs
                     output [31:0] E1_AddOut,
                     output [31:0] E1_InstrOut,
                     output [31:0] PC_Out,
+                    output halt,
+                    output stall_or_halt,
                     //Outputs del Latch "IF/ID"
                     output [31:0] Latch_IF_ID_Adder_Out,
                     output [31:0] Latch_IF_ID_InstrOut,
+                    output        Latch_IF_ID_halt,
                     //Etapa ID
                     output [31:0] E2_ReadDataA,	
                     output [31:0] E2_ReadDataB,
@@ -62,16 +66,17 @@ module pipeline(    //Inputs
                     output [31:0] E2_PC_salto, // Valor de PC para saltos
                     output        E2_salto, //si es 1 indica que el salto va a ser tomado
                     //Outputs del Latch "ID/EX"
-                    output [1:0]     Latch_ID_Ex_WriteBack_FLAGS, //2 bits
-                    output [1:0]     Latch_ID_Ex_Mem_FLAGS, // 2 bits //ex[3:0]     Latch_ID_Ex_Mem_FLAGS, // 4 bits
+                    output [1:0]    Latch_ID_Ex_WriteBack_FLAGS, //2 bits
+                    output [1:0]    Latch_ID_Ex_Mem_FLAGS, // 2 bits //ex[3:0]     Latch_ID_Ex_Mem_FLAGS, // 4 bits
                     output [3:0]    Latch_ID_Ex_FLAGS, //4 bits //ex [7:0]    Latch_ID_Ex_FLAGS, //8 bits
-                    output [31:0]    Latch_ID_Ex_PC_JALR_JAL, //ex Latch_ID_Ex_Adder_Out,
-                    output [31:0]    Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,
-                    output [31:0]    Latch_ID_Ex_SignExtendOut,
+                    output [31:0]   Latch_ID_Ex_PC_JALR_JAL, //ex Latch_ID_Ex_Adder_Out,
+                    output [31:0]   Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,
+                    output [31:0]   Latch_ID_Ex_SignExtendOut,
                     output [4:0]    Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd,  
                     output [25:0]	Latch_ID_Ex_InstrOut_25_0_instr_index, 
                     output [2:0]    Latch_ID_Ex_InmCtrl,
                     output [1:0]    Latch_ID_Ex_flags_JALR_JAL, // {JALR,JAL}
+                    output          Latch_ID_Ex_halt,
                     //Etapa EX
                     output [31:0]   E3_Adder_Out,
                     output          E3_ALU_Zero,
@@ -91,6 +96,7 @@ module pipeline(    //Inputs
                     output [4:0]    Latch_Ex_MEM_Mux,
                     output [31:0]   Latch_Ex_MEM_E3_ALUOut,
                     output [1:0]    Latch_Ex_MEM_flags_JALR_JAL, // {JALR,JAL}
+                    output          Latch_Ex_MEM_halt,
                     //Etapa MEM
                     output [31:0] E4_DataOut_to_Latch_MEM_WB,
 //                    output        Branch, //ex PCScr,
@@ -101,6 +107,7 @@ module pipeline(    //Inputs
                     output [1:0]    Latch_MEM_WB_WriteBack_FLAGS_Out,
                     output [1:0]    Latch_MEM_WB_flags_JALR_JAL,// {JALR,JAL}
                     output [31:0]   Latch_MEM_WB_PC_JALR_JAL,
+                    output          Latch_MEM_WB_halt,
                     //Etapa WB
                     output [31:0] Mux_WB,
                     output JALR_or_JAL,
@@ -201,7 +208,7 @@ Etapa1_IF E1_IF(	//Inputs 13
                     .Reset(Etapa_IF_Reset), 
                     .InputB_MUX(E2_PC_salto), 
                     .PCScr(E2_salto), 
-                    .Stall(Stall),
+                    .Stall(stall_or_halt),// detiene el PC si es 1
                     .enable_pc(Etapa_IF_enable_pc),
                     .enable_sel(Etapa_IF_enable_sel),
                     .Instr_in(Etapa_IF_Instr_in),
@@ -214,16 +221,29 @@ Etapa1_IF E1_IF(	//Inputs 13
 					.E1_AddOut(E1_AddOut), 
 					.E1_InstrOut(E1_InstrOut), 
 					.PC_Out(PC_Out)
-					);	
+					);
+// Unidad que se encarga de detectar la instruccion halt y detener el avance PC. Tambien la señal va viajando por cada etapa de pipeline
+// y cuando llega a la etapa WB indica que ya se termino de ejecutar todas las instrucciones de previas al Halt el pipe ya se encotraria vacio 						
+Unidad_halt E1_Halt (
+                    .E1_InstrOut(E1_InstrOut),
+                    .Reset(halt_reset), 
+                    .halt(halt)
+                    );
+
+//Se hace un OR entre Stall y halt                      
+assign stall_or_halt = Stall | halt;
 
 Latch_IF_ID IF_ID(	.Clk(Clk), 
                     .Reset(Latch_Reset), 
                     .Adder_Out(E1_AddOut), 
-                    .Instruction_In(E1_InstrOut), 
+                    .Instruction_In(E1_InstrOut),
+                    .halt(halt), 
                     .Stall(Stall),
-					.enable(Latch_enable), 
+					.enable(Latch_enable),
+					//Outputs 
 					.Latch_IF_ID_Adder_Out(Latch_IF_ID_Adder_Out), 
-					.Latch_IF_ID_InstrOut(Latch_IF_ID_InstrOut)
+					.Latch_IF_ID_InstrOut(Latch_IF_ID_InstrOut),
+					.Latch_IF_ID_halt(Latch_IF_ID_halt)
                     );
                     
 //---------------------------------    Etapa 2 "ID" + Latch ID/Ex	  --------------------------------------------------
@@ -273,7 +293,7 @@ Etapa2_ID_Modulo_Saltos E2_ID_Modulo_Saltos(
 
     );
 
-Latch_ID_EX ID_EX(  //Inputs 12
+Latch_ID_EX ID_EX(  //Inputs 13
                     .Clk(Clk), 
                     .Reset(Latch_Reset), 
                     .ADDER_E2_PC_JALR_JAL(ADDER_E2_PC_JALR_JAL),//.Latch_IF_ID_Adder_Out(Latch_IF_ID_Adder_Out), 
@@ -287,8 +307,9 @@ Latch_ID_EX ID_EX(  //Inputs 12
                     .Latch_IF_ID_InstrOut_25_0_instr_index(Latch_IF_ID_InstrOut[25:0]), 
                     .E2_InmCtrl(E2_InmCtrl),
                     .flags_JALR_JAL({flags_branch_jump[2],flags_branch_jump[0]}),// {JALR,JAL}
+                    .Latch_IF_ID_halt(Latch_IF_ID_halt),
                     .enable(Latch_enable),
-                    //Outputs 11
+                    //Outputs 12
                     .WriteBack_FLAGS(Latch_ID_Ex_WriteBack_FLAGS), //{RegWrite, MemtoReg}
                     .Mem_FLAGS(Latch_ID_Ex_Mem_FLAGS), //{MemRead, MemWrite} // ex {MemRead, MemWrite, BranchEQ, BranchNE}
                     .Ex_FLAGS(Latch_ID_Ex_FLAGS), //{RegDst, ALUSrc, ALUOp1, ALUOp0} // ex {JR , JALR, Jmp, JAL, RegDst, ALUSrc, ALUOp1, ALUOp0}
@@ -301,7 +322,8 @@ Latch_ID_EX ID_EX(  //Inputs 12
                     .Latch_ID_Ex_InstrOut_15_11_Rd(Latch_ID_Ex_InstrOut_15_11_Rd),    //Rd
                     .Latch_ID_Ex_InstrOut_25_0_instr_index(Latch_ID_Ex_InstrOut_25_0_instr_index),
                     .Latch_ID_Ex_InmCtrl(Latch_ID_Ex_InmCtrl),
-                    .Latch_ID_Ex_flags_JALR_JAL(Latch_ID_Ex_flags_JALR_JAL)// {JALR,JAL}
+                    .Latch_ID_Ex_flags_JALR_JAL(Latch_ID_Ex_flags_JALR_JAL),// {JALR,JAL}
+                    .Latch_ID_Ex_halt(Latch_ID_Ex_halt)
                     );  
                     
 //---------------------------------  Etapa 3 "EX" + Latch EX/MEM    --------------------------------------------------
@@ -329,7 +351,7 @@ Etapa3_EX E3_EX(    //Inputs 11
                 );
                     
 
-Latch_EX_MEM EX_MEM(    //Inputs 11
+Latch_EX_MEM EX_MEM(    //Inputs 12
                         .Clk(Clk), 
                         .Reset(Latch_Reset),
                         .WriteBack_FLAGS_In(Latch_ID_Ex_WriteBack_FLAGS), //{RegWrite, MemtoReg}
@@ -341,7 +363,8 @@ Latch_EX_MEM EX_MEM(    //Inputs 11
                         .E3_MuxOut(E3_MuxOut), //salida de E3_MuxOut
                         .enable(Latch_enable),
                         .Latch_ID_Ex_flags_JALR_JAL(Latch_ID_Ex_flags_JALR_JAL),// {JALR,JAL}
-                        //Outputs 7
+                        .Latch_ID_Ex_halt(Latch_ID_Ex_halt),
+                        //Outputs 8
                         .WriteBack_FLAGS_Out(Latch_Ex_MEM_WriteBack_FLAGS_Out), //{RegWrite, MemtoReg}
                         .Mem_FLAGS_Out(Latch_Ex_MEM_Mem_FLAGS_Out), //{MemRead, MemWrite} //ex {MemRead, MemWrite, BranchEQ, BranchNE}
                         .Latch_Ex_MEM_PC_JALR_JAL(Latch_Ex_MEM_PC_JALR_JAL),//ex .Latch_Ex_MEM_E3_Adder_Out(Latch_Ex_MEM_E3_Adder_Out),
@@ -349,7 +372,8 @@ Latch_EX_MEM EX_MEM(    //Inputs 11
                         .Latch_Ex_MEM_E3_ALUOut(Latch_Ex_MEM_E3_ALUOut), //Addr a DataMem 
                         .Latch_Ex_MEM_ReadDataB(Latch_Ex_MEM_ReadDataB), //DataIn a DataMem
                         .Latch_Ex_MEM_Mux(Latch_Ex_MEM_Mux),
-                        .Latch_Ex_MEM_flags_JALR_JAL(Latch_Ex_MEM_flags_JALR_JAL)// {JALR,JAL}
+                        .Latch_Ex_MEM_flags_JALR_JAL(Latch_Ex_MEM_flags_JALR_JAL),// {JALR,JAL}
+                        .Latch_Ex_MEM_halt(Latch_Ex_MEM_halt)                     
                      );
                      
 //---------------------------------    Etapa 4 "MEM" + Latch MEM/WB    -----------------------------------------------
@@ -377,13 +401,15 @@ Etapa4_MEM E4_MEM(   //Inputs
                          .enable(Latch_enable),
                          .Latch_Ex_MEM_flags_JALR_JAL(Latch_Ex_MEM_flags_JALR_JAL),
                          .Latch_Ex_MEM_PC_JALR_JAL(Latch_Ex_MEM_PC_JALR_JAL),
+                         .Latch_Ex_MEM_halt(Latch_Ex_MEM_halt),
                          //Outputs
                          .Latch_MEM_WB_DataOut(Latch_MEM_WB_DataOut),
                          .Latch_MEM_WB_ALUOut(Latch_MEM_WB_ALUOut),
                          .Latch_MEM_WB_Mux(Latch_MEM_WB_Mux),
                          .WriteBack_FLAGS_Out(Latch_MEM_WB_WriteBack_FLAGS_Out),
                          .Latch_MEM_WB_flags_JALR_JAL(Latch_MEM_WB_flags_JALR_JAL),
-                         .Latch_MEM_WB_PC_JALR_JAL(Latch_MEM_WB_PC_JALR_JAL)//PC+8 para retorno 
+                         .Latch_MEM_WB_PC_JALR_JAL(Latch_MEM_WB_PC_JALR_JAL),//PC+8 para retorno 
+                         .Latch_MEM_WB_halt(Latch_MEM_WB_halt)
                       );                    
 
 //--------------------------------    Etapa 5 "WB"    ----------------------------------------------------------------

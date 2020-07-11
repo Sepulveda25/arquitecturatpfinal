@@ -1,2 +1,15 @@
 Vivado Simulator 2017.3
 Time resolution is 1 ps
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module test_pipeline.uut.E1_IF.InstrMem.inst.native_mem_mapped_module.blk_mem_gen_v8_4_0_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module test_pipeline.uut.E4_MEM.DataMemory.inst.native_mem_mapped_module.blk_mem_gen_v8_4_0_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Etapa IF: PC_out: 00000000 Instruccion: 00000000 Tiempo simulacion                   10
+Etapa IF: PC_out: 00000004 Instruccion: 2084001e Tiempo simulacion                   30
+Etapa IF: PC_out: 00000008 Instruccion: 20420004 Tiempo simulacion                   50
+Etapa IF: PC_out: 0000000c Instruccion: 20630005 Tiempo simulacion                   70
+Etapa IF: PC_out: 00000010 Instruccion: ac440000 Tiempo simulacion                   90
+Etapa IF: PC_out: 00000014 Instruccion: 8c410000 Tiempo simulacion                  110
+Etapa IF: PC_out: 00000018 Instruccion: 00232822 Tiempo simulacion                  130

@@ -42,6 +42,8 @@ module test_pipeline;
     reg [31:0] Etapa_IF_Addr_Instr;
     reg Etapa_IF_Addr_Src;
     reg Etapa_IF_pc_reset;
+    reg halt_reset;
+   
     //Etapa ID
     reg Etapa_ID_Reset;
     reg [4:0] Etapa_ID_posReg; // address para leer registros en modo debug
@@ -55,9 +57,12 @@ module test_pipeline;
     wire [31:0] E1_AddOut;
     wire [31:0] E1_InstrOut;
     wire [31:0] PC_Out;
+    wire        halt;
+    wire        stall_or_halt;
     //Outputs del Latch "IF/ID"
     wire [31:0] Latch_IF_ID_Adder_Out;
     wire [31:0] Latch_IF_ID_InstrOut;
+    wire        Latch_IF_ID_halt;
     //Etapa ID
     wire [31:0] E2_ReadDataA;    
     wire [31:0] E2_ReadDataB;
@@ -79,9 +84,8 @@ module test_pipeline;
     wire [4:0]   Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd;    
     wire [2:0]   Latch_ID_Ex_InmCtrl;
     wire [1:0]   Latch_ID_Ex_flags_JALR_JAL; // {JALR,JAL}
+    wire         Latch_ID_Ex_halt;
     //Etapa EX
-    //wire [31:0] E3_Adder_Out;
-    //wire        E3_ALU_Zero;
     wire [31:0] E3_ALUOut;
     wire [4:0]  E3_MuxOut;
     wire [31:0] MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB;
@@ -89,11 +93,11 @@ module test_pipeline;
     wire [1:0]     Latch_Ex_MEM_Mem_FLAGS_Out;//ex [3:0]     Latch_Ex_MEM_Mem_FLAGS_Out;
     wire [31:0]    Latch_Ex_MEM_ReadDataB;
     wire [31:0]    Latch_Ex_MEM_PC_JALR_JAL; //ex Latch_Ex_MEM_E3_Adder_Out;
-    //wire           Latch_Ex_MEM_Zero;
     wire [1:0]     Latch_Ex_MEM_WriteBack_FLAGS_Out;
     wire [4:0]     Latch_Ex_MEM_Mux;
     wire [31:0]    Latch_Ex_MEM_E3_ALUOut;
     wire [1:0]     Latch_Ex_MEM_flags_JALR_JAL; // {JALR,JAL}
+    wire           Latch_Ex_MEM_halt;
     //Etapa MEM
     wire [31:0] E4_DataOut_to_Latch_MEM_WB;
     //Outputs del Latch MEM/WB
@@ -103,6 +107,7 @@ module test_pipeline;
     wire [1:0]  Latch_MEM_WB_WriteBack_FLAGS_Out;
     wire [1:0]  Latch_MEM_WB_flags_JALR_JAL; // {JALR,JAL}
     wire [31:0] Latch_MEM_WB_PC_JALR_JAL;
+    wire        Latch_MEM_WB_halt;
     //Etapa WB
     wire [31:0] Mux_WB;
     wire [31:0] Mux_WB_JALR_JAL;
@@ -120,7 +125,6 @@ module test_pipeline;
         //Etapa IF
         .Etapa_IF_Reset(Etapa_IF_Reset),
         //.Etapa_IF_PCScr(Etapa_IF_PCScr),
-        .Etapa_IF_enable_pc(Etapa_IF_enable_pc),
         .Etapa_IF_enable_sel(Etapa_IF_enable_sel),
         .Etapa_IF_Instr_in(Etapa_IF_Instr_in),
         .Etapa_IF_enable_mem(Etapa_IF_enable_mem),
@@ -128,6 +132,9 @@ module test_pipeline;
         .Etapa_IF_Addr_Instr(Etapa_IF_Addr_Instr),
         .Etapa_IF_Addr_Src(Etapa_IF_Addr_Src),
         .Etapa_IF_pc_reset(Etapa_IF_pc_reset),
+        .halt_reset(halt_reset),
+        .Etapa_IF_enable_pc(Etapa_IF_enable_pc),
+        .stall_or_halt(stall_or_halt),
         //Etapa ID
         .Etapa_ID_Reset(Etapa_ID_Reset),
         .Etapa_ID_posReg(Etapa_ID_posReg), 
@@ -141,9 +148,11 @@ module test_pipeline;
         .E1_AddOut(E1_AddOut),
         .E1_InstrOut(E1_InstrOut),
         .PC_Out(PC_Out),
+        .halt(halt),
         //Outputs del Latch "IF/ID"
         .Latch_IF_ID_Adder_Out(Latch_IF_ID_Adder_Out),
         .Latch_IF_ID_InstrOut(Latch_IF_ID_InstrOut),
+        .Latch_IF_ID_halt(Latch_IF_ID_halt),
         //Etapa ID
         .E2_ReadDataA(E2_ReadDataA),    
         .E2_ReadDataB(E2_ReadDataB),
@@ -168,6 +177,7 @@ module test_pipeline;
         .Latch_ID_Ex_InstrOut_15_11_Rd(Latch_ID_Ex_InstrOut_15_11_Rd),   
         .Latch_ID_Ex_InmCtrl(Latch_ID_Ex_InmCtrl),
         .Latch_ID_Ex_flags_JALR_JAL(Latch_ID_Ex_flags_JALR_JAL),
+        .Latch_ID_Ex_halt(Latch_ID_Ex_halt),
         //Etapa EX
         //.E3_Adder_Out(E3_Adder_Out),
         //.E3_ALU_Zero(E3_ALU_Zero),
@@ -183,6 +193,7 @@ module test_pipeline;
         .Latch_Ex_MEM_Mux(Latch_Ex_MEM_Mux),
         .Latch_Ex_MEM_E3_ALUOut(Latch_Ex_MEM_E3_ALUOut),
         .Latch_Ex_MEM_flags_JALR_JAL(Latch_Ex_MEM_flags_JALR_JAL),
+        .Latch_Ex_MEM_halt(Latch_Ex_MEM_halt),
         //Etapa MEM
         .E4_DataOut_to_Latch_MEM_WB(E4_DataOut_to_Latch_MEM_WB),
         //Outputs del Latch MEM/WB
@@ -192,6 +203,7 @@ module test_pipeline;
         .Latch_MEM_WB_WriteBack_FLAGS_Out(Latch_MEM_WB_WriteBack_FLAGS_Out),
         .Latch_MEM_WB_flags_JALR_JAL(Latch_MEM_WB_flags_JALR_JAL),
         .Latch_MEM_WB_PC_JALR_JAL(Latch_MEM_WB_PC_JALR_JAL),
+        .Latch_MEM_WB_halt(Latch_MEM_WB_halt),
         //Etapa WB
         .Mux_WB(Mux_WB),
         .Mux_WB_JALR_JAL(Mux_WB_JALR_JAL),
@@ -219,6 +231,7 @@ module test_pipeline;
         Etapa_IF_Addr_Instr = 32'h00000000; // puede ser x porque no se van a ingresar instrucciones
         Etapa_IF_Addr_Src = 0; //se deja en 0 porque no se van a ingresar instrucciones
         Etapa_IF_pc_reset = 1; // se renicia el program counter
+        halt_reset=1; // se reinicia la unidad de halt para que arranque en  cero
         //Etapa ID
         Etapa_ID_Reset = 1; // se reinician todos los registros 
         Etapa_ID_posReg = 5'b0000; // no esta en modo debug
@@ -241,6 +254,7 @@ module test_pipeline;
         Etapa_IF_Addr_Instr = 32'h00000000; // puede ser x porque no se van a ingresar instrucciones
         Etapa_IF_Addr_Src = 0; //se deja en 0 porque no se van a ingresar instrucciones
         Etapa_IF_pc_reset = 0; // no se renicia el program counter
+        halt_reset=0; // la unidad esta preparada para detectar un salto
         //Etapa ID
         Etapa_ID_Reset = 0; // no se reinician todos los registros 
         Etapa_ID_posReg = 5'b0000; // no esta en modo debug
@@ -249,11 +263,12 @@ module test_pipeline;
         Etapa_MEM_Reset = 0; // no se reinician los registros
         dirMem = 32'h00000000; // puede ser x porque no se van a leer los registros      
         memDebug = 0; //no esta en modo debug
-        $display("At Simulation",$time," pc_out: %h",PC_Out);           
+//        $display("At Simulation",$time," pc_out: %h",PC_Out);           
     end
     
     always begin //clock de la placa 50Mhz
         #10 Clk=~Clk;
+        if((Clk==1)&& (halt!=1)) $display("Etapa IF: ","PC_out: %h",PC_Out," Instruccion: %h",E1_InstrOut," Tiempo simulacion ",$time);
     end 
     
 endmodule

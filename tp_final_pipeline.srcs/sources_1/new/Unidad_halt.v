@@ -28,7 +28,7 @@ module Unidad_halt #(parameter LEN = 32)(
     
  
     always@*begin
-        if (E1_InstrOut == 32'hafafafaf) begin
+        if (E1_InstrOut == 32'haaaaaaaa) begin // instruccion halt
           halt = 1;
         end 
         if (Reset == 1) halt = 0;   

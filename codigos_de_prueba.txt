@@ -3,7 +3,7 @@ ADDI r1, r1, 0x3 ; en etapa WB => Hex: 0x20210003
 ADDI r2, r2, 0x7 ; en etapa MEM => Hex: 0x20420007
 ADD r3, r1, r2 ; en etapa EX => Hex: 0x00221820
 SUB r5,r3,r1; en etapa IF => Hex: 0x00612822
-HLT ; fin
+HLT ; fin Hex: 0xaaaaaaaa
 
 resultado r5=7
 
@@ -12,6 +12,7 @@ ADDI r2, r2, 0x4; r2=4 Hex: 0x20420004
 ADDI r4, r4, 0x1E; Hex: 0x2084001E
 SW r4, 0x0(r2); Hex: 0xAC440000
 LW r3,0x0(r2); r3=r4 Hex: 0x8C430000
+HLT ; fin Hex: 0xaaaaaaaa
 
 
 ### 2 PRUEBA DE UNIDAD DE DETECCION DE RIESGOS MAS UNIDAD DE CORTO => BIEN
@@ -21,6 +22,7 @@ ADDI r3, r3, 0x5; r3=5 Hex: 0x20630005
 SW r4, 0x0(r2); memoria[r2+0x0]<=r4 Hex: 0xAC440000
 LW r1,0x0(r2); r1=r4 Hex: 0x8C410000
 SUB r5,r1,r3; Hex: 0x00232822
+HLT ; fin Hex: 0xaaaaaaaa
 
 resultado r5=25=0x19
 

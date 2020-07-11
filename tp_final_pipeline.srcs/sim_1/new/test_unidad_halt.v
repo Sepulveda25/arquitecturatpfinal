@@ -39,14 +39,14 @@ module test_unidad_halt;
     #20;
     E1_InstrOut=32'hb1b1b1b1;
     Reset=0;
-    #20;
-    E1_InstrOut=32'hafafafaf; //se activa señal de halt
-    Reset=0;
 //    #20;
 //    E1_InstrOut=32'hafafafaf; //se activa señal de halt
-//    Reset=1;
+//    Reset=0;
     #20;
-    E1_InstrOut=32'he2e2e2e2; //se activa señal de halt
-    Reset=0;
+    E1_InstrOut=32'hafafafaf; //se activa señal de halt
+    Reset=1;
+//    #20;
+//    E1_InstrOut=32'he2e2e2e2; //se activa señal de halt
+//    Reset=0;
     end
 endmodule

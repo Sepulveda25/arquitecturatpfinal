@@ -29,7 +29,8 @@ module Latch_EX_MEM(	//Inputs 11
                         input [31:0]	Latch_ID_Ex_ReadDataB,
                         input [4:0]		E3_MuxOut, 
                         input			enable,
-                        input [1:0]     Latch_ID_Ex_flags_JALR_JAL,// {JALR,JAL} 
+                        input [1:0]     Latch_ID_Ex_flags_JALR_JAL,// {JALR,JAL}
+                        input           Latch_ID_Ex_halt, 
 
                         //Outputs 8
                         output reg 	[1:0] 	WriteBack_FLAGS_Out, 		// {RegWrite, MemtoReg}
@@ -39,7 +40,8 @@ module Latch_EX_MEM(	//Inputs 11
                         output reg	[31:0]	Latch_Ex_MEM_E3_ALUOut, 	//Addr a DataMem 
                         output reg	[31:0] 	Latch_Ex_MEM_ReadDataB,		//DataIn a DataMem
                         output reg	[4:0]	Latch_Ex_MEM_Mux,
-                        output reg	[1:0]	Latch_Ex_MEM_flags_JALR_JAL // {JALR,JAL}      
+                        output reg	[1:0]	Latch_Ex_MEM_flags_JALR_JAL, // {JALR,JAL}  
+                        output reg          Latch_Ex_MEM_halt    
                      );
  					 
 
@@ -53,6 +55,7 @@ always@(negedge Clk) begin
 		Latch_Ex_MEM_ReadDataB		    <= 0;
 		Latch_Ex_MEM_Mux		        <= 0;
 		Latch_Ex_MEM_flags_JALR_JAL     <= 0;
+		Latch_Ex_MEM_halt               <= 0;
 	end
 	else if(enable) begin
 		WriteBack_FLAGS_Out			    <= WriteBack_FLAGS_In;
@@ -63,6 +66,7 @@ always@(negedge Clk) begin
 		Latch_Ex_MEM_ReadDataB		    <= Latch_ID_Ex_ReadDataB;
 		Latch_Ex_MEM_Mux	            <= E3_MuxOut;
 		Latch_Ex_MEM_flags_JALR_JAL     <= Latch_ID_Ex_flags_JALR_JAL; // {JALR,JAL}
+		Latch_Ex_MEM_halt               <= Latch_ID_Ex_halt;
 	end
 end
 
