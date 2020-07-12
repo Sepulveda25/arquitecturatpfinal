@@ -52,6 +52,8 @@ module test_pipeline;
     reg Etapa_MEM_Reset;
     reg [31:0] dirMem;                 //Addr a Mux; luego a DataMem
     reg memDebug;
+    //Contador de ciclos
+    reg reset_contador_clk;
 	// Outputs
 	//Etapa IF
     wire [31:0] E1_AddOut;
@@ -115,6 +117,8 @@ module test_pipeline;
     wire [1:0] ForwardA, ForwardB;
     //Outputs de la Unidad de Deteccion de Riesgos
     wire Stall;
+    //Contador de ciclos
+    wire [31:0] count;
     
     // Instantiate the Unit Under Test (UUT)
     pipeline uut (
@@ -143,6 +147,8 @@ module test_pipeline;
         .Etapa_MEM_Reset(Etapa_MEM_Reset),
         .dirMem(dirMem),                 
         .memDebug(memDebug),
+        //Contador de ciclos
+        .reset_contador_clk(reset_contador_clk),
         //Outputs
         //Etapa IF 
         .E1_AddOut(E1_AddOut),
@@ -211,7 +217,9 @@ module test_pipeline;
         .ForwardA(ForwardA), 
         .ForwardB(ForwardB),
         //Output de la Unidad de Deteccion de Riesgos
-        .Stall(Stall)
+        .Stall(Stall),
+        //Contador de ciclos
+        .count(count)
     );
     
     initial begin
@@ -240,6 +248,8 @@ module test_pipeline;
         Etapa_MEM_Reset = 1; // se reinician los registros
         dirMem = 32'h00000000; // puede ser x porque no se van a leer los registros      
         memDebug = 0; //no esta en modo debug
+        //Contador de ciclos
+        reset_contador_clk=1;
      
         #20;// arranca la ejecucion
         Latch_Reset = 0; //  no se reinicia todos los latch
@@ -263,6 +273,8 @@ module test_pipeline;
         Etapa_MEM_Reset = 0; // no se reinician los registros
         dirMem = 32'h00000000; // puede ser x porque no se van a leer los registros      
         memDebug = 0; //no esta en modo debug
+        //Contador de ciclos
+        reset_contador_clk=0;
 //        $display("At Simulation",$time," pc_out: %h",PC_Out);           
     end
     

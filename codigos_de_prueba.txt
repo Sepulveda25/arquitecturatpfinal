@@ -14,6 +14,7 @@ SW r4, 0x0(r2); Hex: 0xAC440000
 LW r3,0x0(r2); r3=r4 Hex: 0x8C430000
 HLT ; fin Hex: 0xaaaaaaaa
 
+resultado r3=0x1E
 
 ### 2 PRUEBA DE UNIDAD DE DETECCION DE RIESGOS MAS UNIDAD DE CORTO => BIEN
 ADDI r4, r4, 0x1E; r4=30 Hex: 0x2084001E
@@ -37,6 +38,7 @@ SW r4, 0x8(r1); Hex: 0xAC240008
 LW r5, 0x0(r1); r5=r2 Hex: 0x8C250000
 LW r6, 0x4(r1); r6=r3 Hex: 0x8C260004
 LW r7, 0x8(r1); r7=r4 Hex: 0x8C270008
+HLT ; fin Hex: 0xaaaaaaaa
 
 ### 4 PRUEBA FLAGS JAL Y JALR
 JAL 0xe; se guarda PC+8 en r31 Hex: 0x0C00000E
@@ -56,7 +58,9 @@ loop:
 		BNE r2,r5,0xfffc; me muevo 4 lugares hacia arriba Hex: 1445FFFC
 		SW r4,0x4(r2); Hex: AC440004
 		ADD r6,r4,r7; verifico 2 cosas que sali del loop y en valor de r4 Hex: 00873020
+HLT ; fin Hex: 0xaaaaaaaa
 
+resultado r4=r6=32=0x20
 
 ### 6 prueba de Branch on Equal
 

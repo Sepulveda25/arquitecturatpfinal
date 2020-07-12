@@ -43,6 +43,8 @@ module pipeline(    //Inputs
                     input Etapa_MEM_Reset,
                     input [31:0] dirMem, 			    //Addr a Mux, luego a DataMem
                     input memDebug,                //Selector de los 3 Mux
+                    //Contador de ciclos
+                    input reset_contador_clk,
                     //Outputs
                     //Etapa IF
                     output [31:0] E1_AddOut,
@@ -83,9 +85,6 @@ module pipeline(    //Inputs
                     output [31:0]   E3_ALUOut, 
                     output [4:0]    E3_MuxOut,
                     output [31:0]   MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB,
-//                    output [31:0]   E3_pc_jmp_jal, //nuevo
-//                    output          E3_JR_or_JALR_flag,//nuevo
-//                    output          E3_J_or_JAL_flag, //nuevo
                     //Output del Latch "Ex/MEM"
                     output [1:0]    Latch_Ex_MEM_Mem_FLAGS_Out, // ex [3:0]     Latch_Ex_MEM_Mem_FLAGS_Out,
                     output [31:0]   Latch_Ex_MEM_ReadDataA,
@@ -117,7 +116,9 @@ module pipeline(    //Inputs
                     //Output de la Unidad de Deteccion de Riesgos
                     output Stall,
                     //Output de la Unidad de Deteccion de Riesgos
-                    output [1:0] PCScr
+                    output [1:0] PCScr,
+                    //Contador de ciclos
+                    output [31:0] count
     );
 
 //-------------------------------    Variables    -----------------------------------------------------------------------
@@ -457,12 +458,13 @@ unidad_de_deteccion_de_riesgos UnidadRiesgos(	//Inputs
                                                 //Output
                                                 .Stall(Stall)
                                              );
-//-----------------------  Modulo de deteccion de JUMPs o Branches genera las señales PCScr ------------------------                                                                
-//Jump_Branch_PCSrc UnidadPCSrc (     //Inputs
-//                                    .Latch_Ex_MEM_JR_or_JALR_flag(Latch_Ex_MEM_JR_or_JALR_flag),//nuevo
-//                                    .Latch_Ex_MEM_J_or_JAL_flag(Latch_Ex_MEM_J_or_JAL_flag), //nuevo
-//                                    .Branch(Branch),
-//                                    //Outputs
-//                                    .PCScr(PCScr) 
-//                                );
+//----------------------       Contador de ciclos     -----------------------------------------------------
+contador_clk #(.LEN(32)) Contador_Clk(//input
+                                    .clk(Clk), 
+                                    .reset(reset_contador_clk),
+                                    .enable(~Latch_MEM_WB_halt),// OJO la señal de latch entra negada
+                                    //output
+                                    .count(count)
+    );
+
 endmodule

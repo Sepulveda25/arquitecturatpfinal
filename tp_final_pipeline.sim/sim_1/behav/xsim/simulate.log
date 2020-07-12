@@ -7,9 +7,19 @@ Block Memory Generator module test_pipeline.uut.E1_IF.InstrMem.inst.native_mem_m
  Block Memory Generator data initialization complete.
 Block Memory Generator module test_pipeline.uut.E4_MEM.DataMemory.inst.native_mem_mapped_module.blk_mem_gen_v8_4_0_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
 Etapa IF: PC_out: 00000000 Instruccion: 00000000 Tiempo simulacion                   10
-Etapa IF: PC_out: 00000004 Instruccion: 2084001e Tiempo simulacion                   30
-Etapa IF: PC_out: 00000008 Instruccion: 20420004 Tiempo simulacion                   50
+Etapa IF: PC_out: 00000004 Instruccion: 2021000f Tiempo simulacion                   30
+Etapa IF: PC_out: 00000008 Instruccion: 2042000a Tiempo simulacion                   50
 Etapa IF: PC_out: 0000000c Instruccion: 20630005 Tiempo simulacion                   70
-Etapa IF: PC_out: 00000010 Instruccion: ac440000 Tiempo simulacion                   90
-Etapa IF: PC_out: 00000014 Instruccion: 8c410000 Tiempo simulacion                  110
-Etapa IF: PC_out: 00000018 Instruccion: 00232822 Tiempo simulacion                  130
+Etapa IF: PC_out: 00000010 Instruccion: 20a50001 Tiempo simulacion                   90
+Etapa IF: PC_out: 00000014 Instruccion: 20c60001 Tiempo simulacion                  110
+Etapa IF: PC_out: 00000018 Instruccion: 00230822 Tiempo simulacion                  130
+Etapa IF: PC_out: 0000001c Instruccion: 20840008 Tiempo simulacion                  150
+Etapa IF: PC_out: 00000020 Instruccion: 00000000 Tiempo simulacion                  170
+Etapa IF: PC_out: 00000024 Instruccion: 1022fffc Tiempo simulacion                  190
+Etapa IF: PC_out: 00000014 Instruccion: 00c52804 Tiempo simulacion                  210
+Etapa IF: PC_out: 00000018 Instruccion: 00230822 Tiempo simulacion                  230
+Etapa IF: PC_out: 0000001c Instruccion: 20840008 Tiempo simulacion                  250
+Etapa IF: PC_out: 00000020 Instruccion: 00000000 Tiempo simulacion                  270
+Etapa IF: PC_out: 00000024 Instruccion: 1022fffc Tiempo simulacion                  290
+Etapa IF: PC_out: 00000028 Instruccion: 00c52804 Tiempo simulacion                  310
+Etapa IF: PC_out: 0000002c Instruccion: 00273820 Tiempo simulacion                  330
