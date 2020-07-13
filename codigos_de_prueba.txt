@@ -1,8 +1,8 @@
 ### 1 PRUEBA DE UNIDAD DE CORTO => BIEN
-ADDI r1, r1, 0x3 ; en etapa WB => Hex: 0x20210003
-ADDI r2, r2, 0x7 ; en etapa MEM => Hex: 0x20420007
-ADD r3, r1, r2 ; en etapa EX => Hex: 0x00221820
-SUB r5,r3,r1; en etapa IF => Hex: 0x00612822
+ADDI r1, r1, 0x3 ; en etapa WB => Hex: 20210003
+ADDI r2, r2, 0x7 ; en etapa MEM => Hex: 20420007
+ADD r3, r1, r2 ; en etapa EX => Hex: 00221820
+SUB r5,r3,r1; en etapa IF => Hex: 00612822
 HLT ; fin Hex: 0xaaaaaaaa
 
 resultado r5=7
@@ -28,16 +28,16 @@ HLT ; fin Hex: 0xaaaaaaaa
 resultado r5=25=0x19
 
 ### 3 PRUEBA DE STORAGE Y LOAD => BIEN
-ADDI r1, r1, 0x4 ; indice Hex: 0x20210004
-ADDI r2, r2, 0xa ; Hex: 0x2042000A
-ADDI r3, r3, 0xf ; Hex: 0x2063000F
-ADDI r4, r4, 0x14 ; Hex: 0x20840014
-SW r2, 0x0(r1); guardo Hex: 0xAC220000
-SW r3, 0x4(r1); Hex: 0xAC230004
-SW r4, 0x8(r1); Hex: 0xAC240008
-LW r5, 0x0(r1); r5=r2 Hex: 0x8C250000
-LW r6, 0x4(r1); r6=r3 Hex: 0x8C260004
-LW r7, 0x8(r1); r7=r4 Hex: 0x8C270008
+ADDI r1, r1, 0x4 ; indice Hex: 20210004
+ADDI r2, r2, 0xa ; Hex: 2042000A
+ADDI r3, r3, 0xf ; Hex: 2063000F
+ADDI r4, r4, 0x14 ; Hex: 20840014
+SW r2, 0x0(r1); guardo Hex: AC220000
+SW r3, 0x4(r1); Hex: AC230004
+SW r4, 0x8(r1); Hex: AC240008
+LW r5, 0x0(r1); r5=r2 Hex: 8C250000
+LW r6, 0x4(r1); r6=r3 Hex: 8C260004
+LW r7, 0x8(r1); r7=r4 Hex: 8C270008
 HLT ; fin Hex: 0xaaaaaaaa
 
 ### 4 PRUEBA FLAGS JAL Y JALR

@@ -66,6 +66,7 @@ module test_datos_de_archivo_a_memoria;
             j = j+4;
             #20;  
         end
+        $fclose(file);
         ena = 0;//deshabilita la memoria
         wea = 4'b0000; //deshabilita la escritura en memoria
         addra = 0;

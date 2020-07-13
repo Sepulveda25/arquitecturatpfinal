@@ -30,7 +30,7 @@ reg [LEN-1:0] count_reg=1, count_next=1;
 
  always @(posedge clk,posedge reset)
 	if(reset) 
-		count_reg <= 1;
+		count_reg <= 0;
 	else 
 		count_reg <= count_next;
 

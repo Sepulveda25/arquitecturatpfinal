@@ -1,9 +1,9 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
-// Date        : Tue Sep  3 01:35:32 2019
-// Host        : DESKTOP-FBRH79C running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim {e:/Facultad/Arquitectura de Computadoras/Practicos
+// Date        : Mon Jul 13 01:12:11 2020
+// Host        : DESKTOP-I9AG1Q0 running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode funcsim {E:/Facultad/Arquitectura de Computadoras/Practicos
 //               Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/ip/Data_Memory/Data_Memory_sim_netlist.v}
 // Design      : Data_Memory
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
@@ -106,8 +106,8 @@ module Data_Memory
   (* C_MEM_TYPE = "0" *) 
   (* C_MUX_PIPELINE_STAGES = "0" *) 
   (* C_PRIM_TYPE = "1" *) 
-  (* C_READ_DEPTH_A = "64" *) 
-  (* C_READ_DEPTH_B = "64" *) 
+  (* C_READ_DEPTH_A = "32" *) 
+  (* C_READ_DEPTH_B = "32" *) 
   (* C_READ_WIDTH_A = "32" *) 
   (* C_READ_WIDTH_B = "32" *) 
   (* C_RSTRAM_A = "0" *) 
@@ -124,8 +124,8 @@ module Data_Memory
   (* C_USE_URAM = "0" *) 
   (* C_WEA_WIDTH = "4" *) 
   (* C_WEB_WIDTH = "4" *) 
-  (* C_WRITE_DEPTH_A = "64" *) 
-  (* C_WRITE_DEPTH_B = "64" *) 
+  (* C_WRITE_DEPTH_A = "32" *) 
+  (* C_WRITE_DEPTH_B = "32" *) 
   (* C_WRITE_MODE_A = "WRITE_FIRST" *) 
   (* C_WRITE_MODE_B = "WRITE_FIRST" *) 
   (* C_WRITE_WIDTH_A = "32" *) 
@@ -211,11 +211,11 @@ module Data_Memory_blk_mem_gen_generic_cstr
   input clka;
   input ena;
   input rsta;
-  input [5:0]addra;
+  input [4:0]addra;
   input [31:0]dina;
   input [3:0]wea;
 
-  wire [5:0]addra;
+  wire [4:0]addra;
   wire clka;
   wire [31:0]dina;
   wire [31:0]douta;
@@ -246,11 +246,11 @@ module Data_Memory_blk_mem_gen_prim_width
   input clka;
   input ena;
   input rsta;
-  input [5:0]addra;
+  input [4:0]addra;
   input [31:0]dina;
   input [3:0]wea;
 
-  wire [5:0]addra;
+  wire [4:0]addra;
   wire clka;
   wire [31:0]dina;
   wire [31:0]douta;
@@ -281,7 +281,7 @@ module Data_Memory_blk_mem_gen_prim_wrapper_init
   input clka;
   input ena;
   input rsta;
-  input [5:0]addra;
+  input [4:0]addra;
   input [31:0]dina;
   input [3:0]wea;
 
@@ -289,7 +289,7 @@ module Data_Memory_blk_mem_gen_prim_wrapper_init
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.WIDE_PRIM18.ram_n_33 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.WIDE_PRIM18.ram_n_34 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.WIDE_PRIM18.ram_n_35 ;
-  wire [5:0]addra;
+  wire [4:0]addra;
   wire clka;
   wire [31:0]dina;
   wire [31:0]douta;
@@ -400,8 +400,8 @@ module Data_Memory_blk_mem_gen_prim_wrapper_init
     .WRITE_WIDTH_A(18),
     .WRITE_WIDTH_B(18)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.WIDE_PRIM18.ram 
-       (.ADDRARDADDR({1'b0,1'b0,1'b0,addra,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .ADDRBWRADDR({1'b0,1'b0,1'b0,addra,1'b1,1'b0,1'b0,1'b0,1'b0}),
+       (.ADDRARDADDR({1'b0,1'b0,1'b0,1'b0,addra,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,addra,1'b1,1'b0,1'b0,1'b0,1'b0}),
         .CLKARDCLK(clka),
         .CLKBWRCLK(clka),
         .DIADI(dina[15:0]),
@@ -437,11 +437,11 @@ module Data_Memory_blk_mem_gen_top
   input clka;
   input ena;
   input rsta;
-  input [5:0]addra;
+  input [4:0]addra;
   input [31:0]dina;
   input [3:0]wea;
 
-  wire [5:0]addra;
+  wire [4:0]addra;
   wire clka;
   wire [31:0]dina;
   wire [31:0]douta;
@@ -475,13 +475,13 @@ endmodule
 (* C_INITA_VAL = "0" *) (* C_INITB_VAL = "0" *) (* C_INIT_FILE = "Data_Memory.mem" *) 
 (* C_INIT_FILE_NAME = "no_coe_file_loaded" *) (* C_INTERFACE_TYPE = "0" *) (* C_LOAD_INIT_FILE = "0" *) 
 (* C_MEM_TYPE = "0" *) (* C_MUX_PIPELINE_STAGES = "0" *) (* C_PRIM_TYPE = "1" *) 
-(* C_READ_DEPTH_A = "64" *) (* C_READ_DEPTH_B = "64" *) (* C_READ_WIDTH_A = "32" *) 
+(* C_READ_DEPTH_A = "32" *) (* C_READ_DEPTH_B = "32" *) (* C_READ_WIDTH_A = "32" *) 
 (* C_READ_WIDTH_B = "32" *) (* C_RSTRAM_A = "0" *) (* C_RSTRAM_B = "0" *) 
 (* C_RST_PRIORITY_A = "CE" *) (* C_RST_PRIORITY_B = "CE" *) (* C_SIM_COLLISION_CHECK = "ALL" *) 
 (* C_USE_BRAM_BLOCK = "0" *) (* C_USE_BYTE_WEA = "1" *) (* C_USE_BYTE_WEB = "1" *) 
 (* C_USE_DEFAULT_DATA = "1" *) (* C_USE_ECC = "0" *) (* C_USE_SOFTECC = "0" *) 
 (* C_USE_URAM = "0" *) (* C_WEA_WIDTH = "4" *) (* C_WEB_WIDTH = "4" *) 
-(* C_WRITE_DEPTH_A = "64" *) (* C_WRITE_DEPTH_B = "64" *) (* C_WRITE_MODE_A = "WRITE_FIRST" *) 
+(* C_WRITE_DEPTH_A = "32" *) (* C_WRITE_DEPTH_B = "32" *) (* C_WRITE_MODE_A = "WRITE_FIRST" *) 
 (* C_WRITE_MODE_B = "WRITE_FIRST" *) (* C_WRITE_WIDTH_A = "32" *) (* C_WRITE_WIDTH_B = "32" *) 
 (* C_XDEVICEFAMILY = "artix7" *) (* ORIG_REF_NAME = "blk_mem_gen_v8_4_0" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module Data_Memory_blk_mem_gen_v8_4_0
@@ -776,7 +776,7 @@ module Data_Memory_blk_mem_gen_v8_4_0
   GND GND
        (.G(\<const0> ));
   Data_Memory_blk_mem_gen_v8_4_0_synth inst_blk_mem_gen
-       (.addra(addra[7:2]),
+       (.addra(addra[6:2]),
         .clka(clka),
         .dina(dina),
         .douta(douta),
@@ -798,11 +798,11 @@ module Data_Memory_blk_mem_gen_v8_4_0_synth
   input clka;
   input ena;
   input rsta;
-  input [5:0]addra;
+  input [4:0]addra;
   input [31:0]dina;
   input [3:0]wea;
 
-  wire [5:0]addra;
+  wire [4:0]addra;
   wire clka;
   wire [31:0]dina;
   wire [31:0]douta;

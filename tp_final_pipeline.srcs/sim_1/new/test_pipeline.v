@@ -53,6 +53,7 @@ module test_pipeline;
     reg [31:0] dirMem;                 //Addr a Mux; luego a DataMem
     reg memDebug;
     //Contador de ciclos
+    reg enable_count;
     reg reset_contador_clk;
 	// Outputs
 	//Etapa IF
@@ -119,6 +120,7 @@ module test_pipeline;
     wire Stall;
     //Contador de ciclos
     wire [31:0] count;
+    wire Latch_MEM_WB_halt_and_enable_count;
     
     // Instantiate the Unit Under Test (UUT)
     pipeline uut (
@@ -148,6 +150,7 @@ module test_pipeline;
         .dirMem(dirMem),                 
         .memDebug(memDebug),
         //Contador de ciclos
+        .enable_count(enable_count),
         .reset_contador_clk(reset_contador_clk),
         //Outputs
         //Etapa IF 
@@ -219,7 +222,8 @@ module test_pipeline;
         //Output de la Unidad de Deteccion de Riesgos
         .Stall(Stall),
         //Contador de ciclos
-        .count(count)
+        .count(count),
+        .Latch_MEM_WB_halt_and_enable_count(Latch_MEM_WB_halt_and_enable_count)
     );
     
     initial begin
@@ -249,6 +253,7 @@ module test_pipeline;
         dirMem = 32'h00000000; // puede ser x porque no se van a leer los registros      
         memDebug = 0; //no esta en modo debug
         //Contador de ciclos
+        enable_count=1;
         reset_contador_clk=1;
      
         #20;// arranca la ejecucion
@@ -274,6 +279,7 @@ module test_pipeline;
         dirMem = 32'h00000000; // puede ser x porque no se van a leer los registros      
         memDebug = 0; //no esta en modo debug
         //Contador de ciclos
+        enable_count=1;
         reset_contador_clk=0;
 //        $display("At Simulation",$time," pc_out: %h",PC_Out);           
     end

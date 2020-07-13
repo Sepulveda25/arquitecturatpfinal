@@ -1,9 +1,9 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
--- Date        : Tue Sep  3 01:35:32 2019
--- Host        : DESKTOP-FBRH79C running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub {e:/Facultad/Arquitectura de Computadoras/Practicos
+-- Date        : Mon Jul 13 01:12:11 2020
+-- Host        : DESKTOP-I9AG1Q0 running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode synth_stub {E:/Facultad/Arquitectura de Computadoras/Practicos
 --               Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/ip/Data_Memory/Data_Memory_stub.vhdl}
 -- Design      : Data_Memory
 -- Purpose     : Stub declaration of top-level module interface

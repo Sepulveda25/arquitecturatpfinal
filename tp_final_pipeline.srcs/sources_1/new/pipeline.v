@@ -44,6 +44,7 @@ module pipeline(    //Inputs
                     input [31:0] dirMem, 			    //Addr a Mux, luego a DataMem
                     input memDebug,                //Selector de los 3 Mux
                     //Contador de ciclos
+                    input enable_count,
                     input reset_contador_clk,
                     //Outputs
                     //Etapa IF
@@ -118,7 +119,8 @@ module pipeline(    //Inputs
                     //Output de la Unidad de Deteccion de Riesgos
                     output [1:0] PCScr,
                     //Contador de ciclos
-                    output [31:0] count
+                    output [31:0] count,
+                    output Latch_MEM_WB_halt_and_enable_count
     );
 
 //-------------------------------    Variables    -----------------------------------------------------------------------
@@ -462,9 +464,12 @@ unidad_de_deteccion_de_riesgos UnidadRiesgos(	//Inputs
 contador_clk #(.LEN(32)) Contador_Clk(//input
                                     .clk(Clk), 
                                     .reset(reset_contador_clk),
-                                    .enable(~Latch_MEM_WB_halt),// OJO la señal de latch entra negada
+                                    .enable(Latch_MEM_WB_halt_and_enable_count),
                                     //output
                                     .count(count)
     );
+
+//Se hace un OR entre los dos flags JALR y JAL                      
+assign Latch_MEM_WB_halt_and_enable_count = (~Latch_MEM_WB_halt) & enable_count; // OJO la señal de latch entra negada
 
 endmodule

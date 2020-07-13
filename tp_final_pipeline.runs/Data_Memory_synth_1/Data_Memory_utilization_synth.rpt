@@ -1,8 +1,8 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
-| Date         : Tue Sep  3 01:35:32 2019
-| Host         : DESKTOP-FBRH79C running 64-bit major release  (build 9200)
+| Date         : Mon Jul 13 01:12:11 2020
+| Host         : DESKTOP-I9AG1Q0 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file Data_Memory_utilization_synth.rpt -pb Data_Memory_utilization_synth.pb
 | Design       : Data_Memory
 | Device       : 7a35tcpg236-1

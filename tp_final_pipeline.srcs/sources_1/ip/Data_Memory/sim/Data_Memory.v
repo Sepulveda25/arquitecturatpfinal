@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2020 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -111,8 +111,8 @@ output wire [31 : 0] douta;
     .C_WRITE_MODE_A("WRITE_FIRST"),
     .C_WRITE_WIDTH_A(32),
     .C_READ_WIDTH_A(32),
-    .C_WRITE_DEPTH_A(64),
-    .C_READ_DEPTH_A(64),
+    .C_WRITE_DEPTH_A(32),
+    .C_READ_DEPTH_A(32),
     .C_ADDRA_WIDTH(32),
     .C_HAS_RSTB(0),
     .C_RST_PRIORITY_B("CE"),
@@ -125,8 +125,8 @@ output wire [31 : 0] douta;
     .C_WRITE_MODE_B("WRITE_FIRST"),
     .C_WRITE_WIDTH_B(32),
     .C_READ_WIDTH_B(32),
-    .C_WRITE_DEPTH_B(64),
-    .C_READ_DEPTH_B(64),
+    .C_WRITE_DEPTH_B(32),
+    .C_READ_DEPTH_B(32),
     .C_ADDRB_WIDTH(32),
     .C_HAS_MEM_OUTPUT_REGS_A(0),
     .C_HAS_MEM_OUTPUT_REGS_B(0),

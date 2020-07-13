@@ -2,24 +2,252 @@ Vivado Simulator 2017.3
 Time resolution is 1 ps
  Block Memory Generator module loading initial data...
  Block Memory Generator data initialization complete.
-Block Memory Generator module test_pipeline.uut.E1_IF.InstrMem.inst.native_mem_mapped_module.blk_mem_gen_v8_4_0_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module test_pipeline_por_pasos.uut.E1_IF.InstrMem.inst.native_mem_mapped_module.blk_mem_gen_v8_4_0_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
  Block Memory Generator module loading initial data...
  Block Memory Generator data initialization complete.
-Block Memory Generator module test_pipeline.uut.E4_MEM.DataMemory.inst.native_mem_mapped_module.blk_mem_gen_v8_4_0_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Etapa IF: PC_out: 00000000 Instruccion: 00000000 Tiempo simulacion                   10
-Etapa IF: PC_out: 00000004 Instruccion: 2021000f Tiempo simulacion                   30
-Etapa IF: PC_out: 00000008 Instruccion: 2042000a Tiempo simulacion                   50
-Etapa IF: PC_out: 0000000c Instruccion: 20630005 Tiempo simulacion                   70
-Etapa IF: PC_out: 00000010 Instruccion: 20a50001 Tiempo simulacion                   90
-Etapa IF: PC_out: 00000014 Instruccion: 20c60001 Tiempo simulacion                  110
-Etapa IF: PC_out: 00000018 Instruccion: 00230822 Tiempo simulacion                  130
-Etapa IF: PC_out: 0000001c Instruccion: 20840008 Tiempo simulacion                  150
-Etapa IF: PC_out: 00000020 Instruccion: 00000000 Tiempo simulacion                  170
-Etapa IF: PC_out: 00000024 Instruccion: 1022fffc Tiempo simulacion                  190
-Etapa IF: PC_out: 00000014 Instruccion: 00c52804 Tiempo simulacion                  210
-Etapa IF: PC_out: 00000018 Instruccion: 00230822 Tiempo simulacion                  230
-Etapa IF: PC_out: 0000001c Instruccion: 20840008 Tiempo simulacion                  250
-Etapa IF: PC_out: 00000020 Instruccion: 00000000 Tiempo simulacion                  270
-Etapa IF: PC_out: 00000024 Instruccion: 1022fffc Tiempo simulacion                  290
-Etapa IF: PC_out: 00000028 Instruccion: 00c52804 Tiempo simulacion                  310
-Etapa IF: PC_out: 0000002c Instruccion: 00273820 Tiempo simulacion                  330
+Block Memory Generator module test_pipeline_por_pasos.uut.E4_MEM.DataMemory.inst.native_mem_mapped_module.blk_mem_gen_v8_4_0_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Escribiendo instrucciones en memoria
+Dato: 20210003 ; Direccion 00000000; Tiempo simulacion (ns)                  20
+Dato: 20420007 ; Direccion 00000004; Tiempo simulacion (ns)                  40
+Dato: 00221820 ; Direccion 00000008; Tiempo simulacion (ns)                  60
+Dato: 00612822 ; Direccion 0000000c; Tiempo simulacion (ns)                  80
+Dato: aaaaaaaa ; Direccion 00000010; Tiempo simulacion (ns)                 100
+Escritura finalizada
+Se leen los registros
+addr_instruccion= 00000000; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000001; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000002; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000003; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000004; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000005; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000006; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000007; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000008; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000009; Tiempo simulacion (ns)                 180
+addr_instruccion= 0000000a; Tiempo simulacion (ns)                 180
+addr_instruccion= 0000000b; Tiempo simulacion (ns)                 180
+addr_instruccion= 0000000c; Tiempo simulacion (ns)                 180
+addr_instruccion= 0000000d; Tiempo simulacion (ns)                 180
+addr_instruccion= 0000000e; Tiempo simulacion (ns)                 180
+addr_instruccion= 0000000f; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000010; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000011; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000012; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000013; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000014; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000015; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000016; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000017; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000018; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000019; Tiempo simulacion (ns)                 180
+addr_instruccion= 0000001a; Tiempo simulacion (ns)                 180
+addr_instruccion= 0000001b; Tiempo simulacion (ns)                 180
+addr_instruccion= 0000001c; Tiempo simulacion (ns)                 180
+addr_instruccion= 0000001d; Tiempo simulacion (ns)                 180
+addr_instruccion= 0000001e; Tiempo simulacion (ns)                 180
+addr_instruccion= 0000001f; Tiempo simulacion (ns)                 180
+addr_instruccion= 00000020; Tiempo simulacion (ns)                 180
+Se leen los registros
+addr_instruccion= 00000000; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000001; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000002; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000003; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000004; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000005; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000006; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000007; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000008; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000009; Tiempo simulacion (ns)                 220
+addr_instruccion= 0000000a; Tiempo simulacion (ns)                 220
+addr_instruccion= 0000000b; Tiempo simulacion (ns)                 220
+addr_instruccion= 0000000c; Tiempo simulacion (ns)                 220
+addr_instruccion= 0000000d; Tiempo simulacion (ns)                 220
+addr_instruccion= 0000000e; Tiempo simulacion (ns)                 220
+addr_instruccion= 0000000f; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000010; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000011; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000012; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000013; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000014; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000015; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000016; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000017; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000018; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000019; Tiempo simulacion (ns)                 220
+addr_instruccion= 0000001a; Tiempo simulacion (ns)                 220
+addr_instruccion= 0000001b; Tiempo simulacion (ns)                 220
+addr_instruccion= 0000001c; Tiempo simulacion (ns)                 220
+addr_instruccion= 0000001d; Tiempo simulacion (ns)                 220
+addr_instruccion= 0000001e; Tiempo simulacion (ns)                 220
+addr_instruccion= 0000001f; Tiempo simulacion (ns)                 220
+addr_instruccion= 00000020; Tiempo simulacion (ns)                 220
+Se leen los registros
+addr_instruccion= 00000000; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000001; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000002; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000003; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000004; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000005; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000006; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000007; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000008; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000009; Tiempo simulacion (ns)                 260
+addr_instruccion= 0000000a; Tiempo simulacion (ns)                 260
+addr_instruccion= 0000000b; Tiempo simulacion (ns)                 260
+addr_instruccion= 0000000c; Tiempo simulacion (ns)                 260
+addr_instruccion= 0000000d; Tiempo simulacion (ns)                 260
+addr_instruccion= 0000000e; Tiempo simulacion (ns)                 260
+addr_instruccion= 0000000f; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000010; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000011; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000012; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000013; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000014; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000015; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000016; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000017; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000018; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000019; Tiempo simulacion (ns)                 260
+addr_instruccion= 0000001a; Tiempo simulacion (ns)                 260
+addr_instruccion= 0000001b; Tiempo simulacion (ns)                 260
+addr_instruccion= 0000001c; Tiempo simulacion (ns)                 260
+addr_instruccion= 0000001d; Tiempo simulacion (ns)                 260
+addr_instruccion= 0000001e; Tiempo simulacion (ns)                 260
+addr_instruccion= 0000001f; Tiempo simulacion (ns)                 260
+addr_instruccion= 00000020; Tiempo simulacion (ns)                 260
+Se leen los registros
+addr_instruccion= 00000000; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000001; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000002; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000003; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000004; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000005; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000006; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000007; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000008; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000009; Tiempo simulacion (ns)                 300
+addr_instruccion= 0000000a; Tiempo simulacion (ns)                 300
+addr_instruccion= 0000000b; Tiempo simulacion (ns)                 300
+addr_instruccion= 0000000c; Tiempo simulacion (ns)                 300
+addr_instruccion= 0000000d; Tiempo simulacion (ns)                 300
+addr_instruccion= 0000000e; Tiempo simulacion (ns)                 300
+addr_instruccion= 0000000f; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000010; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000011; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000012; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000013; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000014; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000015; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000016; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000017; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000018; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000019; Tiempo simulacion (ns)                 300
+addr_instruccion= 0000001a; Tiempo simulacion (ns)                 300
+addr_instruccion= 0000001b; Tiempo simulacion (ns)                 300
+addr_instruccion= 0000001c; Tiempo simulacion (ns)                 300
+addr_instruccion= 0000001d; Tiempo simulacion (ns)                 300
+addr_instruccion= 0000001e; Tiempo simulacion (ns)                 300
+addr_instruccion= 0000001f; Tiempo simulacion (ns)                 300
+addr_instruccion= 00000020; Tiempo simulacion (ns)                 300
+Se leen los registros
+addr_instruccion= 00000000; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000001; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000002; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000003; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000004; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000005; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000006; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000007; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000008; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000009; Tiempo simulacion (ns)                 340
+addr_instruccion= 0000000a; Tiempo simulacion (ns)                 340
+addr_instruccion= 0000000b; Tiempo simulacion (ns)                 340
+addr_instruccion= 0000000c; Tiempo simulacion (ns)                 340
+addr_instruccion= 0000000d; Tiempo simulacion (ns)                 340
+addr_instruccion= 0000000e; Tiempo simulacion (ns)                 340
+addr_instruccion= 0000000f; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000010; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000011; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000012; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000013; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000014; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000015; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000016; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000017; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000018; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000019; Tiempo simulacion (ns)                 340
+addr_instruccion= 0000001a; Tiempo simulacion (ns)                 340
+addr_instruccion= 0000001b; Tiempo simulacion (ns)                 340
+addr_instruccion= 0000001c; Tiempo simulacion (ns)                 340
+addr_instruccion= 0000001d; Tiempo simulacion (ns)                 340
+addr_instruccion= 0000001e; Tiempo simulacion (ns)                 340
+addr_instruccion= 0000001f; Tiempo simulacion (ns)                 340
+addr_instruccion= 00000020; Tiempo simulacion (ns)                 340
+Se leen los registros
+addr_instruccion= 00000000; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000001; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000002; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000003; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000004; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000005; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000006; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000007; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000008; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000009; Tiempo simulacion (ns)                 380
+addr_instruccion= 0000000a; Tiempo simulacion (ns)                 380
+addr_instruccion= 0000000b; Tiempo simulacion (ns)                 380
+addr_instruccion= 0000000c; Tiempo simulacion (ns)                 380
+addr_instruccion= 0000000d; Tiempo simulacion (ns)                 380
+addr_instruccion= 0000000e; Tiempo simulacion (ns)                 380
+addr_instruccion= 0000000f; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000010; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000011; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000012; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000013; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000014; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000015; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000016; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000017; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000018; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000019; Tiempo simulacion (ns)                 380
+addr_instruccion= 0000001a; Tiempo simulacion (ns)                 380
+addr_instruccion= 0000001b; Tiempo simulacion (ns)                 380
+addr_instruccion= 0000001c; Tiempo simulacion (ns)                 380
+addr_instruccion= 0000001d; Tiempo simulacion (ns)                 380
+addr_instruccion= 0000001e; Tiempo simulacion (ns)                 380
+addr_instruccion= 0000001f; Tiempo simulacion (ns)                 380
+addr_instruccion= 00000020; Tiempo simulacion (ns)                 380
+Se leen los registros
+addr_instruccion= 00000000; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000001; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000002; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000003; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000004; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000005; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000006; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000007; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000008; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000009; Tiempo simulacion (ns)                 420
+addr_instruccion= 0000000a; Tiempo simulacion (ns)                 420
+addr_instruccion= 0000000b; Tiempo simulacion (ns)                 420
+addr_instruccion= 0000000c; Tiempo simulacion (ns)                 420
+addr_instruccion= 0000000d; Tiempo simulacion (ns)                 420
+addr_instruccion= 0000000e; Tiempo simulacion (ns)                 420
+addr_instruccion= 0000000f; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000010; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000011; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000012; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000013; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000014; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000015; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000016; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000017; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000018; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000019; Tiempo simulacion (ns)                 420
+addr_instruccion= 0000001a; Tiempo simulacion (ns)                 420
+addr_instruccion= 0000001b; Tiempo simulacion (ns)                 420
+addr_instruccion= 0000001c; Tiempo simulacion (ns)                 420
+addr_instruccion= 0000001d; Tiempo simulacion (ns)                 420
+addr_instruccion= 0000001e; Tiempo simulacion (ns)                 420
+addr_instruccion= 0000001f; Tiempo simulacion (ns)                 420
+addr_instruccion= 00000020; Tiempo simulacion (ns)                 420

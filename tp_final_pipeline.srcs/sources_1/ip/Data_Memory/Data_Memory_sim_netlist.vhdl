@@ -1,9 +1,9 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
--- Date        : Tue Sep  3 01:35:32 2019
--- Host        : DESKTOP-FBRH79C running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim {e:/Facultad/Arquitectura de Computadoras/Practicos
+-- Date        : Mon Jul 13 01:12:11 2020
+-- Host        : DESKTOP-I9AG1Q0 running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode funcsim {E:/Facultad/Arquitectura de Computadoras/Practicos
 --               Vivado/tp_final_pipeline/tp_final_pipeline.srcs/sources_1/ip/Data_Memory/Data_Memory_sim_netlist.vhdl}
 -- Design      : Data_Memory
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
@@ -20,7 +20,7 @@ entity Data_Memory_blk_mem_gen_prim_wrapper_init is
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
     rsta : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 5 downto 0 );
+    addra : in STD_LOGIC_VECTOR ( 4 downto 0 );
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
@@ -141,11 +141,11 @@ begin
       WRITE_WIDTH_B => 18
     )
         port map (
-      ADDRARDADDR(13 downto 11) => B"000",
-      ADDRARDADDR(10 downto 5) => addra(5 downto 0),
+      ADDRARDADDR(13 downto 10) => B"0000",
+      ADDRARDADDR(9 downto 5) => addra(4 downto 0),
       ADDRARDADDR(4 downto 0) => B"00000",
-      ADDRBWRADDR(13 downto 11) => B"000",
-      ADDRBWRADDR(10 downto 5) => addra(5 downto 0),
+      ADDRBWRADDR(13 downto 10) => B"0000",
+      ADDRBWRADDR(9 downto 5) => addra(4 downto 0),
       ADDRBWRADDR(4 downto 0) => B"10000",
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
@@ -182,7 +182,7 @@ entity Data_Memory_blk_mem_gen_prim_width is
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
     rsta : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 5 downto 0 );
+    addra : in STD_LOGIC_VECTOR ( 4 downto 0 );
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
@@ -194,7 +194,7 @@ architecture STRUCTURE of Data_Memory_blk_mem_gen_prim_width is
 begin
 \prim_init.ram\: entity work.Data_Memory_blk_mem_gen_prim_wrapper_init
      port map (
-      addra(5 downto 0) => addra(5 downto 0),
+      addra(4 downto 0) => addra(4 downto 0),
       clka => clka,
       dina(31 downto 0) => dina(31 downto 0),
       douta(31 downto 0) => douta(31 downto 0),
@@ -213,7 +213,7 @@ entity Data_Memory_blk_mem_gen_generic_cstr is
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
     rsta : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 5 downto 0 );
+    addra : in STD_LOGIC_VECTOR ( 4 downto 0 );
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
@@ -225,7 +225,7 @@ architecture STRUCTURE of Data_Memory_blk_mem_gen_generic_cstr is
 begin
 \ramloop[0].ram.r\: entity work.Data_Memory_blk_mem_gen_prim_width
      port map (
-      addra(5 downto 0) => addra(5 downto 0),
+      addra(4 downto 0) => addra(4 downto 0),
       clka => clka,
       dina(31 downto 0) => dina(31 downto 0),
       douta(31 downto 0) => douta(31 downto 0),
@@ -244,7 +244,7 @@ entity Data_Memory_blk_mem_gen_top is
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
     rsta : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 5 downto 0 );
+    addra : in STD_LOGIC_VECTOR ( 4 downto 0 );
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
@@ -256,7 +256,7 @@ architecture STRUCTURE of Data_Memory_blk_mem_gen_top is
 begin
 \valid.cstr\: entity work.Data_Memory_blk_mem_gen_generic_cstr
      port map (
-      addra(5 downto 0) => addra(5 downto 0),
+      addra(4 downto 0) => addra(4 downto 0),
       clka => clka,
       dina(31 downto 0) => dina(31 downto 0),
       douta(31 downto 0) => douta(31 downto 0),
@@ -275,7 +275,7 @@ entity Data_Memory_blk_mem_gen_v8_4_0_synth is
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
     rsta : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 5 downto 0 );
+    addra : in STD_LOGIC_VECTOR ( 4 downto 0 );
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
@@ -287,7 +287,7 @@ architecture STRUCTURE of Data_Memory_blk_mem_gen_v8_4_0_synth is
 begin
 \gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen\: entity work.Data_Memory_blk_mem_gen_top
      port map (
-      addra(5 downto 0) => addra(5 downto 0),
+      addra(4 downto 0) => addra(4 downto 0),
       clka => clka,
       dina(31 downto 0) => dina(31 downto 0),
       douta(31 downto 0) => douta(31 downto 0),
@@ -463,9 +463,9 @@ entity Data_Memory_blk_mem_gen_v8_4_0 is
   attribute C_PRIM_TYPE : integer;
   attribute C_PRIM_TYPE of Data_Memory_blk_mem_gen_v8_4_0 : entity is 1;
   attribute C_READ_DEPTH_A : integer;
-  attribute C_READ_DEPTH_A of Data_Memory_blk_mem_gen_v8_4_0 : entity is 64;
+  attribute C_READ_DEPTH_A of Data_Memory_blk_mem_gen_v8_4_0 : entity is 32;
   attribute C_READ_DEPTH_B : integer;
-  attribute C_READ_DEPTH_B of Data_Memory_blk_mem_gen_v8_4_0 : entity is 64;
+  attribute C_READ_DEPTH_B of Data_Memory_blk_mem_gen_v8_4_0 : entity is 32;
   attribute C_READ_WIDTH_A : integer;
   attribute C_READ_WIDTH_A of Data_Memory_blk_mem_gen_v8_4_0 : entity is 32;
   attribute C_READ_WIDTH_B : integer;
@@ -499,9 +499,9 @@ entity Data_Memory_blk_mem_gen_v8_4_0 is
   attribute C_WEB_WIDTH : integer;
   attribute C_WEB_WIDTH of Data_Memory_blk_mem_gen_v8_4_0 : entity is 4;
   attribute C_WRITE_DEPTH_A : integer;
-  attribute C_WRITE_DEPTH_A of Data_Memory_blk_mem_gen_v8_4_0 : entity is 64;
+  attribute C_WRITE_DEPTH_A of Data_Memory_blk_mem_gen_v8_4_0 : entity is 32;
   attribute C_WRITE_DEPTH_B : integer;
-  attribute C_WRITE_DEPTH_B of Data_Memory_blk_mem_gen_v8_4_0 : entity is 64;
+  attribute C_WRITE_DEPTH_B of Data_Memory_blk_mem_gen_v8_4_0 : entity is 32;
   attribute C_WRITE_MODE_A : string;
   attribute C_WRITE_MODE_A of Data_Memory_blk_mem_gen_v8_4_0 : entity is "WRITE_FIRST";
   attribute C_WRITE_MODE_B : string;
@@ -679,7 +679,7 @@ GND: unisim.vcomponents.GND
     );
 inst_blk_mem_gen: entity work.Data_Memory_blk_mem_gen_v8_4_0_synth
      port map (
-      addra(5 downto 0) => addra(7 downto 2),
+      addra(4 downto 0) => addra(6 downto 2),
       clka => clka,
       dina(31 downto 0) => dina(31 downto 0),
       douta(31 downto 0) => douta(31 downto 0),
@@ -830,9 +830,9 @@ architecture STRUCTURE of Data_Memory is
   attribute C_PRIM_TYPE : integer;
   attribute C_PRIM_TYPE of U0 : label is 1;
   attribute C_READ_DEPTH_A : integer;
-  attribute C_READ_DEPTH_A of U0 : label is 64;
+  attribute C_READ_DEPTH_A of U0 : label is 32;
   attribute C_READ_DEPTH_B : integer;
-  attribute C_READ_DEPTH_B of U0 : label is 64;
+  attribute C_READ_DEPTH_B of U0 : label is 32;
   attribute C_READ_WIDTH_A : integer;
   attribute C_READ_WIDTH_A of U0 : label is 32;
   attribute C_READ_WIDTH_B : integer;
@@ -866,9 +866,9 @@ architecture STRUCTURE of Data_Memory is
   attribute C_WEB_WIDTH : integer;
   attribute C_WEB_WIDTH of U0 : label is 4;
   attribute C_WRITE_DEPTH_A : integer;
-  attribute C_WRITE_DEPTH_A of U0 : label is 64;
+  attribute C_WRITE_DEPTH_A of U0 : label is 32;
   attribute C_WRITE_DEPTH_B : integer;
-  attribute C_WRITE_DEPTH_B of U0 : label is 64;
+  attribute C_WRITE_DEPTH_B of U0 : label is 32;
   attribute C_WRITE_MODE_A : string;
   attribute C_WRITE_MODE_A of U0 : label is "WRITE_FIRST";
   attribute C_WRITE_MODE_B : string;
