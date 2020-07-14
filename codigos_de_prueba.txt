@@ -17,13 +17,13 @@ HLT ; fin Hex: 0xaaaaaaaa
 resultado r3=0x1E
 
 ### 2 PRUEBA DE UNIDAD DE DETECCION DE RIESGOS MAS UNIDAD DE CORTO => BIEN
-ADDI r4, r4, 0x1E; r4=30 Hex: 0x2084001E
-ADDI r2, r2, 0x4; r2=4 Hex: 0x20420004
-ADDI r3, r3, 0x5; r3=5 Hex: 0x20630005
-SW r4, 0x0(r2); memoria[r2+0x0]<=r4 Hex: 0xAC440000
-LW r1,0x0(r2); r1=r4 Hex: 0x8C410000
-SUB r5,r1,r3; Hex: 0x00232822
-HLT ; fin Hex: 0xaaaaaaaa
+ADDI r4, r4, 0x1E; r4=30 Hex: 2084001E
+ADDI r2, r2, 0x4; r2=4 Hex: 20420004
+ADDI r3, r3, 0x5; r3=5 Hex: 20630005
+SW r4, 0x0(r2); memoria[r2+0x0]<=r4 Hex: AC440000
+LW r1,0x0(r2); r1=r4 Hex: 8C410000
+SUB r5,r1,r3; Hex: 00232822
+HLT ; fin Hex: aaaaaaaa
 
 resultado r5=25=0x19
 

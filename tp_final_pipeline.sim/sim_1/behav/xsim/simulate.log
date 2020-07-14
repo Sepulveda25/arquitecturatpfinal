@@ -6,248 +6,1264 @@ Block Memory Generator module test_pipeline_por_pasos.uut.E1_IF.InstrMem.inst.na
  Block Memory Generator module loading initial data...
  Block Memory Generator data initialization complete.
 Block Memory Generator module test_pipeline_por_pasos.uut.E4_MEM.DataMemory.inst.native_mem_mapped_module.blk_mem_gen_v8_4_0_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Escribiendo instrucciones en memoria
-Dato: 20210003 ; Direccion 00000000; Tiempo simulacion (ns)                  20
-Dato: 20420007 ; Direccion 00000004; Tiempo simulacion (ns)                  40
-Dato: 00221820 ; Direccion 00000008; Tiempo simulacion (ns)                  60
-Dato: 00612822 ; Direccion 0000000c; Tiempo simulacion (ns)                  80
-Dato: aaaaaaaa ; Direccion 00000010; Tiempo simulacion (ns)                 100
-Escritura finalizada
-Se leen los registros
-addr_instruccion= 00000000; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000001; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000002; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000003; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000004; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000005; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000006; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000007; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000008; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000009; Tiempo simulacion (ns)                 180
-addr_instruccion= 0000000a; Tiempo simulacion (ns)                 180
-addr_instruccion= 0000000b; Tiempo simulacion (ns)                 180
-addr_instruccion= 0000000c; Tiempo simulacion (ns)                 180
-addr_instruccion= 0000000d; Tiempo simulacion (ns)                 180
-addr_instruccion= 0000000e; Tiempo simulacion (ns)                 180
-addr_instruccion= 0000000f; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000010; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000011; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000012; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000013; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000014; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000015; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000016; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000017; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000018; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000019; Tiempo simulacion (ns)                 180
-addr_instruccion= 0000001a; Tiempo simulacion (ns)                 180
-addr_instruccion= 0000001b; Tiempo simulacion (ns)                 180
-addr_instruccion= 0000001c; Tiempo simulacion (ns)                 180
-addr_instruccion= 0000001d; Tiempo simulacion (ns)                 180
-addr_instruccion= 0000001e; Tiempo simulacion (ns)                 180
-addr_instruccion= 0000001f; Tiempo simulacion (ns)                 180
-addr_instruccion= 00000020; Tiempo simulacion (ns)                 180
-Se leen los registros
-addr_instruccion= 00000000; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000001; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000002; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000003; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000004; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000005; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000006; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000007; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000008; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000009; Tiempo simulacion (ns)                 220
-addr_instruccion= 0000000a; Tiempo simulacion (ns)                 220
-addr_instruccion= 0000000b; Tiempo simulacion (ns)                 220
-addr_instruccion= 0000000c; Tiempo simulacion (ns)                 220
-addr_instruccion= 0000000d; Tiempo simulacion (ns)                 220
-addr_instruccion= 0000000e; Tiempo simulacion (ns)                 220
-addr_instruccion= 0000000f; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000010; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000011; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000012; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000013; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000014; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000015; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000016; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000017; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000018; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000019; Tiempo simulacion (ns)                 220
-addr_instruccion= 0000001a; Tiempo simulacion (ns)                 220
-addr_instruccion= 0000001b; Tiempo simulacion (ns)                 220
-addr_instruccion= 0000001c; Tiempo simulacion (ns)                 220
-addr_instruccion= 0000001d; Tiempo simulacion (ns)                 220
-addr_instruccion= 0000001e; Tiempo simulacion (ns)                 220
-addr_instruccion= 0000001f; Tiempo simulacion (ns)                 220
-addr_instruccion= 00000020; Tiempo simulacion (ns)                 220
-Se leen los registros
-addr_instruccion= 00000000; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000001; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000002; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000003; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000004; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000005; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000006; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000007; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000008; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000009; Tiempo simulacion (ns)                 260
-addr_instruccion= 0000000a; Tiempo simulacion (ns)                 260
-addr_instruccion= 0000000b; Tiempo simulacion (ns)                 260
-addr_instruccion= 0000000c; Tiempo simulacion (ns)                 260
-addr_instruccion= 0000000d; Tiempo simulacion (ns)                 260
-addr_instruccion= 0000000e; Tiempo simulacion (ns)                 260
-addr_instruccion= 0000000f; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000010; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000011; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000012; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000013; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000014; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000015; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000016; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000017; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000018; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000019; Tiempo simulacion (ns)                 260
-addr_instruccion= 0000001a; Tiempo simulacion (ns)                 260
-addr_instruccion= 0000001b; Tiempo simulacion (ns)                 260
-addr_instruccion= 0000001c; Tiempo simulacion (ns)                 260
-addr_instruccion= 0000001d; Tiempo simulacion (ns)                 260
-addr_instruccion= 0000001e; Tiempo simulacion (ns)                 260
-addr_instruccion= 0000001f; Tiempo simulacion (ns)                 260
-addr_instruccion= 00000020; Tiempo simulacion (ns)                 260
-Se leen los registros
-addr_instruccion= 00000000; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000001; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000002; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000003; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000004; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000005; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000006; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000007; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000008; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000009; Tiempo simulacion (ns)                 300
-addr_instruccion= 0000000a; Tiempo simulacion (ns)                 300
-addr_instruccion= 0000000b; Tiempo simulacion (ns)                 300
-addr_instruccion= 0000000c; Tiempo simulacion (ns)                 300
-addr_instruccion= 0000000d; Tiempo simulacion (ns)                 300
-addr_instruccion= 0000000e; Tiempo simulacion (ns)                 300
-addr_instruccion= 0000000f; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000010; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000011; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000012; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000013; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000014; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000015; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000016; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000017; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000018; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000019; Tiempo simulacion (ns)                 300
-addr_instruccion= 0000001a; Tiempo simulacion (ns)                 300
-addr_instruccion= 0000001b; Tiempo simulacion (ns)                 300
-addr_instruccion= 0000001c; Tiempo simulacion (ns)                 300
-addr_instruccion= 0000001d; Tiempo simulacion (ns)                 300
-addr_instruccion= 0000001e; Tiempo simulacion (ns)                 300
-addr_instruccion= 0000001f; Tiempo simulacion (ns)                 300
-addr_instruccion= 00000020; Tiempo simulacion (ns)                 300
-Se leen los registros
-addr_instruccion= 00000000; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000001; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000002; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000003; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000004; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000005; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000006; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000007; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000008; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000009; Tiempo simulacion (ns)                 340
-addr_instruccion= 0000000a; Tiempo simulacion (ns)                 340
-addr_instruccion= 0000000b; Tiempo simulacion (ns)                 340
-addr_instruccion= 0000000c; Tiempo simulacion (ns)                 340
-addr_instruccion= 0000000d; Tiempo simulacion (ns)                 340
-addr_instruccion= 0000000e; Tiempo simulacion (ns)                 340
-addr_instruccion= 0000000f; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000010; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000011; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000012; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000013; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000014; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000015; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000016; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000017; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000018; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000019; Tiempo simulacion (ns)                 340
-addr_instruccion= 0000001a; Tiempo simulacion (ns)                 340
-addr_instruccion= 0000001b; Tiempo simulacion (ns)                 340
-addr_instruccion= 0000001c; Tiempo simulacion (ns)                 340
-addr_instruccion= 0000001d; Tiempo simulacion (ns)                 340
-addr_instruccion= 0000001e; Tiempo simulacion (ns)                 340
-addr_instruccion= 0000001f; Tiempo simulacion (ns)                 340
-addr_instruccion= 00000020; Tiempo simulacion (ns)                 340
-Se leen los registros
-addr_instruccion= 00000000; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000001; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000002; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000003; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000004; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000005; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000006; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000007; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000008; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000009; Tiempo simulacion (ns)                 380
-addr_instruccion= 0000000a; Tiempo simulacion (ns)                 380
-addr_instruccion= 0000000b; Tiempo simulacion (ns)                 380
-addr_instruccion= 0000000c; Tiempo simulacion (ns)                 380
-addr_instruccion= 0000000d; Tiempo simulacion (ns)                 380
-addr_instruccion= 0000000e; Tiempo simulacion (ns)                 380
-addr_instruccion= 0000000f; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000010; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000011; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000012; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000013; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000014; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000015; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000016; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000017; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000018; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000019; Tiempo simulacion (ns)                 380
-addr_instruccion= 0000001a; Tiempo simulacion (ns)                 380
-addr_instruccion= 0000001b; Tiempo simulacion (ns)                 380
-addr_instruccion= 0000001c; Tiempo simulacion (ns)                 380
-addr_instruccion= 0000001d; Tiempo simulacion (ns)                 380
-addr_instruccion= 0000001e; Tiempo simulacion (ns)                 380
-addr_instruccion= 0000001f; Tiempo simulacion (ns)                 380
-addr_instruccion= 00000020; Tiempo simulacion (ns)                 380
-Se leen los registros
-addr_instruccion= 00000000; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000001; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000002; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000003; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000004; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000005; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000006; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000007; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000008; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000009; Tiempo simulacion (ns)                 420
-addr_instruccion= 0000000a; Tiempo simulacion (ns)                 420
-addr_instruccion= 0000000b; Tiempo simulacion (ns)                 420
-addr_instruccion= 0000000c; Tiempo simulacion (ns)                 420
-addr_instruccion= 0000000d; Tiempo simulacion (ns)                 420
-addr_instruccion= 0000000e; Tiempo simulacion (ns)                 420
-addr_instruccion= 0000000f; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000010; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000011; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000012; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000013; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000014; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000015; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000016; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000017; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000018; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000019; Tiempo simulacion (ns)                 420
-addr_instruccion= 0000001a; Tiempo simulacion (ns)                 420
-addr_instruccion= 0000001b; Tiempo simulacion (ns)                 420
-addr_instruccion= 0000001c; Tiempo simulacion (ns)                 420
-addr_instruccion= 0000001d; Tiempo simulacion (ns)                 420
-addr_instruccion= 0000001e; Tiempo simulacion (ns)                 420
-addr_instruccion= 0000001f; Tiempo simulacion (ns)                 420
-addr_instruccion= 00000020; Tiempo simulacion (ns)                 420
+#### Escribiendo instrucciones en memoria ####
+
+Dato: 20210004 ; Direccion 00000000; Tiempo simulacion (ns)                  20
+Dato: 2042000a ; Direccion 00000004; Tiempo simulacion (ns)                  40
+Dato: 2063000f ; Direccion 00000008; Tiempo simulacion (ns)                  60
+Dato: 20840014 ; Direccion 0000000c; Tiempo simulacion (ns)                  80
+Dato: ac220000 ; Direccion 00000010; Tiempo simulacion (ns)                 100
+Dato: ac230004 ; Direccion 00000014; Tiempo simulacion (ns)                 120
+Dato: ac240008 ; Direccion 00000018; Tiempo simulacion (ns)                 140
+Dato: 8c250000 ; Direccion 0000001c; Tiempo simulacion (ns)                 160
+Dato: 8c260004 ; Direccion 00000020; Tiempo simulacion (ns)                 180
+Dato: 8c270008 ; Direccion 00000024; Tiempo simulacion (ns)                 200
+Dato: aaaaaaaa ; Direccion 00000028; Tiempo simulacion (ns)                 220
+#### Escritura de instrucciones finalizada ####
+#### Ciclo numero:          0 ####
+
+#### Contenido de Latch IF/ID ####
+* Adder Out: 00000004| InstrOut: 20210004| Flag halt: 0 
+
+#### Contenido de Latch ID/EX ####
+* WB FLAGS: 00| MEM FLAGS: 00| EX FLAGS: 0000| InmCtrl: 000
+* Read DataA:          0| Read DataB:          0| Sign Extend: 00000000| Flag halt: 0
+* InstrOut Rs: 00000| InstrOut Rt: 00000| InstrOut Rd: 00000
+* PC JALR JAL: 00000004| JALR JAL Flags: 00 
+
+#### Contenido de Latch EX/MEM ####
+* MEM FLAGS: 00| Write Data:          0| WB FLAGS: 00| E3_ALUOut: 00000000 
+* E3 MUX RegDst: 00000| PC JALR JAL: 00000000| JALR JAL Flags: 00| Flag halt: 0 
+
+#### Contenido de Latch MEM/WB ####
+* E4 DataOut:          0| E3_ALUOut: 00000000| E3 MUX RegDst: 00000| WB FLAGS: 00
+* PC JALR JAL: 00000000| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+
+Se leen los registros de etapa 2 y memoria de etapa 4
+#### Se lee el banco de registros (Etapa ID) ####
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                 310
++ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                 330
++ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                 350
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                 370
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                 390
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                 410
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                 430
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                 450
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                 470
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                 490
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)                 510
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)                 530
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)                 550
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)                 570
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)                 590
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)                 610
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)                 630
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)                 650
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)                 670
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)                 690
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)                 710
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)                 730
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)                 750
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)                 770
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)                 790
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)                 810
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)                 830
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)                 850
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)                 870
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)                 890
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)                 910
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)                 930
++ Registro:          32 | Dato: 00000000; Tiempo simulacion (ns)                 950
+
+#### Se lee la memoria de datos (Etapa MEM) ####
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                 970
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                 990
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                1010
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                1030
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                1050
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                1070
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                1090
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                1110
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                1130
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)                1150
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)                1170
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)                1190
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)                1210
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)                1230
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)                1250
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)                1270
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)                1290
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)                1310
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)                1330
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)                1350
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)                1370
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)                1390
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)                1410
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)                1430
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)                1450
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)                1470
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)                1490
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)                1510
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)                1530
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)                1550
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)                1570
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)                1590
+- Direccion:         128 | Dato: 00000000; Tiempo simulacion (ns)                1610
+#### Ciclo numero:          1 ####
+
+#### Contenido de Latch IF/ID ####
+* Adder Out: 00000008| InstrOut: 2042000a| Flag halt: 0 
+
+#### Contenido de Latch ID/EX ####
+* WB FLAGS: 10| MEM FLAGS: 00| EX FLAGS: 0111| InmCtrl: 000
+* Read DataA:          0| Read DataB:          0| Sign Extend: 00000004| Flag halt: 0
+* InstrOut Rs: 00001| InstrOut Rt: 00001| InstrOut Rd: 00000
+* PC JALR JAL: 00000008| JALR JAL Flags: 00 
+
+#### Contenido de Latch EX/MEM ####
+* MEM FLAGS: 00| Write Data:          0| WB FLAGS: 00| E3_ALUOut: 00000000 
+* E3 MUX RegDst: 00000| PC JALR JAL: 00000004| JALR JAL Flags: 00| Flag halt: 0 
+
+#### Contenido de Latch MEM/WB ####
+* E4 DataOut:          0| E3_ALUOut: 00000000| E3 MUX RegDst: 00000| WB FLAGS: 00
+* PC JALR JAL: 00000000| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+
+Se leen los registros de etapa 2 y memoria de etapa 4
+#### Se lee el banco de registros (Etapa ID) ####
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                1670
++ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                1690
++ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                1710
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                1730
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                1750
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                1770
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                1790
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                1810
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                1830
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                1850
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)                1870
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)                1890
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)                1910
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)                1930
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)                1950
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)                1970
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)                1990
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)                2010
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)                2030
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)                2050
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)                2070
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)                2090
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)                2110
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)                2130
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)                2150
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)                2170
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)                2190
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)                2210
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)                2230
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)                2250
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)                2270
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)                2290
++ Registro:          32 | Dato: 00000000; Tiempo simulacion (ns)                2310
+
+#### Se lee la memoria de datos (Etapa MEM) ####
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                2330
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                2350
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                2370
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                2390
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                2410
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                2430
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                2450
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                2470
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                2490
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)                2510
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)                2530
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)                2550
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)                2570
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)                2590
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)                2610
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)                2630
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)                2650
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)                2670
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)                2690
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)                2710
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)                2730
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)                2750
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)                2770
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)                2790
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)                2810
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)                2830
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)                2850
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)                2870
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)                2890
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)                2910
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)                2930
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)                2950
+- Direccion:         128 | Dato: 00000000; Tiempo simulacion (ns)                2970
+#### Ciclo numero:          2 ####
+
+#### Contenido de Latch IF/ID ####
+* Adder Out: 0000000c| InstrOut: 2063000f| Flag halt: 0 
+
+#### Contenido de Latch ID/EX ####
+* WB FLAGS: 10| MEM FLAGS: 00| EX FLAGS: 0111| InmCtrl: 000
+* Read DataA:          0| Read DataB:          0| Sign Extend: 0000000a| Flag halt: 0
+* InstrOut Rs: 00010| InstrOut Rt: 00010| InstrOut Rd: 00000
+* PC JALR JAL: 0000000c| JALR JAL Flags: 00 
+
+#### Contenido de Latch EX/MEM ####
+* MEM FLAGS: 00| Write Data:          0| WB FLAGS: 10| E3_ALUOut: 00000004 
+* E3 MUX RegDst: 00001| PC JALR JAL: 00000008| JALR JAL Flags: 00| Flag halt: 0 
+
+#### Contenido de Latch MEM/WB ####
+* E4 DataOut:          0| E3_ALUOut: 00000000| E3 MUX RegDst: 00000| WB FLAGS: 00
+* PC JALR JAL: 00000004| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+
+Se leen los registros de etapa 2 y memoria de etapa 4
+#### Se lee el banco de registros (Etapa ID) ####
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                3030
++ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                3050
++ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                3070
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                3090
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                3110
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                3130
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                3150
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                3170
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                3190
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                3210
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)                3230
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)                3250
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)                3270
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)                3290
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)                3310
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)                3330
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)                3350
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)                3370
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)                3390
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)                3410
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)                3430
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)                3450
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)                3470
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)                3490
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)                3510
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)                3530
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)                3550
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)                3570
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)                3590
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)                3610
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)                3630
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)                3650
++ Registro:          32 | Dato: 00000000; Tiempo simulacion (ns)                3670
+
+#### Se lee la memoria de datos (Etapa MEM) ####
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                3690
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                3710
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                3730
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                3750
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                3770
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                3790
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                3810
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                3830
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                3850
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)                3870
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)                3890
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)                3910
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)                3930
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)                3950
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)                3970
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)                3990
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)                4010
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)                4030
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)                4050
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)                4070
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)                4090
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)                4110
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)                4130
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)                4150
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)                4170
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)                4190
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)                4210
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)                4230
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)                4250
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)                4270
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)                4290
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)                4310
+- Direccion:         128 | Dato: 00000000; Tiempo simulacion (ns)                4330
+#### Ciclo numero:          3 ####
+
+#### Contenido de Latch IF/ID ####
+* Adder Out: 00000010| InstrOut: 20840014| Flag halt: 0 
+
+#### Contenido de Latch ID/EX ####
+* WB FLAGS: 10| MEM FLAGS: 00| EX FLAGS: 0111| InmCtrl: 000
+* Read DataA:          0| Read DataB:          0| Sign Extend: 0000000f| Flag halt: 0
+* InstrOut Rs: 00011| InstrOut Rt: 00011| InstrOut Rd: 00000
+* PC JALR JAL: 00000010| JALR JAL Flags: 00 
+
+#### Contenido de Latch EX/MEM ####
+* MEM FLAGS: 00| Write Data:          0| WB FLAGS: 10| E3_ALUOut: 0000000a 
+* E3 MUX RegDst: 00010| PC JALR JAL: 0000000c| JALR JAL Flags: 00| Flag halt: 0 
+
+#### Contenido de Latch MEM/WB ####
+* E4 DataOut:          0| E3_ALUOut: 00000004| E3 MUX RegDst: 00001| WB FLAGS: 10
+* PC JALR JAL: 00000008| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+
+Se leen los registros de etapa 2 y memoria de etapa 4
+#### Se lee el banco de registros (Etapa ID) ####
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                4390
++ Registro:           1 | Dato: 00000004; Tiempo simulacion (ns)                4410
++ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                4430
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                4450
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                4470
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                4490
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                4510
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                4530
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                4550
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                4570
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)                4590
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)                4610
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)                4630
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)                4650
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)                4670
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)                4690
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)                4710
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)                4730
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)                4750
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)                4770
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)                4790
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)                4810
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)                4830
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)                4850
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)                4870
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)                4890
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)                4910
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)                4930
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)                4950
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)                4970
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)                4990
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)                5010
++ Registro:          32 | Dato: 00000000; Tiempo simulacion (ns)                5030
+
+#### Se lee la memoria de datos (Etapa MEM) ####
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                5050
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                5070
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                5090
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                5110
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                5130
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                5150
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                5170
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                5190
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                5210
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)                5230
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)                5250
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)                5270
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)                5290
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)                5310
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)                5330
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)                5350
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)                5370
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)                5390
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)                5410
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)                5430
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)                5450
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)                5470
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)                5490
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)                5510
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)                5530
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)                5550
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)                5570
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)                5590
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)                5610
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)                5630
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)                5650
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)                5670
+- Direccion:         128 | Dato: 00000000; Tiempo simulacion (ns)                5690
+#### Ciclo numero:          4 ####
+
+#### Contenido de Latch IF/ID ####
+* Adder Out: 00000014| InstrOut: ac220000| Flag halt: 0 
+
+#### Contenido de Latch ID/EX ####
+* WB FLAGS: 10| MEM FLAGS: 00| EX FLAGS: 0111| InmCtrl: 000
+* Read DataA:          0| Read DataB:          0| Sign Extend: 00000014| Flag halt: 0
+* InstrOut Rs: 00100| InstrOut Rt: 00100| InstrOut Rd: 00000
+* PC JALR JAL: 00000014| JALR JAL Flags: 00 
+
+#### Contenido de Latch EX/MEM ####
+* MEM FLAGS: 00| Write Data:          0| WB FLAGS: 10| E3_ALUOut: 0000000f 
+* E3 MUX RegDst: 00011| PC JALR JAL: 00000010| JALR JAL Flags: 00| Flag halt: 0 
+
+#### Contenido de Latch MEM/WB ####
+* E4 DataOut:          0| E3_ALUOut: 0000000a| E3 MUX RegDst: 00010| WB FLAGS: 10
+* PC JALR JAL: 0000000c| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+
+Se leen los registros de etapa 2 y memoria de etapa 4
+#### Se lee el banco de registros (Etapa ID) ####
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                5750
++ Registro:           1 | Dato: 00000004; Tiempo simulacion (ns)                5770
++ Registro:           2 | Dato: 0000000a; Tiempo simulacion (ns)                5790
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                5810
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                5830
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                5850
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                5870
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                5890
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                5910
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                5930
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)                5950
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)                5970
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)                5990
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)                6010
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)                6030
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)                6050
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)                6070
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)                6090
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)                6110
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)                6130
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)                6150
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)                6170
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)                6190
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)                6210
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)                6230
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)                6250
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)                6270
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)                6290
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)                6310
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)                6330
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)                6350
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)                6370
++ Registro:          32 | Dato: 00000000; Tiempo simulacion (ns)                6390
+
+#### Se lee la memoria de datos (Etapa MEM) ####
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                6410
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                6430
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                6450
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                6470
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                6490
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                6510
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                6530
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                6550
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                6570
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)                6590
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)                6610
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)                6630
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)                6650
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)                6670
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)                6690
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)                6710
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)                6730
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)                6750
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)                6770
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)                6790
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)                6810
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)                6830
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)                6850
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)                6870
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)                6890
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)                6910
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)                6930
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)                6950
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)                6970
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)                6990
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)                7010
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)                7030
+- Direccion:         128 | Dato: 00000000; Tiempo simulacion (ns)                7050
+#### Ciclo numero:          5 ####
+
+#### Contenido de Latch IF/ID ####
+* Adder Out: 00000018| InstrOut: ac230004| Flag halt: 0 
+
+#### Contenido de Latch ID/EX ####
+* WB FLAGS: 01| MEM FLAGS: 01| EX FLAGS: 0100| InmCtrl: 000
+* Read DataA:          4| Read DataB:         10| Sign Extend: 00000000| Flag halt: 0
+* InstrOut Rs: 00001| InstrOut Rt: 00010| InstrOut Rd: 00000
+* PC JALR JAL: 00000018| JALR JAL Flags: 00 
+
+#### Contenido de Latch EX/MEM ####
+* MEM FLAGS: 00| Write Data:          0| WB FLAGS: 10| E3_ALUOut: 00000014 
+* E3 MUX RegDst: 00100| PC JALR JAL: 00000014| JALR JAL Flags: 00| Flag halt: 0 
+
+#### Contenido de Latch MEM/WB ####
+* E4 DataOut:          0| E3_ALUOut: 0000000f| E3 MUX RegDst: 00011| WB FLAGS: 10
+* PC JALR JAL: 00000010| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+
+Se leen los registros de etapa 2 y memoria de etapa 4
+#### Se lee el banco de registros (Etapa ID) ####
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                7110
++ Registro:           1 | Dato: 00000004; Tiempo simulacion (ns)                7130
++ Registro:           2 | Dato: 0000000a; Tiempo simulacion (ns)                7150
++ Registro:           3 | Dato: 0000000f; Tiempo simulacion (ns)                7170
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                7190
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                7210
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                7230
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                7250
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                7270
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                7290
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)                7310
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)                7330
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)                7350
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)                7370
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)                7390
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)                7410
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)                7430
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)                7450
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)                7470
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)                7490
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)                7510
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)                7530
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)                7550
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)                7570
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)                7590
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)                7610
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)                7630
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)                7650
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)                7670
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)                7690
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)                7710
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)                7730
++ Registro:          32 | Dato: 00000000; Tiempo simulacion (ns)                7750
+
+#### Se lee la memoria de datos (Etapa MEM) ####
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                7770
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                7790
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                7810
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                7830
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                7850
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                7870
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                7890
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                7910
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                7930
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)                7950
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)                7970
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)                7990
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)                8010
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)                8030
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)                8050
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)                8070
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)                8090
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)                8110
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)                8130
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)                8150
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)                8170
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)                8190
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)                8210
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)                8230
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)                8250
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)                8270
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)                8290
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)                8310
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)                8330
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)                8350
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)                8370
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)                8390
+- Direccion:         128 | Dato: 00000000; Tiempo simulacion (ns)                8410
+#### Ciclo numero:          6 ####
+
+#### Contenido de Latch IF/ID ####
+* Adder Out: 0000001c| InstrOut: ac240008| Flag halt: 0 
+
+#### Contenido de Latch ID/EX ####
+* WB FLAGS: 01| MEM FLAGS: 01| EX FLAGS: 0100| InmCtrl: 000
+* Read DataA:          4| Read DataB:         15| Sign Extend: 00000004| Flag halt: 0
+* InstrOut Rs: 00001| InstrOut Rt: 00011| InstrOut Rd: 00000
+* PC JALR JAL: 0000001c| JALR JAL Flags: 00 
+
+#### Contenido de Latch EX/MEM ####
+* MEM FLAGS: 01| Write Data:         10| WB FLAGS: 01| E3_ALUOut: 00000004 
+* E3 MUX RegDst: 00010| PC JALR JAL: 00000018| JALR JAL Flags: 00| Flag halt: 0 
+
+#### Contenido de Latch MEM/WB ####
+* E4 DataOut:          0| E3_ALUOut: 00000014| E3 MUX RegDst: 00100| WB FLAGS: 10
+* PC JALR JAL: 00000014| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+
+Se leen los registros de etapa 2 y memoria de etapa 4
+#### Se lee el banco de registros (Etapa ID) ####
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                8470
++ Registro:           1 | Dato: 00000004; Tiempo simulacion (ns)                8490
++ Registro:           2 | Dato: 0000000a; Tiempo simulacion (ns)                8510
++ Registro:           3 | Dato: 0000000f; Tiempo simulacion (ns)                8530
++ Registro:           4 | Dato: 00000014; Tiempo simulacion (ns)                8550
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                8570
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                8590
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                8610
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                8630
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                8650
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)                8670
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)                8690
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)                8710
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)                8730
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)                8750
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)                8770
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)                8790
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)                8810
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)                8830
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)                8850
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)                8870
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)                8890
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)                8910
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)                8930
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)                8950
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)                8970
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)                8990
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)                9010
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)                9030
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)                9050
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)                9070
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)                9090
++ Registro:          32 | Dato: 00000000; Tiempo simulacion (ns)                9110
+
+#### Se lee la memoria de datos (Etapa MEM) ####
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                9130
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                9150
+- Direccion:           8 | Dato: 0000000a; Tiempo simulacion (ns)                9170
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                9190
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                9210
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                9230
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                9250
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                9270
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                9290
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)                9310
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)                9330
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)                9350
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)                9370
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)                9390
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)                9410
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)                9430
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)                9450
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)                9470
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)                9490
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)                9510
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)                9530
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)                9550
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)                9570
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)                9590
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)                9610
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)                9630
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)                9650
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)                9670
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)                9690
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)                9710
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)                9730
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)                9750
+- Direccion:         128 | Dato: 00000000; Tiempo simulacion (ns)                9770
+#### Ciclo numero:          7 ####
+
+#### Contenido de Latch IF/ID ####
+* Adder Out: 00000020| InstrOut: 8c250000| Flag halt: 0 
+
+#### Contenido de Latch ID/EX ####
+* WB FLAGS: 01| MEM FLAGS: 01| EX FLAGS: 0100| InmCtrl: 000
+* Read DataA:          4| Read DataB:         20| Sign Extend: 00000008| Flag halt: 0
+* InstrOut Rs: 00001| InstrOut Rt: 00100| InstrOut Rd: 00000
+* PC JALR JAL: 00000020| JALR JAL Flags: 00 
+
+#### Contenido de Latch EX/MEM ####
+* MEM FLAGS: 01| Write Data:         15| WB FLAGS: 01| E3_ALUOut: 00000008 
+* E3 MUX RegDst: 00011| PC JALR JAL: 0000001c| JALR JAL Flags: 00| Flag halt: 0 
+
+#### Contenido de Latch MEM/WB ####
+* E4 DataOut:          0| E3_ALUOut: 00000004| E3 MUX RegDst: 00010| WB FLAGS: 01
+* PC JALR JAL: 00000018| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+
+Se leen los registros de etapa 2 y memoria de etapa 4
+#### Se lee el banco de registros (Etapa ID) ####
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                9830
++ Registro:           1 | Dato: 00000004; Tiempo simulacion (ns)                9850
++ Registro:           2 | Dato: 0000000a; Tiempo simulacion (ns)                9870
++ Registro:           3 | Dato: 0000000f; Tiempo simulacion (ns)                9890
++ Registro:           4 | Dato: 00000014; Tiempo simulacion (ns)                9910
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                9930
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                9950
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                9970
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                9990
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)               10010
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)               10030
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)               10050
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)               10070
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)               10090
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)               10110
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)               10130
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)               10150
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)               10170
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)               10190
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)               10210
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)               10230
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)               10250
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)               10270
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)               10290
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)               10310
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)               10330
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)               10350
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)               10370
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)               10390
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)               10410
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)               10430
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)               10450
++ Registro:          32 | Dato: 00000000; Tiempo simulacion (ns)               10470
+
+#### Se lee la memoria de datos (Etapa MEM) ####
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)               10490
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)               10510
+- Direccion:           8 | Dato: 0000000a; Tiempo simulacion (ns)               10530
+- Direccion:          12 | Dato: 0000000f; Tiempo simulacion (ns)               10550
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)               10570
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)               10590
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)               10610
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)               10630
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)               10650
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)               10670
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)               10690
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)               10710
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)               10730
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)               10750
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)               10770
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)               10790
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)               10810
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)               10830
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)               10850
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)               10870
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)               10890
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)               10910
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)               10930
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)               10950
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)               10970
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)               10990
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)               11010
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)               11030
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)               11050
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)               11070
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)               11090
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)               11110
+- Direccion:         128 | Dato: 00000000; Tiempo simulacion (ns)               11130
+#### Ciclo numero:          8 ####
+
+#### Contenido de Latch IF/ID ####
+* Adder Out: 00000024| InstrOut: 8c260004| Flag halt: 0 
+
+#### Contenido de Latch ID/EX ####
+* WB FLAGS: 11| MEM FLAGS: 10| EX FLAGS: 0100| InmCtrl: 000
+* Read DataA:          4| Read DataB:          0| Sign Extend: 00000000| Flag halt: 0
+* InstrOut Rs: 00001| InstrOut Rt: 00101| InstrOut Rd: 00000
+* PC JALR JAL: 00000024| JALR JAL Flags: 00 
+
+#### Contenido de Latch EX/MEM ####
+* MEM FLAGS: 01| Write Data:         20| WB FLAGS: 01| E3_ALUOut: 0000000c 
+* E3 MUX RegDst: 00100| PC JALR JAL: 00000020| JALR JAL Flags: 00| Flag halt: 0 
+
+#### Contenido de Latch MEM/WB ####
+* E4 DataOut:          0| E3_ALUOut: 00000008| E3 MUX RegDst: 00011| WB FLAGS: 01
+* PC JALR JAL: 0000001c| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+
+Se leen los registros de etapa 2 y memoria de etapa 4
+#### Se lee el banco de registros (Etapa ID) ####
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)               11190
++ Registro:           1 | Dato: 00000004; Tiempo simulacion (ns)               11210
++ Registro:           2 | Dato: 0000000a; Tiempo simulacion (ns)               11230
++ Registro:           3 | Dato: 0000000f; Tiempo simulacion (ns)               11250
++ Registro:           4 | Dato: 00000014; Tiempo simulacion (ns)               11270
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)               11290
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)               11310
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)               11330
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)               11350
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)               11370
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)               11390
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)               11410
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)               11430
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)               11450
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)               11470
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)               11490
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)               11510
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)               11530
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)               11550
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)               11570
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)               11590
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)               11610
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)               11630
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)               11650
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)               11670
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)               11690
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)               11710
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)               11730
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)               11750
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)               11770
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)               11790
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)               11810
++ Registro:          32 | Dato: 00000000; Tiempo simulacion (ns)               11830
+
+#### Se lee la memoria de datos (Etapa MEM) ####
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)               11850
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)               11870
+- Direccion:           8 | Dato: 0000000a; Tiempo simulacion (ns)               11890
+- Direccion:          12 | Dato: 0000000f; Tiempo simulacion (ns)               11910
+- Direccion:          16 | Dato: 00000014; Tiempo simulacion (ns)               11930
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)               11950
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)               11970
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)               11990
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)               12010
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)               12030
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)               12050
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)               12070
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)               12090
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)               12110
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)               12130
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)               12150
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)               12170
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)               12190
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)               12210
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)               12230
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)               12250
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)               12270
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)               12290
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)               12310
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)               12330
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)               12350
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)               12370
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)               12390
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)               12410
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)               12430
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)               12450
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)               12470
+- Direccion:         128 | Dato: 00000000; Tiempo simulacion (ns)               12490
+#### Ciclo numero:          9 ####
+
+#### Contenido de Latch IF/ID ####
+* Adder Out: 00000028| InstrOut: 8c270008| Flag halt: 0 
+
+#### Contenido de Latch ID/EX ####
+* WB FLAGS: 11| MEM FLAGS: 10| EX FLAGS: 0100| InmCtrl: 000
+* Read DataA:          4| Read DataB:          0| Sign Extend: 00000004| Flag halt: 0
+* InstrOut Rs: 00001| InstrOut Rt: 00110| InstrOut Rd: 00000
+* PC JALR JAL: 00000028| JALR JAL Flags: 00 
+
+#### Contenido de Latch EX/MEM ####
+* MEM FLAGS: 10| Write Data:          0| WB FLAGS: 11| E3_ALUOut: 00000004 
+* E3 MUX RegDst: 00101| PC JALR JAL: 00000024| JALR JAL Flags: 00| Flag halt: 0 
+
+#### Contenido de Latch MEM/WB ####
+* E4 DataOut:          0| E3_ALUOut: 0000000c| E3 MUX RegDst: 00100| WB FLAGS: 01
+* PC JALR JAL: 00000020| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+
+Se leen los registros de etapa 2 y memoria de etapa 4
+#### Se lee el banco de registros (Etapa ID) ####
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)               12550
++ Registro:           1 | Dato: 00000004; Tiempo simulacion (ns)               12570
++ Registro:           2 | Dato: 0000000a; Tiempo simulacion (ns)               12590
++ Registro:           3 | Dato: 0000000f; Tiempo simulacion (ns)               12610
++ Registro:           4 | Dato: 00000014; Tiempo simulacion (ns)               12630
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)               12650
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)               12670
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)               12690
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)               12710
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)               12730
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)               12750
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)               12770
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)               12790
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)               12810
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)               12830
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)               12850
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)               12870
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)               12890
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)               12910
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)               12930
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)               12950
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)               12970
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)               12990
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)               13010
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)               13030
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)               13050
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)               13070
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)               13090
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)               13110
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)               13130
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)               13150
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)               13170
++ Registro:          32 | Dato: 00000000; Tiempo simulacion (ns)               13190
+
+#### Se lee la memoria de datos (Etapa MEM) ####
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)               13210
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)               13230
+- Direccion:           8 | Dato: 0000000a; Tiempo simulacion (ns)               13250
+- Direccion:          12 | Dato: 0000000f; Tiempo simulacion (ns)               13270
+- Direccion:          16 | Dato: 00000014; Tiempo simulacion (ns)               13290
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)               13310
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)               13330
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)               13350
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)               13370
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)               13390
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)               13410
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)               13430
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)               13450
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)               13470
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)               13490
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)               13510
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)               13530
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)               13550
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)               13570
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)               13590
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)               13610
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)               13630
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)               13650
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)               13670
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)               13690
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)               13710
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)               13730
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)               13750
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)               13770
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)               13790
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)               13810
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)               13830
+- Direccion:         128 | Dato: 00000000; Tiempo simulacion (ns)               13850
+#### Ciclo numero:         10 ####
+
+#### Contenido de Latch IF/ID ####
+* Adder Out: 0000002c| InstrOut: aaaaaaaa| Flag halt: 1 
+
+#### Contenido de Latch ID/EX ####
+* WB FLAGS: 11| MEM FLAGS: 10| EX FLAGS: 0100| InmCtrl: 000
+* Read DataA:          4| Read DataB:          0| Sign Extend: 00000008| Flag halt: 0
+* InstrOut Rs: 00001| InstrOut Rt: 00111| InstrOut Rd: 00000
+* PC JALR JAL: 0000002c| JALR JAL Flags: 00 
+
+#### Contenido de Latch EX/MEM ####
+* MEM FLAGS: 10| Write Data:          0| WB FLAGS: 11| E3_ALUOut: 00000008 
+* E3 MUX RegDst: 00110| PC JALR JAL: 00000028| JALR JAL Flags: 00| Flag halt: 0 
+
+#### Contenido de Latch MEM/WB ####
+* E4 DataOut:          0| E3_ALUOut: 00000004| E3 MUX RegDst: 00101| WB FLAGS: 11
+* PC JALR JAL: 00000024| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+
+Se leen los registros de etapa 2 y memoria de etapa 4
+#### Se lee el banco de registros (Etapa ID) ####
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)               13910
++ Registro:           1 | Dato: 00000004; Tiempo simulacion (ns)               13930
++ Registro:           2 | Dato: 0000000a; Tiempo simulacion (ns)               13950
++ Registro:           3 | Dato: 0000000f; Tiempo simulacion (ns)               13970
++ Registro:           4 | Dato: 00000014; Tiempo simulacion (ns)               13990
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)               14010
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)               14030
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)               14050
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)               14070
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)               14090
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)               14110
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)               14130
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)               14150
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)               14170
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)               14190
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)               14210
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)               14230
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)               14250
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)               14270
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)               14290
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)               14310
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)               14330
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)               14350
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)               14370
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)               14390
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)               14410
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)               14430
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)               14450
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)               14470
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)               14490
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)               14510
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)               14530
++ Registro:          32 | Dato: 00000000; Tiempo simulacion (ns)               14550
+
+#### Se lee la memoria de datos (Etapa MEM) ####
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)               14570
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)               14590
+- Direccion:           8 | Dato: 0000000a; Tiempo simulacion (ns)               14610
+- Direccion:          12 | Dato: 0000000f; Tiempo simulacion (ns)               14630
+- Direccion:          16 | Dato: 00000014; Tiempo simulacion (ns)               14650
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)               14670
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)               14690
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)               14710
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)               14730
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)               14750
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)               14770
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)               14790
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)               14810
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)               14830
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)               14850
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)               14870
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)               14890
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)               14910
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)               14930
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)               14950
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)               14970
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)               14990
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)               15010
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)               15030
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)               15050
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)               15070
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)               15090
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)               15110
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)               15130
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)               15150
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)               15170
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)               15190
+- Direccion:         128 | Dato: 00000000; Tiempo simulacion (ns)               15210
+#### Ciclo numero:         11 ####
+
+#### Contenido de Latch IF/ID ####
+* Adder Out: 0000002c| InstrOut: aaaaaaaa| Flag halt: 1 
+
+#### Contenido de Latch ID/EX ####
+* WB FLAGS: 00| MEM FLAGS: 00| EX FLAGS: 0000| InmCtrl: 000
+* Read DataA:          0| Read DataB:          0| Sign Extend: ffffaaaa| Flag halt: 1
+* InstrOut Rs: 10101| InstrOut Rt: 01010| InstrOut Rd: 10101
+* PC JALR JAL: 00000030| JALR JAL Flags: 00 
+
+#### Contenido de Latch EX/MEM ####
+* MEM FLAGS: 10| Write Data:          0| WB FLAGS: 11| E3_ALUOut: 0000000c 
+* E3 MUX RegDst: 00111| PC JALR JAL: 0000002c| JALR JAL Flags: 00| Flag halt: 0 
+
+#### Contenido de Latch MEM/WB ####
+* E4 DataOut:          0| E3_ALUOut: 00000008| E3 MUX RegDst: 00110| WB FLAGS: 11
+* PC JALR JAL: 00000028| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+
+Se leen los registros de etapa 2 y memoria de etapa 4
+#### Se lee el banco de registros (Etapa ID) ####
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)               15270
++ Registro:           1 | Dato: 00000004; Tiempo simulacion (ns)               15290
++ Registro:           2 | Dato: 0000000a; Tiempo simulacion (ns)               15310
++ Registro:           3 | Dato: 0000000f; Tiempo simulacion (ns)               15330
++ Registro:           4 | Dato: 00000014; Tiempo simulacion (ns)               15350
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)               15370
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)               15390
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)               15410
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)               15430
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)               15450
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)               15470
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)               15490
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)               15510
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)               15530
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)               15550
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)               15570
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)               15590
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)               15610
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)               15630
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)               15650
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)               15670
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)               15690
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)               15710
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)               15730
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)               15750
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)               15770
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)               15790
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)               15810
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)               15830
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)               15850
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)               15870
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)               15890
++ Registro:          32 | Dato: 00000000; Tiempo simulacion (ns)               15910
+
+#### Se lee la memoria de datos (Etapa MEM) ####
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)               15930
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)               15950
+- Direccion:           8 | Dato: 0000000a; Tiempo simulacion (ns)               15970
+- Direccion:          12 | Dato: 0000000f; Tiempo simulacion (ns)               15990
+- Direccion:          16 | Dato: 00000014; Tiempo simulacion (ns)               16010
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)               16030
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)               16050
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)               16070
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)               16090
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)               16110
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)               16130
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)               16150
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)               16170
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)               16190
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)               16210
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)               16230
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)               16250
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)               16270
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)               16290
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)               16310
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)               16330
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)               16350
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)               16370
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)               16390
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)               16410
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)               16430
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)               16450
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)               16470
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)               16490
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)               16510
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)               16530
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)               16550
+- Direccion:         128 | Dato: 00000000; Tiempo simulacion (ns)               16570
+#### Ciclo numero:         12 ####
+
+#### Contenido de Latch IF/ID ####
+* Adder Out: 0000002c| InstrOut: aaaaaaaa| Flag halt: 1 
+
+#### Contenido de Latch ID/EX ####
+* WB FLAGS: 00| MEM FLAGS: 00| EX FLAGS: 0000| InmCtrl: 000
+* Read DataA:          0| Read DataB:          0| Sign Extend: ffffaaaa| Flag halt: 1
+* InstrOut Rs: 10101| InstrOut Rt: 01010| InstrOut Rd: 10101
+* PC JALR JAL: 00000030| JALR JAL Flags: 00 
+
+#### Contenido de Latch EX/MEM ####
+* MEM FLAGS: 00| Write Data:          0| WB FLAGS: 00| E3_ALUOut: 00000000 
+* E3 MUX RegDst: 01010| PC JALR JAL: 00000030| JALR JAL Flags: 00| Flag halt: 1 
+
+#### Contenido de Latch MEM/WB ####
+* E4 DataOut:          0| E3_ALUOut: 0000000c| E3 MUX RegDst: 00111| WB FLAGS: 11
+* PC JALR JAL: 0000002c| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+
+Se leen los registros de etapa 2 y memoria de etapa 4
+#### Se lee el banco de registros (Etapa ID) ####
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)               16630
++ Registro:           1 | Dato: 00000004; Tiempo simulacion (ns)               16650
++ Registro:           2 | Dato: 0000000a; Tiempo simulacion (ns)               16670
++ Registro:           3 | Dato: 0000000f; Tiempo simulacion (ns)               16690
++ Registro:           4 | Dato: 00000014; Tiempo simulacion (ns)               16710
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)               16730
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)               16750
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)               16770
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)               16790
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)               16810
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)               16830
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)               16850
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)               16870
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)               16890
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)               16910
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)               16930
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)               16950
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)               16970
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)               16990
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)               17010
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)               17030
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)               17050
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)               17070
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)               17090
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)               17110
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)               17130
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)               17150
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)               17170
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)               17190
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)               17210
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)               17230
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)               17250
++ Registro:          32 | Dato: 00000000; Tiempo simulacion (ns)               17270
+
+#### Se lee la memoria de datos (Etapa MEM) ####
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)               17290
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)               17310
+- Direccion:           8 | Dato: 0000000a; Tiempo simulacion (ns)               17330
+- Direccion:          12 | Dato: 0000000f; Tiempo simulacion (ns)               17350
+- Direccion:          16 | Dato: 00000014; Tiempo simulacion (ns)               17370
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)               17390
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)               17410
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)               17430
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)               17450
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)               17470
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)               17490
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)               17510
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)               17530
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)               17550
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)               17570
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)               17590
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)               17610
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)               17630
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)               17650
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)               17670
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)               17690
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)               17710
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)               17730
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)               17750
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)               17770
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)               17790
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)               17810
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)               17830
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)               17850
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)               17870
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)               17890
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)               17910
+- Direccion:         128 | Dato: 00000000; Tiempo simulacion (ns)               17930
+#### Ciclo numero:         13 ####
+
+#### Contenido de Latch IF/ID ####
+* Adder Out: 0000002c| InstrOut: aaaaaaaa| Flag halt: 1 
+
+#### Contenido de Latch ID/EX ####
+* WB FLAGS: 00| MEM FLAGS: 00| EX FLAGS: 0000| InmCtrl: 000
+* Read DataA:          0| Read DataB:          0| Sign Extend: ffffaaaa| Flag halt: 1
+* InstrOut Rs: 10101| InstrOut Rt: 01010| InstrOut Rd: 10101
+* PC JALR JAL: 00000030| JALR JAL Flags: 00 
+
+#### Contenido de Latch EX/MEM ####
+* MEM FLAGS: 00| Write Data:          0| WB FLAGS: 00| E3_ALUOut: 00000000 
+* E3 MUX RegDst: 01010| PC JALR JAL: 00000030| JALR JAL Flags: 00| Flag halt: 1 
+
+#### Contenido de Latch MEM/WB ####
+* E4 DataOut:          0| E3_ALUOut: 00000000| E3 MUX RegDst: 01010| WB FLAGS: 00
+* PC JALR JAL: 00000030| JALR JAL Flags: 00| Flag halt (FIN de programa): 1 
+
+#### Se lee el banco de registros (Etapa ID) ####
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)               17980
++ Registro:           1 | Dato: 00000004; Tiempo simulacion (ns)               18000
++ Registro:           2 | Dato: 0000000a; Tiempo simulacion (ns)               18020
++ Registro:           3 | Dato: 0000000f; Tiempo simulacion (ns)               18040
++ Registro:           4 | Dato: 00000014; Tiempo simulacion (ns)               18060
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)               18080
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)               18100
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)               18120
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)               18140
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)               18160
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)               18180
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)               18200
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)               18220
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)               18240
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)               18260
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)               18280
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)               18300
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)               18320
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)               18340
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)               18360
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)               18380
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)               18400
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)               18420
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)               18440
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)               18460
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)               18480
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)               18500
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)               18520
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)               18540
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)               18560
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)               18580
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)               18600
++ Registro:          32 | Dato: 00000000; Tiempo simulacion (ns)               18620
+
+#### Se lee la memoria de datos (Etapa MEM) ####
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)               18640
+- Direccion:           4 | Dato: 0000000a; Tiempo simulacion (ns)               18660
+- Direccion:           8 | Dato: 0000000f; Tiempo simulacion (ns)               18680
+- Direccion:          12 | Dato: 00000014; Tiempo simulacion (ns)               18700
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)               18720
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)               18740
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)               18760
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)               18780
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)               18800
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)               18820
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)               18840
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)               18860
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)               18880
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)               18900
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)               18920
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)               18940
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)               18960
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)               18980
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)               19000
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)               19020
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)               19040
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)               19060
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)               19080
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)               19100
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)               19120
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)               19140
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)               19160
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)               19180
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)               19200
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)               19220
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)               19240
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)               19260
+- Direccion:         128 | Dato: 00000000; Tiempo simulacion (ns)               19280
+#### Fin de Ejecucion del programa ####
+

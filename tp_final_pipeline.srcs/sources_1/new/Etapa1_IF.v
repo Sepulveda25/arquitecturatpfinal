@@ -60,7 +60,8 @@ module Etapa1_IF( //Inputs 13
   //Mux de Stall de la etapa 1:
   //Pone una burbuja en el caso de haya riesgo
   //Esto se hace manteniedo el PC anterior en vez del sumado por el adder. [PC(i) = PC(i-1)] en vez de [C(i) = PC(i+1)]
-  MUX #(.LEN(1)) stall_mux(.InputA(!Stall), .InputB(enable_pc), .SEL(enable_sel), .Out(Stall_mux_to_Enable_PC));
+//  MUX #(.LEN(1)) stall_mux(.InputA(!Stall), .InputB(enable_pc), .SEL(enable_sel), .Out(Stall_mux_to_Enable_PC));
+  assign Stall_mux_to_Enable_PC= (!Stall)&(enable_pc);
   
   //Mux selector de direcciones:
   //Desde la unidad de debug se elige que direccion darle la memoria  

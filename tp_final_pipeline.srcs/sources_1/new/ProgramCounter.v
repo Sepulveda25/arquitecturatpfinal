@@ -29,8 +29,12 @@ module ProgramCounter(  input Clk,
 
 //always@(posedge Clk) begin
 always@(negedge Clk) begin
-	if(Reset) 	begin Out = 0;	end	//Si hay un reset, PC = 0
-	else if (enable) begin Out = In;	end 
+	if(Reset) begin	
+	    Out <= 0;		//Si hay un reset, PC = 0
+    end
+	else begin 
+	   if (enable) begin Out <= In;	end 
+    end
 end
 
 endmodule

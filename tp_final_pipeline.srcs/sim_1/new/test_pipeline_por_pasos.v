@@ -224,7 +224,7 @@ module test_pipeline_por_pasos;
     initial begin
         // Initialize Inputs
         Clk = 0;
-        Step = 1;
+        Step = 0;
         Step_flag=0;
         // Puesta a punto inicial 
         Latch_Reset = 1; // se reinicia todos los latch
@@ -252,7 +252,7 @@ module test_pipeline_por_pasos;
         reset_contador_clk=1;
         enable_count=1;
         // Se carga en la memoria de instrucciones los datos
-        $display("Escribiendo instrucciones en memoria");
+        $display("#### Escribiendo instrucciones en memoria ####");
         file = $fopen("E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/test_lectura_hex.txt","r");
         if (file == 0) $error("E:\Facultad\Arquitectura de Computadoras\Practicos Vivado\tp_final_pipeline\test_lectura_hex.txt not opened");
         #20;
@@ -261,18 +261,16 @@ module test_pipeline_por_pasos;
             status = $fscanf(file,"%h",data);
             Etapa_IF_Addr_Instr = addr_instruccion; 
             Etapa_IF_Instr_in = data;           
-            $display("Dato: %h ; Direccion %h",Etapa_IF_Instr_in,Etapa_IF_Addr_Instr,"; Tiempo simulacion (ns)",$time);
+            $display("Dato: %h | Direccion %h",Etapa_IF_Instr_in,Etapa_IF_Addr_Instr,"; Tiempo simulacion (ns)",$time);
             addr_instruccion = addr_instruccion+4;
             #20;  
         end
         $fclose(file);
-        $display("Escritura finalizada");
+        $display("\n#### Escritura de instrucciones finalizada ####");
         Etapa_IF_write_enable = 4'b0000; // se deja en 0 porque no se van a ingresar mas instrucciones
         Etapa_IF_Addr_Instr = 0;// puede ser x porque no se van a ingresar mas instrucciones
         Etapa_IF_Instr_in=0; // puede ser x porque no se ingresan mas instrucciones
 
-               
-     
         #20;// arranca la ejecucion
         Latch_Reset = 0; //  no se reinicia todos los latch
         Latch_enable = 1; // se habilita los latch
@@ -299,50 +297,117 @@ module test_pipeline_por_pasos;
     end
     
     always@(posedge Step) begin 
-       if((Latch_enable == 1) && (~Latch_MEM_WB_halt))
-           begin
-           Step_flag=0;// step no puede cambiar
-           //latches
-           Latch_enable = 0; // se deshabilita los latches
-           //Etapa IF
-           Etapa_IF_enable_pc = 0; //program counter deshabilitado
-           Etapa_IF_enable_sel = 1; //esta en modo debug
-           //Etapa ID
-           Etapa_ID_posReg = 5'b0001; // direcciones a recorrer R1
-           Etapa_ID_posSel = 1; //esta en modo debug
-           //Etapa MEM
-           dirMem = 32'h00000004; // direcciones a recorrer     
-           memDebug = 1; //esta en modo debug 
-           enable_count=0;
-           $display("Se leen los registros");
-           #30;
-           //escritura en memoria
-           for(addr_instruccion=0;addr_instruccion<=32;addr_instruccion=addr_instruccion+1) begin          
-               $display("addr_instruccion= %h",addr_instruccion, "; Tiempo simulacion (ns)",$time);
-//               #20;  
-           end
-           //latches
-           Latch_enable = 1; // se habilita los latches
-           //Etapa IF
-           Etapa_IF_enable_pc = 1; //program counter deshabilitado
-           Etapa_IF_enable_sel = 0; //no esta en modo debug
-           //Etapa ID
-           Etapa_ID_posReg = 5'b0000; // direcciones a recorrer
-           Etapa_ID_posSel = 0; //no esta en modo debug
-           //Etapa MEM
-           dirMem = 32'h00000000; // direcciones a recorrer     
-           memDebug = 0; //no esta en modo debug
-           enable_count=1;
-           Step_flag=1;// step no puede cambiar
-           end      
+        if((Latch_enable == 1) && (~Latch_MEM_WB_halt))begin 
+            Latch_enable=0;
+            Step_flag=0;
+            enable_count=0;
+            //Etapa ID
+            Etapa_ID_posReg = 5'b0000; // direcciones a recorrer 
+            Etapa_ID_posSel = 1; //esta en modo debug
+            //Etapa MEM
+            dirMem = 32'h00000000; // direcciones a recorrer     
+            memDebug = 1; //esta en modo debug 
+            enable_count=0;
+            
+            $display("\n#### Ciclo numero: %d ####\n",count);
+            $display("#### Contenido de Latch IF/ID ####");
+            $display("* Adder Out: %h| InstrOut: %h| Flag halt: %b \n",Latch_IF_ID_Adder_Out, Latch_IF_ID_InstrOut,Latch_IF_ID_halt);
+            $display("#### Contenido de Latch ID/EX ####");
+            $display("* WB FLAGS: %b| MEM FLAGS: %b| EX FLAGS: %b| InmCtrl: %b",Latch_ID_Ex_WriteBack_FLAGS, Latch_ID_Ex_Mem_FLAGS, Latch_ID_Ex_FLAGS ,Latch_ID_Ex_InmCtrl);
+            $display("* Read DataA: %d| Read DataB: %d| Sign Extend: %h| Flag halt: %b",Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,Latch_ID_Ex_SignExtendOut,Latch_ID_Ex_halt);
+            $display("* InstrOut Rs: %b| InstrOut Rt: %b| InstrOut Rd: %b",Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd);
+            $display("* PC JALR JAL: %h| JALR JAL Flags: %b \n",Latch_ID_Ex_PC_JALR_JAL,Latch_ID_Ex_flags_JALR_JAL);
+            $display("#### Contenido de Latch EX/MEM ####");
+            $display("* MEM FLAGS: %b| Write Data: %d| WB FLAGS: %b| E3_ALUOut: %h",Latch_Ex_MEM_Mem_FLAGS_Out,Latch_Ex_MEM_ReadDataB,Latch_Ex_MEM_WriteBack_FLAGS_Out,Latch_Ex_MEM_E3_ALUOut,);
+            $display("* E3 MUX RegDst: %b| PC JALR JAL: %h| JALR JAL Flags: %b| Flag halt: %b \n",Latch_Ex_MEM_Mux,Latch_Ex_MEM_PC_JALR_JAL,Latch_Ex_MEM_flags_JALR_JAL,Latch_Ex_MEM_halt);
+            $display("#### Contenido de Latch MEM/WB ####");
+            $display("* E4 DataOut: %d| E3_ALUOut: %h| E3 MUX RegDst: %b| WB FLAGS: %b",Latch_MEM_WB_DataOut, Latch_MEM_WB_ALUOut, Latch_MEM_WB_Mux, Latch_MEM_WB_WriteBack_FLAGS_Out);
+            $display("* PC JALR JAL: %h| JALR JAL Flags: %b| Flag halt (FIN de programa): %b \n",Latch_MEM_WB_PC_JALR_JAL, Latch_MEM_WB_flags_JALR_JAL,Latch_MEM_WB_halt);
+            $display("Se leen los registros de etapa 2 y memoria de etapa 4");
+            #20;
+            $display("#### Se lee el banco de registros (Etapa ID) ####");
+            for(addr_instruccion=0;addr_instruccion<=32;addr_instruccion=addr_instruccion+1) begin          
+               Etapa_ID_posReg = addr_instruccion;
+               #20;
+               $display("+ Registro: %d | Dato: %h", addr_instruccion, E2_ReadDataA,"; Tiempo simulacion (ns)",$time);
+            end
+            
+            $display("\n#### Se lee la memoria de datos (Etapa MEM) ####");
+            for(addr_instruccion=0;addr_instruccion<=128;addr_instruccion=addr_instruccion+4) begin          
+               dirMem = addr_instruccion;
+               #20;
+               $display("- Direccion: %d | Dato: %h", addr_instruccion, E4_DataOut_to_Latch_MEM_WB,"; Tiempo simulacion (ns)",$time);       
+            end
+            Latch_enable=1;
+            Step_flag=1;
+            enable_count=1;
+            //Etapa ID
+            Etapa_ID_posReg = 5'b0000; // direcciones a recorrer 
+            Etapa_ID_posSel = 0; //no esta en modo debug
+            //Etapa MEM
+            dirMem = 32'h00000000; // direcciones a recorrer     
+            memDebug = 0; //no esta en modo debug
+            enable_count=1;
+            end 
     end 
     
+    always@(posedge Latch_MEM_WB_halt) begin
+        Latch_enable=0;
+        enable_count=0;
+        //Etapa ID
+        Etapa_ID_posReg = 5'b0000; // direcciones a recorrer 
+        Etapa_ID_posSel = 1; //esta en modo debug
+        //Etapa MEM
+        dirMem = 32'h00000000; // direcciones a recorrer     
+        memDebug = 1; //esta en modo debug 
+        enable_count=0;
+        
+        $display("#### Ciclo numero: %d ####\n",count);
+        $display("#### Contenido de Latch IF/ID ####");
+        $display("* Adder Out: %h| InstrOut: %h| Flag halt: %b \n",Latch_IF_ID_Adder_Out, Latch_IF_ID_InstrOut,Latch_IF_ID_halt);
+        $display("#### Contenido de Latch ID/EX ####");
+        $display("* WB FLAGS: %b| MEM FLAGS: %b| EX FLAGS: %b| InmCtrl: %b",Latch_ID_Ex_WriteBack_FLAGS, Latch_ID_Ex_Mem_FLAGS, Latch_ID_Ex_FLAGS ,Latch_ID_Ex_InmCtrl);
+        $display("* Read DataA: %d| Read DataB: %d| Sign Extend: %h| Flag halt: %b",Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,Latch_ID_Ex_SignExtendOut,Latch_ID_Ex_halt);
+        $display("* InstrOut Rs: %b| InstrOut Rt: %b| InstrOut Rd: %b",Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd);
+        $display("* PC JALR JAL: %h| JALR JAL Flags: %b \n",Latch_ID_Ex_PC_JALR_JAL,Latch_ID_Ex_flags_JALR_JAL);
+        $display("#### Contenido de Latch EX/MEM ####");
+        $display("* MEM FLAGS: %b| Write Data: %d| WB FLAGS: %b| E3_ALUOut: %h",Latch_Ex_MEM_Mem_FLAGS_Out,Latch_Ex_MEM_ReadDataB,Latch_Ex_MEM_WriteBack_FLAGS_Out,Latch_Ex_MEM_E3_ALUOut,);
+        $display("* E3 MUX RegDst: %b| PC JALR JAL: %h| JALR JAL Flags: %b| Flag halt: %b \n",Latch_Ex_MEM_Mux,Latch_Ex_MEM_PC_JALR_JAL,Latch_Ex_MEM_flags_JALR_JAL,Latch_Ex_MEM_halt);
+        $display("#### Contenido de Latch MEM/WB ####");
+        $display("* E4 DataOut: %d| E3_ALUOut: %h| E3 MUX RegDst: %b| WB FLAGS: %b",Latch_MEM_WB_DataOut, Latch_MEM_WB_ALUOut, Latch_MEM_WB_Mux, Latch_MEM_WB_WriteBack_FLAGS_Out);
+        $display("* PC JALR JAL: %h| JALR JAL Flags: %b| Flag halt (FIN de programa): %b \n",Latch_MEM_WB_PC_JALR_JAL, Latch_MEM_WB_flags_JALR_JAL,Latch_MEM_WB_halt);
+        #20;
+        $display("#### Se lee el banco de registros (Etapa ID) ####");
+        for(addr_instruccion=0;addr_instruccion<=32;addr_instruccion=addr_instruccion+1) begin          
+           Etapa_ID_posReg = addr_instruccion;
+           #20;
+           $display("+ Registro: %d | Dato: %h", addr_instruccion, E2_ReadDataA,"; Tiempo simulacion (ns)",$time);
+        end
+        
+        $display("\n#### Se lee la memoria de datos (Etapa MEM) ####");
+        for(addr_instruccion=0;addr_instruccion<=128;addr_instruccion=addr_instruccion+4) begin          
+           dirMem = addr_instruccion;
+           #20;
+           $display("- Direccion: %d | Dato: %h", addr_instruccion, E4_DataOut_to_Latch_MEM_WB,"; Tiempo simulacion (ns)",$time);       
+        end
+        $display("#### Fin de Ejecucion del programa ####\n");
+        Latch_enable=1;
+        enable_count=1;
+        //Etapa ID
+        Etapa_ID_posReg = 5'b0000; // direcciones a recorrer 
+        Etapa_ID_posSel = 0; //no esta en modo debug
+        //Etapa MEM
+        dirMem = 32'h00000000; // direcciones a recorrer     
+        memDebug = 0; //no esta en modo debug
+         
+    end
     
+    always @(posedge Clk)begin //simula señal de paso
+        if(Step_flag)Step=~Step;
+    end 
     
     always begin //clock de la placa 50Mhz
         #10 Clk=~Clk;
-        if(Step_flag)Step=~Step;
-        //if((Clk==1)&& (halt!=1)) $display("Etapa IF: ","PC_out: %h",PC_Out," Instruccion: %h",E1_InstrOut," Tiempo simulacion ",$time);
     end 
     
 endmodule

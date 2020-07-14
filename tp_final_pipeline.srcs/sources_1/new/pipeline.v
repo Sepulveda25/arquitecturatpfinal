@@ -212,7 +212,7 @@ Etapa1_IF E1_IF(	//Inputs 13
                     .InputB_MUX(E2_PC_salto), 
                     .PCScr(E2_salto), 
                     .Stall(stall_or_halt),// detiene el PC si es 1
-                    .enable_pc(Etapa_IF_enable_pc),
+                    .enable_pc(Latch_enable),//.enable_pc(Etapa_IF_enable_pc),
                     .enable_sel(Etapa_IF_enable_sel),
                     .Instr_in(Etapa_IF_Instr_in),
                     .enable_mem(Etapa_IF_enable_mem),
