@@ -28,7 +28,7 @@ module contador_clk #(parameter LEN = 32)(
 reg [LEN-1:0] count_reg=1, count_next=1;
 
 
- always @(posedge clk,posedge reset)
+ always @(negedge clk,posedge reset)
 	if(reset) 
 		count_reg <= 0;
 	else 

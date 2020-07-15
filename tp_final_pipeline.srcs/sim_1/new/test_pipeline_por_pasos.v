@@ -220,6 +220,18 @@ module test_pipeline_por_pasos;
     
     integer  file, status=0,addr_instruccion=0;
     reg [31:0] data=0;
+    //flag de Branch/Jump
+    localparam BranchEQ = 5;
+    localparam BranchNE = 4;
+    localparam JR = 3;
+    localparam JALR = 2;
+    localparam Jmp = 1; 
+    localparam JAL = 0;
+    //Señal MEM
+    localparam MemRead = 1;
+    //Señales WB
+    localparam MemtoReg = 0;
+    localparam RegWrite = 1;
     
     initial begin
         // Initialize Inputs
@@ -260,17 +272,110 @@ module test_pipeline_por_pasos;
         while(!$feof(file)) begin
             status = $fscanf(file,"%h",data);
             Etapa_IF_Addr_Instr = addr_instruccion; 
-            Etapa_IF_Instr_in = data;           
+            Etapa_IF_Instr_in = data;
             $display("Dato: %h | Direccion %h",Etapa_IF_Instr_in,Etapa_IF_Addr_Instr,"; Tiempo simulacion (ns)",$time);
             addr_instruccion = addr_instruccion+4;
             #20;  
         end
+        //va 240ns
         $fclose(file);
         $display("\n#### Escritura de instrucciones finalizada ####");
         Etapa_IF_write_enable = 4'b0000; // se deja en 0 porque no se van a ingresar mas instrucciones
         Etapa_IF_Addr_Instr = 0;// puede ser x porque no se van a ingresar mas instrucciones
         Etapa_IF_Instr_in=0; // puede ser x porque no se ingresan mas instrucciones
-
+        ////################################ ESTADO INICIAL ##########################################
+        #20;
+        $display("\n################################## CICLO NUMERO: %d #############################################\n",count);
+        
+        $display("#### Etapa IF salidas ####");
+        $display("* E1_Instr: %h| PC: %h",E1_InstrOut, PC_Out);
+        $display("* E1 AddOut: %h| Unidad halt: %b| Stall or Halt: %b \n", E1_AddOut, halt, stall_or_halt);
+        
+        $display("#########################################################################################################");
+        $display("#### Contenido de Latch IF/ID ####");
+        $display("* Adder Out: %h| InstrOut: %h| Flag halt: %b \n",Latch_IF_ID_Adder_Out, Latch_IF_ID_InstrOut,Latch_IF_ID_halt);
+        
+        $display("#########################################################################################################");
+        $display("#### Etapa ID salidas ####"); //{BranchEQ, BranchNE, JR , JALR, Jmp, JAL}
+        $display("* Read DataA: %d| Read DataB: %d| Operaciones Inmediatos InmCtrl: %b| Sign Extend: %h", E2_ReadDataA, E2_ReadDataB, E2_InmCtrl, SignExtendOut);
+        $display("* FLAG WB RegWrite: %b| FLAG WB MemtoReg: %b", ControlFLAGS[7], ControlFLAGS[6]);
+        $display("* FLAG MEM MemRead: %b| FLAG MEM MemWrite: %b",ControlFLAGS[5],ControlFLAGS[4]);
+        $display("* FLAG EX RegDst: %b| FLAG EX ALUSrc: %b| FLAG EX ALUOp1: %b| FLAG EX ALUOp0: %b",ControlFLAGS[3],ControlFLAGS[2],ControlFLAGS[1],ControlFLAGS[0]);
+        $display("* PC JALR JAL (PC+8): %h| Mux JAL Rd (dir retorno): %b \n", ADDER_E2_PC_JALR_JAL, E2_Rd_mux);
+        
+        $display("=========================================================================================================");
+        $display("#### Unidad de Saltos ####");
+        $display("#### Entradas ####");
+        $display("* BranchEQ: %b| BranchNE: %b| JR: %b| JALR: %b| Jmp: %b| JAL: %b ",flags_branch_jump[BranchEQ],flags_branch_jump[BranchNE],flags_branch_jump[JR],flags_branch_jump[JALR],flags_branch_jump[Jmp],flags_branch_jump[JAL]);
+        $display("* Read DataA: %d| Read DataB: %d",E2_ReadDataA,E2_ReadDataB);
+        $display("* Adder Etapa IF: %h| Instr Index (J y JAL): %h", Latch_IF_ID_Adder_Out, Latch_IF_ID_InstrOut[25:0]);
+        $display("#### Salida ####");
+        $display("* PC branch/jump: %h| Flag de salto tomado: %b \n",E2_PC_salto, E2_salto);
+        
+        $display("=========================================================================================================");
+        $display("#### Unidad de Deteccion de Riesgos ####");
+        $display("#### Entradas ####");
+        $display("* Latch IF/ID out Rs: %b| Latch IF/ID out Rt: %b", Latch_IF_ID_InstrOut[25:21], Latch_IF_ID_InstrOut[20:16]);
+        $display("* Latch ID/EX out Rt: %b| Latch ID/EX Flag MemRead: %b", Latch_ID_Ex_InstrOut_20_16_Rt,Latch_ID_Ex_Mem_FLAGS[MemRead]);
+        $display("#### Salidas ####");
+        $display("* Stall: %b \n" ,Stall);    
+        
+        $display("#########################################################################################################");
+        $display("#### Contenido de Latch ID/EX ####");
+        $display("* WB FLAGS: %b| MEM FLAGS: %b| EX FLAGS: %b| InmCtrl: %b",Latch_ID_Ex_WriteBack_FLAGS, Latch_ID_Ex_Mem_FLAGS, Latch_ID_Ex_FLAGS ,Latch_ID_Ex_InmCtrl);
+        $display("* Read DataA: %d| Read DataB: %d| Sign Extend: %h| Flag halt: %b",Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,Latch_ID_Ex_SignExtendOut,Latch_ID_Ex_halt);
+        $display("* InstrOut Rs: %b| InstrOut Rt: %b| InstrOut Rd: %b",Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd);
+        $display("* PC JALR JAL: %h| JALR JAL Flags: %b \n",Latch_ID_Ex_PC_JALR_JAL,Latch_ID_Ex_flags_JALR_JAL);
+        
+        $display("#########################################################################################################");
+        $display("#### Etapa EX salidas ####");
+        $display("* E3_ALUOut: %h| Mux Rt/Rd: %b| Dato a escribir MEM: %h \n",E3_ALUOut, E3_MuxOut, MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB);
+        
+        $display("=========================================================================================================");
+        $display("#### Unidad de Cortocircuito ####");
+        $display("#### Entradas ####");
+        $display("* Latch ID/EX Rs: %b| Latch ID/EX Rt: %b",Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt);
+        $display("* Latch EX/MEM Rd: %b| Latch EX/MEM Flag RegWrite: %b", Latch_Ex_MEM_Mux, Latch_Ex_MEM_WriteBack_FLAGS_Out[RegWrite]);
+        $display("* Latch MEM/WB Rd: %b| Latch MEM/WB Flag RegWrite: %b", Latch_MEM_WB_Mux, Latch_MEM_WB_WriteBack_FLAGS_Out[RegWrite]);
+        $display("#### Salidas ####");
+        $display("* Forward A: %b| Forward B: %b \n" ,ForwardA, ForwardB);  
+        
+        $display("#########################################################################################################");
+        $display("#### Contenido de Latch EX/MEM ####");
+        $display("* MEM FLAGS: %b| Write Data: %d| WB FLAGS: %b| E3_ALUOut: %h",Latch_Ex_MEM_Mem_FLAGS_Out,Latch_Ex_MEM_ReadDataB,Latch_Ex_MEM_WriteBack_FLAGS_Out,Latch_Ex_MEM_E3_ALUOut,);
+        $display("* E3 MUX RegDst: %b| PC JALR JAL: %h| JALR JAL Flags: %b| Flag halt: %b \n",Latch_Ex_MEM_Mux,Latch_Ex_MEM_PC_JALR_JAL,Latch_Ex_MEM_flags_JALR_JAL,Latch_Ex_MEM_halt);
+        
+        $display("#########################################################################################################");
+        $display("#### Etapa MEM salidas ####");
+        $display("* Salida de memoria (DataOut): %h \n",E4_DataOut_to_Latch_MEM_WB);
+        
+        $display("#########################################################################################################");
+        $display("#### Contenido de Latch MEM/WB ####");
+        $display("* E4 DataOut: %d| E3_ALUOut: %h| E3 MUX RegDst: %b| WB Flag RegWrite: %b| WB Flag MemtoReg: %b",Latch_MEM_WB_DataOut, Latch_MEM_WB_ALUOut, Latch_MEM_WB_Mux, Latch_MEM_WB_WriteBack_FLAGS_Out[RegWrite],Latch_MEM_WB_WriteBack_FLAGS_Out[MemtoReg]);
+        $display("* PC JALR JAL: %h| JALR JAL Flags: %b| Flag halt (FIN de programa): %b \n",Latch_MEM_WB_PC_JALR_JAL, Latch_MEM_WB_flags_JALR_JAL,Latch_MEM_WB_halt);
+        
+        $display("#########################################################################################################");
+        $display("#### Etapa WB salidas ####");
+        $display("* Mux WB E3_ALUout/E4_DataOut: %h| Mux E4_Mux_out/PC_JALR_JAL: %h \n", Mux_WB,Mux_WB_JALR_JAL);
+        
+        //            #20;
+        $display("#########################################################################################################");
+        $display("#### Se lee el banco de registros (Etapa ID) ####");
+        for(addr_instruccion=0;addr_instruccion<32;addr_instruccion=addr_instruccion+1) begin          
+            Etapa_ID_posReg = addr_instruccion;
+            #20;
+            $display("+ Registro: %d | Dato: %h", addr_instruccion, E2_ReadDataA,"; Tiempo simulacion (ns)",$time);
+        end
+        
+        $display("\n#########################################################################################################");
+        $display("#### Se lee la memoria de datos (Etapa MEM) ####");
+        for(addr_instruccion=0;addr_instruccion<128;addr_instruccion=addr_instruccion+4) begin          
+            dirMem = addr_instruccion;
+            #20;
+            $display("- Direccion: %d | Dato: %h", addr_instruccion, E4_DataOut_to_Latch_MEM_WB,"; Tiempo simulacion (ns)",$time);       
+        end
+        
+        ////################################### FIN ####################################################
         #20;// arranca la ejecucion
         Latch_Reset = 0; //  no se reinicia todos los latch
         Latch_enable = 1; // se habilita los latch
@@ -296,6 +401,7 @@ module test_pipeline_por_pasos;
         Step_flag=1; 
     end
     
+    
     always@(posedge Step) begin 
         if((Latch_enable == 1) && (~Latch_MEM_WB_halt))begin 
             Latch_enable=0;
@@ -309,31 +415,92 @@ module test_pipeline_por_pasos;
             memDebug = 1; //esta en modo debug 
             enable_count=0;
             
-            $display("\n#### Ciclo numero: %d ####\n",count);
+            #20;
+            $display("\n################################## CICLO NUMERO: %d #############################################\n",count);
+            
+            $display("#########################################################################################################");
+            $display("#### Etapa IF salidas ####");
+            $display("* E1_Instr: %h| PC: %h",E1_InstrOut, PC_Out);
+            $display("* E1 AddOut: %h| Unidad halt: %b| Stall or Halt: %b \n", E1_AddOut, halt, stall_or_halt);
+            
+            $display("#########################################################################################################");
             $display("#### Contenido de Latch IF/ID ####");
             $display("* Adder Out: %h| InstrOut: %h| Flag halt: %b \n",Latch_IF_ID_Adder_Out, Latch_IF_ID_InstrOut,Latch_IF_ID_halt);
+            
+            $display("#########################################################################################################");
+            $display("#### Etapa ID salidas ####"); //{BranchEQ, BranchNE, JR , JALR, Jmp, JAL}
+            $display("* Read DataA: %d| Read DataB: %d| Operaciones Inmediatos InmCtrl: %b| Sign Extend: %h", E2_ReadDataA, E2_ReadDataB, E2_InmCtrl, SignExtendOut);
+            $display("* FLAG WB RegWrite: %b| FLAG WB MemtoReg: %b", ControlFLAGS[7], ControlFLAGS[6]);
+            $display("* FLAG MEM MemRead: %b| FLAG MEM MemWrite: %b",ControlFLAGS[5],ControlFLAGS[4]);
+            $display("* FLAG EX RegDst: %b| FLAG EX ALUSrc: %b| FLAG EX ALUOp1: %b| FLAG EX ALUOp0: %b",ControlFLAGS[3],ControlFLAGS[2],ControlFLAGS[1],ControlFLAGS[0]);
+            $display("* PC JALR JAL (PC+8): %h| Mux JAL Rd (dir retorno): %b \n", ADDER_E2_PC_JALR_JAL, E2_Rd_mux);
+            
+            $display("=========================================================================================================");
+            $display("#### Unidad de Saltos ####");
+            $display("#### Entradas ####");
+            $display("* BranchEQ: %b| BranchNE: %b| JR: %b| JALR: %b| Jmp: %b| JAL: %b ",flags_branch_jump[BranchEQ],flags_branch_jump[BranchNE],flags_branch_jump[JR],flags_branch_jump[JALR],flags_branch_jump[Jmp],flags_branch_jump[JAL]);
+            $display("* Read DataA: %d| Read DataB: %d",E2_ReadDataA,E2_ReadDataB);
+            $display("* Adder Etapa IF: %h| Instr Index (J y JAL): %h", Latch_IF_ID_Adder_Out, Latch_IF_ID_InstrOut[25:0]);
+            $display("#### Salida ####");
+            $display("* PC branch/jump: %h| Flag de salto tomado: %b \n",E2_PC_salto, E2_salto);
+            
+            $display("=========================================================================================================");
+            $display("#### Unidad de Deteccion de Riesgos ####");
+            $display("#### Entradas ####");
+            $display("* Latch IF/ID out Rs: %b| Latch IF/ID out Rt: %b", Latch_IF_ID_InstrOut[25:21], Latch_IF_ID_InstrOut[20:16]);
+            $display("* Latch ID/EX out Rt: %b| Latch ID/EX Flag MemRead: %b", Latch_ID_Ex_InstrOut_20_16_Rt,Latch_ID_Ex_Mem_FLAGS[MemRead]);
+            $display("#### Salidas ####");
+            $display("* Stall: %b \n" ,Stall);    
+            
+            $display("#########################################################################################################");
             $display("#### Contenido de Latch ID/EX ####");
             $display("* WB FLAGS: %b| MEM FLAGS: %b| EX FLAGS: %b| InmCtrl: %b",Latch_ID_Ex_WriteBack_FLAGS, Latch_ID_Ex_Mem_FLAGS, Latch_ID_Ex_FLAGS ,Latch_ID_Ex_InmCtrl);
             $display("* Read DataA: %d| Read DataB: %d| Sign Extend: %h| Flag halt: %b",Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,Latch_ID_Ex_SignExtendOut,Latch_ID_Ex_halt);
             $display("* InstrOut Rs: %b| InstrOut Rt: %b| InstrOut Rd: %b",Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd);
             $display("* PC JALR JAL: %h| JALR JAL Flags: %b \n",Latch_ID_Ex_PC_JALR_JAL,Latch_ID_Ex_flags_JALR_JAL);
+            
+            $display("#########################################################################################################");
+            $display("#### Etapa EX salidas ####");
+            $display("* E3_ALUOut: %h| Mux Rt/Rd: %b| Dato a escribir MEM: %h \n",E3_ALUOut, E3_MuxOut, MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB);
+            
+            $display("=========================================================================================================");
+            $display("#### Unidad de Cortocircuito ####");
+            $display("#### Entradas ####");
+            $display("* Latch ID/EX Rs: %b| Latch ID/EX Rt: %b",Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt);
+            $display("* Latch EX/MEM Rd: %b| Latch EX/MEM Flag RegWrite: %b", Latch_Ex_MEM_Mux, Latch_Ex_MEM_WriteBack_FLAGS_Out[RegWrite]);
+            $display("* Latch MEM/WB Rd: %b| Latch MEM/WB Flag RegWrite: %b", Latch_MEM_WB_Mux, Latch_MEM_WB_WriteBack_FLAGS_Out[RegWrite]);
+            $display("#### Salidas ####");
+            $display("* Forward A: %b| Forward B: %b \n" ,ForwardA, ForwardB);  
+            
+            $display("#########################################################################################################");
             $display("#### Contenido de Latch EX/MEM ####");
             $display("* MEM FLAGS: %b| Write Data: %d| WB FLAGS: %b| E3_ALUOut: %h",Latch_Ex_MEM_Mem_FLAGS_Out,Latch_Ex_MEM_ReadDataB,Latch_Ex_MEM_WriteBack_FLAGS_Out,Latch_Ex_MEM_E3_ALUOut,);
             $display("* E3 MUX RegDst: %b| PC JALR JAL: %h| JALR JAL Flags: %b| Flag halt: %b \n",Latch_Ex_MEM_Mux,Latch_Ex_MEM_PC_JALR_JAL,Latch_Ex_MEM_flags_JALR_JAL,Latch_Ex_MEM_halt);
+            
+            $display("#########################################################################################################");
+            $display("#### Etapa MEM salidas ####");
+            $display("* Salida de memoria (DataOut): %h \n",E4_DataOut_to_Latch_MEM_WB);
+            
+            $display("#########################################################################################################");
             $display("#### Contenido de Latch MEM/WB ####");
-            $display("* E4 DataOut: %d| E3_ALUOut: %h| E3 MUX RegDst: %b| WB FLAGS: %b",Latch_MEM_WB_DataOut, Latch_MEM_WB_ALUOut, Latch_MEM_WB_Mux, Latch_MEM_WB_WriteBack_FLAGS_Out);
+            $display("* E4 DataOut: %d| E3_ALUOut: %h| E3 MUX RegDst: %b| WB Flag RegWrite: %b| WB Flag MemtoReg: %b",Latch_MEM_WB_DataOut, Latch_MEM_WB_ALUOut, Latch_MEM_WB_Mux, Latch_MEM_WB_WriteBack_FLAGS_Out[RegWrite],Latch_MEM_WB_WriteBack_FLAGS_Out[MemtoReg]);
             $display("* PC JALR JAL: %h| JALR JAL Flags: %b| Flag halt (FIN de programa): %b \n",Latch_MEM_WB_PC_JALR_JAL, Latch_MEM_WB_flags_JALR_JAL,Latch_MEM_WB_halt);
-            $display("Se leen los registros de etapa 2 y memoria de etapa 4");
-            #20;
+            
+            $display("#########################################################################################################");
+            $display("#### Etapa WB salidas ####");
+            $display("* Mux WB E3_ALUout/E4_DataOut: %h| Mux E4_Mux_out/PC_JALR_JAL: %h \n", Mux_WB,Mux_WB_JALR_JAL);
+            
+            $display("#########################################################################################################");
             $display("#### Se lee el banco de registros (Etapa ID) ####");
-            for(addr_instruccion=0;addr_instruccion<=32;addr_instruccion=addr_instruccion+1) begin          
+            for(addr_instruccion=0;addr_instruccion<32;addr_instruccion=addr_instruccion+1) begin          
                Etapa_ID_posReg = addr_instruccion;
                #20;
                $display("+ Registro: %d | Dato: %h", addr_instruccion, E2_ReadDataA,"; Tiempo simulacion (ns)",$time);
             end
             
-            $display("\n#### Se lee la memoria de datos (Etapa MEM) ####");
-            for(addr_instruccion=0;addr_instruccion<=128;addr_instruccion=addr_instruccion+4) begin          
+            $display("\n#########################################################################################################");
+            $display("#### Se lee la memoria de datos (Etapa MEM) ####");
+            for(addr_instruccion=0;addr_instruccion<128;addr_instruccion=addr_instruccion+4) begin          
                dirMem = addr_instruccion;
                #20;
                $display("- Direccion: %d | Dato: %h", addr_instruccion, E4_DataOut_to_Latch_MEM_WB,"; Tiempo simulacion (ns)",$time);       
@@ -362,35 +529,98 @@ module test_pipeline_por_pasos;
         memDebug = 1; //esta en modo debug 
         enable_count=0;
         
-        $display("#### Ciclo numero: %d ####\n",count);
+        $display("\n################################## CICLO NUMERO: %d #############################################\n",count);
+                    
+        $display("#########################################################################################################");
+        $display("#### Etapa IF salidas ####");
+        $display("* E1_Instr: %h| PC: %h",E1_InstrOut, PC_Out);
+        $display("* E1 AddOut: %h| Unidad halt: %b| Stall or Halt: %b \n", E1_AddOut, halt, stall_or_halt);
+        
+        $display("#########################################################################################################");
         $display("#### Contenido de Latch IF/ID ####");
         $display("* Adder Out: %h| InstrOut: %h| Flag halt: %b \n",Latch_IF_ID_Adder_Out, Latch_IF_ID_InstrOut,Latch_IF_ID_halt);
+        
+        $display("#########################################################################################################");
+        $display("#### Etapa ID salidas ####"); //{BranchEQ, BranchNE, JR , JALR, Jmp, JAL}
+        $display("* Read DataA: %d| Read DataB: %d| Operaciones Inmediatos InmCtrl: %b| Sign Extend: %h", E2_ReadDataA, E2_ReadDataB, E2_InmCtrl, SignExtendOut);
+        $display("* FLAG WB RegWrite: %b| FLAG WB MemtoReg: %b", ControlFLAGS[7], ControlFLAGS[6]);
+        $display("* FLAG MEM MemRead: %b| FLAG MEM MemWrite: %b",ControlFLAGS[5],ControlFLAGS[4]);
+        $display("* FLAG EX RegDst: %b| FLAG EX ALUSrc: %b| FLAG EX ALUOp1: %b| FLAG EX ALUOp0: %b",ControlFLAGS[3],ControlFLAGS[2],ControlFLAGS[1],ControlFLAGS[0]);
+        $display("* PC JALR JAL (PC+8): %h| Mux JAL Rd (dir retorno): %b \n", ADDER_E2_PC_JALR_JAL, E2_Rd_mux);
+        
+        $display("=========================================================================================================");
+        $display("#### Unidad de Saltos ####");
+        $display("#### Entradas ####");
+        $display("* BranchEQ: %b| BranchNE: %b| JR: %b| JALR: %b| Jmp: %b| JAL: %b ",flags_branch_jump[BranchEQ],flags_branch_jump[BranchNE],flags_branch_jump[JR],flags_branch_jump[JALR],flags_branch_jump[Jmp],flags_branch_jump[JAL]);
+        $display("* Read DataA: %d| Read DataB: %d",E2_ReadDataA,E2_ReadDataB);
+        $display("* Adder Etapa IF: %h| Instr Index (J y JAL): %h", Latch_IF_ID_Adder_Out, Latch_IF_ID_InstrOut[25:0]);
+        $display("#### Salida ####");
+        $display("* PC branch/jump: %h| Flag de salto tomado: %b \n",E2_PC_salto, E2_salto);
+        
+        $display("=========================================================================================================");
+        $display("#### Unidad de Deteccion de Riesgos ####");
+        $display("#### Entradas ####");
+        $display("* Latch IF/ID out Rs: %b| Latch IF/ID out Rt: %b", Latch_IF_ID_InstrOut[25:21], Latch_IF_ID_InstrOut[20:16]);
+        $display("* Latch ID/EX out Rt: %b| Latch ID/EX Flag MemRead: %b", Latch_ID_Ex_InstrOut_20_16_Rt,Latch_ID_Ex_Mem_FLAGS[MemRead]);
+        $display("#### Salidas ####");
+        $display("* Stall: %b \n" ,Stall);    
+        
+        $display("#########################################################################################################");
         $display("#### Contenido de Latch ID/EX ####");
         $display("* WB FLAGS: %b| MEM FLAGS: %b| EX FLAGS: %b| InmCtrl: %b",Latch_ID_Ex_WriteBack_FLAGS, Latch_ID_Ex_Mem_FLAGS, Latch_ID_Ex_FLAGS ,Latch_ID_Ex_InmCtrl);
         $display("* Read DataA: %d| Read DataB: %d| Sign Extend: %h| Flag halt: %b",Latch_ID_Ex_ReadDataA, Latch_ID_Ex_ReadDataB,Latch_ID_Ex_SignExtendOut,Latch_ID_Ex_halt);
         $display("* InstrOut Rs: %b| InstrOut Rt: %b| InstrOut Rd: %b",Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt, Latch_ID_Ex_InstrOut_15_11_Rd);
         $display("* PC JALR JAL: %h| JALR JAL Flags: %b \n",Latch_ID_Ex_PC_JALR_JAL,Latch_ID_Ex_flags_JALR_JAL);
+        
+        $display("#########################################################################################################");
+        $display("#### Etapa EX salidas ####");
+        $display("* E3_ALUOut: %h| Mux Rt/Rd: %b| Dato a escribir MEM: %h \n",E3_ALUOut, E3_MuxOut, MuxCortoB_to_MuxAULScr_Latch_EX_MEM_DataB);
+        
+        $display("=========================================================================================================");
+        $display("#### Unidad de Cortocircuito ####");
+        $display("#### Entradas ####");
+        $display("* Latch ID/EX Rs: %b| Latch ID/EX Rt: %b",Latch_ID_Ex_InstrOut_25_21_Rs, Latch_ID_Ex_InstrOut_20_16_Rt);
+        $display("* Latch EX/MEM Rd: %b| Latch EX/MEM Flag RegWrite: %b", Latch_Ex_MEM_Mux, Latch_Ex_MEM_WriteBack_FLAGS_Out[RegWrite]);
+        $display("* Latch MEM/WB Rd: %b| Latch MEM/WB Flag RegWrite: %b", Latch_MEM_WB_Mux, Latch_MEM_WB_WriteBack_FLAGS_Out[RegWrite]);
+        $display("#### Salidas ####");
+        $display("* Forward A: %b| Forward B: %b \n" ,ForwardA, ForwardB);  
+        
+        $display("#########################################################################################################");
         $display("#### Contenido de Latch EX/MEM ####");
         $display("* MEM FLAGS: %b| Write Data: %d| WB FLAGS: %b| E3_ALUOut: %h",Latch_Ex_MEM_Mem_FLAGS_Out,Latch_Ex_MEM_ReadDataB,Latch_Ex_MEM_WriteBack_FLAGS_Out,Latch_Ex_MEM_E3_ALUOut,);
         $display("* E3 MUX RegDst: %b| PC JALR JAL: %h| JALR JAL Flags: %b| Flag halt: %b \n",Latch_Ex_MEM_Mux,Latch_Ex_MEM_PC_JALR_JAL,Latch_Ex_MEM_flags_JALR_JAL,Latch_Ex_MEM_halt);
+        
+        $display("#########################################################################################################");
+        $display("#### Etapa MEM salidas ####");
+        $display("* Salida de memoria (DataOut): %h \n",E4_DataOut_to_Latch_MEM_WB);
+        
+        $display("#########################################################################################################");
         $display("#### Contenido de Latch MEM/WB ####");
-        $display("* E4 DataOut: %d| E3_ALUOut: %h| E3 MUX RegDst: %b| WB FLAGS: %b",Latch_MEM_WB_DataOut, Latch_MEM_WB_ALUOut, Latch_MEM_WB_Mux, Latch_MEM_WB_WriteBack_FLAGS_Out);
+        $display("* E4 DataOut: %d| E3_ALUOut: %h| E3 MUX RegDst: %b| WB Flag RegWrite: %b| WB Flag MemtoReg: %b",Latch_MEM_WB_DataOut, Latch_MEM_WB_ALUOut, Latch_MEM_WB_Mux, Latch_MEM_WB_WriteBack_FLAGS_Out[RegWrite],Latch_MEM_WB_WriteBack_FLAGS_Out[MemtoReg]);
         $display("* PC JALR JAL: %h| JALR JAL Flags: %b| Flag halt (FIN de programa): %b \n",Latch_MEM_WB_PC_JALR_JAL, Latch_MEM_WB_flags_JALR_JAL,Latch_MEM_WB_halt);
+        
+        $display("#########################################################################################################");
+        $display("#### Etapa WB salidas ####");
+        $display("* Mux WB E3_ALUout/E4_DataOut: %h| Mux E4_Mux_out/PC_JALR_JAL: %h \n", Mux_WB,Mux_WB_JALR_JAL);
+        
         #20;
+        $display("#########################################################################################################");
         $display("#### Se lee el banco de registros (Etapa ID) ####");
-        for(addr_instruccion=0;addr_instruccion<=32;addr_instruccion=addr_instruccion+1) begin          
+        for(addr_instruccion=0;addr_instruccion<32;addr_instruccion=addr_instruccion+1) begin          
            Etapa_ID_posReg = addr_instruccion;
            #20;
            $display("+ Registro: %d | Dato: %h", addr_instruccion, E2_ReadDataA,"; Tiempo simulacion (ns)",$time);
         end
         
-        $display("\n#### Se lee la memoria de datos (Etapa MEM) ####");
-        for(addr_instruccion=0;addr_instruccion<=128;addr_instruccion=addr_instruccion+4) begin          
+        $display("\n#########################################################################################################");
+        $display("#### Se lee la memoria de datos (Etapa MEM) ####");
+        for(addr_instruccion=0;addr_instruccion<128;addr_instruccion=addr_instruccion+4) begin          
            dirMem = addr_instruccion;
            #20;
            $display("- Direccion: %d | Dato: %h", addr_instruccion, E4_DataOut_to_Latch_MEM_WB,"; Tiempo simulacion (ns)",$time);       
         end
-        $display("#### Fin de Ejecucion del programa ####\n");
+        
+        $display("\n#### Fin de Ejecucion del programa ####\n");
         Latch_enable=1;
         enable_count=1;
         //Etapa ID
