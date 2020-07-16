@@ -50,6 +50,7 @@ module Latch_ID_EX(	//Inputs 14
                     input [1:0] flags_JALR_JAL,// {JALR,JAL}
                     input Latch_IF_ID_halt,
                     input enable,
+                    input [31:0] Latch_IF_ID_InstrOut,
                     //Outputs 12
                     output reg	[1:0] WriteBack_FLAGS, 
                     output reg	[1:0] Mem_FLAGS, //ex [3:0] Mem_FLAGS
@@ -60,7 +61,8 @@ module Latch_ID_EX(	//Inputs 14
                     output reg	[25:0] Latch_ID_Ex_InstrOut_25_0_instr_index,
                     output reg 	[2:0] Latch_ID_Ex_InmCtrl,
                     output reg 	[1:0] Latch_ID_Ex_flags_JALR_JAL, // {JALR,JAL}              
-					output reg        Latch_ID_Ex_halt
+					output reg        Latch_ID_Ex_halt,
+					output reg  [31:0] Latch_ID_Ex_InstrOut
 					);
 
 //WB
@@ -91,6 +93,7 @@ always@(negedge Clk) begin
 		Latch_ID_Ex_InmCtrl	<= 0;
 		Latch_ID_Ex_flags_JALR_JAL <=0;
 		Latch_ID_Ex_halt<=0;
+		Latch_ID_Ex_InstrOut<=0;
 	end
 	else begin		//Sino, los valores de entrada se asignan a la salida	
 		if (enable)
@@ -115,6 +118,7 @@ always@(negedge Clk) begin
 				Latch_ID_Ex_InmCtrl	<= E2_InmCtrl;
 				Latch_ID_Ex_flags_JALR_JAL <= flags_JALR_JAL;
 				Latch_ID_Ex_halt<=Latch_IF_ID_halt;
+				Latch_ID_Ex_InstrOut<=Latch_IF_ID_InstrOut;
 			end
 	    end
 end

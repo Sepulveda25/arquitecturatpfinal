@@ -30,6 +30,7 @@ module Latch_MEM_WB(	//Inputs
                         input [1:0]     Latch_Ex_MEM_flags_JALR_JAL, // {JALR,JAL}
                         input [31:0]    Latch_Ex_MEM_PC_JALR_JAL, // nuevo
                         input           Latch_Ex_MEM_halt,
+                        input [31:0]    Latch_Ex_MEM_InstrOut,
                         //Outputs
                         output reg	[31:0]  Latch_MEM_WB_DataOut,
                         output reg	[31:0]	Latch_MEM_WB_ALUOut,  
@@ -37,7 +38,8 @@ module Latch_MEM_WB(	//Inputs
                         output reg	[1:0]	WriteBack_FLAGS_Out,	// {RegWrite, MemtoReg}
                         output reg	[1:0]	Latch_MEM_WB_flags_JALR_JAL, // {JALR,JAL}
                         output reg  [31:0]  Latch_MEM_WB_PC_JALR_JAL, //nuevo
-                        output reg          Latch_MEM_WB_halt
+                        output reg          Latch_MEM_WB_halt,
+                        output reg [31:0]   Latch_MEM_WB_InstrOut
                      );
 
 always@(negedge Clk) begin
@@ -49,6 +51,7 @@ always@(negedge Clk) begin
 		Latch_MEM_WB_flags_JALR_JAL      <= 0;
 		Latch_MEM_WB_PC_JALR_JAL         <= 0;
 		Latch_MEM_WB_halt                <= 0;
+		Latch_MEM_WB_InstrOut            <= 0;
 	end
 	else if (enable) begin
 		WriteBack_FLAGS_Out 	         <= WriteBack_FLAGS_In;
@@ -58,6 +61,7 @@ always@(negedge Clk) begin
 		Latch_MEM_WB_flags_JALR_JAL      <= Latch_Ex_MEM_flags_JALR_JAL;
 		Latch_MEM_WB_PC_JALR_JAL         <= Latch_Ex_MEM_PC_JALR_JAL;
 		Latch_MEM_WB_halt                <= Latch_Ex_MEM_halt;
+		Latch_MEM_WB_InstrOut            <= Latch_Ex_MEM_InstrOut;
 	end
 end
 
