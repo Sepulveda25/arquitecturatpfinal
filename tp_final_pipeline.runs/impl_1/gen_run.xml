@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1592956312">
-  <File Type="PWROPT-DCP" Name="pipeline_pwropt.dcp"/>
   <File Type="PA-TCL" Name="pipeline.tcl"/>
+  <File Type="PWROPT-DCP" Name="pipeline_pwropt.dcp"/>
   <File Type="REPORTS-TCL" Name="pipeline_reports.tcl"/>
   <File Type="BG-DRC" Name="pipeline.drc"/>
-  <File Type="OPT-DCP" Name="pipeline_opt.dcp"/>
   <File Type="OPT-HWDEF" Name="pipeline.hwdef"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="pipeline_incremental_reuse_pre_placed.rpt"/>
+  <File Type="OPT-DCP" Name="pipeline_opt.dcp"/>
   <File Type="OPT-DRC" Name="pipeline_drc_opted.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="pipeline_incremental_reuse_pre_placed.rpt"/>
   <File Type="PLACE-DCP" Name="pipeline_placed.dcp"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="pipeline_postplace_pwropt.dcp"/>
   <File Type="PHYSOPT-DCP" Name="pipeline_physopt.dcp"/>

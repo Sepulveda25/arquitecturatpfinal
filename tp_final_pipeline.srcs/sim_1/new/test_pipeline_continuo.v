@@ -273,8 +273,9 @@ module test_pipeline_continuo;
         enable_count=1;
         // Se carga en la memoria de instrucciones los datos
         $display("#### Escribiendo instrucciones en memoria ####");
-        file = $fopen("E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/test_lectura_hex.txt","r");
-        if (file == 0) $error("E:\Facultad\Arquitectura de Computadoras\Practicos Vivado\tp_final_pipeline\test_lectura_hex.txt not opened");
+//        file = $fopen("E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/test_lectura_hex.txt","r");
+        file = $fopen("C:/Users/Fede/Desktop/compilador_y_codigos/Salida_HEX.txt","r");
+        if (file == 0) $error("Salida_HEX.txt no se pudo abrir");
         #20;
         //escritura en memoria
         while(!$feof(file)) begin
@@ -328,7 +329,7 @@ module test_pipeline_continuo;
         memDebug = 1; //esta en modo debug 
         enable_count=0;
         
-        $display("\n################################## CICLO NUMERO: %d #############################################\n",count);
+        $display("\n################################## CANTIDAD DE CICLOS: %d #############################################\n",count);
                     
         $display("#########################################################################################################");
         $display("######################### Etapa IF salidas #########################");

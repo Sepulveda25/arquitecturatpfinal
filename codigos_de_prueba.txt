@@ -1,29 +1,29 @@
 ### 1 PRUEBA DE UNIDAD DE CORTO => BIEN
 ADDI r1, r1, 0x3 ; en etapa WB => Hex: 20210003
 ADDI r2, r2, 0x7 ; en etapa MEM => Hex: 20420007
-ADD r3, r1, r2 ; en etapa EX => Hex: 00221820
-SUB r5,r3,r1; en etapa IF => Hex: 00612822
-HLT ; fin Hex: 0xaaaaaaaa
+ADDU r3, r1, r2 ; en etapa EX => Hex: 00221820
+SUBU r5, r3, r1; en etapa IF => Hex: 00612822
+HALT ; fin Hex: 0xaaaaaaaa
 
 resultado r5=7
 
 ### 1A UNIDAD DE CORTO FUNCIONA PARA DEPENDENCIA EN r4 Y r2 => BIEN
-ADDI r2, r2, 0x4; r2=4 Hex: 0x20420004
-ADDI r4, r4, 0x1E; Hex: 0x2084001E
-SW r4, 0x0(r2); Hex: 0xAC440000
-LW r3,0x0(r2); r3=r4 Hex: 0x8C430000
-HLT ; fin Hex: 0xaaaaaaaa
+ADDI r2, r2, 0x4 ; r2=4 Hex: 0x20420004
+ADDI r4, r4, 0x1E ; Hex: 0x2084001E
+SW r4, 0x0(r2) ; Hex: 0xAC440000
+LW r3, 0x0(r2) ; r3=r4 Hex: 0x8C430000
+HALT ; fin Hex: 0xaaaaaaaa
 
 resultado r3=0x1E
 
 ### 2 PRUEBA DE UNIDAD DE DETECCION DE RIESGOS MAS UNIDAD DE CORTO => BIEN
-ADDI r4, r4, 0x1E; r4=30 Hex: 2084001E
-ADDI r2, r2, 0x4; r2=4 Hex: 20420004
-ADDI r3, r3, 0x5; r3=5 Hex: 20630005
-SW r4, 0x0(r2); memoria[r2+0x0]<=r4 Hex: AC440000
-LW r1,0x0(r2); r1=r4 Hex: 8C410000
-SUB r5,r1,r3; Hex: 00232822
-HLT ; fin Hex: aaaaaaaa
+ADDI r4, r4, 0x1E ; r4=30 Hex: 2084001E
+ADDI r2, r2, 0x4 ; r2=4 Hex: 20420004
+ADDI r3, r3, 0x5 ; r3=5 Hex: 20630005
+SW r4, 0x0(r2) ; memoria[r2+0x0]<=r4 Hex: AC440000
+LW r1, 0x0(r2) ; r1=r4 Hex: 8C410000
+SUBU r5, r1, r3 ; Hex: 00232822
+HALT ; fin Hex: aaaaaaaa
 
 resultado r5=25=0x19
 
@@ -32,33 +32,33 @@ ADDI r1, r1, 0x4 ; indice Hex: 20210004
 ADDI r2, r2, 0xa ; Hex: 2042000A
 ADDI r3, r3, 0xf ; Hex: 2063000F
 ADDI r4, r4, 0x14 ; Hex: 20840014
-SW r2, 0x0(r1); guardo Hex: AC220000
-SW r3, 0x4(r1); Hex: AC230004
-SW r4, 0x8(r1); Hex: AC240008
-LW r5, 0x0(r1); r5=r2 Hex: 8C250000
-LW r6, 0x4(r1); r6=r3 Hex: 8C260004
-LW r7, 0x8(r1); r7=r4 Hex: 8C270008
-HLT ; fin Hex: 0xaaaaaaaa
+SW r2, 0x0(r1) ; guardo Hex: AC220000
+SW r3, 0x4(r1) ; Hex: AC230004
+SW r4, 0x8(r1) ; Hex: AC240008
+LW r5, 0x0(r1) ; r5=r2 Hex: 8C250000
+LW r6, 0x4(r1) ; r6=r3 Hex: 8C260004
+LW r7, 0x8(r1) ; r7=r4 Hex: 8C270008
+HALT ; fin Hex: 0xaaaaaaaa
 
 ### 4 PRUEBA FLAGS JAL Y JALR
 JAL 0xe; se guarda PC+8 en r31 Hex: 0x0C00000E
 JALR r1, r2; se guarda PC+8 en r1 Hex: 0x00400809
-ADD r3,r4,r31; se verifica la escritura de r31 r3=0+(PC+8) Hex: 0x009F1820  
-ADD r5,r4,r1; se verifica la escritura de r1 Hex: 0x00812820
+ADD r3, r4, r31; se verifica la escritura de r31 r3=0+(PC+8) Hex: 0x009F1820  
+ADD r5, r4, r1; se verifica la escritura de r1 Hex: 0x00812820
 
 ### 5 prueba de Branch on Not Equal
-		ADDI r1, r1, 0x1; Hex: 20210001
-		ADDI r2, r2, 0x14; seria la i del for, tiene que ser multiplo de 4 Hex: 20420014
-		ADDI r4, r4, 0x1; Hex: 20840001
-		ADDI r5, r5, 0x0; en que valor quiero detener el loop Hex: 20A50000
+		ADDI r1, r1, 0x1 ; Hex: 20210001
+		ADDI r2, r2, 0x14 ; seria la i del for, tiene que ser multiplo de 4 Hex: 20420014
+		ADDI r4, r4, 0x1 ; Hex: 20840001
+		ADDI r5, r5, 0x0 ; en que valor quiero detener el loop Hex: 20A50000
 loop:
-		ADDI r2,r2,0xfffc; resta 4 Hex: 2042FFFC
-		SLLV r4,r4,r1; r4<<r1 Hex: 00242004 
-		NOP; Hex: 00000000
-		BNE r2,r5,0xfffc; me muevo 4 lugares hacia arriba Hex: 1445FFFC
-		SW r4,0x4(r2); Hex: AC440004
-		ADD r6,r4,r7; verifico 2 cosas que sali del loop y en valor de r4 Hex: 00873020
-HLT ; fin Hex: 0xaaaaaaaa
+		ADDI r2, r2, 0xfffc ; resta 4 Hex: 2042FFFC
+		SLLV r4, r4, r1; r4<<r1 Hex: 00242004 
+		NOP ; Hex: 00000000
+		BNE r2, r5, 0xfffc; me muevo 4 lugares hacia arriba Hex: 1445FFFC
+		SW r4, 0x4(r2) ; Hex: AC440004
+		ADD r6, r4, r7; verifico 2 cosas que sali del loop y en valor de r4 Hex: 00873020
+HALT ; fin Hex: 0xaaaaaaaa
 
 resultado r4=r6=32=0x20
 
@@ -71,13 +71,13 @@ ADDI r5, r5, 0x1; Hex: 20A50001
 ADDI r6, r6, 0x1; Hex: 20C60001
 
 loop:
-SUB r1,r1,r3; r1=r1-r3 Hex: 00230822
+SUB r1, r1, r3; r1=r1-r3 Hex: 00230822
 ADDI r4, r4, 0x8 ; Hex: 20840008
-NOP; Hex: 00000000
-BEQ r1,r2,0xfffc; Hex: 1022FFFC
-SLLV r5,r5,r6; r5<<r6 Hex: 00C52804
-ADD r7,r1,r7; Hex: 00273820
-
+NOP ; Hex: 00000000
+BEQ r1, r2, 0xfffc ; Hex: 1022FFFC
+SLLV r5, r5, r6; r5<<r6 Hex: 00C52804
+ADD r7, r1, r7; Hex: 00273820
+HALT
 resultado r7=5, r5=4,r4=16
 
 ### 7 prueba de Jump Register (JR)
@@ -88,56 +88,95 @@ ADDI r3, r3, 0x5 ; Hex: 20630005
 ADDI r4, r4, 0x1; Hex: 20840001
 ADDI r5, r5, 0x1; Hex: 20A50001
 
-JR r1; Hex: 00200008
-SLLV r4,r4,r5; Hex: 00A42004
-ADDI r6, r6, 0xa; Hex: 20C6000A
-ADDI r7, r7, 0xb; Hex: 20E7000B
-ADDI r8, r8, 0xc; dir 0x24 Hex: 2108000C
+JR r1 ; Hex: 00200008
+SLLV r4,r4,r5 ; Hex: 00A42004
+ADDI r6, r6, 0xa ; Hex: 20C6000A
+ADDI r7, r7, 0xb ; Hex: 20E7000B
+ADDI r8, r8, 0xc ; dir 0x24 Hex: 2108000C
+HALT
 
 ### 8 prueba de Jump And Link Register (JALR)
 
-ADDI r1, r1, 0x24; direccion de salto 0x24 Hex: 20210024
+ADDI r1, r1, 0x24;  direccion de salto 0x24 Hex: 20210024
 ADDI r2, r2, 0xf ; Hex: 2042000F
 ADDI r3, r3, 0x5 ; Hex: 20630005
-ADDI r4, r4, 0x1; Hex: 20840001
-ADDI r5, r5, 0x1; Hex: 20A50001
+ADDI r4, r4, 0x1 ; Hex: 20840001
+ADDI r5, r5, 0x1 ; Hex: 20A50001
 
-JALR r9, r1; r9=PCactual+8=0x1c Hex: 00204809
-SLLV r4,r4,r5; Hex: 00A42004
-ADDI r6, r6, 0xa; Hex: 20C6000A
-ADDI r7, r7, 0xb; Hex: 20E7000B
-ADDI r8, r8, 0xc; dir 0x24 Hex: 2108000C
-ADDI r9, r9, 0x0;  Hex: 21290000
+JALR r9, r1 ; r9=PCactual+8=0x1c Hex: 00204809
+SLLV r4, r4, r5 ; Hex: 00A42004
+ADDI r6, r6, 0xa ; Hex: 20C6000A
+ADDI r7, r7, 0xb ; Hex: 20E7000B
+ADDI r8, r8, 0xc ; dir 0x24 Hex: 2108000C
+ADDI r9, r9, 0x0 ;  Hex: 21290000
+HALT
 
 resultado: r9=0x1C
 
 ### 9 prueba de Jump (J)
-ADDI r1, r1, 0x24; direccion de salto 0x24 Hex: 20210024
+ADDI r1, r1, 0x24 ; direccion de salto 0x24 Hex: 20210024
 ADDI r2, r2, 0xf ; Hex: 2042000F
 ADDI r3, r3, 0x5 ; Hex: 20630005
-ADDI r4, r4, 0x1; Hex: 20840001
-ADDI r5, r5, 0x1; Hex: 20A50001
+ADDI r4, r4, 0x1 ; Hex: 20840001
+ADDI r5, r5, 0x1 ; Hex: 20A50001
 
 J 0x9; direccion de salto 0x24 Hex: 08000009
-SLLV r4,r4,r5; Hex: 00A42004
-ADDI r6, r6, 0xa; Hex: 20C6000A
-ADDI r7, r7, 0xb; Hex: 20E7000B
-ADDI r8, r8, 0xc; dir 0x24 Hex: 2108000C
-ADDI r9, r9, 0xd;  Hex: 2129000D
-
+SLLV r4, r4, r5 ; Hex: 00A42004
+ADDI r6, r6, 0xa ; Hex: 20C6000A
+ADDI r7, r7, 0xb ; Hex: 20E7000B
+ADDI r8, r8, 0xc ; dir 0x24 Hex: 2108000C
+ADDI r9, r9, 0xd ;  Hex: 2129000D
+HALT
 
 ### 10 prueba de Jump And Link (JAL)
-ADDI r1, r1, 0x24; direccion de salto 0x24 Hex: 20210024
+ADDI r1, r1, 0x24 ; direccion de salto 0x24 Hex: 20210024
 ADDI r2, r2, 0xf ; Hex: 2042000F
 ADDI r3, r3, 0x5 ; Hex: 20630005
-ADDI r4, r4, 0x1; Hex: 20840001
-ADDI r5, r5, 0x1; Hex: 20A50001
+ADDI r4, r4, 0x1 ; Hex: 20840001
+ADDI r5, r5, 0x1 ; Hex: 20A50001
 
 JAL 0x9; direccion de salto 0x24 Hex: 0C000009
-SLLV r4,r4,r5; Hex: 00A42004
-ADDI r6, r6, 0xa; Hex: 20C6000A
-ADDI r7, r7, 0xb; Hex: 20E7000B
-ADDI r8, r8, 0xc; dir 0x24 Hex: 2108000C
-ADDI r31, r31, 0x0;  Hex: 23FF0000 
+SLLV r4, r4, r5 ; Hex: 00A42004
+ADDI r6, r6, 0xa ; Hex: 20C6000A
+ADDI r7, r7, 0xb ; Hex: 20E7000B
+ADDI r8, r8, 0xc ; dir 0x24 Hex: 2108000C
+ADDI r31, r31, 0x0 ;  Hex: 23FF0000 
+HALT
 
 resultado: r31=0x1C
+
+### 11 prueba SLL, SRL, SRA ## Ej: SLL rd, rt, sa
+ADDI r1, r1, 0x24 ; Hex:
+ADDI r2, r2, 0xf0f0 ; Hex:
+SLL r3, r2, 0x10 ; rd= rt << sa r3=0xf0f00000
+SRL r4, r2, 0x4 ; rd= rt >> sa logico
+SRA r5, r3, 0x4 ; rd= rt >> sa aritmetico r5=0xFF0F0000
+HALT
+
+
+### 12 prueba sllv, srlv, srav ## Ej: SLLV rd, rt, rs
+ADDI r1, r1, 0x4 ; Hex:
+ADDI r2, r2, 0xf0f0 ; Hex:
+ADDI r3, r3, 0x10 ;
+SLLV r4, r2, r3 ; rd= rt << rs r4=0xf0f00000
+SRLV r5, r2, r1 ; rd= rt >> rs logico
+SRAV r6, r4, r1 ; rd= rt >> sa aritmetico r6=0xFF0F0000
+HALT
+
+
+### 13 prueba addu, subu, add, sub, and, or, xor, nor, slt ## EJ: ADDU rd, rs, rt (Unsigned)
+ADDI r1, r1, 0x31 ; 
+ADDI r2, r2, 0x4b ; r2=75
+ADDI r3, r3, 0x10 ;
+NOR r4, r1, r30 ; rd = rs NOR rt r4=0XFFFFFFCE=(-50)
+ADDU r5, r4, r2 ; unsigned(r4=4294967246) r5=19 
+
+
+### 14 prueba lb, lh, lw, lwu, lbu, lhu, sb, sh, sw
+
+
+### 15 prueba addi, andi, ori, xori, slti
+
+
+### 16 prueba lui
+
