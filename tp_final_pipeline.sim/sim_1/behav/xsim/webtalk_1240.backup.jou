@@ -2,16 +2,11 @@
 # Webtalk v2017.3 (64-bit)
 # SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
 # IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
-# Start of session at: Thu Jul 16 00:05:50 2020
-# Process ID: 11216
+# Start of session at: Sun Jul 19 19:51:05 2020
+# Process ID: 1240
 # Current directory: E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim/xsim.dir/test_pipeline_continuo_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv.exe -mode batch -source E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim/xsim.dir/test_pipeline_por_pasos_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
 source E:/Facultad/Arquitectura -notrace
-invalid command name "%"
-    while executing
-"% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current"
-    (file "E:/Facultad/Arquitectura" line 1)
-INFO: [Common 17-206] Exiting Webtalk at Thu Jul 16 00:05:50 2020...

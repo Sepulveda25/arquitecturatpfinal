@@ -48,7 +48,7 @@ ADD r5, r4, r1; se verifica la escritura de r1 Hex: 0x00812820
 
 ### 5 prueba de Branch on Not Equal
 		ADDI r1, r1, 0x1 ; Hex: 20210001
-		ADDI r2, r2, 0x14 ; seria la i del for, tiene que ser multiplo de 4 Hex: 20420014
+		ADDI r2, r2, 0x10 ; seria la i del for, tiene que ser multiplo de 4 Hex: 20420014
 		ADDI r4, r4, 0x1 ; Hex: 20840001
 		ADDI r5, r5, 0x0 ; en que valor quiero detener el loop Hex: 20A50000
 loop:
@@ -60,7 +60,7 @@ loop:
 		ADD r6, r4, r7; verifico 2 cosas que sali del loop y en valor de r4 Hex: 00873020
 HALT ; fin Hex: 0xaaaaaaaa
 
-resultado r4=r6=32=0x20
+resultado r4=r6=0x10
 
 ### 6 prueba de Branch on Equal
 

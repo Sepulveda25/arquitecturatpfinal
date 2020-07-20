@@ -432,17 +432,12 @@ module test_pipeline_por_pasos;
     
     always@(posedge Step) begin 
         if((Latch_enable == 1) && (~Latch_MEM_WB_halt))begin 
-            Latch_enable=0;
             Step_flag=0;
+            // se detiene los Latch y el PC
+            Latch_enable=0;
+            /// Se detiene el contador de ciclos
             enable_count=0;
-            //Etapa ID
-            Etapa_ID_posReg = 5'b0000; // direcciones a recorrer 
-            Etapa_ID_posSel = 1; //esta en modo debug
-            //Etapa MEM
-            dirMem = 32'h00000000; // direcciones a recorrer     
-            memDebug = 1; //esta en modo debug 
-            enable_count=0;
-            
+
             #20;
             $display("\n################################## CICLO NUMERO: %d #############################################\n",count);
             
@@ -533,31 +528,43 @@ module test_pipeline_por_pasos;
             $display("######################### Etapa WB salidas #########################");
             $display("* Mux WB E3_ALUout/E4_DataOut: %h| Mux E4_Mux_out/PC_JALR_JAL: %h \n", Mux_WB,Mux_WB_JALR_JAL);
             
+            /// Control de señales para leer registros y memoria
+            //Etapa ID
+            Etapa_ID_posReg = 5'b0000; // direcciones a recorrer 
+            Etapa_ID_posSel = 1; //esta en modo debug
+
             $display("#########################################################################################################");
             $display("######################### Se lee el banco de registros (Etapa ID) #########################");
-            for(addr_instruccion=0;addr_instruccion<32;addr_instruccion=addr_instruccion+1) begin          
+            
+            for(addr_instruccion=0;addr_instruccion<10;addr_instruccion=addr_instruccion+1) begin          
                Etapa_ID_posReg = addr_instruccion;
                #20;
                $display("+ Registro: %d | Dato: %h", addr_instruccion, E2_ReadDataA,"; Tiempo simulacion (ns)",$time);
             end
             
+            //Etapa MEM
+            dirMem = 32'h00000000; // direcciones a recorrer     
+            memDebug = 1; //esta en modo debug 
+            
             $display("\n#########################################################################################################");
             $display("######################### Se lee la memoria de datos (Etapa MEM) #########################");
-            for(addr_instruccion=0;addr_instruccion<128;addr_instruccion=addr_instruccion+4) begin          
+            for(addr_instruccion=0;addr_instruccion<36;addr_instruccion=addr_instruccion+4) begin          
                dirMem = addr_instruccion;
                #20;
                $display("- Direccion: %d | Dato: %h", addr_instruccion, E4_DataOut_to_Latch_MEM_WB,"; Tiempo simulacion (ns)",$time);       
             end
-            Latch_enable=1;
-            Step_flag=1;
-            enable_count=1;
+            
             //Etapa ID
             Etapa_ID_posReg = 5'b0000; // direcciones a recorrer 
             Etapa_ID_posSel = 0; //no esta en modo debug
             //Etapa MEM
             dirMem = 32'h00000000; // direcciones a recorrer     
             memDebug = 0; //no esta en modo debug
+            #20;
+            Latch_enable=1;
+            Step_flag=1;
             enable_count=1;
+            
             end 
     end 
     
@@ -687,6 +694,7 @@ module test_pipeline_por_pasos;
         //Etapa MEM
         dirMem = 32'h00000000; // direcciones a recorrer     
         memDebug = 0; //no esta en modo debug
+        
          
     end
     
