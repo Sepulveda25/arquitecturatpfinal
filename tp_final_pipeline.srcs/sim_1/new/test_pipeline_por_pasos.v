@@ -477,7 +477,7 @@ module test_pipeline_por_pasos;
             $display("* Stall: %b \n" ,Stall);    
             
             $display("#########################################################################################################");
-            $display("######################### Contenido de Latch ID/EX #########################"); 
+            $display("######################### Contenido de Latch ID/EX #########################");
             $display("#### Instruccion Etapa EX: %h| ####", Latch_ID_Ex_InstrOut);
             $display("* FLAG WB RegWrite: %b| FLAG WB MemtoReg: %b",Latch_ID_Ex_WriteBack_FLAGS[RegWrite], Latch_ID_Ex_WriteBack_FLAGS[MemtoReg]);
             $display("* FLAG MEM MemRead: %b| FLAG MEM MemWrite: %b",Latch_ID_Ex_Mem_FLAGS[MemRead], Latch_ID_Ex_Mem_FLAGS[MemWrite]);
@@ -542,15 +542,15 @@ module test_pipeline_por_pasos;
                $display("+ Registro: %d | Dato: %h", addr_instruccion, E2_ReadDataA,"; Tiempo simulacion (ns)",$time);
             end
             
-            //Etapa MEM
-            dirMem = 32'h00000000; // direcciones a recorrer     
+            //Etapa MEM    
             memDebug = 1; //esta en modo debug 
-            
+            dirMem = 32'h00000000; // direcciones a recorrer 
+            #20;
             $display("\n#########################################################################################################");
             $display("######################### Se lee la memoria de datos (Etapa MEM) #########################");
             for(addr_instruccion=0;addr_instruccion<36;addr_instruccion=addr_instruccion+4) begin          
                dirMem = addr_instruccion;
-               #20;
+               #40;
                $display("- Direccion: %d | Dato: %h", addr_instruccion, E4_DataOut_to_Latch_MEM_WB,"; Tiempo simulacion (ns)",$time);       
             end
             

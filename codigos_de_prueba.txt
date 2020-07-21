@@ -5,6 +5,7 @@ ADDU r3, r1, r2 ; en etapa EX => Hex: 00221820
 SUBU r5, r3, r1; en etapa IF => Hex: 00612822
 HALT ; fin Hex: 0xaaaaaaaa
 
+en el ciclo 4 se ve el corto para la tercera instruccion desde MEM y WB
 resultado r5=7
 
 ### 1A UNIDAD DE CORTO FUNCIONA PARA DEPENDENCIA EN r4 Y r2 => BIEN
@@ -21,10 +22,12 @@ ADDI r4, r4, 0x1E ; r4=30 Hex: 2084001E
 ADDI r2, r2, 0x4 ; r2=4 Hex: 20420004
 ADDI r3, r3, 0x5 ; r3=5 Hex: 20630005
 SW r4, 0x0(r2) ; memoria[r2+0x0]<=r4 Hex: AC440000
-LW r1, 0x0(r2) ; r1=r4 Hex: 8C410000
+LW r1, 0x0(r2) ; r1=r4=30 Hex: 8C410000
 SUBU r5, r1, r3 ; Hex: 00232822
+AND r6, r4, r2 ; r6=0x4
 HALT ; fin Hex: aaaaaaaa
 
+en el ciclo 6 se da la señal de Stall, en el ciclo 7 se introduce la burbuja en la etapa EX
 resultado r5=25=0x19
 
 ### 3 PRUEBA DE STORAGE Y LOAD => BIEN
@@ -57,9 +60,10 @@ loop:
 		NOP ; Hex: 00000000
 		BNE r2, r5, 0xfffc; me muevo 4 lugares hacia arriba Hex: 1445FFFC
 		SW r4, 0x4(r2) ; Hex: AC440004
-		ADD r6, r4, r7; verifico 2 cosas que sali del loop y en valor de r4 Hex: 00873020
+		ADD r6, r4, r7; verifico 2 cosas que sali del loop y en valor de r4 Hex: 00873020. r6=r4=0x10
 HALT ; fin Hex: 0xaaaaaaaa
 
+ciclo 8 primer salto (ver unidad de saltos en etapa ID), luego ciclo 13, 18, 23
 resultado r4=r6=0x10
 
 ### 6 prueba de Branch on Equal
@@ -71,14 +75,18 @@ ADDI r5, r5, 0x1; Hex: 20A50001
 ADDI r6, r6, 0x1; Hex: 20C60001
 
 loop:
-SUB r1, r1, r3; r1=r1-r3 Hex: 00230822
+SUBU r1, r1, r3; r1=r1-r3 Hex: 00230822
 ADDI r4, r4, 0x8 ; Hex: 20840008
 NOP ; Hex: 00000000
 BEQ r1, r2, 0xfffc ; Hex: 1022FFFC
 SLLV r5, r5, r6; r5<<r6 Hex: 00C52804
-ADD r7, r1, r7; Hex: 00273820
+ADDU r7, r1, r7; Hex: 00273820
 HALT
-resultado r7=5, r5=4,r4=16
+
+ciclo 9 es la primera comparacion y salta. 
+en el ciclo 14 compara pero no salta
+
+resultado r1=r7=5, r2=10, r5=4,r4=16
 
 ### 7 prueba de Jump Register (JR)
 
