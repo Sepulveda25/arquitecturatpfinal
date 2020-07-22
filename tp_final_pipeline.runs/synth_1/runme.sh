@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log pipeline.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source pipeline.tcl
+EAStep vivado -log pipeline_segmentado_sintesis.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source pipeline_segmentado_sintesis.tcl

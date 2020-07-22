@@ -86,7 +86,7 @@ HALT
 ciclo 9 es la primera comparacion y salta. 
 en el ciclo 14 compara pero no salta
 
-resultado r1=r7=5, r2=10, r5=4,r4=16
+resultado r1=r7=5, r2=10, r5=4, r4=16
 
 ### 7 prueba de Jump Register (JR)
 
@@ -97,11 +97,15 @@ ADDI r4, r4, 0x1; Hex: 20840001
 ADDI r5, r5, 0x1; Hex: 20A50001
 
 JR r1 ; Hex: 00200008
-SLLV r4,r4,r5 ; Hex: 00A42004
+SLLV r4, r4, r5 ; Hex: 00A42004
 ADDI r6, r6, 0xa ; Hex: 20C6000A
 ADDI r7, r7, 0xb ; Hex: 20E7000B
 ADDI r8, r8, 0xc ; dir 0x24 Hex: 2108000C
 HALT
+
+ciclo 6 salto JR
+
+r1=0x24, r2=0xf, r3=0x5, r4=2, r5=1, r6=0, r7=0, r8=0xc
 
 ### 8 prueba de Jump And Link Register (JALR)
 
@@ -113,13 +117,14 @@ ADDI r5, r5, 0x1 ; Hex: 20A50001
 
 JALR r9, r1 ; r9=PCactual+8=0x1c Hex: 00204809
 SLLV r4, r4, r5 ; Hex: 00A42004
-ADDI r6, r6, 0xa ; Hex: 20C6000A
+ADDI r6, r6, 0xa ; dir de retorno r9=0x1C Hex: 20C6000A
 ADDI r7, r7, 0xb ; Hex: 20E7000B
 ADDI r8, r8, 0xc ; dir 0x24 Hex: 2108000C
 ADDI r9, r9, 0x0 ;  Hex: 21290000
 HALT
 
-resultado: r9=0x1C
+ciclo 6 salto JALR
+resultado: r1=0x24, r2=0xf, r3=0x5, r4=0x2, r5=0x1, r6=0, r7=0, r8=0xc, r9=0x1C
 
 ### 9 prueba de Jump (J)
 ADDI r1, r1, 0x24 ; direccion de salto 0x24 Hex: 20210024
@@ -128,13 +133,16 @@ ADDI r3, r3, 0x5 ; Hex: 20630005
 ADDI r4, r4, 0x1 ; Hex: 20840001
 ADDI r5, r5, 0x1 ; Hex: 20A50001
 
-J 0x9; direccion de salto 0x24 Hex: 08000009
+J 0x9; direccion de salto 0x24 Hex: 08000009. 0x9<<2=0x24
 SLLV r4, r4, r5 ; Hex: 00A42004
 ADDI r6, r6, 0xa ; Hex: 20C6000A
 ADDI r7, r7, 0xb ; Hex: 20E7000B
 ADDI r8, r8, 0xc ; dir 0x24 Hex: 2108000C
 ADDI r9, r9, 0xd ;  Hex: 2129000D
 HALT
+
+ciclo 6 salto J
+resultado: r1=0x24, r2=0xf, r3=0x5, r4=0x2, r5=0x1, r6=0, r7=0, r8=0xc, r9=0xd
 
 ### 10 prueba de Jump And Link (JAL)
 ADDI r1, r1, 0x24 ; direccion de salto 0x24 Hex: 20210024
@@ -143,15 +151,17 @@ ADDI r3, r3, 0x5 ; Hex: 20630005
 ADDI r4, r4, 0x1 ; Hex: 20840001
 ADDI r5, r5, 0x1 ; Hex: 20A50001
 
-JAL 0x9; direccion de salto 0x24 Hex: 0C000009
+JAL 0x9; direccion de salto 0x24 Hex: 0C000009. 0x9<<2=0x24
 SLLV r4, r4, r5 ; Hex: 00A42004
-ADDI r6, r6, 0xa ; Hex: 20C6000A
+ADDI r6, r6, 0xa ; dir de retorno 0x1C. Hex: 20C6000A
 ADDI r7, r7, 0xb ; Hex: 20E7000B
 ADDI r8, r8, 0xc ; dir 0x24 Hex: 2108000C
 ADDI r31, r31, 0x0 ;  Hex: 23FF0000 
 HALT
 
-resultado: r31=0x1C
+
+ciclo 6 salto JAL
+resultado: r1=0x24, r2=0xf, r3=0x5, r4=0x2, r5=0x1, r6=0, r7=0, r8=0xc, r31=0x1C
 
 ### 11 prueba SLL, SRL, SRA ## Ej: SLL rd, rt, sa
 ADDI r1, r1, 0x24 ; Hex:

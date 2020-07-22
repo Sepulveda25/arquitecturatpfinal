@@ -52,7 +52,7 @@ reg enableMem = 1;
 //assign PCScr = Latch_Ex_MEM_Zero & Mem_FLAGS[Branch];
 //assign Branch= !(Latch_Ex_MEM_Zero)& Mem_FLAGS[BranchNE]|Latch_Ex_MEM_Zero & Mem_FLAGS[BranchEQ];
 
-//Multiplexor Address desde ALU o desde Debug
+//Multiplexor Address desde ALU o desde Debug. Si memDebug es 1 esta en modo debug
 MUX #(.LEN(32)) Mux_Address(.InputA(Latch_Ex_MEM_ALUOut), 
                             .InputB(dirMem), 
                             .SEL(memDebug), 

@@ -73,7 +73,6 @@ module Etapa1_IF( //Inputs 13
   Adder #(.LEN(32)) adder_IF(.InputA(PC_Out), .InputB(InputB_Adder), .Out(E1_AddOut));
   
   //Registro de Instrucciones de la etapa 1: Su entrada es la salida del PC
-  //InstructionMemory InstrMem(.addra(addr_mux_to_InstrMem), .clka(Clk), .dina(Instr_in), .ena(enable_mem), .rsta(Reset), .wea(write_enable), .douta(E1_InstrOut)); 
   Instruction_memory InstrMem (
     .addra(addr_mux_to_InstrMem), 
     .clka(Clk),

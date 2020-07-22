@@ -25,8 +25,8 @@ module Etapa2_ID(   //Inputs 9
                     input [31:0]    Latch_IF_ID_InstrOut,
                     input [4:0]	    posReg, // address para leer registros en modo debug
                     input			posSel, // selecion de address para Register
-                    input [4:0] 	Latch_MEM_WB_Mux,
-                    input [31:0] 	Mux_WB, 
+                    input [4:0] 	Latch_MEM_WB_Mux, // direccion del registro a escribir desde WB
+                    input [31:0] 	Mux_WB, // dato a escribir en registro
                     input 			Latch_MEM_WB_RegWrite, 
                     //Outputs 6
                     output [31:0] 	E2_ReadDataA,  
@@ -72,7 +72,7 @@ Control_Unit Control(   .OpCode(Latch_IF_ID_InstrOut[31:26]),
 
 assign flags_branch_jump = ControlFLAGS[13:8]; //BranchEQ, BranchNE, JR , JALR, Jmp, JAL
 
-MUX #(.LEN(14)) Stall_mux(  .InputA(ControlFLAGS[7:0]), //0 ex .InputA(ControlFLAGS)
+MUX #(.LEN(8)) Stall_mux(  .InputA(ControlFLAGS[7:0]), //0 ex .InputA(ControlFLAGS)
                             .InputB(Cero), //1
                             .SEL(Stall), 
                             .Out(Mux_ControlFLAGS_Out));
