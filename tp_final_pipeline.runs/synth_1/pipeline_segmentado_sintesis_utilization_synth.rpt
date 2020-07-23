@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.3 (win64) Build 2018833 Wed Oct  4 19:58:22 MDT 2017
-| Date         : Wed Jul 22 03:43:04 2020
+| Date         : Wed Jul 22 19:35:34 2020
 | Host         : DESKTOP-I9AG1Q0 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file pipeline_segmentado_sintesis_utilization_synth.rpt -pb pipeline_utilization_synth.pb
 | Design       : pipeline_segmentado_sintesis
@@ -33,8 +33,8 @@ Table of Contents
 | Slice LUTs*             | 1730 |     0 |     20800 |  8.32 |
 |   LUT as Logic          | 1730 |     0 |     20800 |  8.32 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         | 1450 |     0 |     41600 |  3.49 |
-|   Register as Flip Flop | 1445 |     0 |     41600 |  3.47 |
+| Slice Registers         | 1434 |     0 |     41600 |  3.45 |
+|   Register as Flip Flop | 1429 |     0 |     41600 |  3.44 |
 |   Register as Latch     |    5 |     0 |     41600 |  0.01 |
 | F7 Muxes                |  258 |     0 |     16300 |  1.58 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
@@ -55,7 +55,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 37    |          Yes |           - |        Reset |
+| 21    |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 1413  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -91,7 +91,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   36 |     0 |       106 | 33.96 |
+| Bonded IOB                  |   19 |     0 |       106 | 17.92 |
 | Bonded IPADs                |    0 |     0 |        10 |  0.00 |
 | Bonded OPADs                |    0 |     0 |         4 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         5 |  0.00 |
@@ -157,9 +157,9 @@ Table of Contents
 | LUT2       |  154 |                 LUT |
 | LUT4       |  122 |                 LUT |
 | LUT3       |   95 |                 LUT |
-| CARRY4     |   50 |          CarryLogic |
-| OBUF       |   33 |                  IO |
-| FDCE       |   32 |        Flop & Latch |
+| CARRY4     |   46 |          CarryLogic |
+| OBUF       |   16 |                  IO |
+| FDCE       |   16 |        Flop & Latch |
 | LDCE       |    5 |        Flop & Latch |
 | LUT1       |    4 |                 LUT |
 | IBUF       |    3 |                  IO |
