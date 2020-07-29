@@ -87,6 +87,9 @@ set_property used_in_implementation false [get_files -all {{e:/Facultad/Arquitec
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc {{E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/constrs_1/new/pines_pipeline_segmentado.xdc}}
+set_property used_in_implementation false [get_files {{E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.srcs/constrs_1/new/pines_pipeline_segmentado.xdc}}]
+
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 

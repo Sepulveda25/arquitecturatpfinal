@@ -2,8 +2,8 @@
 # Vivado v2017.3 (64-bit)
 # SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
 # IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
-# Start of session at: Wed Jul 22 19:32:55 2020
-# Process ID: 13140
+# Start of session at: Wed Jul 29 03:20:26 2020
+# Process ID: 12044
 # Current directory: E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.runs/synth_1
 # Command line: vivado.exe -log pipeline_segmentado_sintesis.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pipeline_segmentado_sintesis.tcl
 # Log file: E:/Facultad/Arquitectura de Computadoras/Practicos Vivado/tp_final_pipeline/tp_final_pipeline.runs/synth_1/pipeline_segmentado_sintesis.vds

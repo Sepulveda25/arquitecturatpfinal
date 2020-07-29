@@ -34,146 +34,6 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 #### Instruccion Etapa ID: 00000000| ####
 * Adder Out: 00000000| InstrOut: 00000000| Flag halt: 0 
 
-#########################################################################################################
-######################### Etapa ID salidas #########################
-* Read DataA:          0| Read DataB:          0| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 00000000
-* FLAG WB RegWrite: 0| FLAG WB MemtoReg: 0
-* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* FLAG EX RegDst: 0| FLAG EX ALUSrc: 0| FLAG EX ALUOp1: 0| FLAG EX ALUOp0: 0
-* PC JALR JAL (PC+8): 00000004| Mux JAL Rd (dir retorno): 00000 
-
-=========================================================================================================
-#### Unidad de Saltos ####
-#### Entradas ####
-* BranchEQ: 0| BranchNE: 0| JR: 0| JALR: 0| Jmp: 0| JAL: 0 
-* Read DataA:          0| Read DataB:          0
-* Adder Etapa IF: 00000000| Instr Index (J y JAL): 0000000
-#### Salida ####
-* PC branch/jump: 00000000| Flag de salto tomado: 0 
-
-=========================================================================================================
-#### Unidad de Deteccion de Riesgos ####
-#### Entradas ####
-* Latch IF/ID out Rs: 00000| Latch IF/ID out Rt: 00000
-* Latch ID/EX out Rt: 00000| Latch ID/EX Flag MemRead: 0
-#### Salidas ####
-* Stall: 0 
-
-#########################################################################################################
-######################### Contenido de Latch ID/EX #########################
-#### Instruccion Etapa EX: 00000000| ####
-* FLAG WB RegWrite: 0| FLAG WB MemtoReg: 0
-* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* FLAG EX RegDst: 0| FLAG EX ALUSrc: 0| FLAG EX ALUOp1: 0| FLAG EX ALUOp0: 0
-* InmCtrl: 000
-* Read DataA:          0| Read DataB:          0| Sign Extend: 00000000| Flag halt: 0
-* InstrOut Rs: 00000| InstrOut Rt: 00000| InstrOut Rd: 00000
-* PC JALR JAL: 00000000| JALR JAL Flags: 00 
-
-#########################################################################################################
-######################### Etapa EX salidas #########################
-* E3_ALUOut: 00000000| Mux Rt/Rd: 00000| Dato a escribir MEM: 00000000 
-
-=========================================================================================================
-#### Unidad de Cortocircuito ####
-#### Entradas ####
-* Latch ID/EX Rs: 00000| Latch ID/EX Rt: 00000
-* Latch EX/MEM Rd: 00000| Latch EX/MEM Flag RegWrite: 0
-* Latch MEM/WB Rd: 00000| Latch MEM/WB Flag RegWrite: 0
-#### Salidas ####
-* Forward A: 00
-* Forward B: 00
-#########################################################################################################
-######################### Contenido de Latch EX/MEM #########################
-#### Instruccion Etapa MEM: 00000000| ####
-* FLAG WB RegWrite: 0| FLAG WB MemtoReg: 0
-* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* Write Data:          0| E3_ALUOut: 00000000 
-* E3 MUX RegDst: 00000| PC JALR JAL: 00000000| JALR JAL Flags: 00| Flag halt: 0 
-
-#########################################################################################################
-######################### Etapa MEM salidas #########################
-* Salida de memoria (DataOut): 00000000 
-
-#########################################################################################################
-######################### Contenido de Latch MEM/WB #########################
-#### Instruccion Etapa WB: 00000000| ####
-* E4 DataOut:          0| E3_ALUOut: 00000000| E3 MUX RegDst: 00000| WB Flag RegWrite: 0| WB Flag MemtoReg: 0
-* PC JALR JAL: 00000000| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
-
-#########################################################################################################
-######################### Etapa WB salidas #########################
-* Mux WB E3_ALUout/E4_DataOut: 00000000| Mux E4_Mux_out/PC_JALR_JAL: 00000000 
-
-#########################################################################################################
-######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                 300
-+ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                 320
-+ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                 340
-+ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                 360
-+ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                 380
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                 400
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                 420
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                 440
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                 460
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                 480
-+ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)                 500
-+ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)                 520
-+ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)                 540
-+ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)                 560
-+ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)                 580
-+ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)                 600
-+ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)                 620
-+ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)                 640
-+ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)                 660
-+ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)                 680
-+ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)                 700
-+ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)                 720
-+ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)                 740
-+ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)                 760
-+ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)                 780
-+ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)                 800
-+ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)                 820
-+ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)                 840
-+ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)                 860
-+ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)                 880
-+ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)                 900
-+ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)                 920
-
-#########################################################################################################
-######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                 940
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                 960
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                 980
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                1000
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                1020
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                1040
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                1060
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                1080
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                1100
-- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)                1120
-- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)                1140
-- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)                1160
-- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)                1180
-- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)                1200
-- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)                1220
-- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)                1240
-- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)                1260
-- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)                1280
-- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)                1300
-- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)                1320
-- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)                1340
-- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)                1360
-- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)                1380
-- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)                1400
-- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)                1420
-- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)                1440
-- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)                1460
-- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)                1480
-- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)                1500
-- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)                1520
-- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)                1540
-- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)                1560
 
 ################################## CICLO NUMERO:          1 #############################################
 
@@ -260,28 +120,28 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                1630
-+ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                1650
-+ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                1670
-+ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                1690
-+ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                1710
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                1730
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                1750
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                1770
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                1790
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                1810
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                 350
++ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                 370
++ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                 390
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                 410
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                 430
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                 450
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                 470
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                 490
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                 510
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                 530
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                1870
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                1910
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                1950
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                1990
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                2030
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                2070
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                2110
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                2150
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                2190
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                 590
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                 630
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                 670
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                 710
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                 750
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                 790
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                 830
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                 870
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                 910
 
 ################################## CICLO NUMERO:          2 #############################################
 
@@ -368,28 +228,28 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                2270
-+ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                2290
-+ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                2310
-+ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                2330
-+ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                2350
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                2370
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                2390
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                2410
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                2430
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                2450
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                 990
++ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                1010
++ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                1030
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                1050
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                1070
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                1090
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                1110
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                1130
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                1150
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                1170
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                2510
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                2550
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                2590
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                2630
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                2670
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                2710
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                2750
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                2790
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                2830
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                1230
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                1270
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                1310
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                1350
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                1390
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                1430
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                1470
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                1510
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                1550
 
 ################################## CICLO NUMERO:          3 #############################################
 
@@ -476,28 +336,28 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                2910
-+ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                2930
-+ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                2950
-+ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                2970
-+ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                2990
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                3010
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                3030
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                3050
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                3070
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                3090
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                1630
++ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                1650
++ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                1670
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                1690
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                1710
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                1730
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                1750
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                1770
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                1790
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                1810
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                3150
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                3190
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                3230
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                3270
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                3310
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                3350
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                3390
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                3430
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                3470
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                1870
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                1910
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                1950
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                1990
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                2030
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                2070
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                2110
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                2150
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                2190
 
 ################################## CICLO NUMERO:          4 #############################################
 
@@ -584,28 +444,28 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                3550
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                3570
-+ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                3590
-+ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                3610
-+ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                3630
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                3650
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                3670
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                3690
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                3710
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                3730
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                2270
++ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                2290
++ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                2310
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                2330
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                2350
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                2370
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                2390
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                2410
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                2430
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                2450
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                3790
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                3830
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                3870
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                3910
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                3950
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                3990
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                4030
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                4070
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                4110
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                2510
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                2550
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                2590
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                2630
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                2670
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                2710
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                2750
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                2790
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                2830
 
 ################################## CICLO NUMERO:          5 #############################################
 
@@ -692,28 +552,28 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                4190
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                4210
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                4230
-+ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                4250
-+ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                4270
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                4290
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                4310
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                4330
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                4350
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                4370
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                2910
++ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                2930
++ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                2950
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                2970
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                2990
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                3010
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                3030
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                3050
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                3070
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                3090
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                4430
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                4470
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                4510
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                4550
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                4590
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                4630
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                4670
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                4710
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                4750
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                3150
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                3190
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                3230
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                3270
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                3310
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                3350
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                3390
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                3430
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                3470
 
 ################################## CICLO NUMERO:          6 #############################################
 
@@ -800,28 +660,28 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                4830
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                4850
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                4870
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                4890
-+ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                4910
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                4930
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                4950
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                4970
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                4990
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                5010
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                3550
++ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                3570
++ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                3590
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                3610
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                3630
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                3650
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                3670
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                3690
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                3710
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                3730
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                5070
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                5110
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                5150
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                5190
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                5230
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                5270
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                5310
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                5350
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                5390
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                3790
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                3830
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                3870
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                3910
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                3950
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                3990
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                4030
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                4070
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                4110
 
 ################################## CICLO NUMERO:          7 #############################################
 
@@ -908,28 +768,28 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                5470
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                5490
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                5510
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                5530
-+ Registro:           4 | Dato: 00000001; Tiempo simulacion (ns)                5550
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                5570
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                5590
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                5610
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                5630
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                5650
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                4190
++ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                4210
++ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                4230
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                4250
++ Registro:           4 | Dato: 00000001; Tiempo simulacion (ns)                4270
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                4290
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                4310
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                4330
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                4350
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                4370
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                5710
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                5750
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                5790
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                5830
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                5870
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                5910
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                5950
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                5990
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                6030
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                4430
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                4470
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                4510
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                4550
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                4590
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                4630
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                4670
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                4710
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                4750
 
 ################################## CICLO NUMERO:          8 #############################################
 
@@ -1017,28 +877,28 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                6110
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                6130
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                6150
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                6170
-+ Registro:           4 | Dato: 00000001; Tiempo simulacion (ns)                6190
-+ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                6210
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                6230
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                6250
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                6270
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                6290
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                4830
++ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                4850
++ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                4870
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                4890
++ Registro:           4 | Dato: 00000001; Tiempo simulacion (ns)                4910
++ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                4930
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                4950
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                4970
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                4990
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                5010
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                6350
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                6390
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                6430
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                6470
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                6510
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                6550
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                6590
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                6630
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                6670
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                5070
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                5110
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                5150
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                5190
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                5230
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                5270
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                5310
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                5350
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                5390
 
 ################################## CICLO NUMERO:          9 #############################################
 
@@ -1125,28 +985,28 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                6750
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                6770
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                6790
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                6810
-+ Registro:           4 | Dato: 00000001; Tiempo simulacion (ns)                6830
-+ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                6850
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                6870
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                6890
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                6910
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                6930
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                5470
++ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                5490
++ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                5510
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                5530
++ Registro:           4 | Dato: 00000001; Tiempo simulacion (ns)                5550
++ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                5570
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                5590
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                5610
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                5630
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                5650
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                6990
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                7030
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                7070
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                7110
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                7150
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                7190
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                7230
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                7270
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                7310
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                5710
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                5750
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                5790
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                5830
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                5870
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                5910
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                5950
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                5990
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                6030
 
 ################################## CICLO NUMERO:         10 #############################################
 
@@ -1233,28 +1093,28 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                7390
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                7410
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                7430
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                7450
-+ Registro:           4 | Dato: 00000002; Tiempo simulacion (ns)                7470
-+ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                7490
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                7510
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                7530
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                7550
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                7570
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                6110
++ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                6130
++ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                6150
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                6170
++ Registro:           4 | Dato: 00000002; Tiempo simulacion (ns)                6190
++ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                6210
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                6230
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                6250
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                6270
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                6290
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                7630
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                7670
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                7710
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                7750
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                7790
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                7830
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                7870
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                7910
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                7950
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                6350
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                6390
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                6430
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                6470
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                6510
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                6550
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                6590
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                6630
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                6670
 
 ################################## CICLO NUMERO:         11 #############################################
 
@@ -1341,28 +1201,28 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                8030
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                8050
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                8070
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                8090
-+ Registro:           4 | Dato: 00000002; Tiempo simulacion (ns)                8110
-+ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                8130
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                8150
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                8170
-+ Registro:           8 | Dato: 0000000c; Tiempo simulacion (ns)                8190
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                8210
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                6750
++ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                6770
++ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                6790
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                6810
++ Registro:           4 | Dato: 00000002; Tiempo simulacion (ns)                6830
++ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                6850
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                6870
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                6890
++ Registro:           8 | Dato: 0000000c; Tiempo simulacion (ns)                6910
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                6930
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                8270
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                8310
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                8350
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                8390
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                8430
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                8470
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                8510
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                8550
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                8590
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                6990
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                7030
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                7070
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                7110
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                7150
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                7190
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                7230
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                7270
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                7310
 
 ################################## CICLO NUMERO:         12 #############################################
 
@@ -1449,28 +1309,28 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                8670
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                8690
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                8710
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                8730
-+ Registro:           4 | Dato: 00000002; Tiempo simulacion (ns)                8750
-+ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                8770
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                8790
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                8810
-+ Registro:           8 | Dato: 0000000c; Tiempo simulacion (ns)                8830
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                8850
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                7390
++ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                7410
++ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                7430
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                7450
++ Registro:           4 | Dato: 00000002; Tiempo simulacion (ns)                7470
++ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                7490
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                7510
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                7530
++ Registro:           8 | Dato: 0000000c; Tiempo simulacion (ns)                7550
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                7570
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                8910
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                8950
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                8990
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                9030
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                9070
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                9110
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                9150
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                9190
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                9230
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                7630
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                7670
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                7710
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                7750
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                7790
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                7830
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                7870
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                7910
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                7950
 
 ################################## CICLO NUMERO:         13 #############################################
 
@@ -1557,73 +1417,24 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                9300
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                9320
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                9340
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                9360
-+ Registro:           4 | Dato: 00000002; Tiempo simulacion (ns)                9380
-+ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                9400
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                9420
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                9440
-+ Registro:           8 | Dato: 0000000c; Tiempo simulacion (ns)                9460
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                9480
-+ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)                9500
-+ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)                9520
-+ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)                9540
-+ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)                9560
-+ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)                9580
-+ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)                9600
-+ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)                9620
-+ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)                9640
-+ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)                9660
-+ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)                9680
-+ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)                9700
-+ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)                9720
-+ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)                9740
-+ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)                9760
-+ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)                9780
-+ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)                9800
-+ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)                9820
-+ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)                9840
-+ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)                9860
-+ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)                9880
-+ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)                9900
-+ Registro:          31 | Dato: 0000001c; Tiempo simulacion (ns)                9920
-
-#########################################################################################################
-######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                9940
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                9960
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                9980
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)               10000
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)               10020
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)               10040
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)               10060
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)               10080
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)               10100
-- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)               10120
-- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)               10140
-- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)               10160
-- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)               10180
-- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)               10200
-- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)               10220
-- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)               10240
-- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)               10260
-- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)               10280
-- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)               10300
-- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)               10320
-- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)               10340
-- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)               10360
-- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)               10380
-- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)               10400
-- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)               10420
-- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)               10440
-- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)               10460
-- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)               10480
-- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)               10500
-- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)               10520
-- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)               10540
-- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)               10560
-
-#### Fin de Ejecucion del programa ####
-
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                8020
++ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                8040
++ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                8060
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                8080
++ Registro:           4 | Dato: 00000002; Tiempo simulacion (ns)                8100
++ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                8120
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                8140
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                8160
++ Registro:           8 | Dato: 0000000c; Tiempo simulacion (ns)                8180
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                8200
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)                8220
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)                8240
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)                8260
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)                8280
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)                8300
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)                8320
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)                8340
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)                8360
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)                8380
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)                8400
++ Re

@@ -23,12 +23,13 @@ ADDI r2, r2, 0x4 ; r2=4 Hex: 20420004
 ADDI r3, r3, 0x5 ; r3=5 Hex: 20630005
 SW r4, 0x0(r2) ; memoria[r2+0x0]<=r4 Hex: AC440000
 LW r1, 0x0(r2) ; r1=r4=30 Hex: 8C410000
-SUBU r5, r1, r3 ; Hex: 00232822
-AND r6, r4, r2 ; r6=0x4
+SUBU r5, r1, r3 ; r5=r1-r3=25=0x19. Hex: 00232822
+AND r6, r4, r2 ; r6=0x4 Hex: 00823024
 HALT ; fin Hex: aaaaaaaa
 
 en el ciclo 6 se da la señal de Stall, en el ciclo 7 se introduce la burbuja en la etapa EX
-resultado r5=25=0x19
+resultado r1=0x1E, r2=0x4, r3=0x5, r4=0x1E, r5=25=0x19, r6=0x4
+memoria m[4]=0x1E
 
 ### 3 PRUEBA DE STORAGE Y LOAD => BIEN
 ADDI r1, r1, 0x4 ; indice Hex: 20210004
@@ -41,6 +42,9 @@ SW r4, 0x8(r1) ; Hex: AC240008
 LW r5, 0x0(r1) ; r5=r2 Hex: 8C250000
 LW r6, 0x4(r1) ; r6=r3 Hex: 8C260004
 LW r7, 0x8(r1) ; r7=r4 Hex: 8C270008
+addi r5 r5 0x0 ; Hex: 20A50000
+addi r6 r6 0x0 ; Hex: 20C60000
+addi r7 r7 0x0 ; Hex: 20E70000
 HALT ; fin Hex: 0xaaaaaaaa
 
 ### 4 PRUEBA FLAGS JAL Y JALR
@@ -51,7 +55,7 @@ ADD r5, r4, r1; se verifica la escritura de r1 Hex: 0x00812820
 
 ### 5 prueba de Branch on Not Equal
 		ADDI r1, r1, 0x1 ; Hex: 20210001
-		ADDI r2, r2, 0x10 ; seria la i del for, tiene que ser multiplo de 4 Hex: 20420014
+		ADDI r2, r2, 0x10 ; seria la i del for, tiene que ser multiplo de 4 Hex: 20420010
 		ADDI r4, r4, 0x1 ; Hex: 20840001
 		ADDI r5, r5, 0x0 ; en que valor quiero detener el loop Hex: 20A50000
 loop:
@@ -64,7 +68,10 @@ loop:
 HALT ; fin Hex: 0xaaaaaaaa
 
 ciclo 8 primer salto (ver unidad de saltos en etapa ID), luego ciclo 13, 18, 23
-resultado r4=r6=0x10
+se hacen 4 iteraciones
+resultado r1=0x1, r2=0x0, r4=0x10, r5=0, r6=0x10
+memoria m[16]=0x2 ,m[12]=0x4 ,m[8]=0x8 ,m[4]=0x10
+
 
 ### 6 prueba de Branch on Equal
 
@@ -79,14 +86,14 @@ SUBU r1, r1, r3; r1=r1-r3 Hex: 00230822
 ADDI r4, r4, 0x8 ; Hex: 20840008
 NOP ; Hex: 00000000
 BEQ r1, r2, 0xfffc ; Hex: 1022FFFC
-SLLV r5, r5, r6; r5<<r6 Hex: 00C52804
+SLLV r5, r5, r6; r5=r5<<r6 Hex: 00C52804
 ADDU r7, r1, r7; Hex: 00273820
 HALT
 
 ciclo 9 es la primera comparacion y salta. 
 en el ciclo 14 compara pero no salta
 
-resultado r1=r7=5, r2=10, r5=4, r4=16
+resultado r1=0x5, r2=0xa, r3=0x5, r4=0x10, r5=0x4, r6=0x1, r7=0x5
 
 ### 7 prueba de Jump Register (JR)
 
@@ -198,3 +205,82 @@ ADDU r5, r4, r2 ; unsigned(r4=4294967246) r5=19
 
 ### 16 prueba lui
 
+##############################################################################################
+##############################################################################################
+##############################################################################################
+##############################################################################################
+MONOCICLO 
+
+* NO tiene unidad de corto y deteccion de riesgo
+* Los saltos no usan el delay slot
+* NO hay riesgo LDE
+
+### 1 prueba de Branch on Not Equal
+		ADDI r1, r1, 0x1 ; Hex: 20210001
+		ADDI r2, r2, 0x10 ; seria la i del for, tiene que ser multiplo de 4 Hex: 20420010
+		ADDI r4, r4, 0x1 ; Hex: 20840001
+		ADDI r5, r5, 0x0 ; en que valor quiero detener el loop Hex: 20A50000
+loop:
+		ADDI r2, r2, 0xfffc ; resta 4 Hex: 2042FFFC
+		SLLV r4, r4, r1; r4<<r1 Hex: 00242004 
+		BNE r2, r5, 0xfffD; me muevo 3 lugares hacia arriba Hex: 1445FFFD
+		ADD r6, r4, r7; verifico 2 cosas que sali del loop y en valor de r4 Hex: 00873020. r6=r4=0x10
+HALT ; fin Hex: 0xaaaaaaaa
+
+resultado r4=r6=0x10
+se hacen 4 iteraciones
+
+### 2 monociclo prueba de Branch on Equal
+
+ADDI r1, r1, 0xf ; Hex: 2021000F
+ADDI r2, r2, 0xa ; Hex: 2042000A
+ADDI r3, r3, 0x5 ; Hex: 20630005
+ADDI r5, r5, 0x1; Hex: 20A50001
+
+loop:
+SUBU r1, r1, r3; r1=r1-r3 Hex: 00230822
+ADDI r4, r4, 0x8 ; Hex: 20840008
+BEQ r1, r2, 0xfffD ; Hex: 1022FFFD
+SLLV r5, r5, r5; r5=r5<<r5 Hex: 00A52804 
+ADDU r7, r1, r7; Hex: 00273820
+HALT
+
+ciclo 9 es la primera comparacion y salta. 
+en el ciclo 14 compara pero no salta
+
+resultado r1=r7=5, r2=10, r5=2, r4=16
+
+
+### 3 prueba de Jump (J)
+ADDI r1, r1, 0x24 ; direccion de salto 0x24 Hex: 20210024
+ADDI r2, r2, 0xf ; Hex: 2042000F
+ADDI r3, r3, 0x5 ; Hex: 20630005
+ADDI r4, r4, 0x1 ; Hex: 20840001
+ADDI r5, r5, 0x1 ; Hex: 20A50001
+
+J 0x9; direccion de salto 0x24 Hex: 08000009. 0x9<<2=0x24
+SLLV r4, r4, r5 ; Hex: 00A42004
+ADDI r6, r6, 0xa ; Hex: 20C6000A
+ADDI r7, r7, 0xb ; Hex: 20E7000B
+ADDI r8, r8, 0xc ; dir 0x24 Hex: 2108000C
+ADDI r9, r9, 0xd ;  Hex: 2129000D
+
+ciclo 6 salto J
+resultado: r1=0x24, r2=0xf, r3=0x5, r4=0x1, r5=0x1, r6=0, r7=0, r8=0xc, r9=0xd
+
+### 4 prueba de Jump Register (JR)
+
+ADDI r1, r1, 0x24; direccion de salto cambio entre 0x20 y 0x24 Hex: 20210024
+ADDI r2, r2, 0xf ; Hex: 2042000F
+ADDI r3, r3, 0x5 ; Hex: 20630005
+ADDI r4, r4, 0x1; Hex: 20840001
+ADDI r5, r5, 0x1; Hex: 20A50001
+
+JR r1 ; Hex: 00200008
+SLLV r4, r4, r5 ; Hex: 00A42004
+ADDI r6, r6, 0xa ; Hex: 20C6000A
+ADDI r7, r7, 0xb ; Hex: 20E7000B
+ADDI r8, r8, 0xc ; dir 0x24 Hex: 2108000C
+HALT
+
+r1=0x24, r2=0xf, r3=0x5, r4=1, r5=1, r6=0, r7=0, r8=0xc
