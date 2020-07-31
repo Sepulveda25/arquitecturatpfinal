@@ -1,0 +1,6 @@
+SLL r1, r1, 0x11
+SRL r2, r2, 0x11
+SRA r3, r3, 0x11
+SLLV r4, r4, r4
+SRLV r5, r5, r5
+SRAV r6, r6, r6

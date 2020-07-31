@@ -7,18 +7,14 @@ Block Memory Generator module test_pipeline_por_pasos.uut.E1_IF.InstrMem.inst.na
  Block Memory Generator data initialization complete.
 Block Memory Generator module test_pipeline_por_pasos.uut.E4_MEM.DataMemory.inst.native_mem_mapped_module.blk_mem_gen_v8_4_0_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
 #### Escribiendo instrucciones en memoria ####
-Dato: 20210024 | Direccion 00000000; Tiempo simulacion (ns)                  20
-Dato: 2042000f | Direccion 00000004; Tiempo simulacion (ns)                  40
+Dato: 2084001e | Direccion 00000000; Tiempo simulacion (ns)                  20
+Dato: 20420004 | Direccion 00000004; Tiempo simulacion (ns)                  40
 Dato: 20630005 | Direccion 00000008; Tiempo simulacion (ns)                  60
-Dato: 20840001 | Direccion 0000000c; Tiempo simulacion (ns)                  80
-Dato: 20a50001 | Direccion 00000010; Tiempo simulacion (ns)                 100
-Dato: 0c000009 | Direccion 00000014; Tiempo simulacion (ns)                 120
-Dato: 00a42004 | Direccion 00000018; Tiempo simulacion (ns)                 140
-Dato: 20c6000a | Direccion 0000001c; Tiempo simulacion (ns)                 160
-Dato: 20e7000b | Direccion 00000020; Tiempo simulacion (ns)                 180
-Dato: 2108000c | Direccion 00000024; Tiempo simulacion (ns)                 200
-Dato: 23ff0000 | Direccion 00000028; Tiempo simulacion (ns)                 220
-Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
+Dato: ac440000 | Direccion 0000000c; Tiempo simulacion (ns)                  80
+Dato: 8c410000 | Direccion 00000010; Tiempo simulacion (ns)                 100
+Dato: 00232823 | Direccion 00000014; Tiempo simulacion (ns)                 120
+Dato: 00823024 | Direccion 00000018; Tiempo simulacion (ns)                 140
+Dato: aaaaaaaa | Direccion 0000001c; Tiempo simulacion (ns)                 160
 
 #### Escritura de instrucciones finalizada ####
 
@@ -26,7 +22,7 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Etapa IF salidas #########################
-* E1_Instr: 20210024| PC: 00000000
+* E1_Instr: 2084001e| PC: 00000000
 * E1 AddOut: 00000004| Unidad halt: 0| Stall or Halt: 0 
 
 #########################################################################################################
@@ -39,17 +35,17 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Etapa IF salidas #########################
-* E1_Instr: 2042000f| PC: 00000004
+* E1_Instr: 20420004| PC: 00000004
 * E1 AddOut: 00000008| Unidad halt: 0| Stall or Halt: 0 
 
 #########################################################################################################
 ######################### Contenido de Latch IF/ID #########################
-#### Instruccion Etapa ID: 20210024| ####
-* Adder Out: 00000004| InstrOut: 20210024| Flag halt: 0 
+#### Instruccion Etapa ID: 2084001e| ####
+* Adder Out: 00000004| InstrOut: 2084001e| Flag halt: 0 
 
 #########################################################################################################
 ######################### Etapa ID salidas #########################
-* Read DataA:          0| Read DataB:          0| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 00000024
+* Read DataA:          0| Read DataB:          0| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 0000001e
 * FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
 * FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 1
@@ -60,14 +56,14 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 #### Entradas ####
 * BranchEQ: 0| BranchNE: 0| JR: 0| JALR: 0| Jmp: 0| JAL: 0 
 * Read DataA:          0| Read DataB:          0
-* Adder Etapa IF: 00000004| Instr Index (J y JAL): 0210024
+* Adder Etapa IF: 00000004| Instr Index (J y JAL): 084001e
 #### Salida ####
 * PC branch/jump: 00000000| Flag de salto tomado: 0 
 
 =========================================================================================================
 #### Unidad de Deteccion de Riesgos ####
 #### Entradas ####
-* Latch IF/ID out Rs: 00001| Latch IF/ID out Rt: 00001
+* Latch IF/ID out Rs: 00100| Latch IF/ID out Rt: 00100
 * Latch ID/EX out Rt: 00000| Latch ID/EX Flag MemRead: 0
 #### Salidas ####
 * Stall: 0 
@@ -120,28 +116,28 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                 350
-+ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                 370
-+ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                 390
-+ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                 410
-+ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                 430
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                 450
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                 470
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                 490
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                 510
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                 530
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                 270
++ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                 290
++ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                 310
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                 330
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                 350
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                 370
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                 390
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                 410
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                 430
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                 450
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                 590
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                 630
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                 670
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                 710
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                 750
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                 790
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                 830
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                 870
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                 910
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                 510
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                 550
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                 590
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                 630
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                 670
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                 710
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                 750
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                 790
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                 830
 
 ################################## CICLO NUMERO:          2 #############################################
 
@@ -152,12 +148,12 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Contenido de Latch IF/ID #########################
-#### Instruccion Etapa ID: 2042000f| ####
-* Adder Out: 00000008| InstrOut: 2042000f| Flag halt: 0 
+#### Instruccion Etapa ID: 20420004| ####
+* Adder Out: 00000008| InstrOut: 20420004| Flag halt: 0 
 
 #########################################################################################################
 ######################### Etapa ID salidas #########################
-* Read DataA:          0| Read DataB:          0| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 0000000f
+* Read DataA:          0| Read DataB:          0| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 00000004
 * FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
 * FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 1
@@ -168,7 +164,7 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 #### Entradas ####
 * BranchEQ: 0| BranchNE: 0| JR: 0| JALR: 0| Jmp: 0| JAL: 0 
 * Read DataA:          0| Read DataB:          0
-* Adder Etapa IF: 00000008| Instr Index (J y JAL): 042000f
+* Adder Etapa IF: 00000008| Instr Index (J y JAL): 0420004
 #### Salida ####
 * PC branch/jump: 00000000| Flag de salto tomado: 0 
 
@@ -176,29 +172,29 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 #### Unidad de Deteccion de Riesgos ####
 #### Entradas ####
 * Latch IF/ID out Rs: 00010| Latch IF/ID out Rt: 00010
-* Latch ID/EX out Rt: 00001| Latch ID/EX Flag MemRead: 0
+* Latch ID/EX out Rt: 00100| Latch ID/EX Flag MemRead: 0
 #### Salidas ####
 * Stall: 0 
 
 #########################################################################################################
 ######################### Contenido de Latch ID/EX #########################
-#### Instruccion Etapa EX: 20210024| ####
+#### Instruccion Etapa EX: 2084001e| ####
 * FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
 * FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 1
 * InmCtrl: 000
-* Read DataA:          0| Read DataB:          0| Sign Extend: 00000024| Flag halt: 0
-* InstrOut Rs: 00001| InstrOut Rt: 00001| InstrOut Rd: 00000
+* Read DataA:          0| Read DataB:          0| Sign Extend: 0000001e| Flag halt: 0
+* InstrOut Rs: 00100| InstrOut Rt: 00100| InstrOut Rd: 00000
 * PC JALR JAL: 00000008| JALR JAL Flags: 00 
 
 #########################################################################################################
 ######################### Etapa EX salidas #########################
-* E3_ALUOut: 00000024| Mux Rt/Rd: 00001| Dato a escribir MEM: 00000000 
+* E3_ALUOut: 0000001e| Mux Rt/Rd: 00100| Dato a escribir MEM: 00000000 
 
 =========================================================================================================
 #### Unidad de Cortocircuito ####
 #### Entradas ####
-* Latch ID/EX Rs: 00001| Latch ID/EX Rt: 00001
+* Latch ID/EX Rs: 00100| Latch ID/EX Rt: 00100
 * Latch EX/MEM Rd: 00000| Latch EX/MEM Flag RegWrite: 0
 * Latch MEM/WB Rd: 00000| Latch MEM/WB Flag RegWrite: 0
 #### Salidas ####
@@ -228,34 +224,34 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                 990
-+ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                1010
-+ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                1030
-+ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                1050
-+ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                1070
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                1090
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                1110
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                1130
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                1150
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                1170
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                 910
++ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                 930
++ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                 950
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                 970
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                 990
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                1010
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                1030
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                1050
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                1070
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                1090
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                1230
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                1270
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                1310
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                1350
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                1390
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                1430
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                1470
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                1510
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                1550
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                1150
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                1190
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                1230
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                1270
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                1310
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                1350
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                1390
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                1430
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                1470
 
 ################################## CICLO NUMERO:          3 #############################################
 
 #########################################################################################################
 ######################### Etapa IF salidas #########################
-* E1_Instr: 20840001| PC: 0000000c
+* E1_Instr: ac440000| PC: 0000000c
 * E1 AddOut: 00000010| Unidad halt: 0| Stall or Halt: 0 
 
 #########################################################################################################
@@ -290,35 +286,35 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Contenido de Latch ID/EX #########################
-#### Instruccion Etapa EX: 2042000f| ####
+#### Instruccion Etapa EX: 20420004| ####
 * FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
 * FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 1
 * InmCtrl: 000
-* Read DataA:          0| Read DataB:          0| Sign Extend: 0000000f| Flag halt: 0
+* Read DataA:          0| Read DataB:          0| Sign Extend: 00000004| Flag halt: 0
 * InstrOut Rs: 00010| InstrOut Rt: 00010| InstrOut Rd: 00000
 * PC JALR JAL: 0000000c| JALR JAL Flags: 00 
 
 #########################################################################################################
 ######################### Etapa EX salidas #########################
-* E3_ALUOut: 0000000f| Mux Rt/Rd: 00010| Dato a escribir MEM: 00000000 
+* E3_ALUOut: 00000004| Mux Rt/Rd: 00010| Dato a escribir MEM: 00000000 
 
 =========================================================================================================
 #### Unidad de Cortocircuito ####
 #### Entradas ####
 * Latch ID/EX Rs: 00010| Latch ID/EX Rt: 00010
-* Latch EX/MEM Rd: 00001| Latch EX/MEM Flag RegWrite: 1
+* Latch EX/MEM Rd: 00100| Latch EX/MEM Flag RegWrite: 1
 * Latch MEM/WB Rd: 00000| Latch MEM/WB Flag RegWrite: 0
 #### Salidas ####
 * Forward A: 00
 * Forward B: 00
 #########################################################################################################
 ######################### Contenido de Latch EX/MEM #########################
-#### Instruccion Etapa MEM: 20210024| ####
+#### Instruccion Etapa MEM: 2084001e| ####
 * FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* Write Data:          0| E3_ALUOut: 00000024 
-* E3 MUX RegDst: 00001| PC JALR JAL: 00000008| JALR JAL Flags: 00| Flag halt: 0 
+* Write Data:          0| E3_ALUOut: 0000001e 
+* E3 MUX RegDst: 00100| PC JALR JAL: 00000008| JALR JAL Flags: 00| Flag halt: 0 
 
 #########################################################################################################
 ######################### Etapa MEM salidas #########################
@@ -336,62 +332,62 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                1630
-+ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                1650
-+ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                1670
-+ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                1690
-+ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                1710
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                1730
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                1750
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                1770
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                1790
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                1810
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                1550
++ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                1570
++ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                1590
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                1610
++ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                1630
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                1650
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                1670
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                1690
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                1710
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                1730
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                1870
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                1910
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                1950
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                1990
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                2030
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                2070
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                2110
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                2150
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                2190
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                1790
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                1830
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                1870
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                1910
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                1950
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                1990
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                2030
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                2070
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                2110
 
 ################################## CICLO NUMERO:          4 #############################################
 
 #########################################################################################################
 ######################### Etapa IF salidas #########################
-* E1_Instr: 20a50001| PC: 00000010
+* E1_Instr: 8c410000| PC: 00000010
 * E1 AddOut: 00000014| Unidad halt: 0| Stall or Halt: 0 
 
 #########################################################################################################
 ######################### Contenido de Latch IF/ID #########################
-#### Instruccion Etapa ID: 20840001| ####
-* Adder Out: 00000010| InstrOut: 20840001| Flag halt: 0 
+#### Instruccion Etapa ID: ac440000| ####
+* Adder Out: 00000010| InstrOut: ac440000| Flag halt: 0 
 
 #########################################################################################################
 ######################### Etapa ID salidas #########################
-* Read DataA:          0| Read DataB:          0| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 00000001
-* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
-* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 1
+* Read DataA:          0| Read DataB:         30| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 00000000
+* FLAG WB RegWrite: 0| FLAG WB MemtoReg: 1
+* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 1
+* FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 0| FLAG EX ALUOp0: 0
 * PC JALR JAL (PC+8): 00000014| Mux JAL Rd (dir retorno): 00000 
 
 =========================================================================================================
 #### Unidad de Saltos ####
 #### Entradas ####
 * BranchEQ: 0| BranchNE: 0| JR: 0| JALR: 0| Jmp: 0| JAL: 0 
-* Read DataA:          0| Read DataB:          0
-* Adder Etapa IF: 00000010| Instr Index (J y JAL): 0840001
+* Read DataA:          0| Read DataB:         30
+* Adder Etapa IF: 00000010| Instr Index (J y JAL): 0440000
 #### Salida ####
 * PC branch/jump: 00000000| Flag de salto tomado: 0 
 
 =========================================================================================================
 #### Unidad de Deteccion de Riesgos ####
 #### Entradas ####
-* Latch IF/ID out Rs: 00100| Latch IF/ID out Rt: 00100
+* Latch IF/ID out Rs: 00010| Latch IF/ID out Rt: 00100
 * Latch ID/EX out Rt: 00011| Latch ID/EX Flag MemRead: 0
 #### Salidas ####
 * Stall: 0 
@@ -416,16 +412,16 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 #### Entradas ####
 * Latch ID/EX Rs: 00011| Latch ID/EX Rt: 00011
 * Latch EX/MEM Rd: 00010| Latch EX/MEM Flag RegWrite: 1
-* Latch MEM/WB Rd: 00001| Latch MEM/WB Flag RegWrite: 1
+* Latch MEM/WB Rd: 00100| Latch MEM/WB Flag RegWrite: 1
 #### Salidas ####
 * Forward A: 00
 * Forward B: 00
 #########################################################################################################
 ######################### Contenido de Latch EX/MEM #########################
-#### Instruccion Etapa MEM: 2042000f| ####
+#### Instruccion Etapa MEM: 20420004| ####
 * FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* Write Data:          0| E3_ALUOut: 0000000f 
+* Write Data:          0| E3_ALUOut: 00000004 
 * E3 MUX RegDst: 00010| PC JALR JAL: 0000000c| JALR JAL Flags: 00| Flag halt: 0 
 
 #########################################################################################################
@@ -434,99 +430,100 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Contenido de Latch MEM/WB #########################
-#### Instruccion Etapa WB: 20210024| ####
-* E4 DataOut:          0| E3_ALUOut: 00000024| E3 MUX RegDst: 00001| WB Flag RegWrite: 1| WB Flag MemtoReg: 0
+#### Instruccion Etapa WB: 2084001e| ####
+* E4 DataOut:          0| E3_ALUOut: 0000001e| E3 MUX RegDst: 00100| WB Flag RegWrite: 1| WB Flag MemtoReg: 0
 * PC JALR JAL: 00000008| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
 
 #########################################################################################################
 ######################### Etapa WB salidas #########################
-* Mux WB E3_ALUout/E4_DataOut: 00000024| Mux E4_Mux_out/PC_JALR_JAL: 00000024 
+* Mux WB E3_ALUout/E4_DataOut: 0000001e| Mux E4_Mux_out/PC_JALR_JAL: 0000001e 
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                2270
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                2290
-+ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                2310
-+ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                2330
-+ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                2350
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                2370
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                2390
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                2410
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                2430
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                2450
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                2190
++ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                2210
++ Registro:           2 | Dato: 00000000; Tiempo simulacion (ns)                2230
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                2250
++ Registro:           4 | Dato: 0000001e; Tiempo simulacion (ns)                2270
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                2290
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                2310
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                2330
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                2350
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                2370
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                2510
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                2550
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                2590
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                2630
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                2670
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                2710
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                2750
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                2790
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                2830
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                2430
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                2470
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                2510
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                2550
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                2590
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                2630
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                2670
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                2710
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                2750
 
 ################################## CICLO NUMERO:          5 #############################################
 
 #########################################################################################################
 ######################### Etapa IF salidas #########################
-* E1_Instr: 0c000009| PC: 00000014
+* E1_Instr: 00232823| PC: 00000014
 * E1 AddOut: 00000018| Unidad halt: 0| Stall or Halt: 0 
 
 #########################################################################################################
 ######################### Contenido de Latch IF/ID #########################
-#### Instruccion Etapa ID: 20a50001| ####
-* Adder Out: 00000014| InstrOut: 20a50001| Flag halt: 0 
+#### Instruccion Etapa ID: 8c410000| ####
+* Adder Out: 00000014| InstrOut: 8c410000| Flag halt: 0 
 
 #########################################################################################################
 ######################### Etapa ID salidas #########################
-* Read DataA:          0| Read DataB:          0| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 00000001
-* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
-* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 1
+* Read DataA:          4| Read DataB:          0| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 00000000
+* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 1
+* FLAG MEM MemRead: 1| FLAG MEM MemWrite: 0
+* FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 0| FLAG EX ALUOp0: 0
 * PC JALR JAL (PC+8): 00000018| Mux JAL Rd (dir retorno): 00000 
 
 =========================================================================================================
 #### Unidad de Saltos ####
 #### Entradas ####
 * BranchEQ: 0| BranchNE: 0| JR: 0| JALR: 0| Jmp: 0| JAL: 0 
-* Read DataA:          0| Read DataB:          0
-* Adder Etapa IF: 00000014| Instr Index (J y JAL): 0a50001
+* Read DataA:          4| Read DataB:          0
+* Adder Etapa IF: 00000014| Instr Index (J y JAL): 0410000
 #### Salida ####
 * PC branch/jump: 00000000| Flag de salto tomado: 0 
 
 =========================================================================================================
 #### Unidad de Deteccion de Riesgos ####
 #### Entradas ####
-* Latch IF/ID out Rs: 00101| Latch IF/ID out Rt: 00101
+* Latch IF/ID out Rs: 00010| Latch IF/ID out Rt: 00001
 * Latch ID/EX out Rt: 00100| Latch ID/EX Flag MemRead: 0
 #### Salidas ####
 * Stall: 0 
 
 #########################################################################################################
 ######################### Contenido de Latch ID/EX #########################
-#### Instruccion Etapa EX: 20840001| ####
-* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
-* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 1
+#### Instruccion Etapa EX: ac440000| ####
+* FLAG WB RegWrite: 0| FLAG WB MemtoReg: 1
+* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 1
+* FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 0| FLAG EX ALUOp0: 0
 * InmCtrl: 000
-* Read DataA:          0| Read DataB:          0| Sign Extend: 00000001| Flag halt: 0
-* InstrOut Rs: 00100| InstrOut Rt: 00100| InstrOut Rd: 00000
+* Read DataA:          0| Read DataB:         30| Sign Extend: 00000000| Flag halt: 0
+* InstrOut Rs: 00010| InstrOut Rt: 00100| InstrOut Rd: 00000
 * PC JALR JAL: 00000014| JALR JAL Flags: 00 
 
 #########################################################################################################
 ######################### Etapa EX salidas #########################
-* E3_ALUOut: 00000001| Mux Rt/Rd: 00100| Dato a escribir MEM: 00000000 
+* E3_ALUOut: 00000004| Mux Rt/Rd: 00100| Dato a escribir MEM: 0000001e 
 
 =========================================================================================================
 #### Unidad de Cortocircuito ####
 #### Entradas ####
-* Latch ID/EX Rs: 00100| Latch ID/EX Rt: 00100
+* Latch ID/EX Rs: 00010| Latch ID/EX Rt: 00100
 * Latch EX/MEM Rd: 00011| Latch EX/MEM Flag RegWrite: 1
 * Latch MEM/WB Rd: 00010| Latch MEM/WB Flag RegWrite: 1
 #### Salidas ####
-* Forward A: 00
+* Forward A: 01 ==> Dato desde Etapa WB 
+
 * Forward B: 00
 #########################################################################################################
 ######################### Contenido de Latch EX/MEM #########################
@@ -542,111 +539,111 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Contenido de Latch MEM/WB #########################
-#### Instruccion Etapa WB: 2042000f| ####
-* E4 DataOut:          0| E3_ALUOut: 0000000f| E3 MUX RegDst: 00010| WB Flag RegWrite: 1| WB Flag MemtoReg: 0
+#### Instruccion Etapa WB: 20420004| ####
+* E4 DataOut:          0| E3_ALUOut: 00000004| E3 MUX RegDst: 00010| WB Flag RegWrite: 1| WB Flag MemtoReg: 0
 * PC JALR JAL: 0000000c| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
 
 #########################################################################################################
 ######################### Etapa WB salidas #########################
-* Mux WB E3_ALUout/E4_DataOut: 0000000f| Mux E4_Mux_out/PC_JALR_JAL: 0000000f 
+* Mux WB E3_ALUout/E4_DataOut: 00000004| Mux E4_Mux_out/PC_JALR_JAL: 00000004 
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                2910
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                2930
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                2950
-+ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                2970
-+ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                2990
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                3010
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                3030
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                3050
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                3070
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                3090
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                2830
++ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                2850
++ Registro:           2 | Dato: 00000004; Tiempo simulacion (ns)                2870
++ Registro:           3 | Dato: 00000000; Tiempo simulacion (ns)                2890
++ Registro:           4 | Dato: 0000001e; Tiempo simulacion (ns)                2910
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                2930
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                2950
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                2970
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                2990
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                3010
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                3150
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                3190
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                3230
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                3270
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                3310
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                3350
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                3390
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                3430
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                3470
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                3070
+- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                3110
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                3150
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                3190
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                3230
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                3270
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                3310
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                3350
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                3390
 
 ################################## CICLO NUMERO:          6 #############################################
 
 #########################################################################################################
 ######################### Etapa IF salidas #########################
-* E1_Instr: 00a42004| PC: 00000018
-* E1 AddOut: 0000001c| Unidad halt: 0| Stall or Halt: 0 
+* E1_Instr: 00823024| PC: 00000018
+* E1 AddOut: 0000001c| Unidad halt: 0| Stall or Halt: 1 
 
 #########################################################################################################
 ######################### Contenido de Latch IF/ID #########################
-#### Instruccion Etapa ID: 0c000009| ####
-* Adder Out: 00000018| InstrOut: 0c000009| Flag halt: 0 
+#### Instruccion Etapa ID: 00232823| ####
+* Adder Out: 00000018| InstrOut: 00232823| Flag halt: 0 
 
 #########################################################################################################
 ######################### Etapa ID salidas #########################
-* Read DataA:          0| Read DataB:          0| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 00000009
-* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
+* Read DataA:          0| Read DataB:          5| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 00002823
+* FLAG WB RegWrite: 0| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* FLAG EX RegDst: 1| FLAG EX ALUSrc: 0| FLAG EX ALUOp1: 0| FLAG EX ALUOp0: 0
-* PC JALR JAL (PC+8): 0000001c| Mux JAL Rd (dir retorno): 11111 
+* FLAG EX RegDst: 0| FLAG EX ALUSrc: 0| FLAG EX ALUOp1: 0| FLAG EX ALUOp0: 0
+* PC JALR JAL (PC+8): 0000001c| Mux JAL Rd (dir retorno): 00101 
 
 =========================================================================================================
 #### Unidad de Saltos ####
 #### Entradas ####
-* BranchEQ: 0| BranchNE: 0| JR: 0| JALR: 0| Jmp: 0| JAL: 1 
-* Read DataA:          0| Read DataB:          0
-* Adder Etapa IF: 00000018| Instr Index (J y JAL): 0000009
+* BranchEQ: 0| BranchNE: 0| JR: 0| JALR: 0| Jmp: 0| JAL: 0 
+* Read DataA:          0| Read DataB:          5
+* Adder Etapa IF: 00000018| Instr Index (J y JAL): 0232823
 #### Salida ####
-* PC branch/jump: 00000024| Flag de salto tomado: 1 
+* PC branch/jump: 00000000| Flag de salto tomado: 0 
 
 =========================================================================================================
 #### Unidad de Deteccion de Riesgos ####
 #### Entradas ####
-* Latch IF/ID out Rs: 00000| Latch IF/ID out Rt: 00000
-* Latch ID/EX out Rt: 00101| Latch ID/EX Flag MemRead: 0
+* Latch IF/ID out Rs: 00001| Latch IF/ID out Rt: 00011
+* Latch ID/EX out Rt: 00001| Latch ID/EX Flag MemRead: 1
 #### Salidas ####
-* Stall: 0 
+* Stall: 1 
 
 #########################################################################################################
 ######################### Contenido de Latch ID/EX #########################
-#### Instruccion Etapa EX: 20a50001| ####
-* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
-* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 1
+#### Instruccion Etapa EX: 8c410000| ####
+* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 1
+* FLAG MEM MemRead: 1| FLAG MEM MemWrite: 0
+* FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 0| FLAG EX ALUOp0: 0
 * InmCtrl: 000
-* Read DataA:          0| Read DataB:          0| Sign Extend: 00000001| Flag halt: 0
-* InstrOut Rs: 00101| InstrOut Rt: 00101| InstrOut Rd: 00000
+* Read DataA:          4| Read DataB:          0| Sign Extend: 00000000| Flag halt: 0
+* InstrOut Rs: 00010| InstrOut Rt: 00001| InstrOut Rd: 00000
 * PC JALR JAL: 00000018| JALR JAL Flags: 00 
 
 #########################################################################################################
 ######################### Etapa EX salidas #########################
-* E3_ALUOut: 00000001| Mux Rt/Rd: 00101| Dato a escribir MEM: 00000000 
+* E3_ALUOut: 00000004| Mux Rt/Rd: 00001| Dato a escribir MEM: 00000000 
 
 =========================================================================================================
 #### Unidad de Cortocircuito ####
 #### Entradas ####
-* Latch ID/EX Rs: 00101| Latch ID/EX Rt: 00101
-* Latch EX/MEM Rd: 00100| Latch EX/MEM Flag RegWrite: 1
+* Latch ID/EX Rs: 00010| Latch ID/EX Rt: 00001
+* Latch EX/MEM Rd: 00100| Latch EX/MEM Flag RegWrite: 0
 * Latch MEM/WB Rd: 00011| Latch MEM/WB Flag RegWrite: 1
 #### Salidas ####
 * Forward A: 00
 * Forward B: 00
 #########################################################################################################
 ######################### Contenido de Latch EX/MEM #########################
-#### Instruccion Etapa MEM: 20840001| ####
-* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
-* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* Write Data:          0| E3_ALUOut: 00000001 
+#### Instruccion Etapa MEM: ac440000| ####
+* FLAG WB RegWrite: 0| FLAG WB MemtoReg: 1
+* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 1
+* Write Data:         30| E3_ALUOut: 00000004 
 * E3 MUX RegDst: 00100| PC JALR JAL: 00000014| JALR JAL Flags: 00| Flag halt: 0 
 
 #########################################################################################################
 ######################### Etapa MEM salidas #########################
-* Salida de memoria (DataOut): 00000000 
+* Salida de memoria (DataOut): 0000001e 
 
 #########################################################################################################
 ######################### Contenido de Latch MEM/WB #########################
@@ -660,365 +657,258 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                3550
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                3570
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                3590
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                3610
-+ Registro:           4 | Dato: 00000000; Tiempo simulacion (ns)                3630
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                3650
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                3670
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                3690
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                3710
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                3730
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                3470
++ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                3490
++ Registro:           2 | Dato: 00000004; Tiempo simulacion (ns)                3510
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                3530
++ Registro:           4 | Dato: 0000001e; Tiempo simulacion (ns)                3550
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                3570
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                3590
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                3610
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                3630
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                3650
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                3790
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                3830
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                3870
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                3910
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                3950
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                3990
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                4030
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                4070
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                4110
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                3710
+- Direccion:           4 | Dato: 0000001e; Tiempo simulacion (ns)                3750
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                3790
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                3830
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                3870
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                3910
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                3950
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                3990
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                4030
 
 ################################## CICLO NUMERO:          7 #############################################
 
 #########################################################################################################
 ######################### Etapa IF salidas #########################
-* E1_Instr: 2108000c| PC: 00000024
-* E1 AddOut: 00000028| Unidad halt: 0| Stall or Halt: 0 
+* E1_Instr: 00823024| PC: 00000018
+* E1 AddOut: 0000001c| Unidad halt: 0| Stall or Halt: 0 
 
 #########################################################################################################
 ######################### Contenido de Latch IF/ID #########################
-#### Instruccion Etapa ID: 00a42004| ####
-* Adder Out: 0000001c| InstrOut: 00a42004| Flag halt: 0 
+#### Instruccion Etapa ID: 00232823| ####
+* Adder Out: 00000018| InstrOut: 00232823| Flag halt: 0 
 
 #########################################################################################################
 ######################### Etapa ID salidas #########################
-* Read DataA:          0| Read DataB:          1| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 00002004
+* Read DataA:          0| Read DataB:          5| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 00002823
 * FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
 * FLAG EX RegDst: 1| FLAG EX ALUSrc: 0| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 0
-* PC JALR JAL (PC+8): 00000020| Mux JAL Rd (dir retorno): 00100 
+* PC JALR JAL (PC+8): 0000001c| Mux JAL Rd (dir retorno): 00101 
 
 =========================================================================================================
 #### Unidad de Saltos ####
 #### Entradas ####
 * BranchEQ: 0| BranchNE: 0| JR: 0| JALR: 0| Jmp: 0| JAL: 0 
-* Read DataA:          0| Read DataB:          1
-* Adder Etapa IF: 0000001c| Instr Index (J y JAL): 0a42004
+* Read DataA:          0| Read DataB:          5
+* Adder Etapa IF: 00000018| Instr Index (J y JAL): 0232823
 #### Salida ####
 * PC branch/jump: 00000000| Flag de salto tomado: 0 
 
 =========================================================================================================
 #### Unidad de Deteccion de Riesgos ####
 #### Entradas ####
-* Latch IF/ID out Rs: 00101| Latch IF/ID out Rt: 00100
-* Latch ID/EX out Rt: 00000| Latch ID/EX Flag MemRead: 0
+* Latch IF/ID out Rs: 00001| Latch IF/ID out Rt: 00011
+* Latch ID/EX out Rt: 00011| Latch ID/EX Flag MemRead: 0
 #### Salidas ####
 * Stall: 0 
 
 #########################################################################################################
 ######################### Contenido de Latch ID/EX #########################
-#### Instruccion Etapa EX: 0c000009| ####
-* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
+#### Instruccion Etapa EX: 00232823| ####
+* FLAG WB RegWrite: 0| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* FLAG EX RegDst: 1| FLAG EX ALUSrc: 0| FLAG EX ALUOp1: 0| FLAG EX ALUOp0: 0
+* FLAG EX RegDst: 0| FLAG EX ALUSrc: 0| FLAG EX ALUOp1: 0| FLAG EX ALUOp0: 0
 * InmCtrl: 000
-* Read DataA:          0| Read DataB:          0| Sign Extend: 00000009| Flag halt: 0
-* InstrOut Rs: 00000| InstrOut Rt: 00000| InstrOut Rd: 11111
-* PC JALR JAL: 0000001c| JALR JAL Flags: 01 
+* Read DataA:          0| Read DataB:          5| Sign Extend: 00002823| Flag halt: 0
+* InstrOut Rs: 00001| InstrOut Rt: 00011| InstrOut Rd: 00101
+* PC JALR JAL: 0000001c| JALR JAL Flags: 00 
 
 #########################################################################################################
 ######################### Etapa EX salidas #########################
-* E3_ALUOut: 00000000| Mux Rt/Rd: 11111| Dato a escribir MEM: 00000000 
+* E3_ALUOut: 00000009| Mux Rt/Rd: 00011| Dato a escribir MEM: 00000005 
 
 =========================================================================================================
 #### Unidad de Cortocircuito ####
 #### Entradas ####
-* Latch ID/EX Rs: 00000| Latch ID/EX Rt: 00000
-* Latch EX/MEM Rd: 00101| Latch EX/MEM Flag RegWrite: 1
-* Latch MEM/WB Rd: 00100| Latch MEM/WB Flag RegWrite: 1
+* Latch ID/EX Rs: 00001| Latch ID/EX Rt: 00011
+* Latch EX/MEM Rd: 00001| Latch EX/MEM Flag RegWrite: 1
+* Latch MEM/WB Rd: 00100| Latch MEM/WB Flag RegWrite: 0
 #### Salidas ####
-* Forward A: 00
+* Forward A: 10 ==> Dato desde Etapa MEM 
+
 * Forward B: 00
 #########################################################################################################
 ######################### Contenido de Latch EX/MEM #########################
-#### Instruccion Etapa MEM: 20a50001| ####
-* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
-* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* Write Data:          0| E3_ALUOut: 00000001 
-* E3 MUX RegDst: 00101| PC JALR JAL: 00000018| JALR JAL Flags: 00| Flag halt: 0 
+#### Instruccion Etapa MEM: 8c410000| ####
+* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 1
+* FLAG MEM MemRead: 1| FLAG MEM MemWrite: 0
+* Write Data:          0| E3_ALUOut: 00000004 
+* E3 MUX RegDst: 00001| PC JALR JAL: 00000018| JALR JAL Flags: 00| Flag halt: 0 
 
 #########################################################################################################
 ######################### Etapa MEM salidas #########################
-* Salida de memoria (DataOut): 00000000 
+* Salida de memoria (DataOut): 0000001e 
 
 #########################################################################################################
 ######################### Contenido de Latch MEM/WB #########################
-#### Instruccion Etapa WB: 20840001| ####
-* E4 DataOut:          0| E3_ALUOut: 00000001| E3 MUX RegDst: 00100| WB Flag RegWrite: 1| WB Flag MemtoReg: 0
+#### Instruccion Etapa WB: ac440000| ####
+* E4 DataOut:         30| E3_ALUOut: 00000004| E3 MUX RegDst: 00100| WB Flag RegWrite: 0| WB Flag MemtoReg: 1
 * PC JALR JAL: 00000014| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
 
 #########################################################################################################
 ######################### Etapa WB salidas #########################
-* Mux WB E3_ALUout/E4_DataOut: 00000001| Mux E4_Mux_out/PC_JALR_JAL: 00000001 
+* Mux WB E3_ALUout/E4_DataOut: 0000001e| Mux E4_Mux_out/PC_JALR_JAL: 0000001e 
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                4190
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                4210
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                4230
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                4250
-+ Registro:           4 | Dato: 00000001; Tiempo simulacion (ns)                4270
-+ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                4290
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                4310
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                4330
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                4350
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                4370
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                4110
++ Registro:           1 | Dato: 00000000; Tiempo simulacion (ns)                4130
++ Registro:           2 | Dato: 00000004; Tiempo simulacion (ns)                4150
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                4170
++ Registro:           4 | Dato: 0000001e; Tiempo simulacion (ns)                4190
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                4210
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                4230
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                4250
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                4270
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                4290
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                4430
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                4470
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                4510
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                4550
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                4590
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                4630
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                4670
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                4710
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                4750
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                4350
+- Direccion:           4 | Dato: 0000001e; Tiempo simulacion (ns)                4390
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                4430
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                4470
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                4510
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                4550
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                4590
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                4630
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                4670
 
 ################################## CICLO NUMERO:          8 #############################################
 
 #########################################################################################################
 ######################### Etapa IF salidas #########################
-* E1_Instr: 23ff0000| PC: 00000028
-* E1 AddOut: 0000002c| Unidad halt: 0| Stall or Halt: 0 
+* E1_Instr: aaaaaaaa| PC: 0000001c
+* E1 AddOut: 00000020| Unidad halt: 1| Stall or Halt: 1 
 
 #########################################################################################################
 ######################### Contenido de Latch IF/ID #########################
-#### Instruccion Etapa ID: 2108000c| ####
-* Adder Out: 00000028| InstrOut: 2108000c| Flag halt: 0 
+#### Instruccion Etapa ID: 00823024| ####
+* Adder Out: 0000001c| InstrOut: 00823024| Flag halt: 0 
 
 #########################################################################################################
 ######################### Etapa ID salidas #########################
-* Read DataA:          0| Read DataB:          0| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 0000000c
+* Read DataA:         30| Read DataB:          4| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 00003024
 * FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 1
-* PC JALR JAL (PC+8): 0000002c| Mux JAL Rd (dir retorno): 00000 
+* FLAG EX RegDst: 1| FLAG EX ALUSrc: 0| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 0
+* PC JALR JAL (PC+8): 00000020| Mux JAL Rd (dir retorno): 00110 
 
 =========================================================================================================
 #### Unidad de Saltos ####
 #### Entradas ####
 * BranchEQ: 0| BranchNE: 0| JR: 0| JALR: 0| Jmp: 0| JAL: 0 
-* Read DataA:          0| Read DataB:          0
-* Adder Etapa IF: 00000028| Instr Index (J y JAL): 108000c
+* Read DataA:         30| Read DataB:          4
+* Adder Etapa IF: 0000001c| Instr Index (J y JAL): 0823024
 #### Salida ####
 * PC branch/jump: 00000000| Flag de salto tomado: 0 
 
 =========================================================================================================
 #### Unidad de Deteccion de Riesgos ####
 #### Entradas ####
-* Latch IF/ID out Rs: 01000| Latch IF/ID out Rt: 01000
-* Latch ID/EX out Rt: 00100| Latch ID/EX Flag MemRead: 0
+* Latch IF/ID out Rs: 00100| Latch IF/ID out Rt: 00010
+* Latch ID/EX out Rt: 00011| Latch ID/EX Flag MemRead: 0
 #### Salidas ####
 * Stall: 0 
 
 #########################################################################################################
 ######################### Contenido de Latch ID/EX #########################
-#### Instruccion Etapa EX: 00a42004| ####
+#### Instruccion Etapa EX: 00232823| ####
 * FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
 * FLAG EX RegDst: 1| FLAG EX ALUSrc: 0| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 0
 * InmCtrl: 000
-* Read DataA:          0| Read DataB:          1| Sign Extend: 00002004| Flag halt: 0
-* InstrOut Rs: 00101| InstrOut Rt: 00100| InstrOut Rd: 00100
-* PC JALR JAL: 00000020| JALR JAL Flags: 00 
+* Read DataA:          0| Read DataB:          5| Sign Extend: 00002823| Flag halt: 0
+* InstrOut Rs: 00001| InstrOut Rt: 00011| InstrOut Rd: 00101
+* PC JALR JAL: 0000001c| JALR JAL Flags: 00 
 
 #########################################################################################################
 ######################### Etapa EX salidas #########################
-* E3_ALUOut: 00000002| Mux Rt/Rd: 00100| Dato a escribir MEM: 00000001 
+* E3_ALUOut: 00000019| Mux Rt/Rd: 00101| Dato a escribir MEM: 00000005 
 
 =========================================================================================================
 #### Unidad de Cortocircuito ####
 #### Entradas ####
-* Latch ID/EX Rs: 00101| Latch ID/EX Rt: 00100
-* Latch EX/MEM Rd: 11111| Latch EX/MEM Flag RegWrite: 1
-* Latch MEM/WB Rd: 00101| Latch MEM/WB Flag RegWrite: 1
+* Latch ID/EX Rs: 00001| Latch ID/EX Rt: 00011
+* Latch EX/MEM Rd: 00011| Latch EX/MEM Flag RegWrite: 0
+* Latch MEM/WB Rd: 00001| Latch MEM/WB Flag RegWrite: 1
 #### Salidas ####
 * Forward A: 01 ==> Dato desde Etapa WB 
 
 * Forward B: 00
 #########################################################################################################
 ######################### Contenido de Latch EX/MEM #########################
-#### Instruccion Etapa MEM: 0c000009| ####
-* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
+#### Instruccion Etapa MEM: 00232823| ####
+* FLAG WB RegWrite: 0| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* Write Data:          0| E3_ALUOut: 00000000 
-* E3 MUX RegDst: 11111| PC JALR JAL: 0000001c| JALR JAL Flags: 01| Flag halt: 0 
+* Write Data:          5| E3_ALUOut: 00000009 
+* E3 MUX RegDst: 00011| PC JALR JAL: 0000001c| JALR JAL Flags: 00| Flag halt: 0 
 
 #########################################################################################################
 ######################### Etapa MEM salidas #########################
-* Salida de memoria (DataOut): 00000000 
+* Salida de memoria (DataOut): 0000001e 
 
 #########################################################################################################
 ######################### Contenido de Latch MEM/WB #########################
-#### Instruccion Etapa WB: 20a50001| ####
-* E4 DataOut:          0| E3_ALUOut: 00000001| E3 MUX RegDst: 00101| WB Flag RegWrite: 1| WB Flag MemtoReg: 0
+#### Instruccion Etapa WB: 8c410000| ####
+* E4 DataOut:         30| E3_ALUOut: 00000004| E3 MUX RegDst: 00001| WB Flag RegWrite: 1| WB Flag MemtoReg: 1
 * PC JALR JAL: 00000018| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
 
 #########################################################################################################
 ######################### Etapa WB salidas #########################
-* Mux WB E3_ALUout/E4_DataOut: 00000001| Mux E4_Mux_out/PC_JALR_JAL: 00000001 
+* Mux WB E3_ALUout/E4_DataOut: 0000001e| Mux E4_Mux_out/PC_JALR_JAL: 0000001e 
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                4830
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                4850
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                4870
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                4890
-+ Registro:           4 | Dato: 00000001; Tiempo simulacion (ns)                4910
-+ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                4930
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                4950
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                4970
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                4990
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                5010
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                4750
++ Registro:           1 | Dato: 0000001e; Tiempo simulacion (ns)                4770
++ Registro:           2 | Dato: 00000004; Tiempo simulacion (ns)                4790
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                4810
++ Registro:           4 | Dato: 0000001e; Tiempo simulacion (ns)                4830
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                4850
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                4870
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                4890
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                4910
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                4930
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                5070
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                5110
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                5150
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                5190
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                5230
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                5270
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                5310
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                5350
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                5390
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                4990
+- Direccion:           4 | Dato: 0000001e; Tiempo simulacion (ns)                5030
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                5070
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                5110
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                5150
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                5190
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                5230
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                5270
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                5310
 
 ################################## CICLO NUMERO:          9 #############################################
 
 #########################################################################################################
 ######################### Etapa IF salidas #########################
-* E1_Instr: aaaaaaaa| PC: 0000002c
-* E1 AddOut: 00000030| Unidad halt: 1| Stall or Halt: 1 
-
-#########################################################################################################
-######################### Contenido de Latch IF/ID #########################
-#### Instruccion Etapa ID: 23ff0000| ####
-* Adder Out: 0000002c| InstrOut: 23ff0000| Flag halt: 0 
-
-#########################################################################################################
-######################### Etapa ID salidas #########################
-* Read DataA:         28| Read DataB:         28| Operaciones Inmediatos InmCtrl: 000| Sign Extend: 00000000
-* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
-* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 1
-* PC JALR JAL (PC+8): 00000030| Mux JAL Rd (dir retorno): 00000 
-
-=========================================================================================================
-#### Unidad de Saltos ####
-#### Entradas ####
-* BranchEQ: 0| BranchNE: 0| JR: 0| JALR: 0| Jmp: 0| JAL: 0 
-* Read DataA:         28| Read DataB:         28
-* Adder Etapa IF: 0000002c| Instr Index (J y JAL): 3ff0000
-#### Salida ####
-* PC branch/jump: 00000000| Flag de salto tomado: 0 
-
-=========================================================================================================
-#### Unidad de Deteccion de Riesgos ####
-#### Entradas ####
-* Latch IF/ID out Rs: 11111| Latch IF/ID out Rt: 11111
-* Latch ID/EX out Rt: 01000| Latch ID/EX Flag MemRead: 0
-#### Salidas ####
-* Stall: 0 
-
-#########################################################################################################
-######################### Contenido de Latch ID/EX #########################
-#### Instruccion Etapa EX: 2108000c| ####
-* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
-* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 1
-* InmCtrl: 000
-* Read DataA:          0| Read DataB:          0| Sign Extend: 0000000c| Flag halt: 0
-* InstrOut Rs: 01000| InstrOut Rt: 01000| InstrOut Rd: 00000
-* PC JALR JAL: 0000002c| JALR JAL Flags: 00 
-
-#########################################################################################################
-######################### Etapa EX salidas #########################
-* E3_ALUOut: 0000000c| Mux Rt/Rd: 01000| Dato a escribir MEM: 00000000 
-
-=========================================================================================================
-#### Unidad de Cortocircuito ####
-#### Entradas ####
-* Latch ID/EX Rs: 01000| Latch ID/EX Rt: 01000
-* Latch EX/MEM Rd: 00100| Latch EX/MEM Flag RegWrite: 1
-* Latch MEM/WB Rd: 11111| Latch MEM/WB Flag RegWrite: 1
-#### Salidas ####
-* Forward A: 00
-* Forward B: 00
-#########################################################################################################
-######################### Contenido de Latch EX/MEM #########################
-#### Instruccion Etapa MEM: 00a42004| ####
-* FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
-* FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* Write Data:          1| E3_ALUOut: 00000002 
-* E3 MUX RegDst: 00100| PC JALR JAL: 00000020| JALR JAL Flags: 00| Flag halt: 0 
-
-#########################################################################################################
-######################### Etapa MEM salidas #########################
-* Salida de memoria (DataOut): 00000000 
-
-#########################################################################################################
-######################### Contenido de Latch MEM/WB #########################
-#### Instruccion Etapa WB: 0c000009| ####
-* E4 DataOut:          0| E3_ALUOut: 00000000| E3 MUX RegDst: 11111| WB Flag RegWrite: 1| WB Flag MemtoReg: 0
-* PC JALR JAL: 0000001c| JALR JAL Flags: 01| Flag halt (FIN de programa): 0 
-
-#########################################################################################################
-######################### Etapa WB salidas #########################
-* Mux WB E3_ALUout/E4_DataOut: 00000000| Mux E4_Mux_out/PC_JALR_JAL: 0000001c 
-
-#########################################################################################################
-######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                5470
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                5490
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                5510
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                5530
-+ Registro:           4 | Dato: 00000001; Tiempo simulacion (ns)                5550
-+ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                5570
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                5590
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                5610
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                5630
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                5650
-
-#########################################################################################################
-######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                5710
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                5750
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                5790
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                5830
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                5870
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                5910
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                5950
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                5990
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                6030
-
-################################## CICLO NUMERO:         10 #############################################
-
-#########################################################################################################
-######################### Etapa IF salidas #########################
-* E1_Instr: aaaaaaaa| PC: 0000002c
-* E1 AddOut: 00000030| Unidad halt: 1| Stall or Halt: 1 
+* E1_Instr: aaaaaaaa| PC: 0000001c
+* E1 AddOut: 00000020| Unidad halt: 1| Stall or Halt: 1 
 
 #########################################################################################################
 ######################### Contenido de Latch IF/ID #########################
 #### Instruccion Etapa ID: aaaaaaaa| ####
-* Adder Out: 00000030| InstrOut: aaaaaaaa| Flag halt: 1 
+* Adder Out: 00000020| InstrOut: aaaaaaaa| Flag halt: 1 
 
 #########################################################################################################
 ######################### Etapa ID salidas #########################
@@ -1026,14 +916,14 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 * FLAG WB RegWrite: 0| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
 * FLAG EX RegDst: 0| FLAG EX ALUSrc: 0| FLAG EX ALUOp1: 0| FLAG EX ALUOp0: 0
-* PC JALR JAL (PC+8): 00000034| Mux JAL Rd (dir retorno): 10101 
+* PC JALR JAL (PC+8): 00000024| Mux JAL Rd (dir retorno): 10101 
 
 =========================================================================================================
 #### Unidad de Saltos ####
 #### Entradas ####
 * BranchEQ: 0| BranchNE: 0| JR: 0| JALR: 0| Jmp: 0| JAL: 0 
 * Read DataA:          0| Read DataB:          0
-* Adder Etapa IF: 00000030| Instr Index (J y JAL): 2aaaaaa
+* Adder Etapa IF: 00000020| Instr Index (J y JAL): 2aaaaaa
 #### Salida ####
 * PC branch/jump: 00000000| Flag de salto tomado: 0 
 
@@ -1041,41 +931,41 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 #### Unidad de Deteccion de Riesgos ####
 #### Entradas ####
 * Latch IF/ID out Rs: 10101| Latch IF/ID out Rt: 01010
-* Latch ID/EX out Rt: 11111| Latch ID/EX Flag MemRead: 0
+* Latch ID/EX out Rt: 00010| Latch ID/EX Flag MemRead: 0
 #### Salidas ####
 * Stall: 0 
 
 #########################################################################################################
 ######################### Contenido de Latch ID/EX #########################
-#### Instruccion Etapa EX: 23ff0000| ####
+#### Instruccion Etapa EX: 00823024| ####
 * FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* FLAG EX RegDst: 0| FLAG EX ALUSrc: 1| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 1
+* FLAG EX RegDst: 1| FLAG EX ALUSrc: 0| FLAG EX ALUOp1: 1| FLAG EX ALUOp0: 0
 * InmCtrl: 000
-* Read DataA:         28| Read DataB:         28| Sign Extend: 00000000| Flag halt: 0
-* InstrOut Rs: 11111| InstrOut Rt: 11111| InstrOut Rd: 00000
-* PC JALR JAL: 00000030| JALR JAL Flags: 00 
+* Read DataA:         30| Read DataB:          4| Sign Extend: 00003024| Flag halt: 0
+* InstrOut Rs: 00100| InstrOut Rt: 00010| InstrOut Rd: 00110
+* PC JALR JAL: 00000020| JALR JAL Flags: 00 
 
 #########################################################################################################
 ######################### Etapa EX salidas #########################
-* E3_ALUOut: 0000001c| Mux Rt/Rd: 11111| Dato a escribir MEM: 0000001c 
+* E3_ALUOut: 00000004| Mux Rt/Rd: 00110| Dato a escribir MEM: 00000004 
 
 =========================================================================================================
 #### Unidad de Cortocircuito ####
 #### Entradas ####
-* Latch ID/EX Rs: 11111| Latch ID/EX Rt: 11111
-* Latch EX/MEM Rd: 01000| Latch EX/MEM Flag RegWrite: 1
-* Latch MEM/WB Rd: 00100| Latch MEM/WB Flag RegWrite: 1
+* Latch ID/EX Rs: 00100| Latch ID/EX Rt: 00010
+* Latch EX/MEM Rd: 00101| Latch EX/MEM Flag RegWrite: 1
+* Latch MEM/WB Rd: 00011| Latch MEM/WB Flag RegWrite: 0
 #### Salidas ####
 * Forward A: 00
 * Forward B: 00
 #########################################################################################################
 ######################### Contenido de Latch EX/MEM #########################
-#### Instruccion Etapa MEM: 2108000c| ####
+#### Instruccion Etapa MEM: 00232823| ####
 * FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* Write Data:          0| E3_ALUOut: 0000000c 
-* E3 MUX RegDst: 01000| PC JALR JAL: 0000002c| JALR JAL Flags: 00| Flag halt: 0 
+* Write Data:          5| E3_ALUOut: 00000019 
+* E3 MUX RegDst: 00101| PC JALR JAL: 0000001c| JALR JAL Flags: 00| Flag halt: 0 
 
 #########################################################################################################
 ######################### Etapa MEM salidas #########################
@@ -1083,50 +973,50 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Contenido de Latch MEM/WB #########################
-#### Instruccion Etapa WB: 00a42004| ####
-* E4 DataOut:          0| E3_ALUOut: 00000002| E3 MUX RegDst: 00100| WB Flag RegWrite: 1| WB Flag MemtoReg: 0
-* PC JALR JAL: 00000020| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+#### Instruccion Etapa WB: 00232823| ####
+* E4 DataOut:          0| E3_ALUOut: 00000009| E3 MUX RegDst: 00011| WB Flag RegWrite: 0| WB Flag MemtoReg: 0
+* PC JALR JAL: 0000001c| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
 
 #########################################################################################################
 ######################### Etapa WB salidas #########################
-* Mux WB E3_ALUout/E4_DataOut: 00000002| Mux E4_Mux_out/PC_JALR_JAL: 00000002 
+* Mux WB E3_ALUout/E4_DataOut: 00000009| Mux E4_Mux_out/PC_JALR_JAL: 00000009 
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                6110
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                6130
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                6150
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                6170
-+ Registro:           4 | Dato: 00000002; Tiempo simulacion (ns)                6190
-+ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                6210
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                6230
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                6250
-+ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                6270
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                6290
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                5390
++ Registro:           1 | Dato: 0000001e; Tiempo simulacion (ns)                5410
++ Registro:           2 | Dato: 00000004; Tiempo simulacion (ns)                5430
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                5450
++ Registro:           4 | Dato: 0000001e; Tiempo simulacion (ns)                5470
++ Registro:           5 | Dato: 00000000; Tiempo simulacion (ns)                5490
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                5510
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                5530
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                5550
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                5570
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                6350
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                6390
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                6430
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                6470
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                6510
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                6550
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                6590
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                6630
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                6670
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                5630
+- Direccion:           4 | Dato: 0000001e; Tiempo simulacion (ns)                5670
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                5710
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                5750
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                5790
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                5830
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                5870
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                5910
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                5950
 
-################################## CICLO NUMERO:         11 #############################################
+################################## CICLO NUMERO:         10 #############################################
 
 #########################################################################################################
 ######################### Etapa IF salidas #########################
-* E1_Instr: aaaaaaaa| PC: 0000002c
-* E1 AddOut: 00000030| Unidad halt: 1| Stall or Halt: 1 
+* E1_Instr: aaaaaaaa| PC: 0000001c
+* E1 AddOut: 00000020| Unidad halt: 1| Stall or Halt: 1 
 
 #########################################################################################################
 ######################### Contenido de Latch IF/ID #########################
 #### Instruccion Etapa ID: aaaaaaaa| ####
-* Adder Out: 00000030| InstrOut: aaaaaaaa| Flag halt: 1 
+* Adder Out: 00000020| InstrOut: aaaaaaaa| Flag halt: 1 
 
 #########################################################################################################
 ######################### Etapa ID salidas #########################
@@ -1134,14 +1024,14 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 * FLAG WB RegWrite: 0| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
 * FLAG EX RegDst: 0| FLAG EX ALUSrc: 0| FLAG EX ALUOp1: 0| FLAG EX ALUOp0: 0
-* PC JALR JAL (PC+8): 00000034| Mux JAL Rd (dir retorno): 10101 
+* PC JALR JAL (PC+8): 00000024| Mux JAL Rd (dir retorno): 10101 
 
 =========================================================================================================
 #### Unidad de Saltos ####
 #### Entradas ####
 * BranchEQ: 0| BranchNE: 0| JR: 0| JALR: 0| Jmp: 0| JAL: 0 
 * Read DataA:          0| Read DataB:          0
-* Adder Etapa IF: 00000030| Instr Index (J y JAL): 2aaaaaa
+* Adder Etapa IF: 00000020| Instr Index (J y JAL): 2aaaaaa
 #### Salida ####
 * PC branch/jump: 00000000| Flag de salto tomado: 0 
 
@@ -1162,7 +1052,7 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 * InmCtrl: 000
 * Read DataA:          0| Read DataB:          0| Sign Extend: ffffaaaa| Flag halt: 1
 * InstrOut Rs: 10101| InstrOut Rt: 01010| InstrOut Rd: 10101
-* PC JALR JAL: 00000034| JALR JAL Flags: 00 
+* PC JALR JAL: 00000024| JALR JAL Flags: 00 
 
 #########################################################################################################
 ######################### Etapa EX salidas #########################
@@ -1172,18 +1062,18 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 #### Unidad de Cortocircuito ####
 #### Entradas ####
 * Latch ID/EX Rs: 10101| Latch ID/EX Rt: 01010
-* Latch EX/MEM Rd: 11111| Latch EX/MEM Flag RegWrite: 1
-* Latch MEM/WB Rd: 01000| Latch MEM/WB Flag RegWrite: 1
+* Latch EX/MEM Rd: 00110| Latch EX/MEM Flag RegWrite: 1
+* Latch MEM/WB Rd: 00101| Latch MEM/WB Flag RegWrite: 1
 #### Salidas ####
 * Forward A: 00
 * Forward B: 00
 #########################################################################################################
 ######################### Contenido de Latch EX/MEM #########################
-#### Instruccion Etapa MEM: 23ff0000| ####
+#### Instruccion Etapa MEM: 00823024| ####
 * FLAG WB RegWrite: 1| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
-* Write Data:         28| E3_ALUOut: 0000001c 
-* E3 MUX RegDst: 11111| PC JALR JAL: 00000030| JALR JAL Flags: 00| Flag halt: 0 
+* Write Data:          4| E3_ALUOut: 00000004 
+* E3 MUX RegDst: 00110| PC JALR JAL: 00000020| JALR JAL Flags: 00| Flag halt: 0 
 
 #########################################################################################################
 ######################### Etapa MEM salidas #########################
@@ -1191,50 +1081,50 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Contenido de Latch MEM/WB #########################
-#### Instruccion Etapa WB: 2108000c| ####
-* E4 DataOut:          0| E3_ALUOut: 0000000c| E3 MUX RegDst: 01000| WB Flag RegWrite: 1| WB Flag MemtoReg: 0
-* PC JALR JAL: 0000002c| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+#### Instruccion Etapa WB: 00232823| ####
+* E4 DataOut:          0| E3_ALUOut: 00000019| E3 MUX RegDst: 00101| WB Flag RegWrite: 1| WB Flag MemtoReg: 0
+* PC JALR JAL: 0000001c| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
 
 #########################################################################################################
 ######################### Etapa WB salidas #########################
-* Mux WB E3_ALUout/E4_DataOut: 0000000c| Mux E4_Mux_out/PC_JALR_JAL: 0000000c 
+* Mux WB E3_ALUout/E4_DataOut: 00000019| Mux E4_Mux_out/PC_JALR_JAL: 00000019 
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                6750
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                6770
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                6790
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                6810
-+ Registro:           4 | Dato: 00000002; Tiempo simulacion (ns)                6830
-+ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                6850
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                6870
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                6890
-+ Registro:           8 | Dato: 0000000c; Tiempo simulacion (ns)                6910
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                6930
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                6030
++ Registro:           1 | Dato: 0000001e; Tiempo simulacion (ns)                6050
++ Registro:           2 | Dato: 00000004; Tiempo simulacion (ns)                6070
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                6090
++ Registro:           4 | Dato: 0000001e; Tiempo simulacion (ns)                6110
++ Registro:           5 | Dato: 00000019; Tiempo simulacion (ns)                6130
++ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                6150
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                6170
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                6190
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                6210
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                6990
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                7030
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                7070
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                7110
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                7150
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                7190
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                7230
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                7270
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                7310
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                6270
+- Direccion:           4 | Dato: 0000001e; Tiempo simulacion (ns)                6310
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                6350
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                6390
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                6430
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                6470
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                6510
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                6550
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                6590
 
-################################## CICLO NUMERO:         12 #############################################
+################################## CICLO NUMERO:         11 #############################################
 
 #########################################################################################################
 ######################### Etapa IF salidas #########################
-* E1_Instr: aaaaaaaa| PC: 0000002c
-* E1 AddOut: 00000030| Unidad halt: 1| Stall or Halt: 1 
+* E1_Instr: aaaaaaaa| PC: 0000001c
+* E1 AddOut: 00000020| Unidad halt: 1| Stall or Halt: 1 
 
 #########################################################################################################
 ######################### Contenido de Latch IF/ID #########################
 #### Instruccion Etapa ID: aaaaaaaa| ####
-* Adder Out: 00000030| InstrOut: aaaaaaaa| Flag halt: 1 
+* Adder Out: 00000020| InstrOut: aaaaaaaa| Flag halt: 1 
 
 #########################################################################################################
 ######################### Etapa ID salidas #########################
@@ -1242,14 +1132,14 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 * FLAG WB RegWrite: 0| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
 * FLAG EX RegDst: 0| FLAG EX ALUSrc: 0| FLAG EX ALUOp1: 0| FLAG EX ALUOp0: 0
-* PC JALR JAL (PC+8): 00000034| Mux JAL Rd (dir retorno): 10101 
+* PC JALR JAL (PC+8): 00000024| Mux JAL Rd (dir retorno): 10101 
 
 =========================================================================================================
 #### Unidad de Saltos ####
 #### Entradas ####
 * BranchEQ: 0| BranchNE: 0| JR: 0| JALR: 0| Jmp: 0| JAL: 0 
 * Read DataA:          0| Read DataB:          0
-* Adder Etapa IF: 00000030| Instr Index (J y JAL): 2aaaaaa
+* Adder Etapa IF: 00000020| Instr Index (J y JAL): 2aaaaaa
 #### Salida ####
 * PC branch/jump: 00000000| Flag de salto tomado: 0 
 
@@ -1270,7 +1160,7 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 * InmCtrl: 000
 * Read DataA:          0| Read DataB:          0| Sign Extend: ffffaaaa| Flag halt: 1
 * InstrOut Rs: 10101| InstrOut Rt: 01010| InstrOut Rd: 10101
-* PC JALR JAL: 00000034| JALR JAL Flags: 00 
+* PC JALR JAL: 00000024| JALR JAL Flags: 00 
 
 #########################################################################################################
 ######################### Etapa EX salidas #########################
@@ -1281,7 +1171,7 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 #### Entradas ####
 * Latch ID/EX Rs: 10101| Latch ID/EX Rt: 01010
 * Latch EX/MEM Rd: 01010| Latch EX/MEM Flag RegWrite: 0
-* Latch MEM/WB Rd: 11111| Latch MEM/WB Flag RegWrite: 1
+* Latch MEM/WB Rd: 00110| Latch MEM/WB Flag RegWrite: 1
 #### Salidas ####
 * Forward A: 00
 * Forward B: 00
@@ -1291,7 +1181,7 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 * FLAG WB RegWrite: 0| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
 * Write Data:          0| E3_ALUOut: 00000000 
-* E3 MUX RegDst: 01010| PC JALR JAL: 00000034| JALR JAL Flags: 00| Flag halt: 1 
+* E3 MUX RegDst: 01010| PC JALR JAL: 00000024| JALR JAL Flags: 00| Flag halt: 1 
 
 #########################################################################################################
 ######################### Etapa MEM salidas #########################
@@ -1299,50 +1189,50 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Contenido de Latch MEM/WB #########################
-#### Instruccion Etapa WB: 23ff0000| ####
-* E4 DataOut:          0| E3_ALUOut: 0000001c| E3 MUX RegDst: 11111| WB Flag RegWrite: 1| WB Flag MemtoReg: 0
-* PC JALR JAL: 00000030| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
+#### Instruccion Etapa WB: 00823024| ####
+* E4 DataOut:          0| E3_ALUOut: 00000004| E3 MUX RegDst: 00110| WB Flag RegWrite: 1| WB Flag MemtoReg: 0
+* PC JALR JAL: 00000020| JALR JAL Flags: 00| Flag halt (FIN de programa): 0 
 
 #########################################################################################################
 ######################### Etapa WB salidas #########################
-* Mux WB E3_ALUout/E4_DataOut: 0000001c| Mux E4_Mux_out/PC_JALR_JAL: 0000001c 
+* Mux WB E3_ALUout/E4_DataOut: 00000004| Mux E4_Mux_out/PC_JALR_JAL: 00000004 
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                7390
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                7410
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                7430
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                7450
-+ Registro:           4 | Dato: 00000002; Tiempo simulacion (ns)                7470
-+ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                7490
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                7510
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                7530
-+ Registro:           8 | Dato: 0000000c; Tiempo simulacion (ns)                7550
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                7570
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                6670
++ Registro:           1 | Dato: 0000001e; Tiempo simulacion (ns)                6690
++ Registro:           2 | Dato: 00000004; Tiempo simulacion (ns)                6710
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                6730
++ Registro:           4 | Dato: 0000001e; Tiempo simulacion (ns)                6750
++ Registro:           5 | Dato: 00000019; Tiempo simulacion (ns)                6770
++ Registro:           6 | Dato: 00000004; Tiempo simulacion (ns)                6790
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                6810
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                6830
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                6850
 
 #########################################################################################################
 ######################### Se lee la memoria de datos (Etapa MEM) #########################
-- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                7630
-- Direccion:           4 | Dato: 00000000; Tiempo simulacion (ns)                7670
-- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                7710
-- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                7750
-- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                7790
-- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                7830
-- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                7870
-- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                7910
-- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                7950
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                6910
+- Direccion:           4 | Dato: 0000001e; Tiempo simulacion (ns)                6950
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                6990
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                7030
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                7070
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                7110
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                7150
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                7190
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                7230
 
-################################## CICLO NUMERO:         13 #############################################
+################################## CICLO NUMERO:         12 #############################################
 
 #########################################################################################################
 ######################### Etapa IF salidas #########################
-* E1_Instr: aaaaaaaa| PC: 0000002c
-* E1 AddOut: 00000030| Unidad halt: 1| Stall or Halt: 1 
+* E1_Instr: aaaaaaaa| PC: 0000001c
+* E1 AddOut: 00000020| Unidad halt: 1| Stall or Halt: 1 
 
 #########################################################################################################
 ######################### Contenido de Latch IF/ID #########################
 #### Instruccion Etapa ID: aaaaaaaa| ####
-* Adder Out: 00000030| InstrOut: aaaaaaaa| Flag halt: 1 
+* Adder Out: 00000020| InstrOut: aaaaaaaa| Flag halt: 1 
 
 #########################################################################################################
 ######################### Etapa ID salidas #########################
@@ -1350,14 +1240,14 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 * FLAG WB RegWrite: 0| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
 * FLAG EX RegDst: 0| FLAG EX ALUSrc: 0| FLAG EX ALUOp1: 0| FLAG EX ALUOp0: 0
-* PC JALR JAL (PC+8): 00000034| Mux JAL Rd (dir retorno): 10101 
+* PC JALR JAL (PC+8): 00000024| Mux JAL Rd (dir retorno): 10101 
 
 =========================================================================================================
 #### Unidad de Saltos ####
 #### Entradas ####
 * BranchEQ: 0| BranchNE: 0| JR: 0| JALR: 0| Jmp: 0| JAL: 0 
 * Read DataA:          0| Read DataB:          0
-* Adder Etapa IF: 00000030| Instr Index (J y JAL): 2aaaaaa
+* Adder Etapa IF: 00000020| Instr Index (J y JAL): 2aaaaaa
 #### Salida ####
 * PC branch/jump: 00000000| Flag de salto tomado: 0 
 
@@ -1378,7 +1268,7 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 * InmCtrl: 000
 * Read DataA:          0| Read DataB:          0| Sign Extend: ffffaaaa| Flag halt: 1
 * InstrOut Rs: 10101| InstrOut Rt: 01010| InstrOut Rd: 10101
-* PC JALR JAL: 00000034| JALR JAL Flags: 00 
+* PC JALR JAL: 00000024| JALR JAL Flags: 00 
 
 #########################################################################################################
 ######################### Etapa EX salidas #########################
@@ -1399,7 +1289,7 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 * FLAG WB RegWrite: 0| FLAG WB MemtoReg: 0
 * FLAG MEM MemRead: 0| FLAG MEM MemWrite: 0
 * Write Data:          0| E3_ALUOut: 00000000 
-* E3 MUX RegDst: 01010| PC JALR JAL: 00000034| JALR JAL Flags: 00| Flag halt: 1 
+* E3 MUX RegDst: 01010| PC JALR JAL: 00000024| JALR JAL Flags: 00| Flag halt: 1 
 
 #########################################################################################################
 ######################### Etapa MEM salidas #########################
@@ -1409,7 +1299,7 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 ######################### Contenido de Latch MEM/WB #########################
 #### Instruccion Etapa WB: aaaaaaaa| ####
 * E4 DataOut:          0| E3_ALUOut: 00000000| E3 MUX RegDst: 01010| WB Flag RegWrite: 0| WB Flag MemtoReg: 0
-* PC JALR JAL: 00000034| JALR JAL Flags: 00| Flag halt (FIN de programa): 1 
+* PC JALR JAL: 00000024| JALR JAL Flags: 00| Flag halt (FIN de programa): 1 
 
 #########################################################################################################
 ######################### Etapa WB salidas #########################
@@ -1417,24 +1307,73 @@ Dato: aaaaaaaa | Direccion 0000002c; Tiempo simulacion (ns)                 240
 
 #########################################################################################################
 ######################### Se lee el banco de registros (Etapa ID) #########################
-+ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                8020
-+ Registro:           1 | Dato: 00000024; Tiempo simulacion (ns)                8040
-+ Registro:           2 | Dato: 0000000f; Tiempo simulacion (ns)                8060
-+ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                8080
-+ Registro:           4 | Dato: 00000002; Tiempo simulacion (ns)                8100
-+ Registro:           5 | Dato: 00000001; Tiempo simulacion (ns)                8120
-+ Registro:           6 | Dato: 00000000; Tiempo simulacion (ns)                8140
-+ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                8160
-+ Registro:           8 | Dato: 0000000c; Tiempo simulacion (ns)                8180
-+ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                8200
-+ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)                8220
-+ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)                8240
-+ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)                8260
-+ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)                8280
-+ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)                8300
-+ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)                8320
-+ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)                8340
-+ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)                8360
-+ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)                8380
-+ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)                8400
-+ Re
++ Registro:           0 | Dato: 00000000; Tiempo simulacion (ns)                7300
++ Registro:           1 | Dato: 0000001e; Tiempo simulacion (ns)                7320
++ Registro:           2 | Dato: 00000004; Tiempo simulacion (ns)                7340
++ Registro:           3 | Dato: 00000005; Tiempo simulacion (ns)                7360
++ Registro:           4 | Dato: 0000001e; Tiempo simulacion (ns)                7380
++ Registro:           5 | Dato: 00000019; Tiempo simulacion (ns)                7400
++ Registro:           6 | Dato: 00000004; Tiempo simulacion (ns)                7420
++ Registro:           7 | Dato: 00000000; Tiempo simulacion (ns)                7440
++ Registro:           8 | Dato: 00000000; Tiempo simulacion (ns)                7460
++ Registro:           9 | Dato: 00000000; Tiempo simulacion (ns)                7480
++ Registro:          10 | Dato: 00000000; Tiempo simulacion (ns)                7500
++ Registro:          11 | Dato: 00000000; Tiempo simulacion (ns)                7520
++ Registro:          12 | Dato: 00000000; Tiempo simulacion (ns)                7540
++ Registro:          13 | Dato: 00000000; Tiempo simulacion (ns)                7560
++ Registro:          14 | Dato: 00000000; Tiempo simulacion (ns)                7580
++ Registro:          15 | Dato: 00000000; Tiempo simulacion (ns)                7600
++ Registro:          16 | Dato: 00000000; Tiempo simulacion (ns)                7620
++ Registro:          17 | Dato: 00000000; Tiempo simulacion (ns)                7640
++ Registro:          18 | Dato: 00000000; Tiempo simulacion (ns)                7660
++ Registro:          19 | Dato: 00000000; Tiempo simulacion (ns)                7680
++ Registro:          20 | Dato: 00000000; Tiempo simulacion (ns)                7700
++ Registro:          21 | Dato: 00000000; Tiempo simulacion (ns)                7720
++ Registro:          22 | Dato: 00000000; Tiempo simulacion (ns)                7740
++ Registro:          23 | Dato: 00000000; Tiempo simulacion (ns)                7760
++ Registro:          24 | Dato: 00000000; Tiempo simulacion (ns)                7780
++ Registro:          25 | Dato: 00000000; Tiempo simulacion (ns)                7800
++ Registro:          26 | Dato: 00000000; Tiempo simulacion (ns)                7820
++ Registro:          27 | Dato: 00000000; Tiempo simulacion (ns)                7840
++ Registro:          28 | Dato: 00000000; Tiempo simulacion (ns)                7860
++ Registro:          29 | Dato: 00000000; Tiempo simulacion (ns)                7880
++ Registro:          30 | Dato: 00000000; Tiempo simulacion (ns)                7900
++ Registro:          31 | Dato: 00000000; Tiempo simulacion (ns)                7920
+
+#########################################################################################################
+######################### Se lee la memoria de datos (Etapa MEM) #########################
+- Direccion:           0 | Dato: 00000000; Tiempo simulacion (ns)                7940
+- Direccion:           4 | Dato: 0000001e; Tiempo simulacion (ns)                7960
+- Direccion:           8 | Dato: 00000000; Tiempo simulacion (ns)                7980
+- Direccion:          12 | Dato: 00000000; Tiempo simulacion (ns)                8000
+- Direccion:          16 | Dato: 00000000; Tiempo simulacion (ns)                8020
+- Direccion:          20 | Dato: 00000000; Tiempo simulacion (ns)                8040
+- Direccion:          24 | Dato: 00000000; Tiempo simulacion (ns)                8060
+- Direccion:          28 | Dato: 00000000; Tiempo simulacion (ns)                8080
+- Direccion:          32 | Dato: 00000000; Tiempo simulacion (ns)                8100
+- Direccion:          36 | Dato: 00000000; Tiempo simulacion (ns)                8120
+- Direccion:          40 | Dato: 00000000; Tiempo simulacion (ns)                8140
+- Direccion:          44 | Dato: 00000000; Tiempo simulacion (ns)                8160
+- Direccion:          48 | Dato: 00000000; Tiempo simulacion (ns)                8180
+- Direccion:          52 | Dato: 00000000; Tiempo simulacion (ns)                8200
+- Direccion:          56 | Dato: 00000000; Tiempo simulacion (ns)                8220
+- Direccion:          60 | Dato: 00000000; Tiempo simulacion (ns)                8240
+- Direccion:          64 | Dato: 00000000; Tiempo simulacion (ns)                8260
+- Direccion:          68 | Dato: 00000000; Tiempo simulacion (ns)                8280
+- Direccion:          72 | Dato: 00000000; Tiempo simulacion (ns)                8300
+- Direccion:          76 | Dato: 00000000; Tiempo simulacion (ns)                8320
+- Direccion:          80 | Dato: 00000000; Tiempo simulacion (ns)                8340
+- Direccion:          84 | Dato: 00000000; Tiempo simulacion (ns)                8360
+- Direccion:          88 | Dato: 00000000; Tiempo simulacion (ns)                8380
+- Direccion:          92 | Dato: 00000000; Tiempo simulacion (ns)                8400
+- Direccion:          96 | Dato: 00000000; Tiempo simulacion (ns)                8420
+- Direccion:         100 | Dato: 00000000; Tiempo simulacion (ns)                8440
+- Direccion:         104 | Dato: 00000000; Tiempo simulacion (ns)                8460
+- Direccion:         108 | Dato: 00000000; Tiempo simulacion (ns)                8480
+- Direccion:         112 | Dato: 00000000; Tiempo simulacion (ns)                8500
+- Direccion:         116 | Dato: 00000000; Tiempo simulacion (ns)                8520
+- Direccion:         120 | Dato: 00000000; Tiempo simulacion (ns)                8540
+- Direccion:         124 | Dato: 00000000; Tiempo simulacion (ns)                8560
+
+#### Fin de Ejecucion del programa ####
+
